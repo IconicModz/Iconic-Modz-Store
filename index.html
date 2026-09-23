@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iconic Modz | WWE HCTP & 2K26 Store</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0c;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        /* Branding Header */
+        header {
+            text-align: center;
+            padding: 20px 0 30px;
+        }
+
+        .brand-name {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(45deg, #ff0055, #ff5000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 85, 0.4));
+        }
+
+        .brand-subtitle {
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 550px;
+            padding: 14px 22px;
+            border-radius: 30px;
+            border: 2px solid #222;
+            background: #141419;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-bar:focus {
+            border-color: #ff0055;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
+        }
+
+        /* Grid Layout */
+        .mods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Card Design */
+        .mod-card {
+            background: #121217;
+            border: 1px solid #22222b;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .mod-card:hover {
+            transform: translateY(-7px);
+            border-color: #ff0055;
+            box-shadow: 0 10px 25px rgba(255, 0, 85, 0.2);
+        }
+
+        .mod-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background-color: #1a1a22;
+        }
+
+        .mod-info {
+            padding: 18px;
+            text-align: center;
+        }
+
+        .mod-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .mod-tag {
+            display: inline-block;
+            background: #22222d;
+            color: #ff5000;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .btn-download {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #ff0055, #ff5000);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-download:hover {
+            opacity: 0.9;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-name">Iconic Modz</div>
+        <div class="brand-subtitle">WWE HCTP Nostalgia Mods & 2K26 Models Store</div>
+        <input type="text" class="search-bar" placeholder="Search Nostalgia Mods, 2K26 Models...">
+    </header>
+
+    <main class="mods-grid">
+
+        <!-- MOD 1: FULL GAME MOD -->
+        <div class="mod-card">
+            <img src="YOUR_IMAGE_URL" alt="HCTP Full Game" class="mod-image">
+            <div class="mod-info">
+                <div class="mod-title">HCTP Nostalgia Full Game Mod</div>
+                <span class="mod-tag">Full ISO Game</span>
+                <a href="YOUR_PATREON_OR_PAYPAL_LINK" target="_blank" class="btn-download">Buy & Download</a>
+            </div>
+        </div>
+
+        <!-- MOD 2: WRESTLER MODEL -->
+        <div class="mod-card">
+            <img src="YOUR_IMAGE_URL" alt="Brock Lesnar 2K26" class="mod-image">
+            <div class="mod-info">
+                <div class="mod-title">Brock Lesnar UFC 2K26 Model</div>
+                <span class="mod-tag">HCTP Model Import</span>
+                <a href="YOUR_PATREON_OR_PAYPAL_LINK" target="_blank" class="btn-download">Buy & Download</a>
+            </div>
+        </div>
+
+        <!-- MOD 3: NOSTALIGIA MOD -->
+        <div class="mod-card">
+            <img src="YOUR_IMAGE_URL" alt="The Hurricane SvR06" class="mod-image">
+            <div class="mod-info">
+                <div class="mod-title">The Hurricane SvR '06 Mod</div>
+                <span class="mod-tag">Nostalgia Mod</span>
+                <a href="YOUR_PATREON_OR_PAYPAL_LINK" target="_blank" class="btn-download">Buy & Download</a>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
