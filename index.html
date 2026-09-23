@@ -2,1264 +2,858 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>ICONIC MODZ | WWE Mod Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICONIC MODZ — WWE MODDING STORE</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-:root{
- --red:#e50914;
- --red2:#ff3340;
- --bg:#050505;
- --panel:#101010;
- --panel2:#151515;
- --line:#292929;
- --text:#fff;
- --muted:#9a9a9a;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html{scroll-behavior:smooth}
+html{
+    scroll-behavior:smooth;
+}
 
 body{
- background:
- radial-gradient(circle at 50% -10%,rgba(229,9,20,.18),transparent 35%),
- #050505;
- color:var(--text);
- font-family:Arial,Helvetica,sans-serif;
- min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070707;
+    color:#fff;
+    min-height:100vh;
 }
 
-button,a{
- font-family:inherit;
-}
-
-button{cursor:pointer}
-
-a{
- text-decoration:none;
- color:inherit;
-}
-
-.hidden{display:none!important}
-
-/* NAVBAR */
+/* ================= HEADER ================= */
 
 header{
- position:sticky;
- top:0;
- z-index:100;
- background:rgba(5,5,5,.88);
- backdrop-filter:blur(18px);
- border-bottom:1px solid rgba(255,255,255,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,5,5,.96);
+    border-bottom:1px solid #292929;
+    backdrop-filter:blur(12px);
 }
 
 .nav{
- max-width:1250px;
- margin:auto;
- padding:17px 22px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:20px;
+    max-width:1200px;
+    margin:auto;
+    padding:18px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
 .logo{
- font-size:25px;
- font-weight:1000;
- letter-spacing:-1px;
+    color:#fff;
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:2px;
 }
 
-.logo span{color:var(--red)}
-
-.nav-right{
- display:flex;
- gap:10px;
+.logo span{
+    color:#e50914;
 }
 
-.nav-btn{
- border:1px solid #333;
- background:#111;
- color:#fff;
- padding:10px 15px;
- border-radius:9px;
- font-weight:800;
+.nav-links{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
-.nav-btn:hover{
- border-color:var(--red);
- background:#191919;
+.nav-links button{
+    background:#111;
+    color:#ddd;
+    border:1px solid #333;
+    padding:9px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-/* COMMON */
+.nav-links button:hover{
+    background:#e50914;
+    border-color:#e50914;
+    color:white;
+}
+
+/* ================= COMMON ================= */
 
 .container{
- max-width:1250px;
- margin:auto;
- padding:55px 22px;
+    max-width:1200px;
+    margin:auto;
+    padding:0 22px;
 }
 
-.hero{
- text-align:center;
- padding:75px 0 65px;
+.page{
+    display:none;
 }
 
-.kicker{
- color:var(--red);
- font-size:12px;
- font-weight:1000;
- letter-spacing:4px;
- text-transform:uppercase;
+.page.active{
+    display:block;
 }
 
-.hero h1{
- font-size:clamp(42px,7vw,78px);
- line-height:.95;
- margin:17px 0;
- font-weight:1000;
- letter-spacing:-3px;
+.red{
+    color:#e50914;
 }
 
-.hero h1 span{color:var(--red)}
-
-.hero p{
- max-width:700px;
- margin:auto;
- color:var(--muted);
- font-size:17px;
- line-height:1.7;
+button{
+    font-family:inherit;
 }
-
-.section-title{
- margin-bottom:25px;
-}
-
-.section-title h2{
- font-size:34px;
- font-weight:1000;
-}
-
-.section-title p{
- color:var(--muted);
- margin-top:6px;
-}
-
-/* GAME CARDS */
-
-.game-grid{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:25px;
-}
-
-.game-card{
- min-height:390px;
- position:relative;
- overflow:hidden;
- border:1px solid #292929;
- border-radius:22px;
- background:
- linear-gradient(135deg,#171717,#080808);
- cursor:pointer;
- transition:.3s;
-}
-
-.game-card:hover{
- transform:translateY(-7px);
- border-color:var(--red);
- box-shadow:0 20px 60px rgba(229,9,20,.18);
-}
-
-.game-art{
- position:absolute;
- inset:0;
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:75px;
- font-weight:1000;
- color:#252525;
- letter-spacing:-5px;
-}
-
-.game-art:after{
- content:"";
- position:absolute;
- inset:0;
- background:
- linear-gradient(180deg,transparent 20%,#050505 92%);
-}
-
-.game-content{
- position:absolute;
- bottom:0;
- left:0;
- right:0;
- z-index:2;
- padding:30px;
-}
-
-.game-content .tag{
- color:var(--red);
- font-size:11px;
- font-weight:1000;
- letter-spacing:3px;
-}
-
-.game-content h2{
- font-size:30px;
- margin:8px 0;
- font-weight:1000;
-}
-
-.game-content p{
- color:#aaa;
- line-height:1.5;
- max-width:550px;
-}
-
-/* BUTTONS */
 
 .btn{
- border:0;
- border-radius:10px;
- padding:12px 18px;
- font-weight:900;
- display:inline-flex;
- justify-content:center;
- align-items:center;
- gap:7px;
- transition:.2s;
+    border:0;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:800;
+    transition:.2s;
 }
 
 .btn-red{
- background:var(--red);
- color:#fff;
+    background:#e50914;
+    color:white;
 }
 
 .btn-red:hover{
- background:var(--red2);
- transform:translateY(-1px);
+    background:#ff1824;
+    transform:translateY(-2px);
 }
 
 .btn-dark{
- background:#1b1b1b;
- color:#fff;
- border:1px solid #333;
+    background:#151515;
+    color:white;
+    border:1px solid #333;
 }
 
 .btn-dark:hover{
- background:#242424;
- border-color:#555;
+    border-color:#e50914;
 }
 
-.btn-outline{
- background:transparent;
- border:1px solid #444;
- color:#fff;
+/* ================= HOME ================= */
+
+.hero{
+    min-height:620px;
+    display:flex;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 50% 25%,rgba(229,9,20,.20),transparent 38%),
+        linear-gradient(180deg,#0c0c0c,#070707);
 }
 
-.btn-outline:hover{
- border-color:var(--red);
- color:#fff;
+.hero:before{
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    border:1px solid rgba(229,9,20,.12);
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
 }
 
-/* PAGE TOP */
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+}
 
-.page-head{
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:20px;
- margin-bottom:35px;
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border:1px solid #e50914;
+    color:#ff3842;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(42px,8vw,82px);
+    line-height:.95;
+    font-weight:1000;
+    letter-spacing:-3px;
+}
+
+.hero h1 span{
+    color:#e50914;
+}
+
+.hero h2{
+    margin-top:22px;
+    font-size:clamp(20px,3vw,32px);
+}
+
+.hero p{
+    max-width:760px;
+    margin:18px auto 0;
+    color:#aaa;
+    font-size:16px;
+    line-height:1.7;
+}
+
+.section-title{
+    text-align:center;
+    margin:65px 0 30px;
+}
+
+.section-title h2{
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#888;
+}
+
+/* ================= GAME CARDS ================= */
+
+.games-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+    padding-bottom:80px;
+}
+
+.game-card{
+    position:relative;
+    min-height:330px;
+    padding:35px;
+    border:1px solid #292929;
+    border-radius:18px;
+    overflow:hidden;
+    background:
+        linear-gradient(145deg,#171717,#0d0d0d);
+    cursor:pointer;
+    transition:.3s;
+}
+
+.game-card:hover{
+    transform:translateY(-7px);
+    border-color:#e50914;
+    box-shadow:0 15px 45px rgba(229,9,20,.18);
+}
+
+.game-card:after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:#e50914;
+    opacity:.08;
+    filter:blur(70px);
+    right:-60px;
+    bottom:-80px;
+}
+
+.game-number{
+    color:#e50914;
+    font-weight:bold;
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+.game-card h3{
+    position:relative;
+    z-index:2;
+    margin-top:35px;
+    font-size:31px;
+}
+
+.game-card p{
+    position:relative;
+    z-index:2;
+    color:#999;
+    margin-top:12px;
+    line-height:1.6;
+}
+
+.explore{
+    position:relative;
+    z-index:2;
+    display:inline-block;
+    margin-top:25px;
+    color:#fff;
+    font-weight:bold;
+}
+
+/* ================= INNER PAGES ================= */
+
+.inner-head{
+    padding:65px 0 30px;
 }
 
 .back{
- color:#aaa;
- font-weight:800;
- cursor:pointer;
+    margin-bottom:25px;
 }
 
-.back:hover{color:#fff}
-
-.page-head h1{
- font-size:45px;
- font-weight:1000;
- margin-top:10px;
+.inner-head h1{
+    font-size:clamp(32px,6vw,55px);
 }
 
-/* CATEGORY */
+.inner-head p{
+    color:#999;
+    margin-top:10px;
+}
 
 .category-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:18px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    padding-bottom:70px;
 }
 
 .category-card{
- background:linear-gradient(145deg,#141414,#0a0a0a);
- border:1px solid var(--line);
- border-radius:17px;
- padding:28px;
- cursor:pointer;
- transition:.25s;
- position:relative;
- overflow:hidden;
-}
-
-.category-card:before{
- content:"";
- position:absolute;
- width:100px;
- height:100px;
- background:var(--red);
- filter:blur(70px);
- opacity:.08;
- right:-30px;
- top:-30px;
+    background:#101010;
+    border:1px solid #292929;
+    border-radius:14px;
+    padding:28px;
+    cursor:pointer;
+    transition:.25s;
 }
 
 .category-card:hover{
- border-color:var(--red);
- transform:translateY(-5px);
+    border-color:#e50914;
+    transform:translateY(-4px);
+    background:#151515;
 }
 
-.cat-icon{
- width:52px;
- height:52px;
- display:flex;
- align-items:center;
- justify-content:center;
- background:#1b1b1b;
- border-radius:13px;
- font-size:25px;
- margin-bottom:20px;
+.category-icon{
+    font-size:30px;
+    margin-bottom:18px;
 }
 
 .category-card h3{
- font-size:21px;
- font-weight:1000;
+    font-size:20px;
 }
 
 .category-card p{
- color:#777;
- margin-top:7px;
- line-height:1.5;
+    color:#888;
+    font-size:14px;
+    margin-top:8px;
 }
 
-/* PRODUCTS */
+/* ================= PRODUCTS ================= */
 
-.product-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:22px;
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    padding-bottom:80px;
 }
 
 .product-card{
- background:linear-gradient(145deg,#141414,#090909);
- border:1px solid var(--line);
- border-radius:18px;
- overflow:hidden;
- transition:.25s;
+    background:#101010;
+    border:1px solid #292929;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.25s;
 }
 
 .product-card:hover{
- transform:translateY(-6px);
- border-color:#b91c27;
- box-shadow:0 20px 50px rgba(0,0,0,.45);
+    border-color:#e50914;
+    transform:translateY(-5px);
 }
 
 .product-image{
- height:220px;
- background:
- linear-gradient(135deg,#1d1d1d,#090909);
- display:flex;
- align-items:center;
- justify-content:center;
- position:relative;
- overflow:hidden;
+    height:210px;
+    background:
+        linear-gradient(135deg,#1b1b1b,#090909);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#555;
+    font-size:13px;
+    text-align:center;
+    padding:20px;
 }
 
 .product-image img{
- width:100%;
- height:100%;
- object-fit:cover;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-.image-placeholder{
- font-size:42px;
- font-weight:1000;
- color:#333;
+.product-body{
+    padding:20px;
 }
 
-.product-info{
- padding:21px;
+.product-body h3{
+    font-size:19px;
 }
 
-.product-tag{
- color:var(--red);
- font-size:10px;
- letter-spacing:2px;
- font-weight:1000;
- text-transform:uppercase;
+.product-description{
+    color:#888;
+    font-size:14px;
+    line-height:1.5;
+    margin-top:9px;
+    min-height:42px;
 }
 
-.product-info h3{
- font-size:21px;
- margin:8px 0;
- line-height:1.25;
-}
-
-.product-info p{
- color:#777;
- line-height:1.5;
- font-size:14px;
- min-height:42px;
-}
-
-.product-bottom{
- margin-top:18px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:10px;
-}
-
-.product-price{
- font-size:18px;
- font-weight:1000;
-}
-
-.free{
- color:#42d96b;
+.price{
+    color:#e50914;
+    font-size:20px;
+    font-weight:900;
+    margin:15px 0;
 }
 
 .product-actions{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:8px;
- margin-top:17px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
 }
 
 .product-actions button{
- width:100%;
+    flex:1;
+    min-width:80px;
 }
 
-/* EMPTY */
-
-.empty{
- border:1px dashed #333;
- border-radius:18px;
- padding:70px 20px;
- text-align:center;
-}
-
-.empty-icon{
- font-size:48px;
- margin-bottom:15px;
-}
-
-.empty h2{
- font-size:26px;
-}
-
-.empty p{
- color:#777;
- margin-top:8px;
-}
-
-/* CUSTOM */
-
-.custom-grid{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:17px;
-}
-
-.wrestler-card{
- position:relative;
- overflow:hidden;
- background:#111;
- border:1px solid #282828;
- border-radius:15px;
- cursor:pointer;
- transition:.2s;
-}
-
-.wrestler-card:hover{
- transform:translateY(-4px);
- border-color:#555;
-}
-
-.wrestler-card.selected{
- border-color:var(--red);
- box-shadow:0 0 0 1px var(--red);
-}
-
-.wrestler-image{
- height:230px;
- background:linear-gradient(145deg,#202020,#080808);
- display:flex;
- align-items:center;
- justify-content:center;
- color:#333;
- font-size:42px;
- font-weight:1000;
-}
-
-.wrestler-image img{
- width:100%;
- height:100%;
- object-fit:cover;
-}
-
-.wrestler-info{
- padding:16px;
-}
-
-.wrestler-info h3{
- font-size:17px;
-}
-
-.wrestler-price{
- color:#888;
- margin-top:7px;
-}
-
-.selected-mark{
- position:absolute;
- top:10px;
- right:10px;
- background:var(--red);
- width:30px;
- height:30px;
- border-radius:50%;
- display:none;
- align-items:center;
- justify-content:center;
- font-weight:1000;
-}
-
-.selected .selected-mark{
- display:flex;
-}
-
-.custom-bar{
- position:sticky;
- bottom:15px;
- z-index:20;
- margin-top:30px;
- background:rgba(15,15,15,.96);
- border:1px solid #333;
- border-radius:17px;
- padding:19px 22px;
- backdrop-filter:blur(15px);
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:20px;
-}
-
-.custom-count{
- color:#888;
- font-size:13px;
-}
-
-.custom-total{
- font-size:24px;
- font-weight:1000;
- margin-top:3px;
-}
-
-/* MODAL */
+/* ================= MODAL ================= */
 
 .modal{
- position:fixed;
- inset:0;
- z-index:200;
- background:rgba(0,0,0,.82);
- backdrop-filter:blur(8px);
- padding:20px;
- display:flex;
- align-items:center;
- justify-content:center;
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.82);
+    z-index:5000;
+    padding:25px;
+    overflow:auto;
+}
+
+.modal.show{
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .modal-box{
- width:min(800px,100%);
- max-height:92vh;
- overflow:auto;
- background:#101010;
- border:1px solid #333;
- border-radius:20px;
- box-shadow:0 30px 100px #000;
-}
-
-.modal-top{
- padding:22px 25px;
- border-bottom:1px solid #292929;
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:15px;
-}
-
-.modal-top h2{
- font-size:25px;
- font-weight:1000;
+    width:min(720px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:#111;
+    border:1px solid #333;
+    border-radius:16px;
+    padding:28px;
+    position:relative;
+    box-shadow:0 25px 80px #000;
 }
 
 .close{
- width:38px;
- height:38px;
- border:1px solid #333;
- background:#1b1b1b;
- color:white;
- border-radius:50%;
- font-size:21px;
+    position:absolute;
+    right:18px;
+    top:15px;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:1px solid #444;
+    background:#181818;
+    color:#fff;
+    cursor:pointer;
+    font-size:20px;
 }
 
-.close:hover{
- background:var(--red);
- border-color:var(--red);
+.modal-box h2{
+    padding-right:40px;
+    font-size:28px;
 }
 
-.modal-body{
- padding:25px;
-}
-
-.modal-cover{
- height:280px;
- border-radius:14px;
- background:linear-gradient(135deg,#222,#090909);
- display:flex;
- align-items:center;
- justify-content:center;
- overflow:hidden;
- margin-bottom:23px;
-}
-
-.modal-cover img{
- width:100%;
- height:100%;
- object-fit:cover;
-}
-
-.modal-body h3{
- margin:25px 0 10px;
- font-size:20px;
-}
-
-.modal-body p{
- color:#aaa;
- line-height:1.7;
+.modal-box p{
+    color:#aaa;
+    line-height:1.7;
+    margin-top:15px;
 }
 
 .features{
- list-style:none;
- display:grid;
- gap:9px;
+    margin:20px 0;
+    display:grid;
+    gap:9px;
 }
 
-.features li{
- background:#171717;
- border:1px solid #242424;
- padding:11px 13px;
- border-radius:8px;
- color:#bbb;
+.feature{
+    background:#181818;
+    border-left:3px solid #e50914;
+    padding:11px 13px;
+    color:#ccc;
 }
 
-.features li:before{
- content:"✓";
- color:var(--red);
- font-weight:1000;
- margin-right:10px;
+.youtube-box{
+    margin-top:20px;
 }
 
-.video-box{
- margin-top:15px;
- background:#080808;
- border:1px solid #282828;
- border-radius:12px;
- padding:20px;
+.youtube-box a{
+    color:#ff303a;
+    font-weight:bold;
 }
 
-.video-box a{
- color:#ff3b45;
- font-weight:900;
-}
-
-.modal-buttons{
- display:flex;
- gap:10px;
- margin-top:25px;
-}
-
-.modal-buttons .btn{
- flex:1;
-}
-
-/* PAYMENT */
+/* ================= PAYMENT ================= */
 
 .payment-options{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:15px;
- margin-top:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:25px;
 }
 
-.payment-option{
- padding:20px;
- border:1px solid #333;
- background:#151515;
- border-radius:13px;
- text-align:center;
+.pay-option{
+    background:#181818;
+    border:1px solid #333;
+    padding:22px;
+    border-radius:12px;
+    cursor:pointer;
+    text-align:center;
 }
 
-.payment-option strong{
- display:block;
- font-size:18px;
- margin-bottom:7px;
+.pay-option:hover{
+    border-color:#e50914;
 }
 
-.payment-option span{
- color:#888;
- font-size:13px;
+.pay-option strong{
+    display:block;
+    font-size:19px;
+    margin-bottom:8px;
 }
 
-/* FOOTER */
+.pay-option small{
+    color:#888;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
- margin-top:80px;
- border-top:1px solid #222;
- background:#080808;
+    border-top:1px solid #222;
+    margin-top:30px;
+    background:#090909;
 }
 
 .footer-inner{
- max-width:1250px;
- margin:auto;
- padding:45px 22px;
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:30px;
+    max-width:1200px;
+    margin:auto;
+    padding:35px 22px;
+    text-align:center;
 }
 
 .footer-logo{
- font-size:24px;
- font-weight:1000;
+    font-size:25px;
+    font-weight:900;
 }
-
-.footer-logo span{color:var(--red)}
 
 .socials{
- display:flex;
- gap:12px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin:22px 0;
+    flex-wrap:wrap;
 }
 
-.social{
- width:46px;
- height:46px;
- border-radius:12px;
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:21px;
- background:#151515;
- border:1px solid #292929;
- transition:.2s;
+.socials a{
+    text-decoration:none;
+    color:#ddd;
+    border:1px solid #333;
+    padding:11px 17px;
+    border-radius:8px;
+    background:#111;
 }
 
-.social:hover{
- transform:translateY(-3px);
- border-color:var(--red);
+.socials a:hover{
+    color:#fff;
+    border-color:#e50914;
+    background:#e50914;
 }
 
-.footer-bottom{
- border-top:1px solid #1c1c1c;
- padding:18px;
- text-align:center;
- color:#555;
- font-size:12px;
+.copyright{
+    color:#666;
+    font-size:13px;
 }
 
-/* RESPONSIVE */
+/* ================= MOBILE ================= */
 
-@media(max-width:1000px){
- .product-grid{grid-template-columns:repeat(2,1fr)}
- .custom-grid{grid-template-columns:repeat(3,1fr)}
- .category-grid{grid-template-columns:repeat(2,1fr)}
-}
+@media(max-width:850px){
+    .games-grid,
+    .products-grid{
+        grid-template-columns:1fr;
+    }
 
-@media(max-width:750px){
- .game-grid{grid-template-columns:1fr}
- .custom-grid{grid-template-columns:repeat(2,1fr)}
- .footer-inner{flex-direction:column;text-align:center}
- .page-head{align-items:flex-start;flex-direction:column}
+    .category-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero{
+        min-height:570px;
+    }
 }
 
 @media(max-width:560px){
- .nav-right{display:none}
- .container{padding:40px 15px}
- .hero{padding:55px 0 45px}
- .product-grid{grid-template-columns:1fr}
- .category-grid{grid-template-columns:1fr}
- .custom-grid{grid-template-columns:1fr 1fr}
- .custom-bar{flex-direction:column;align-items:stretch}
- .modal-buttons{flex-direction:column}
- .payment-options{grid-template-columns:1fr}
+    .nav{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .nav-links{
+        width:100%;
+    }
+
+    .nav-links button{
+        flex:1;
+    }
+
+    .category-grid{
+        grid-template-columns:1fr;
+    }
+
+    .game-card{
+        min-height:280px;
+        padding:25px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .payment-options{
+        grid-template-columns:1fr;
+    }
 }
 </style>
 </head>
 
-
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= HEADER ================= -->
+
 <header>
-<div class="nav">
+    <div class="nav">
+        <div class="logo">ICONIC <span>MODZ</span></div>
 
-<div class="logo">
-ICONIC <span>MODZ</span>
-</div>
-
-<div class="nav-right">
-<button class="nav-btn" onclick="openPage('custom')">
-Custom Mods
-</button>
-</div>
-
-</div>
+        <div class="nav-links">
+            <button onclick="showPage('home')">HOME</button>
+            <button onclick="showPage('hctp')">HCTP</button>
+            <button onclick="showPage('svr')">SVR</button>
+        </div>
+    </div>
 </header>
 
 
 <!-- ================= HOME ================= -->
 
-<section id="home" class="page">
+<main id="home" class="page active">
 
-<div class="container">
+<section class="hero">
+    <div class="container hero-content">
 
-<div class="hero">
+        <div class="badge">WWE MODDING STORE</div>
 
-<div class="kicker">WWE MODDING STORE</div>
+        <h1>WELCOME TO <span>ICONIC MODZ</span></h1>
 
-<h1>
-WELCOME TO <span>ICONIC MODZ</span>
-</h1>
+        <h2>WWE MODDING STORE</h2>
 
-<p>
-WWE SmackDown mods, wrestler models, complete game modifications,
-move sets, arenas and titantrons — all in one place.
-</p>
+        <p>
+            WWE SmackDown mods, wrestler models, complete game modifications,
+            move sets, arenas and titantrons — all in one place.
+        </p>
 
-</div>
-
-
-<div class="section-title">
-<h2>Choose Your Game</h2>
-<p>Select the mod universe you want to explore.</p>
-</div>
-
-
-<div class="game-grid">
-
-<!-- SVR -->
-
-<div class="game-card" onclick="openGame('svr')">
-
-<div class="game-art">
-SVR
-</div>
-
-<div class="game-content">
-
-<div class="tag">WWE MODS</div>
-
-<h2>SmackDown vs Raw Mods</h2>
-
-<p>
-Explore wrestler models, moves, arenas and other
-SmackDown vs Raw modifications.
-</p>
-
-<br>
-
-<span class="btn btn-red">
-Explore Mods →
-</span>
-
-</div>
-</div>
-
-
-<!-- HCTP -->
-
-<div class="game-card" onclick="openGame('hctp')">
-
-<div class="game-art">
-HCTP
-</div>
-
-<div class="game-content">
-
-<div class="tag">ICONIC COLLECTION</div>
-
-<h2>WWE SmackDown! Here Comes The Pain</h2>
-
-<p>
-Explore HCTP Iconic Edition mods, wrestler models,
-movesets, arenas and titantrons.
-</p>
-
-<br>
-
-<span class="btn btn-red">
-Explore Mods →
-</span>
-
-</div>
-</div>
-
-</div>
-
-</div>
-
+    </div>
 </section>
 
 
-<!-- ================= CATEGORIES ================= -->
+<section class="container">
 
-<section id="categories" class="page hidden">
+    <div class="section-title">
+        <h2>Choose Your Game</h2>
+        <p>Select the mod universe you want to explore.</p>
+    </div>
 
-<div class="container">
+    <div class="games-grid">
 
-<div class="page-head">
+        <!-- HCTP -->
+        <div class="game-card" onclick="showPage('hctp')">
 
-<div>
-<div class="kicker">MOD COLLECTION</div>
-<h1 id="gameTitle"></h1>
-</div>
+            <div class="game-number">01 / HCTP</div>
 
-<button class="btn btn-dark" onclick="openPage('home')">
-← Home
-</button>
+            <h3>
+                WWE SmackDown!<br>
+                Here Comes The Pain
+            </h3>
 
-</div>
+            <p>
+                Wrestler models, full game mods, move sets,
+                arenas, titantrons and custom modifications.
+            </p>
+
+            <div class="explore">EXPLORE HCTP MODS →</div>
+
+        </div>
 
 
-<div class="category-grid">
+        <!-- SVR -->
+        <div class="game-card" onclick="showPage('svr')">
 
-<div class="category-card" onclick="openCategory('wrestlers')">
-<div class="cat-icon">👤</div>
-<h3>Wrestler Models</h3>
-<p>Browse custom wrestler models.</p>
-</div>
+            <div class="game-number">02 / SVR</div>
 
-<div class="category-card" onclick="openCategory('fullgame')">
-<div class="cat-icon">🎮</div>
-<h3>Full Game Mods</h3>
-<p>Complete game modifications.</p>
-</div>
+            <h3>
+                WWE SmackDown<br>
+                vs Raw Mods
+            </h3>
 
-<div class="category-card" onclick="openCategory('movesets')">
-<div class="cat-icon">🥊</div>
-<h3>Move Sets</h3>
-<p>New and converted movesets.</p>
-</div>
+            <p>
+                Explore WWE SmackDown vs Raw modifications,
+                models, movesets, arenas and more.
+            </p>
 
-<div class="category-card" onclick="openCategory('arenas')">
-<div class="cat-icon">🏟️</div>
-<h3>Arenas</h3>
-<p>Updated and custom arenas.</p>
-</div>
+            <div class="explore">EXPLORE SVR MODS →</div>
 
-<div class="category-card" onclick="openCategory('titantrons')">
-<div class="cat-icon">📺</div>
-<h3>Titantrons</h3>
-<p>Entrance videos and titantrons.</p>
-</div>
+        </div>
 
-<div class="category-card" onclick="openPage('custom')">
-<div class="cat-icon">🛠️</div>
-<h3>Create Custom Mods</h3>
-<p>Build your own wrestler model order.</p>
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
-
-<!-- ================= PRODUCTS ================= -->
-
-<section id="products" class="page hidden">
-
-<div class="container">
-
-<div class="page-head">
-
-<div>
-<div class="kicker">ICONIC COLLECTION</div>
-<h1 id="categoryTitle"></h1>
-</div>
-
-<button class="btn btn-dark" onclick="openPage('categories')">
-← Categories
-</button>
-
-</div>
+</main>
 
 
-<div id="productGrid" class="product-grid"></div>
+<!-- ================= HCTP ================= -->
 
-</div>
+<main id="hctp" class="page">
 
-</section>
+<section class="container">
 
+    <div class="inner-head">
 
-<!-- ================= CUSTOM MOD ================= -->
+        <button class="btn btn-dark back" onclick="showPage('home')">
+            ← BACK TO HOME
+        </button>
 
-<section id="custom" class="page hidden">
+        <h1>HCTP <span class="red">MODS</span></h1>
 
-<div class="container">
+        <p>
+            Choose a category to explore WWE SmackDown! Here Comes The Pain mods.
+        </p>
 
-<div class="page-head">
-
-<div>
-<div class="kicker">CUSTOM BUILDER</div>
-<h1>Create Custom Mods</h1>
-<p style="color:#777;margin-top:7px">
-Select the wrestler models you want.
-</p>
-</div>
-
-<button class="btn btn-dark" onclick="openPage('home')">
-← Home
-</button>
-
-</div>
+    </div>
 
 
-<div id="wrestlerGrid" class="custom-grid"></div>
+    <div class="category-grid">
 
+        <div class="category-card" onclick="showCategory('wrestlers')">
+            <div class="category-icon">👤</div>
+            <h3>Wrestler Models</h3>
+            <p>Custom and converted WWE wrestler models.</p>
+        </div>
 
-<div class="custom-bar">
+        <div class="category-card" onclick="showCategory('fullgame')">
+            <div class="category-icon">🎮</div>
+            <h3>Full Game Mods</h3>
+            <p>Complete HCTP game modifications.</p>
+        </div>
 
-<div>
-<div class="custom-count" id="selectedCount">
-0 Wrestlers Selected
-</div>
+        <div class="category-card" onclick="showCategory('movesets')">
+            <div class="category-icon">🥊</div>
+            <h3>Move Sets</h3>
+            <p>Updated and custom wrestler movesets.</p>
+        </div>
 
-<div class="custom-total" id="totalPrice">
-Total: ₹0
-</div>
-</div>
+        <div class="category-card" onclick="showCategory('arenas')">
+            <div class="category-icon">🏟️</div>
+            <h3>Arenas</h3>
+            <p>Custom WWE arenas and stage modifications.</p>
+        </div>
 
-<button class="btn btn-red" onclick="customGet()">
-Get Custom Mod →
-</button>
+        <div class="category-card" onclick="showCategory('titantrons')">
+            <div class="category-icon">📺</div>
+            <h3>Titantrons</h3>
+            <p>Custom titantrons and entrance visuals.</p>
+        </div>
 
-</div>
+        <div class="category-card" onclick="showCategory('custom')">
+            <div class="category-icon">🛠️</div>
+            <h3>Create Custom Mods</h3>
+            <p>Request your own custom HCTP modification.</p>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
+</main>
 
-<!-- ================= PREVIEW MODAL ================= -->
 
-<div id="previewModal" class="modal hidden">
+<!-- ================= SVR ================= -->
 
-<div class="modal-box">
+<main id="svr" class="page">
 
-<div class="modal-top">
+<section class="container">
 
-<h2 id="previewTitle">
-Mod Preview
-</h2>
+    <div class="inner-head">
 
-<button class="close" onclick="closeModal('previewModal')">
-×
-</button>
+        <button class="btn btn-dark back" onclick="showPage('home')">
+            ← BACK TO HOME
+        </button>
 
-</div>
+        <h1>SVR <span class="red">MODS</span></h1>
 
+        <p>
+            SmackDown vs Raw modifications will be available here.
+        </p>
 
-<div class="modal-body">
+    </div>
 
-<div class="modal-cover" id="previewCover">
-<div class="image-placeholder">
-PREVIEW
-</div>
-</div>
+    <div class="category-grid">
 
+        <div class="category-card" onclick="showCategory('svr-products')">
+            <div class="category-icon">🎮</div>
+            <h3>SVR Mods</h3>
+            <p>Explore available SmackDown vs Raw modifications.</p>
+        </div>
 
-<div class="kicker">ABOUT THIS MOD</div>
+        <div class="category-card">
+            <div class="category-icon">👤</div>
+            <h3>Wrestler Models</h3>
+            <p>Coming soon.</p>
+        </div>
 
-<p id="previewDescription" style="margin-top:10px"></p>
+        <div class="category-card">
+            <div class="category-icon">🥊</div>
+            <h3>Move Sets</h3>
+            <p>Coming soon.</p>
+        </div>
 
+    </div>
 
-<h3>Features</h3>
+</section>
 
-<ul id="previewFeatures" class="features"></ul>
+</main>
 
 
-<h3>Video Preview</h3>
+<!-- ================= CATEGORY ================= -->
 
-<div class="video-box" id="previewVideo">
-YouTube preview link will be added here.
-</div>
+<main id="category" class="page">
 
+<section class="container">
 
-<div class="product-bottom">
+    <div class="inner-head">
 
-<div class="product-price" id="previewPrice"></div>
+        <button class="btn btn-dark back" onclick="showPage('hctp')">
+            ← BACK TO HCTP
+        </button>
 
-</div>
+        <h1 id="categoryTitle">MODS</h1>
 
+        <p id="categorySubtitle">
+            Explore available modifications.
+        </p>
 
-<div class="modal-buttons">
+    </div>
 
-<button class="btn btn-dark"
-onclick="closeModal('previewModal')">
-Close
-</button>
+    <div id="productsGrid" class="products-grid"></div>
 
-<button class="btn btn-red"
-onclick="openPayment()">
-Get This Mod
-</button>
+</section>
 
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ================= ABOUT MODAL ================= -->
-
-<div id="aboutModal" class="modal hidden">
-
-<div class="modal-box">
-
-<div class="modal-top">
-
-<h2 id="aboutTitle">
-About Mod
-</h2>
-
-<button class="close" onclick="closeModal('aboutModal')">
-×
-</button>
-
-</div>
-
-
-<div class="modal-body">
-
-<div class="kicker">MOD INFORMATION</div>
-
-<p id="aboutText" style="margin-top:12px"></p>
-
-
-<h3>What's Included</h3>
-
-<ul id="aboutFeatures" class="features"></ul>
-
-
-<h3>Important</h3>
-
-<p>
-Product information, images, pricing and availability
-can be updated by the Iconic Modz team.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ================= PAYMENT MODAL ================= -->
-
-<div id="paymentModal" class="modal hidden">
-
-<div class="modal-box">
-
-<div class="modal-top">
-
-<h2>Get This Mod</h2>
-
-<button class="close" onclick="closeModal('paymentModal')">
-×
-</button>
-
-</div>
-
-
-<div class="modal-body">
-
-<div class="kicker">PAYMENT OPTIONS</div>
-
-<h3 id="paymentProduct"></h3>
-
-<p id="paymentAmount"></p>
-
-
-<div class="payment-options">
-
-<!-- UPI -->
-
-<a
-class="payment-option"
-id="upiButton"
-href="#"
->
-
-<strong>🇮🇳 UPI</strong>
-
-<span>
-Pay using UPI
-</span>
-
-</a>
-
-
-<!-- PAYPAL -->
-
-<a
-class="payment-option"
-id="paypalButton"
-href="#"
-target="_blank"
->
-
-<strong>🅿️ PayPal</strong>
-
-<span>
-Pay securely with PayPal
-</span>
-
-</a>
-
-</div>
-
-
-<p style="margin-top:20px;font-size:13px;color:#666">
-Payment links will be configured by the site owner.
-</p>
-
-</div>
-
-</div>
-
-</div>
+</main>
 
 
 <!-- ================= FOOTER ================= -->
@@ -1268,142 +862,234 @@ Payment links will be configured by the site owner.
 
 <div class="footer-inner">
 
-<div>
+    <div class="footer-logo">
+        ICONIC <span class="red">MODZ</span>
+    </div>
 
-<div class="footer-logo">
-ICONIC <span>MODZ</span>
-</div>
+    <div class="socials">
 
-<p style="color:#666;margin-top:7px">
-WWE Modding Community
-</p>
+        <a href="https://youtube.com/@iconicmodz?si=k-lrmXSG2-PI35tL"
+           target="_blank">
+            ▶ YouTube
+        </a>
 
-</div>
+        <a href="https://discord.gg/VsQqfKVE"
+           target="_blank">
+            💬 Discord
+        </a>
 
+        <a href="https://paypal.me/Gsoni07"
+           target="_blank">
+            💳 PayPal
+        </a>
 
-<div class="socials">
+    </div>
 
-<!-- YOUR YOUTUBE -->
+    <div class="copyright">
+        © 2026 ICONIC MODZ — WWE MODDING STORE
+    </div>
 
-<a
-class="social"
-href="https://youtube.com/@iconicmodz?si=k-lrmXSG2-PI35tL"
-target="_blank"
-title="YouTube"
->
-▶
-</a>
-
-
-<!-- YOUR DISCORD -->
-
-<a
-class="social"
-href="https://discord.gg/VsQqfKVE"
-target="_blank"
-title="Discord"
->
-💬
-</a>
-
-</div>
-
-</div>
-
-
-<div class="footer-bottom">
-© 2026 ICONIC MODZ • All Rights Reserved
 </div>
 
 </footer>
 
 
+<!-- ================= MODAL ================= -->
+
+<div id="modal" class="modal" onclick="closeModalOutside(event)">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeModal()">×</button>
+
+        <h2 id="modalTitle"></h2>
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
+
 <script>
 
 /* =========================================================
-   SITE SETTINGS
-   PAYMENT LINKS BAAD MEIN YAHAN CHANGE KARNA
+   SETTINGS
 ========================================================= */
 
-const SETTINGS={
+const SETTINGS = {
 
-/*
-UPI ID YAHAN DAALNA
+    upiId: "YOUR-UPI-ID@upi",
 
-Example:
-iconicmodz@upi
-*/
-
-upiId:"YOUR-UPI-ID@upi",
-
-
-/*
-PAYPAL PAYMENT LINK YAHAN DAALNA
-
-Example:
-https://paypal.me/YOURNAME
-*/
-
-paypalLink:"https://paypal.me/YOURPAYPAL"
-
+    paypal:
+        "https://paypal.me/Gsoni07"
 
 };
 
 
 /* =========================================================
-   PRODUCTS
-
-   IMAGE:
-   Baad mein image ka URL daal sakte ho.
-
-   YOUTUBE:
-   Mod ke YouTube video ka URL yahan daal sakte ho.
+   PRODUCT DATA
 ========================================================= */
 
-const products={
+const products = {
 
-fullgame:[
+    fullgame: [
 
-{
-title:"Free Iconic Edition Modz",
+        {
+            title:"Free Iconic Edition Modz",
+            price:"FREE",
+            image:"",
+            description:
+                "Free Iconic Edition HCTP modification.",
+            features:[
+                "WWE HCTP modded experience",
+                "Updated content",
+                "Iconic Modz features",
+                "Free release"
+            ],
+            youtube:""
+        },
 
-price:"FREE",
+        {
+            title:"WWE HCTP Iconic Edition V1",
+            price:"PRICE",
+            image:"",
+            description:
+                "Iconic Edition V1 complete HCTP modification.",
+            features:[
+                "Updated WWE roster",
+                "Custom wrestler content",
+                "Updated moves",
+                "Updated arenas",
+                "Custom entrance content",
+                "Iconic Edition branding"
+            ],
+            youtube:""
+        },
 
-image:"",
+        {
+            title:"WWE HCTP Iconic Edition V2",
+            price:"PRICE",
+            image:"",
+            description:
+                "Next version of the Iconic Edition HCTP modification.",
+            features:[
+                "Updated roster",
+                "New wrestler models",
+                "Updated movesets",
+                "New arenas",
+                "Titantrons",
+                "Entrance updates",
+                "More Iconic Edition content"
+            ],
+            youtube:""
+        }
 
-youtube:"",
+    ],
 
-description:
-"Free Iconic Edition mod collection for WWE SmackDown! Here Comes The Pain.",
 
-features:[
-"Updated wrestler content",
-"Updated entrance content",
-"Updated arenas",
-"Updated moves",
-"Iconic Edition features"
-]
+    wrestlers: [
 
-},
+        {
+            title:"Wrestler Model 01",
+            price:"",
+            image:"",
+            description:"Custom HCTP wrestler model.",
+            features:[
+                "Custom model",
+                "HCTP compatible",
+                "Ready for installation"
+            ]
+        },
 
-{
-title:"WWE HCTP Iconic Edition V1",
+        {
+            title:"Wrestler Model 02",
+            price:"",
+            image:"",
+            description:"Custom HCTP wrestler model.",
+            features:[
+                "Custom model",
+                "HCTP compatible",
+                "Ready for installation"
+            ]
+        },
 
-price:"PRICE",
+        {
+            title:"Wrestler Model 03",
+            price:"",
+            image:"",
+            description:"Custom HCTP wrestler model.",
+            features:[
+                "Custom model",
+                "HCTP compatible",
+                "Ready for installation"
+            ]
+        }
 
-image:"",
+    ],
 
-youtube:"",
 
-description:
-"WWE SmackDown! Here Comes The Pain Iconic Edition V1 with updated wrestler models, entrances, arenas and gameplay content.",
+    movesets: [
 
-features:[
-"Updated wrestler models",
-"Updated movesets",
-"Updated arenas",
-"Entrance updates",
-"New mod content"
-]
+        {
+            title:"Custom Move Set 01",
+            price:"",
+            image:"",
+            description:"Custom WWE HCTP moveset.",
+            features:[
+                "Custom moves",
+                "HCTP compatible",
+                "Easy installation"
+            ]
+        },
 
-   
+        {
+            title:"Custom Move Set 02",
+            price:"",
+            image:"",
+            description:"Custom WWE HCTP moveset.",
+            features:[
+                "Updated moves",
+                "HCTP compatible",
+                "Easy installation"
+            ]
+        }
+
+    ],
+
+
+    arenas: [
+
+        {
+            title:"Custom Arena 01",
+            price:"",
+            image:"",
+            description:"Custom WWE HCTP arena.",
+            features:[
+                "Custom arena",
+                "HCTP compatible",
+                "Entrance compatible"
+            ]
+        },
+
+        {
+            title:"Custom Arena 02",
+            price:"",
+            image:"",
+            description:"Custom WWE HCTP arena.",
+            features:[
+                "Custom stage",
+                "HCTP compatible",
+                "Custom graphics"
+            ]
+        }
+
+    ],
+
+
+    titantrons: [
+
+        {
+            title:"Custom Titantron 01",
+            price:"",
+         
