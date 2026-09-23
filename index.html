@@ -9,8 +9,8 @@
         :root {
             --bg-dark: #0a0809;
             --bg-gradient: radial-gradient(circle at top, #1f080c 0%, #0a0809 70%);
-            --card-bg: rgba(22, 14, 16, 0.75);
-            --card-hover: rgba(35, 20, 24, 0.9);
+            --card-bg: rgba(22, 14, 16, 0.85);
+            --card-hover: rgba(35, 20, 24, 0.95);
             --accent-red: #ff2a4b;
             --accent-red-glow: rgba(255, 42, 75, 0.4);
             --accent-crimson: #d60029;
@@ -97,7 +97,7 @@
             background: var(--card-bg); 
             border: 1px solid var(--border-color); 
             border-radius: 18px; 
-            padding: 20px; 
+            padding: 25px 20px; 
             text-align: center; 
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -121,29 +121,23 @@
         }
         .game-card:hover::before { opacity: 1; }
 
-        .game-img-wrapper { 
-            width: 100%; 
-            height: 180px; 
-            border-radius: 12px; 
-            overflow: hidden;
-            margin-bottom: 15px; 
-            border: 1px solid var(--border-red);
-            background: #111;
+        .game-icon-box {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: rgba(255, 42, 75, 0.1);
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .game-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .game-card:hover .game-img-wrapper img {
-            transform: scale(1.05);
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid var(--border-red);
+            box-shadow: 0 0 15px var(--accent-red-glow);
         }
 
-        .game-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; font-weight: 800; letter-spacing: 0.5px; }
+        .game-title { font-family: 'Orbitron', sans-serif; font-size: 1.15rem; font-weight: 800; letter-spacing: 0.5px; }
 
         /* Category Grid */
         .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
@@ -184,14 +178,16 @@
         }
         .mod-card:hover { border-color: var(--accent-red); box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
         .mod-banner { 
-            height: 150px; 
-            background: rgba(255, 255, 255, 0.02); 
+            height: 120px; 
+            background: linear-gradient(135deg, rgba(255, 42, 75, 0.15), rgba(10, 8, 9, 0.8)); 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             color: var(--text-muted); 
             position: relative;
             border-bottom: 1px solid var(--border-color);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
         }
         .badge { 
             position: absolute; 
@@ -303,17 +299,13 @@
                 
                 <!-- HCTP Card -->
                 <div class="game-card" onclick="openGame('hctp', 'WWE SmackDown! Here Comes The Pain')">
-                    <div class="game-img-wrapper">
-                        <img src="https://images.launchbox-app.com/3bd86e4d-74d1-4cb5-8d8d-2947e4eb19f9.jpg" alt="WWE HCTP Cover">
-                    </div>
+                    <div class="game-icon-box">🔥</div>
                     <div class="game-title">WWE SmackDown! Here Comes The Pain</div>
                 </div>
 
                 <!-- SvR Card -->
                 <div class="game-card" onclick="openGame('svr', 'WWE SmackDown vs. Raw')">
-                    <div class="game-img-wrapper">
-                        <img src="https://images.launchbox-app.com/eebe329c-85aa-43d9-9524-81e0a2d2165d.jpg" alt="WWE SvR Cover">
-                    </div>
+                    <div class="game-icon-box">⚡</div>
                     <div class="game-title">WWE SmackDown vs. Raw</div>
                 </div>
 
@@ -429,11 +421,8 @@
             for (var i = 0; i < views.length; i++) {
                 views[i].classList.remove('active');
             }
-            if (typeof stepNum === 'number') {
-                document.getElementById('step-' + stepNum).classList.add('active');
-            } else {
-                document.getElementById('step-' + stepNum).classList.add('active');
-            }
+            document.getElementById('step-' + stepNum).classList.add('active');
+            window.scrollTo(0, 0);
         }
 
         function openGame(gameKey, gameName) {
@@ -462,9 +451,17 @@
             if (currentGame === 'hctp' && currentCategory === 'Full Game Mods') {
                 container.innerHTML = `
                     <div class="mod-card">
-                        <div class="mod-banner"><span class="badge badge-free">FREE</span>[ PREVIEW ]</div>
+                        <div class="mod-banner"><span class="badge badge-free">FREE</span>🎮</div>
                         <div class="mod-body">
                             <div class="mod-title">Free Iconic Edition Modz</div>
                             <div class="mod-actions">
                                 <button class="btn btn-view" onclick="openDetails('Free Iconic Edition Modz', 'Free Download Available')">Preview</button>
-                                <button clas
+                                <button class="btn btn-action" onclick="openGet('Free Iconic Edition Modz', 'free')">📥 GET</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-card">
+                        <div class="mod-banner"><span class="badge badge-paid">PAID</span>⚡</div>
+                        <div class="mod-body">
+                            <div class="mod-title">WWE HCTP Iconic Edition V1</div>
+  
