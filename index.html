@@ -1,180 +1,270 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iconic Modz | WWE HCTP & 2K26 Store</title>
+    <title>ICONIC MODZ | Official Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-dark: #050508;
+            --card-bg: rgba(18, 18, 28, 0.75);
+            --neon-red: #ff0055;
+            --neon-orange: #ff5500;
+            --neon-purple: #8a2be2;
+            --text-main: #ffffff;
+            --text-muted: #9a9ab0;
+            --border-glow: rgba(255, 0, 85, 0.3);
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background-color: #0a0a0c;
-            color: #ffffff;
-            padding: 20px;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Rajdhani', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* Branding Header */
+        /* Animated Ambient Background Glows */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            filter: blur(140px);
+            z-index: -1;
+            opacity: 0.5;
+            animation: pulseGlow 8s infinite alternate ease-in-out;
+        }
+
+        body::before {
+            top: -50px;
+            left: 10%;
+            background: var(--neon-red);
+        }
+
+        body::after {
+            bottom: 50px;
+            right: 10%;
+            background: var(--neon-purple);
+            animation-delay: 4s;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+            100% { transform: scale(1.2) translate(30px, 30px); opacity: 0.7; }
+        }
+
+        /* Subtle Grid Pattern Overlay */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Header Section */
         header {
+            width: 100%;
+            max-width: 1100px;
             text-align: center;
-            padding: 20px 0 30px;
+            padding: 60px 20px 40px;
         }
 
-        .brand-name {
-            font-size: 3rem;
+        .brand-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.8rem;
             font-weight: 900;
+            letter-spacing: 6px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            background: linear-gradient(45deg, #ff0055, #ff5000);
+            background: linear-gradient(135deg, #ffffff 0%, var(--neon-red) 50%, var(--neon-orange) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
-            filter: drop-shadow(0 0 15px rgba(255, 0, 85, 0.4));
+            text-shadow: 0 0 35px rgba(255, 0, 85, 0.4);
+            margin-bottom: 12px;
         }
 
         .brand-subtitle {
-            color: #888;
-            font-size: 1rem;
-            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
         }
 
-        .search-bar {
+        /* Main Container */
+        main {
             width: 100%;
-            max-width: 550px;
-            padding: 14px 22px;
-            border-radius: 30px;
-            border: 2px solid #222;
-            background: #141419;
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            transition: 0.3s;
+            max-width: 1000px;
+            padding: 20px;
+            flex: 1;
         }
 
-        .search-bar:focus {
-            border-color: #ff0055;
-            box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
-        }
-
-        /* Grid Layout */
-        .mods-grid {
+        .mods-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
         }
 
-        /* Card Design */
+        /* Premium Mod Cards */
         .mod-card {
-            background: #121217;
-            border: 1px solid #22222b;
-            border-radius: 14px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
             overflow: hidden;
-            transition: 0.3s ease;
+        }
+
+        .mod-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-red), var(--neon-orange));
+            opacity: 0.8;
+            transition: all 0.4s ease;
         }
 
         .mod-card:hover {
-            transform: translateY(-7px);
-            border-color: #ff0055;
-            box-shadow: 0 10px 25px rgba(255, 0, 85, 0.2);
+            transform: translateY(-10px);
+            border-color: var(--neon-red);
+            box-shadow: 0 15px 35px rgba(255, 0, 85, 0.25);
         }
 
-        .mod-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            background-color: #1a1a22;
-        }
-
-        .mod-info {
-            padding: 18px;
-            text-align: center;
+        .mod-card:hover::before {
+            height: 6px;
+            box-shadow: 0 0 15px var(--neon-red);
         }
 
         .mod-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-
-        .mod-tag {
-            display: inline-block;
-            background: #22222d;
-            color: #ff5000;
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 6px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ffffff;
             margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            line-height: 1.3;
+            text-transform: uppercase;
         }
 
-        .btn-download {
+        .mod-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255, 0, 85, 0.15);
+            border: 1px solid var(--neon-red);
+            color: var(--neon-red);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .btn-action {
             display: block;
             width: 100%;
-            padding: 12px;
-            background: linear-gradient(45deg, #ff0055, #ff5000);
-            color: white;
-            text-decoration: none;
+            padding: 14px 20px;
+            background: linear-gradient(45deg, var(--neon-red), var(--neon-orange));
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
             font-weight: 700;
-            border-radius: 8px;
-            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 12px;
             letter-spacing: 1px;
-            transition: 0.3s;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 0, 85, 0.3);
         }
 
-        .btn-download:hover {
-            opacity: 0.9;
-            box-shadow: 0 0 15px rgba(255, 0, 85, 0.5);
+        .btn-action:hover {
+            opacity: 0.95;
+            box-shadow: 0 8px 25px rgba(255, 0, 85, 0.5);
+            transform: scale(1.02);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding: 25px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .brand-logo { font-size: 2.5rem; }
+            .brand-subtitle { font-size: 0.95rem; }
+            .mod-title { font-size: 1.25rem; }
         }
     </style>
 </head>
 <body>
 
+    <div class="bg-grid"></div>
+
+    <!-- Header -->
     <header>
-        <div class="brand-name">Iconic Modz</div>
-        <div class="brand-subtitle">WWE HCTP Nostalgia Mods & 2K26 Models Store</div>
-        <input type="text" class="search-bar" placeholder="Search Nostalgia Mods, 2K26 Models...">
+        <div class="brand-logo">ICONIC MODZ</div>
+        <div class="brand-subtitle">Official Edition Store</div>
     </header>
 
-    <main class="mods-grid">
-
-        <!-- MOD 1: FULL GAME MOD -->
-        <div class="mod-card">
-            <img src="YOUR_IMAGE_URL" alt="HCTP Full Game" class="mod-image">
-            <div class="mod-info">
-                <div class="mod-title">HCTP Nostalgia Full Game Mod</div>
-                <span class="mod-tag">Full ISO Game</span>
-                <a href="YOUR_PATREON_OR_PAYPAL_LINK" target="_blank" class="btn-download">Buy & Download</a>
+    <!-- Main Section -->
+    <main>
+        <div class="mods-container">
+            
+            <!-- V1 Mods Card -->
+            <div class="mod-card">
+                <div class="mod-title">WWE HCTP Iconic Edition V1 Mods</div>
+                <div class="mod-badge">Version 1.0</div>
+                <a href="#" class="btn-action">Explore / Download</a>
             </div>
-        </div>
 
-        <!-- MOD 2: WRESTLER MODEL -->
-        <div class="mod-card">
-            <img src="YOUR_IMAGE_URL" alt="Brock Lesnar 2K26" class="mod-image">
-            <div class="mod-info">
-                <div class="mod-title">Brock Lesnar UFC 2K26 Model</div>
-                <span class="mod-tag">HCTP Model Import</span>
-                <a href="YOUR_PATREON_OR_PAYPAL_LINK" target="_blank" class="btn-download">Buy & Download</a>
+            <!-- V2 Mods Card -->
+            <div class="mod-card">
+                <div class="mod-title">WWE HCTP Iconic Edition V2 Mods</div>
+                <div class="mod-badge">Version 2.0</div>
+                <a href="#" class="btn-action">Explore / Download</a>
             </div>
-        </div>
 
-        <!-- MOD 3: NOSTALIGIA MOD -->
-        <div class="mod-card">
-            <img src="YOUR_IMAGE_URL" alt="The Hurricane SvR06" class="mod-image">
-            <div class="mod-info">
-                <div class="mod-title">The Hurricane SvR '06 Mod</div>
-                <span class="mod-tag">Nostalgia Mod</span>
-                <a href="YOUR_PATREON_OR_PAYPAL_LINK" target="_blank" class="btn-download">Buy & Download</a>
-            </div>
         </div>
-
     </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 ICONIC MODZ. All rights reserved.
+    </footer>
 
 </body>
 </html>
+
