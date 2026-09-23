@@ -1,466 +1,967 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICONIC MODZ | Official Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark: #0a0809;
-            --bg-gradient: radial-gradient(circle at top, #1f080c 0%, #0a0809 70%);
-            --card-bg: rgba(22, 14, 16, 0.85);
-            --card-hover: rgba(35, 20, 24, 0.95);
-            --accent-red: #ff2a4b;
-            --accent-red-glow: rgba(255, 42, 75, 0.4);
-            --accent-crimson: #d60029;
-            --accent-green: #00e676;
-            --accent-gold: #ffb700;
-            --text-main: #ffffff;
-            --text-muted: #a09095;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --border-red: rgba(255, 42, 75, 0.3);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Iconic Modz</title>
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { 
-            background: var(--bg-dark);
-            background-image: var(--bg-gradient);
-            color: var(--text-main); 
-            min-height: 100vh; 
-            padding-bottom: 50px;
-            overflow-x: hidden;
-        }
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#050505;
+color:#fff
+}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
 
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 16px 24px; 
-            background: rgba(10, 8, 9, 0.85); 
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-red); 
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-brand { 
-            font-family: 'Orbitron', sans-serif; 
-            font-size: 1.5rem; 
-            font-weight: 900; 
-            color: #fff; 
-            cursor: pointer;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-        }
-        .nav-brand span { 
-            color: var(--accent-red); 
-            text-shadow: 0 0 12px var(--accent-red-glow);
-        }
+header{
+position:sticky;
+top:0;
+z-index:50;
+background:rgba(5,5,5,.95);
+border-bottom:1px solid #292929;
+backdrop-filter:blur(10px)
+}
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 25px 15px; }
+.nav{
+max-width:1200px;
+margin:auto;
+padding:18px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
 
-        .breadcrumb { display: flex; align-items: center; gap: 10px; margin-bottom: 25px; font-size: 0.9rem; color: var(--text-muted); }
-        .back-btn { 
-            background: rgba(255, 255, 255, 0.05); 
-            color: #fff; 
-            border: 1px solid var(--border-color); 
-            padding: 8px 16px; 
-            border-radius: 8px; 
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        .back-btn:hover { background: var(--accent-red); border-color: var(--accent-red); box-shadow: 0 0 12px var(--accent-red-glow); }
+.logo{
+font-size:25px;
+font-weight:900
+}
+.logo span{color:#e50914}
 
-        .page-title { 
-            font-family: 'Orbitron', sans-serif; 
-            font-size: 1.8rem; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            margin-bottom: 25px; 
-            letter-spacing: 0.5px;
-        }
-        .page-title span { color: var(--accent-red); text-shadow: 0 0 15px var(--accent-red-glow); }
+.container{
+max-width:1200px;
+margin:auto;
+padding:50px 20px
+}
 
-        .view-section { display: none; animation: fadeIn 0.3s ease-in-out; }
-        .view-section.active { display: block; }
+.hero{
+text-align:center;
+padding:45px 0 55px
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.small{
+color:#e50914;
+font-weight:800;
+letter-spacing:4px;
+font-size:13px
+}
 
-        /* Game Cards */
-        .games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .game-card { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border-color); 
-            border-radius: 18px; 
-            padding: 25px 20px; 
-            text-align: center; 
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-        .game-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .game-card:hover { 
-            border-color: var(--accent-red); 
-            background: var(--card-hover);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(255, 42, 75, 0.25);
-        }
-        .game-card:hover::before { opacity: 1; }
+h1{
+font-size:clamp(35px,6vw,65px);
+margin:12px 0;
+font-weight:950
+}
 
-        .game-icon-box {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            background: rgba(255, 42, 75, 0.1);
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid var(--border-red);
-            box-shadow: 0 0 15px var(--accent-red-glow);
-        }
+h2{
+font-size:30px;
+margin:0 0 10px
+}
 
-        .game-title { font-family: 'Orbitron', sans-serif; font-size: 1.15rem; font-weight: 800; letter-spacing: 0.5px; }
+p{
+color:#aaa;
+line-height:1.6
+}
 
-        /* Category Grid */
-        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
-        .category-card { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border-color); 
-            border-radius: 14px; 
-            padding: 22px 15px; 
-            text-align: center; 
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-        .category-card:hover { 
-            border-color: var(--accent-red); 
-            background: var(--card-hover);
-            transform: scale(1.02);
-            box-shadow: 0 6px 18px var(--accent-red-glow);
-        }
-        .category-card.custom-mod-card { 
-            border: 1px dashed var(--accent-gold); 
-            background: rgba(255, 183, 0, 0.04);
-        }
-        .category-card.custom-mod-card:hover { 
-            border-color: var(--accent-gold); 
-            box-shadow: 0 6px 18px rgba(255, 183, 0, 0.25);
-        }
-        .category-icon { font-size: 2.2rem; margin-bottom: 12px; }
-        .category-name { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 700; }
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:22px
+}
 
-        /* Mods Cards */
-        .mods-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .mod-card { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border-color); 
-            border-radius: 16px; 
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .mod-card:hover { border-color: var(--accent-red); box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
-        .mod-banner { 
-            height: 120px; 
-            background: linear-gradient(135deg, rgba(255, 42, 75, 0.15), rgba(10, 8, 9, 0.8)); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: var(--text-muted); 
-            position: relative;
-            border-bottom: 1px solid var(--border-color);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-        }
-        .badge { 
-            position: absolute; 
-            top: 12px; 
-            left: 12px; 
-            padding: 5px 10px; 
-            border-radius: 6px; 
-            font-size: 0.7rem; 
-            font-weight: 800; 
-            letter-spacing: 0.5px;
-            font-family: 'Orbitron', sans-serif;
-        }
-        .badge-free { background: var(--accent-green); color: #000; box-shadow: 0 0 10px rgba(0, 230, 118, 0.4); }
-        .badge-paid { background: var(--accent-red); color: #fff; box-shadow: 0 0 10px var(--accent-red-glow); }
-        
-        .mod-body { padding: 18px; }
-        .mod-title { font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 800; margin-bottom: 16px; }
-        .mod-actions { display: flex; gap: 10px; }
+.card{
+background:#101010;
+border:1px solid #282828;
+border-radius:18px;
+overflow:hidden;
+transition:.25s
+}
 
-        .btn { 
-            flex: 1; 
-            padding: 12px; 
-            border: none; 
-            border-radius: 8px; 
-            font-weight: 700; 
-            font-size: 0.82rem; 
-            cursor: pointer; 
-            text-align: center; 
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-        .btn-view { background: rgba(255, 255, 255, 0.08); color: #fff; }
-        .btn-view:hover { background: rgba(255, 255, 255, 0.15); }
-        .btn-action { 
-            background: linear-gradient(135deg, var(--accent-red), var(--accent-crimson)); 
-            color: #fff; 
-            box-shadow: 0 4px 12px var(--accent-red-glow);
-        }
-        .btn-action:hover { opacity: 0.9; transform: translateY(-1px); }
+.card:hover{
+transform:translateY(-5px);
+border-color:#e50914;
+box-shadow:0 10px 40px rgba(229,9,20,.12)
+}
 
-        /* Custom Form */
-        .custom-form-container { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border-red); 
-            border-radius: 18px; 
-            padding: 25px; 
-            max-width: 500px; 
-            margin: 0 auto; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .form-group { margin-bottom: 18px; }
-        .form-label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main); }
-        .form-control { 
-            width: 100%; 
-            padding: 12px 14px; 
-            background: rgba(0, 0, 0, 0.4); 
-            border: 1px solid var(--border-color); 
-            border-radius: 10px; 
-            color: #fff; 
-            font-size: 0.9rem; 
-            outline: none; 
-            transition: border-color 0.2s;
-        }
-        .form-control:focus { border-color: var(--accent-red); box-shadow: 0 0 8px var(--accent-red-glow); }
-        .btn-submit { 
-            width: 100%; 
-            padding: 14px; 
-            background: linear-gradient(135deg, var(--accent-red), var(--accent-crimson)); 
-            color: #fff; 
-            border: none; 
-            border-radius: 10px; 
-            font-family: 'Orbitron', sans-serif; 
-            font-weight: 800; 
-            cursor: pointer; 
-            letter-spacing: 1px;
-            box-shadow: 0 5px 15px var(--accent-red-glow);
-        }
+.card-img{
+height:190px;
+background:linear-gradient(135deg,#191919,#080808);
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden
+}
 
-        /* Modal Overlay */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
-        .modal-overlay.active { display: flex; animation: fadeIn 0.2s ease; }
-        .modal-box { 
-            background: #140d0f; 
-            border: 1px solid var(--border-red); 
-            border-radius: 18px; 
-            max-width: 450px; 
-            width: 100%; 
-            padding: 25px; 
-            position: relative; 
-            box-shadow: 0 0 30px var(--accent-red-glow);
-        }
-        .modal-close { position: absolute; top: 12px; right: 18px; background: none; border: none; color: var(--text-muted); font-size: 1.6rem; cursor: pointer; }
-        .modal-title { font-family: 'Orbitron', sans-serif; font-size: 1.25rem; margin-bottom: 12px; color: var(--accent-red); }
-        .payment-info { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px; margin: 12px 0; font-size: 0.88rem; line-height: 1.5; }
-    </style>
+.card-img img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+
+.placeholder{
+font-size:48px;
+font-weight:900;
+color:#333
+}
+
+.card-body{padding:22px}
+
+.btn{
+border:0;
+border-radius:9px;
+padding:12px 18px;
+font-weight:800;
+display:inline-block
+}
+
+.red{
+background:#e50914;
+color:white
+}
+
+.red:hover{background:#ff1b26}
+
+.dark{
+background:#1c1c1c;
+color:white;
+border:1px solid #333
+}
+
+.dark:hover{background:#292929}
+
+.buttons{
+display:flex;
+gap:10px;
+margin-top:18px
+}
+
+.buttons .btn{
+flex:1;
+text-align:center
+}
+
+.hidden{display:none!important}
+
+.back{
+display:inline-block;
+margin-bottom:30px;
+color:#aaa
+}
+
+.back:hover{color:white}
+
+.category{
+min-height:150px;
+padding:28px;
+display:flex;
+flex-direction:column;
+justify-content:center
+}
+
+.category-icon{
+font-size:38px;
+margin-bottom:12px
+}
+
+.badge{
+display:inline-block;
+font-size:11px;
+font-weight:900;
+color:#e50914;
+margin-bottom:8px;
+letter-spacing:2px
+}
+
+.price{
+font-size:20px;
+font-weight:900;
+margin-top:10px
+}
+
+.free{color:#30d158}
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+z-index:100;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px
+}
+
+.modal-box{
+background:#111;
+border:1px solid #333;
+border-radius:18px;
+max-width:700px;
+width:100%;
+max-height:90vh;
+overflow:auto;
+padding:28px
+}
+
+.close{
+float:right;
+border:0;
+background:#222;
+color:white;
+width:38px;
+height:38px;
+border-radius:50%;
+font-size:20px
+}
+
+.preview-image{
+height:280px;
+border-radius:12px;
+background:linear-gradient(135deg,#222,#090909);
+display:flex;
+align-items:center;
+justify-content:center;
+margin:15px 0
+}
+
+.wrestler{
+position:relative
+}
+
+.wrestler.selected{
+border-color:#e50914;
+box-shadow:0 0 0 2px #e50914
+}
+
+.check{
+position:absolute;
+top:12px;
+right:12px;
+background:#e50914;
+width:28px;
+height:28px;
+border-radius:50%;
+display:none;
+align-items:center;
+justify-content:center;
+font-weight:900
+}
+
+.wrestler.selected .check{
+display:flex
+}
+
+.totalbar{
+position:sticky;
+bottom:15px;
+margin-top:30px;
+background:#111;
+border:1px solid #333;
+border-radius:16px;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px
+}
+
+footer{
+border-top:1px solid #222;
+margin-top:50px;
+padding:35px 20px;
+text-align:center;
+color:#666
+}
+
+@media(max-width:600px){
+.buttons{flex-direction:column}
+.totalbar{flex-direction:column;align-items:stretch}
+}
+</style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="nav-brand" onclick="goToStep('1')">ICONIC<span>MODZ</span></div>
-    </nav>
+<header>
+<div class="nav">
+<div class="logo">ICONIC <span>MODZ</span></div>
 
-    <div class="container">
+<button class="btn dark" onclick="showPage('custom')">
+Create Custom Mod
+</button>
+</div>
+</header>
 
-        <!-- STEP 1: Select Game -->
-        <div id="step-1" class="view-section active">
-            <h1 class="page-title">Select <span>Game</span></h1>
-            <div class="games-grid">
-                
-                <!-- HCTP Card -->
-                <div class="game-card" onclick="openGame('hctp', 'WWE SmackDown! Here Comes The Pain')">
-                    <div class="game-icon-box">🏆</div>
-                    <div class="game-title">WWE SmackDown! Here Comes The Pain</div>
-                </div>
 
-                <!-- SvR Card -->
-                <div class="game-card" onclick="openGame('svr', 'WWE SmackDown vs. Raw')">
-                    <div class="game-icon-box">🎮</div>
-                    <div class="game-title">WWE SmackDown vs. Raw</div>
-                </div>
+<!-- HOME -->
+<section id="home" class="page">
+<div class="container">
 
-            </div>
-        </div>
+<div class="hero">
+<div class="small">WWE MODDING STORE</div>
+<h1>ICONIC MODZ</h1>
+<p>
+Wrestler Models • Full Game Mods • Move Sets • Arenas • Titantrons
+</p>
+</div>
 
-        <!-- STEP 2: Select Category -->
-        <div id="step-2" class="view-section">
-            <div class="breadcrumb">
-                <button class="back-btn" onclick="goToStep('1')">← Back</button>
-                <span id="game-breadcrumb-title">Game</span>
-            </div>
-            <h1 class="page-title">Select <span>Category</span></h1>
-            <div class="category-grid">
-                <div class="category-card" onclick="openCategory('Wrestlers Models')">
-                    <div class="category-icon">👤</div>
-                    <div class="category-name">Wrestlers Models</div>
-                </div>
-                <div class="category-card" onclick="openCategory('Full Game Mods')">
-                    <div class="category-icon">🕹️</div>
-                    <div class="category-name">Full Game Mods</div>
-                </div>
-                <div class="category-card" onclick="openCategory('Move Sets')">
-                    <div class="category-icon">⚡</div>
-                    <div class="category-name">Move Sets</div>
-                </div>
-                <div class="category-card" onclick="openCategory('Arenas')">
-                    <div class="category-icon">🏟️</div>
-                    <div class="category-name">Arenas</div>
-                </div>
-                <div class="category-card" onclick="openCategory('Titantrons')">
-                    <div class="category-icon">🎬</div>
-                    <div class="category-name">Titantrons</div>
-                </div>
-                <div class="category-card custom-mod-card" onclick="openCustomMods()">
-                    <div class="category-icon">🛠️</div>
-                    <div class="category-name" style="color: var(--accent-gold);">Create Custom Mods</div>
-                </div>
-            </div>
-        </div>
+<div class="grid">
 
-        <!-- STEP 3: Mods List -->
-        <div id="step-3" class="view-section">
-            <div class="breadcrumb">
-                <button class="back-btn" onclick="goToStep('2')">← Back</button>
-                <span id="category-breadcrumb-title">Category</span>
-            </div>
-            <h1 class="page-title" id="mods-page-title">Available <span>Mods</span></h1>
-            <div class="mods-grid" id="mods-container"></div>
-        </div>
+<div class="card" onclick="openGame('svr')">
+<div class="card-img">
+<div class="placeholder">SVR</div>
+</div>
 
-        <!-- STEP 4: Custom Mod Order Page -->
-        <div id="step-custom" class="view-section">
-            <div class="breadcrumb">
-                <button class="back-btn" onclick="goToStep('2')">← Back</button>
-                <span>Create Custom Mod</span>
-            </div>
-            <h1 class="page-title" style="color: var(--accent-gold);">Create <span>Custom Mod</span></h1>
-            <div class="custom-form-container">
-                <form onsubmit="handleCustomSubmit(event)">
-                    <div class="form-group">
-                        <label class="form-label">Select Wrestler Model:</label>
-                        <select class="form-control" id="wrestlerSelect">
-                            <option value="">-- Choose Wrestler From List --</option>
-                            <option value="The Rock">The Rock</option>
-                            <option value="Stone Cold">Stone Cold Steve Austin</option>
-                            <option value="John Cena">John Cena</option>
-                            <option value="Roman Reigns">Roman Reigns</option>
-                            <option value="Undertaker">Undertaker</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Or Custom Name:</label>
-                        <input type="text" class="form-control" id="customWrestlerInput" placeholder="e.g. Brock Lesnar (2003 Attire)">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Mod Type Required:</label>
-                        <select class="form-control" id="modTypeSelect" required>
-                            <option value="Wrestler Model">Wrestler Model</option>
-                            <option value="Full Game Mod">Full Game Mod</option>
-                            <option value="Move Set">Move Set</option>
-                            <option value="Arena">Arena</option>
-                            <option value="Titantron">Titantron</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Details:</label>
-                        <textarea class="form-control" id="customNotes" rows="3" placeholder="Enter instructions..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">🚀 SUBMIT REQUEST</button>
-                </form>
-            </div>
-        </div>
+<div class="card-body">
+<h2>SmackDown vs Raw Mods</h2>
+<p>Explore SmackDown vs Raw modifications.</p>
+<button class="btn red">Explore Mods →</button>
+</div>
+</div>
 
-    </div>
 
-    <!-- Details / Get Modal -->
-    <div class="modal-overlay" id="mod-modal">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
-            <h2 class="modal-title" id="modal-mod-title">Mod Title</h2>
-            <div id="modal-content"></div>
-        </div>
-    </div>
+<div class="card" onclick="openGame('hctp')">
+<div class="card-img">
+<div class="placeholder">HCTP</div>
+</div>
 
-    <script>
-        var currentGame = '';
-        var currentGameName = '';
-        var currentCategory = '';
+<div class="card-body">
+<h2>WWE SmackDown! Here Comes The Pain</h2>
+<p>Explore HCTP wrestler models, moves, arenas and complete mods.</p>
+<button class="btn red">Explore Mods →</button>
+</div>
+</div>
 
-        function goToStep(stepId) {
-            var views = document.querySelectorAll('.view-section');
-            for (var i = 0; i < views.length; i++) {
-                views[i].classList.remove('active');
-            }
-            document.getElementById('step-' + stepId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
+</div>
+</div>
+</section>
 
-        function openGame(gameKey, gameName) {
-            currentGame = gameKey;
-            currentGameName = gameName;
-            document.getElementById('game-breadcrumb-title').innerText = gameName;
-            goToStep('2');
-        }
 
-        function openCategory(catName) {
-            currentCategory = catName;
-            document.getElementById('category-breadcrumb-title').innerText = currentGameName + ' > ' + catName;
-            document.getElementById('mods-page-title').innerHTML = catName + ' <span>Mods</span>';
-            renderMods();
-            goToStep('3');
-        }
+<!-- CATEGORIES -->
+<section id="categories" class="page hidden">
+<div class="container">
 
-        function openCustomMods() {
-            goToStep('custom');
-        }
+<a class="back" onclick="showPage('home')">← Back to Home</a>
 
-        function renderMods() {
-            var container = document.getElementById('mods-container');
-            container.innerHTML = '';
+<div class="hero" style="text-align:left">
+<div class="small">MOD COLLECTION</div>
+<h1 id="gameTitle"></h1>
+</div>
 
-            if (currentGame === 'hctp' && currentCategory === 'Full Game Mods') {
-                container.innerHTML = `
-                    <div class="mod-card">
-                        <div class="mod-banner"><span class="badge badge-free">FREE</span>🕹️</div>
-                        <div class="mod-body">
-                            <div class="mod-title">Free Iconic Edition Modz</div>
-                            <div class="mod-actions">
-                                <button class="btn btn-view" onclick="openDetails('Free Iconic Edition Modz', 'Free Download Available')">Preview</button>
-                                <button class="btn btn-action" onclick="openGet('Free Iconic Edition Modz', 'free')">📥 GET</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mod-card">
-                        <div class="mod-banner"><span class="badge badge-paid">PAID</span>⚡</div>
-                        <div class="mod-body">
-                            <div class="mod-title">WWE HCTP Iconic Editio
+<div class="grid">
+
+<div class="card category" onclick="openCategory('wrestlers')">
+<div class="category-icon">👤</div>
+<h2>Wrestler Models</h2>
+<p>Custom WWE wrestler models.</p>
+</div>
+
+<div class="card category" onclick="openCategory('fullgame')">
+<div class="category-icon">🎮</div>
+<h2>Full Game Mods</h2>
+<p>Complete game modifications.</p>
+</div>
+
+<div class="card category" onclick="openCategory('movesets')">
+<div class="category-icon">🥊</div>
+<h2>Move Sets</h2>
+<p>Updated and converted moves.</p>
+</div>
+
+<div class="card category" onclick="openCategory('arenas')">
+<div class="category-icon">🏟️</div>
+<h2>Arenas</h2>
+<p>New and updated arenas.</p>
+</div>
+
+<div class="card category" onclick="openCategory('titantrons')">
+<div class="category-icon">📺</div>
+<h2>Titantrons</h2>
+<p>Entrance videos and titantrons.</p>
+</div>
+
+<div class="card category" onclick="showPage('custom')">
+<div class="category-icon">🛠️</div>
+<h2>Create Custom Mod</h2>
+<p>Select the wrestler models you want.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- PRODUCTS -->
+<section id="products" class="page hidden">
+<div class="container">
+
+<a class="back" onclick="showPage('categories')">← Back to Categories</a>
+
+<div class="hero" style="text-align:left">
+<div class="small">COLLECTION</div>
+<h1 id="categoryTitle"></h1>
+</div>
+
+<div id="productGrid" class="grid"></div>
+
+</div>
+</section>
+
+
+<!-- CUSTOM -->
+<section id="custom" class="page hidden">
+<div class="container">
+
+<a class="back" onclick="showPage('home')">← Back to Home</a>
+
+<div class="hero" style="text-align:left">
+<div class="small">CUSTOM BUILDER</div>
+<h1>Create Custom Mod</h1>
+<p>Select the wrestler models you want.</p>
+</div>
+
+<div id="wrestlerGrid" class="grid"></div>
+
+<div class="totalbar">
+<div>
+<div style="color:#888">Selected Models</div>
+<strong id="selectedCount">0 Wrestlers</strong>
+<div id="totalPrice" class="price">Total: ₹0</div>
+</div>
+
+<button class="btn red" onclick="customPayment()">
+Get Custom Mod
+</button>
+</div>
+
+</div>
+</section>
+
+
+<!-- PREVIEW MODAL -->
+<div id="previewModal" class="modal hidden">
+
+<div class="modal-box">
+
+<button class="close" onclick="closePreview()">×</button>
+
+<div class="small">MOD PREVIEW</div>
+
+<h2 id="previewTitle"></h2>
+
+<div class="preview-image">
+<div class="placeholder">IMAGE</div>
+</div>
+
+<p id="previewDescription"></p>
+
+<h3>What's Included</h3>
+
+<ul id="previewList"></ul>
+
+<div class="price" id="previewPrice"></div>
+
+<div class="buttons">
+
+<button class="btn dark" onclick="closePreview()">
+Close
+</button>
+
+<button class="btn red" onclick="payment()">
+Get Mod
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<footer>
+ICONIC MODZ • WWE Modding Store
+</footer>
+
+
+<script>
+
+/* =========================================
+   WEBSITE DATA
+   YAHAN BAAD MEIN PRODUCTS ADD KAR SAKTE HO
+========================================= */
+
+const products={
+
+fullgame:[
+
+{
+title:"Free Iconic Edition Modz",
+price:"FREE",
+image:"",
+description:"Free WWE HCTP Iconic Edition modification.",
+features:[
+"Updated wrestlers",
+"Updated arenas",
+"New entrance content",
+"Updated moves"
+]
+},
+
+{
+title:"WWE HCTP Iconic Edition V1",
+price:"₹99",
+image:"",
+description:"WWE SmackDown Here Comes The Pain Iconic Edition V1.",
+features:[
+"Updated wrestler models",
+"Updated moves",
+"New arenas",
+"Updated entrances",
+"New content"
+]
+},
+
+{
+title:"WWE HCTP Iconic Edition V2",
+price:"₹149",
+image:"",
+description:"WWE SmackDown Here Comes The Pain Iconic Edition V2.",
+features:[
+"New wrestler models",
+"Updated movesets",
+"New arenas",
+"Updated titantrons",
+"More mod content"
+]
+}
+
+],
+
+wrestlers:[],
+movesets:[],
+arenas:[],
+titantrons:[]
+
+};
+
+
+/* =========================================
+   WRESTLER LIST
+   BAAD MEIN APNI ACTUAL LIST YAHAN DALNA
+========================================= */
+
+const wrestlers=[
+
+{name:"Wrestler Model 01",price:50,image:""},
+{name:"Wrestler Model 02",price:50,image:""},
+{name:"Wrestler Model 03",price:50,image:""},
+{name:"Wrestler Model 04",price:75,image:""},
+{name:"Wrestler Model 05",price:75,image:""},
+{name:"Wrestler Model 06",price:100,image:""}
+
+];
+
+
+let currentGame="hctp";
+let currentCategory="";
+let selectedWrestlers=[];
+let currentProduct=null;
+
+
+/* =========================================
+   PAGE SYSTEM
+========================================= */
+
+function showPage(page){
+
+document.querySelectorAll(".page").forEach(x=>{
+x.classList.add("hidden")
+});
+
+document.getElementById(page).classList.remove("hidden");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================================
+   GAME
+========================================= */
+
+function openGame(game){
+
+currentGame=game;
+
+document.getElementById("gameTitle").innerText=
+game==="hctp"
+?"WWE SmackDown! Here Comes The Pain"
+:"SmackDown vs Raw";
+
+showPage("categories");
+
+}
+
+
+/* =========================================
+   CATEGORY
+========================================= */
+
+function openCategory(category){
+
+currentCategory=category;
+
+const names={
+wrestlers:"Wrestler Models",
+fullgame:"Full Game Mods",
+movesets:"Move Sets",
+arenas:"Arenas",
+titantrons:"Titantrons"
+};
+
+document.getElementById("categoryTitle").innerText=
+names[category];
+
+renderProducts();
+
+showPage("products");
+
+}
+
+
+/* =========================================
+   PRODUCTS
+========================================= */
+
+function renderProducts(){
+
+const grid=document.getElementById("productGrid");
+
+const list=products[currentCategory]||[];
+
+if(list.length===0){
+
+grid.innerHTML=`
+
+<div class="card" style="padding:40px;text-align:center">
+
+<div style="font-size:50px">🛠️</div>
+
+<h2>Coming Soon</h2>
+
+<p>
+Products will be added to this category soon.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+grid.innerHTML=list.map((product,index)=>`
+
+<div class="card">
+
+<div class="card-img">
+
+${
+product.image
+?
+`<img src="${product.image}" alt="">`
+:
+`<div class="placeholder">MOD</div>`
+}
+
+</div>
+
+<div class="card-body">
+
+<div class="badge">ICONIC MODZ</div>
+
+<h2>${product.title}</h2>
+
+<div class="price ${product.price==="FREE"?"free":""}">
+${product.price}
+</div>
+
+<div class="buttons">
+
+<button class="btn dark"
+onclick='previewProduct(${JSON.stringify(product)})'>
+Preview
+</button>
+
+<button class="btn red"
+onclick='buyProduct(${JSON.stringify(product)})'>
+Get
+</button>
+
+</div>
+
+</div>
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================================
+   PREVIEW
+========================================= */
+
+function previewProduct(product){
+
+currentProduct=product;
+
+document.getElementById("previewTitle").innerText=
+product.title;
+
+document.getElementById("previewDescription").innerText=
+product.description;
+
+document.getElementById("previewPrice").innerText=
+product.price;
+
+document.getElementById("previewList").innerHTML=
+product.features.map(x=>`<li>${x}</li>`).join("");
+
+document.getElementById("previewModal")
+.classList.remove("hidden");
+
+}
+
+
+function closePreview(){
+
+document.getElementById("previewModal")
+.classList.add("hidden");
+
+}
+
+
+/* =========================================
+   PAYMENT
+========================================= */
+
+function payment(){
+
+if(!currentProduct)return;
+
+if(currentProduct.price==="FREE"){
+
+alert(
+"Free download system yahan connect kiya jayega."
+);
+
+return;
+
+}
+
+
+/*
+=========================================
+APNA PAYMENT LINK YAHAN DALNA
+
+UPI example:
+
+window.location.href =
+"upi://pay?pa=YOURUPI@upi&pn=ICONICMODZ&am=99&cu=INR";
+
+PAYPAL:
+
+window.location.href =
+"https://paypal.me/YOURPAYPAL";
+=========================================
+*/
+
+alert(
+"Payment page yahan connect hoga.\n\n"+
+"Product: "+currentProduct.title+
+"\nPrice: "+currentProduct.price
+);
+
+}
+
+
+/* =========================================
+   GET BUTTON
+========================================= */
+
+function buyProduct(product){
+
+currentProduct=product;
+
+if(product.price==="FREE"){
+
+alert("Free download link yahan add hoga.");
+
+}else{
+
+alert(
+"Payment selected:\n"+
+product.title+
+"\n"+
+product.price+
+"\n\nUPI / PayPal payment yahan connect hoga."
+);
+
+}
+
+}
+
+
+/* =========================================
+   CUSTOM MOD
+========================================= */
+
+function renderWrestlers(){
+
+const grid=document.getElementById("wrestlerGrid");
+
+grid.innerHTML=wrestlers.map((w,index)=>{
+
+const selected=selectedWrestlers.some(
+x=>x.name===w.name
+);
+
+return `
+
+<div class="card wrestler ${selected?"selected":""}"
+onclick="toggleWrestler(${index})">
+
+<div class="card-img">
+
+${
+w.image
+?
+`<img src="${w.image}" alt="">`
+:
+`<div class="placeholder">W</div>`
+}
+
+</div>
+
+<div class="card-body">
+
+<div class="check">✓</div>
+
+<h2>${w.name}</h2>
+
+<div class="price">
+₹${w.price}
+</div>
+
+<p>
+${selected?"Selected":"Select Model"}
+</p>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+updateTotal();
+
+}
+
+
+function toggleWrestler(index){
+
+const wrestler=wrestlers[index];
+
+const exists=selectedWrestlers.some(
+x=>x.name===wrestler.name
+);
+
+if(exists){
+
+selectedWrestlers=
+selectedWrestlers.filter(
+x=>x.name!==wrestler.name
+);
+
+}else{
+
+selectedWrestlers.push(wrestler);
+
+}
+
+renderWrestlers();
+
+}
+
+
+function updateTotal(){
+
+const total=selectedWrestlers.reduce(
+(sum,x)=>sum+x.price,0
+);
+
+document.getElementById("selectedCount")
+.innerText=
+selectedWrestlers.length+" Wrestlers";
+
+document.getElementById("totalPrice")
+.innerText=
+"Total: ₹"+total;
+
+}
+
+
+function customPayment(){
+
+if(selectedWrestlers.length===0){
+
+alert("Pehle wrestler models select karo.");
+
+return;
+
+}
+
+const names=selectedWrestlers
+.map(x=>x.name)
+.join(", ");
+
+alert(
+"Custom Mod Order\n\n"+
+names+
+"\n\nTotal: ₹"+
+selectedWrestlers.reduce(
+(sum,x)=>sum+x.price,0
+)+
+"\n\nUPI / PayPal payment yahan connect hoga."
+);
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+renderWrestlers();
+
+</script>
+
+</body>
+</html>
