@@ -287,7 +287,7 @@
 <body>
 
     <nav>
-        <div class="nav-brand" onclick="showStep(1)">ICONIC<span>MODZ</span></div>
+        <div class="nav-brand" onclick="goToStep('1')">ICONIC<span>MODZ</span></div>
     </nav>
 
     <div class="container">
@@ -299,13 +299,13 @@
                 
                 <!-- HCTP Card -->
                 <div class="game-card" onclick="openGame('hctp', 'WWE SmackDown! Here Comes The Pain')">
-                    <div class="game-icon-box">🔥</div>
+                    <div class="game-icon-box">🏆</div>
                     <div class="game-title">WWE SmackDown! Here Comes The Pain</div>
                 </div>
 
                 <!-- SvR Card -->
                 <div class="game-card" onclick="openGame('svr', 'WWE SmackDown vs. Raw')">
-                    <div class="game-icon-box">⚡</div>
+                    <div class="game-icon-box">🎮</div>
                     <div class="game-title">WWE SmackDown vs. Raw</div>
                 </div>
 
@@ -315,7 +315,7 @@
         <!-- STEP 2: Select Category -->
         <div id="step-2" class="view-section">
             <div class="breadcrumb">
-                <button class="back-btn" onclick="showStep(1)">← Back</button>
+                <button class="back-btn" onclick="goToStep('1')">← Back</button>
                 <span id="game-breadcrumb-title">Game</span>
             </div>
             <h1 class="page-title">Select <span>Category</span></h1>
@@ -325,7 +325,7 @@
                     <div class="category-name">Wrestlers Models</div>
                 </div>
                 <div class="category-card" onclick="openCategory('Full Game Mods')">
-                    <div class="category-icon">🎮</div>
+                    <div class="category-icon">🕹️</div>
                     <div class="category-name">Full Game Mods</div>
                 </div>
                 <div class="category-card" onclick="openCategory('Move Sets')">
@@ -350,7 +350,7 @@
         <!-- STEP 3: Mods List -->
         <div id="step-3" class="view-section">
             <div class="breadcrumb">
-                <button class="back-btn" onclick="showStep(2)">← Back</button>
+                <button class="back-btn" onclick="goToStep('2')">← Back</button>
                 <span id="category-breadcrumb-title">Category</span>
             </div>
             <h1 class="page-title" id="mods-page-title">Available <span>Mods</span></h1>
@@ -360,7 +360,7 @@
         <!-- STEP 4: Custom Mod Order Page -->
         <div id="step-custom" class="view-section">
             <div class="breadcrumb">
-                <button class="back-btn" onclick="showStep(2)">← Back</button>
+                <button class="back-btn" onclick="goToStep('2')">← Back</button>
                 <span>Create Custom Mod</span>
             </div>
             <h1 class="page-title" style="color: var(--accent-gold);">Create <span>Custom Mod</span></h1>
@@ -416,12 +416,12 @@
         var currentGameName = '';
         var currentCategory = '';
 
-        function showStep(stepNum) {
+        function goToStep(stepId) {
             var views = document.querySelectorAll('.view-section');
             for (var i = 0; i < views.length; i++) {
                 views[i].classList.remove('active');
             }
-            document.getElementById('step-' + stepNum).classList.add('active');
+            document.getElementById('step-' + stepId).classList.add('active');
             window.scrollTo(0, 0);
         }
 
@@ -429,7 +429,7 @@
             currentGame = gameKey;
             currentGameName = gameName;
             document.getElementById('game-breadcrumb-title').innerText = gameName;
-            showStep(2);
+            goToStep('2');
         }
 
         function openCategory(catName) {
@@ -437,11 +437,11 @@
             document.getElementById('category-breadcrumb-title').innerText = currentGameName + ' > ' + catName;
             document.getElementById('mods-page-title').innerHTML = catName + ' <span>Mods</span>';
             renderMods();
-            showStep(3);
+            goToStep('3');
         }
 
         function openCustomMods() {
-            showStep('custom');
+            goToStep('custom');
         }
 
         function renderMods() {
@@ -451,7 +451,7 @@
             if (currentGame === 'hctp' && currentCategory === 'Full Game Mods') {
                 container.innerHTML = `
                     <div class="mod-card">
-                        <div class="mod-banner"><span class="badge badge-free">FREE</span>🎮</div>
+                        <div class="mod-banner"><span class="badge badge-free">FREE</span>🕹️</div>
                         <div class="mod-body">
                             <div class="mod-title">Free Iconic Edition Modz</div>
                             <div class="mod-actions">
@@ -463,5 +463,4 @@
                     <div class="mod-card">
                         <div class="mod-banner"><span class="badge badge-paid">PAID</span>⚡</div>
                         <div class="mod-body">
-                            <div class="mod-title">WWE HCTP Iconic Edition V1</div>
-  
+                            <div class="mod-title">WWE HCTP Iconic Editio
