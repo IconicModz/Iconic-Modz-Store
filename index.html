@@ -138,7 +138,7 @@ color:white;
 border:1px solid #333
 }
 
-.dark:hover{background:#292929}
+.dark:hover{background:#292929}\n.social-btn{display:inline-flex;align-items:center;gap:7px}
 
 .buttons{
 display:flex;
@@ -287,6 +287,9 @@ color:#666
 .buttons{flex-direction:column}
 .totalbar{flex-direction:column;align-items:stretch}
 }
+
+.preview-video{position:relative;width:100%;aspect-ratio:16/9;margin-top:18px;border-radius:12px;overflow:hidden;background:#000}
+.preview-video iframe{width:100%;height:100%;border:0;display:block}
 </style>
 </head>
 
@@ -309,9 +312,10 @@ Create Custom Mod
 
 <div class="hero">
 <div class="small">WWE MODDING STORE</div>
-<h1>ICONIC MODZ</h1>
+<h1>WELCOME TO <span style="color:#e50914">ICONIC MODZ</span></h1>
 <p>
-Wrestler Models • Full Game Mods • Move Sets • Arenas • Titantrons
+WWE SmackDown mods, wrestler models, complete game modifications,
+move sets, arenas and titantrons — all in one place.
 </p>
 </div>
 
@@ -393,7 +397,7 @@ Wrestler Models • Full Game Mods • Move Sets • Arenas • Titantrons
 <div class="card category" onclick="showPage('custom')">
 <div class="category-icon">🛠️</div>
 <h2>Create Custom Mod</h2>
-<p>Select the wrestler models you want.</p>
+<p>Select wrestler models, arenas and titantrons for your custom mod.</p>
 </div>
 
 </div>
@@ -430,12 +434,21 @@ Wrestler Models • Full Game Mods • Move Sets • Arenas • Titantrons
 <p>Select the wrestler models you want.</p>
 </div>
 
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px">
+<button class="btn red" onclick="showCustomSection('wrestlers')">👤 Wrestlers</button>
+<button class="btn dark" onclick="showCustomSection('arenas')">🏟️ Arenas</button>
+<button class="btn dark" onclick="showCustomSection('titantrons')">📺 Titantrons</button>
+</div>
+
+<div id="customSectionTitle" class="small" style="margin-bottom:12px">WRESTLER MODELS</div>
 <div id="wrestlerGrid" class="grid"></div>
+<div id="arenaGrid" class="grid hidden"></div>
+<div id="titantronGrid" class="grid hidden"></div>
 
 <div class="totalbar">
 <div>
 <div style="color:#888">Selected Models</div>
-<strong id="selectedCount">0 Wrestlers</strong>
+<strong id="selectedCount">0 Items</strong>
 <div id="totalPrice" class="price">Total: ₹0</div>
 </div>
 
@@ -488,7 +501,40 @@ Get Mod
 
 
 <footer>
+<div style="max-width:900px;margin:auto">
+<div style="font-size:20px;font-weight:900;color:#fff;margin-bottom:18px">
+ICONIC <span style="color:#e50914">MODZ</span>
+</div>
+
+<div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+
+<a class="btn dark" href="https://youtube.com/@iconicmodz?si=k-lrmXSG2-PI35tL" target="_blank" rel="noopener">
+<svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align:-5px;margin-right:7px" aria-hidden="true">
+<path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.5 3.9-6.5 3.9Z"/>
+</svg>
+YouTube
+</a>
+
+<a class="btn dark" href="https://discord.gg/VsQqfKVE" target="_blank" rel="noopener">
+<svg width="21" height="21" viewBox="0 0 24 24" style="vertical-align:-5px;margin-right:7px" aria-hidden="true">
+<path fill="currentColor" d="M19.5 5.1A16.2 16.2 0 0 0 15.6 4l-.5 1a15 15 0 0 0-6.2 0l-.5-1a16.2 16.2 0 0 0-3.9 1.1C1.9 8.2 1.2 11.2 1.4 14.2a16 16 0 0 0 4.8 2.5l1.2-1.6c-.7-.3-1.3-.7-1.9-1.1l.5-.4c3.7 1.7 7.7 1.7 11.4 0l.5.4c-.6.4-1.2.8-1.9 1.1l1.2 1.6a16 16 0 0 0 4.8-2.5c.2-3-.5-6-2.5-9.1ZM8.9 13.1c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.2 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/>
+</svg>
+Discord
+</a>
+
+<a class="btn dark" href="https://paypal.me/Gsoni07" target="_blank" rel="noopener">
+<svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align:-5px;margin-right:7px" aria-hidden="true">
+<path fill="currentColor" d="M7.1 20.5H4.4L6.9 5.2C7.1 4.1 8 3.3 9.1 3.3h4.5c3.5 0 5.6 1.8 5.6 4.7 0 3.7-3 6.3-7.1 6.3H9.7l-.9 5.1H7.1Zm3.1-9.2h1.7c2.3 0 3.7-1.1 3.7-2.9 0-1.3-.9-2.1-2.7-2.1h-2l-.7 5Z"/>
+</svg>
+PayPal
+</a>
+
+</div>
+
+<div style="margin-top:18px">
 ICONIC MODZ • WWE Modding Store
+</div>
+</div>
 </footer>
 
 
@@ -499,6 +545,21 @@ ICONIC MODZ • WWE Modding Store
    YAHAN BAAD MEIN PRODUCTS ADD KAR SAKTE HO
 ========================================= */
 
+/*
+YOUTUBE TRAILER:
+Paste the normal YouTube link in the product's youtube field.
+Example:
+youtube:"https://www.youtube.com/watch?v=VIDEO_ID"
+or:
+youtube:"https://youtu.be/VIDEO_ID"
+
+IMAGE FOLDERS:
+images/mods/
+images/wrestlers/
+images/arenas/
+images/titantrons/
+*/
+
 const products={
 
 fullgame:[
@@ -506,7 +567,8 @@ fullgame:[
 {
 title:"Free Iconic Edition Modz",
 price:"FREE",
-image:"",
+image:"images/mods/free-iconic-edition.jpg",
+youtube:"",
 description:"Free WWE HCTP Iconic Edition modification.",
 features:[
 "Updated wrestlers",
@@ -519,7 +581,8 @@ features:[
 {
 title:"WWE HCTP Iconic Edition V1",
 price:"₹99",
-image:"",
+image:"images/mods/hctp-v1.jpg",
+youtube:"",
 description:"WWE SmackDown Here Comes The Pain Iconic Edition V1.",
 features:[
 "Updated wrestler models",
@@ -533,7 +596,8 @@ features:[
 {
 title:"WWE HCTP Iconic Edition V2",
 price:"₹149",
-image:"",
+image:"images/mods/hctp-v2.jpg",
+youtube:"",
 description:"WWE SmackDown Here Comes The Pain Iconic Edition V2.",
 features:[
 "New wrestler models",
@@ -561,407 +625,109 @@ titantrons:[]
 
 const wrestlers=[
 
-{name:"Wrestler Model 01",price:50,image:""},
-{name:"Wrestler Model 02",price:50,image:""},
-{name:"Wrestler Model 03",price:50,image:""},
-{name:"Wrestler Model 04",price:75,image:""},
-{name:"Wrestler Model 05",price:75,image:""},
-{name:"Wrestler Model 06",price:100,image:""}
+{name:"Wrestler Model 001",price:0,image:"images/wrestlers/wrestler001.jpg"},
+{name:"Wrestler Model 002",price:0,image:"images/wrestlers/wrestler002.jpg"},
+{name:"Wrestler Model 003",price:0,image:"images/wrestlers/wrestler003.jpg"},
+{name:"Wrestler Model 004",price:0,image:"images/wrestlers/wrestler004.jpg"},
+{name:"Wrestler Model 005",price:0,image:"images/wrestlers/wrestler005.jpg"},
+{name:"Wrestler Model 006",price:0,image:"images/wrestlers/wrestler006.jpg"},
+{name:"Wrestler Model 007",price:0,image:"images/wrestlers/wrestler007.jpg"},
+{name:"Wrestler Model 008",price:0,image:"images/wrestlers/wrestler008.jpg"},
+{name:"Wrestler Model 009",price:0,image:"images/wrestlers/wrestler009.jpg"},
+{name:"Wrestler Model 010",price:0,image:"images/wrestlers/wrestler010.jpg"},
+{name:"Wrestler Model 011",price:0,image:"images/wrestlers/wrestler011.jpg"},
+{name:"Wrestler Model 012",price:0,image:"images/wrestlers/wrestler012.jpg"},
+{name:"Wrestler Model 013",price:0,image:"images/wrestlers/wrestler013.jpg"},
+{name:"Wrestler Model 014",price:0,image:"images/wrestlers/wrestler014.jpg"},
+{name:"Wrestler Model 015",price:0,image:"images/wrestlers/wrestler015.jpg"},
+{name:"Wrestler Model 016",price:0,image:"images/wrestlers/wrestler016.jpg"},
+{name:"Wrestler Model 017",price:0,image:"images/wrestlers/wrestler017.jpg"},
+{name:"Wrestler Model 018",price:0,image:"images/wrestlers/wrestler018.jpg"},
+{name:"Wrestler Model 019",price:0,image:"images/wrestlers/wrestler019.jpg"},
+{name:"Wrestler Model 020",price:0,image:"images/wrestlers/wrestler020.jpg"},
+{name:"Wrestler Model 021",price:0,image:"images/wrestlers/wrestler021.jpg"},
+{name:"Wrestler Model 022",price:0,image:"images/wrestlers/wrestler022.jpg"},
+{name:"Wrestler Model 023",price:0,image:"images/wrestlers/wrestler023.jpg"},
+{name:"Wrestler Model 024",price:0,image:"images/wrestlers/wrestler024.jpg"},
+{name:"Wrestler Model 025",price:0,image:"images/wrestlers/wrestler025.jpg"},
+{name:"Wrestler Model 026",price:0,image:"images/wrestlers/wrestler026.jpg"},
+{name:"Wrestler Model 027",price:0,image:"images/wrestlers/wrestler027.jpg"},
+{name:"Wrestler Model 028",price:0,image:"images/wrestlers/wrestler028.jpg"},
+{name:"Wrestler Model 029",price:0,image:"images/wrestlers/wrestler029.jpg"},
+{name:"Wrestler Model 030",price:0,image:"images/wrestlers/wrestler030.jpg"},
+{name:"Wrestler Model 031",price:0,image:"images/wrestlers/wrestler031.jpg"},
+{name:"Wrestler Model 032",price:0,image:"images/wrestlers/wrestler032.jpg"},
+{name:"Wrestler Model 033",price:0,image:"images/wrestlers/wrestler033.jpg"},
+{name:"Wrestler Model 034",price:0,image:"images/wrestlers/wrestler034.jpg"},
+{name:"Wrestler Model 035",price:0,image:"images/wrestlers/wrestler035.jpg"},
+{name:"Wrestler Model 036",price:0,image:"images/wrestlers/wrestler036.jpg"},
+{name:"Wrestler Model 037",price:0,image:"images/wrestlers/wrestler037.jpg"},
+{name:"Wrestler Model 038",price:0,image:"images/wrestlers/wrestler038.jpg"},
+{name:"Wrestler Model 039",price:0,image:"images/wrestlers/wrestler039.jpg"},
+{name:"Wrestler Model 040",price:0,image:"images/wrestlers/wrestler040.jpg"},
+{name:"Wrestler Model 041",price:0,image:"images/wrestlers/wrestler041.jpg"},
+{name:"Wrestler Model 042",price:0,image:"images/wrestlers/wrestler042.jpg"},
+{name:"Wrestler Model 043",price:0,image:"images/wrestlers/wrestler043.jpg"},
+{name:"Wrestler Model 044",price:0,image:"images/wrestlers/wrestler044.jpg"},
+{name:"Wrestler Model 045",price:0,image:"images/wrestlers/wrestler045.jpg"},
+{name:"Wrestler Model 046",price:0,image:"images/wrestlers/wrestler046.jpg"},
+{name:"Wrestler Model 047",price:0,image:"images/wrestlers/wrestler047.jpg"},
+{name:"Wrestler Model 048",price:0,image:"images/wrestlers/wrestler048.jpg"},
+{name:"Wrestler Model 049",price:0,image:"images/wrestlers/wrestler049.jpg"},
+{name:"Wrestler Model 050",price:0,image:"images/wrestlers/wrestler050.jpg"},
+{name:"Wrestler Model 051",price:0,image:"images/wrestlers/wrestler051.jpg"},
+{name:"Wrestler Model 052",price:0,image:"images/wrestlers/wrestler052.jpg"},
+{name:"Wrestler Model 053",price:0,image:"images/wrestlers/wrestler053.jpg"},
+{name:"Wrestler Model 054",price:0,image:"images/wrestlers/wrestler054.jpg"},
+{name:"Wrestler Model 055",price:0,image:"images/wrestlers/wrestler055.jpg"},
+{name:"Wrestler Model 056",price:0,image:"images/wrestlers/wrestler056.jpg"},
+{name:"Wrestler Model 057",price:0,image:"images/wrestlers/wrestler057.jpg"},
+{name:"Wrestler Model 058",price:0,image:"images/wrestlers/wrestler058.jpg"},
+{name:"Wrestler Model 059",price:0,image:"images/wrestlers/wrestler059.jpg"},
+{name:"Wrestler Model 060",price:0,image:"images/wrestlers/wrestler060.jpg"},
+{name:"Wrestler Model 061",price:0,image:"images/wrestlers/wrestler061.jpg"},
+{name:"Wrestler Model 062",price:0,image:"images/wrestlers/wrestler062.jpg"},
+{name:"Wrestler Model 063",price:0,image:"images/wrestlers/wrestler063.jpg"},
+{name:"Wrestler Model 064",price:0,image:"images/wrestlers/wrestler064.jpg"},
+{name:"Wrestler Model 065",price:0,image:"images/wrestlers/wrestler065.jpg"},
+{name:"Wrestler Model 066",price:0,image:"images/wrestlers/wrestler066.jpg"},
+{name:"Wrestler Model 067",price:0,image:"images/wrestlers/wrestler067.jpg"},
+{name:"Wrestler Model 068",price:0,image:"images/wrestlers/wrestler068.jpg"},
+{name:"Wrestler Model 069",price:0,image:"images/wrestlers/wrestler069.jpg"},
+{name:"Wrestler Model 070",price:0,image:"images/wrestlers/wrestler070.jpg"},
+{name:"Wrestler Model 071",price:0,image:"images/wrestlers/wrestler071.jpg"},
+{name:"Wrestler Model 072",price:0,image:"images/wrestlers/wrestler072.jpg"},
+{name:"Wrestler Model 073",price:0,image:"images/wrestlers/wrestler073.jpg"},
+{name:"Wrestler Model 074",price:0,image:"images/wrestlers/wrestler074.jpg"},
+{name:"Wrestler Model 075",price:0,image:"images/wrestlers/wrestler075.jpg"},
+{name:"Wrestler Model 076",price:0,image:"images/wrestlers/wrestler076.jpg"},
+{name:"Wrestler Model 077",price:0,image:"images/wrestlers/wrestler077.jpg"},
+{name:"Wrestler Model 078",price:0,image:"images/wrestlers/wrestler078.jpg"},
+{name:"Wrestler Model 079",price:0,image:"images/wrestlers/wrestler079.jpg"},
+{name:"Wrestler Model 080",price:0,image:"images/wrestlers/wrestler080.jpg"},
+{name:"Wrestler Model 081",price:0,image:"images/wrestlers/wrestler081.jpg"},
+{name:"Wrestler Model 082",price:0,image:"images/wrestlers/wrestler082.jpg"},
+{name:"Wrestler Model 083",price:0,image:"images/wrestlers/wrestler083.jpg"},
+{name:"Wrestler Model 084",price:0,image:"images/wrestlers/wrestler084.jpg"},
+{name:"Wrestler Model 085",price:0,image:"images/wrestlers/wrestler085.jpg"},
+{name:"Wrestler Model 086",price:0,image:"images/wrestlers/wrestler086.jpg"},
+{name:"Wrestler Model 087",price:0,image:"images/wrestlers/wrestler087.jpg"},
+{name:"Wrestler Model 088",price:0,image:"images/wrestlers/wrestler088.jpg"},
+{name:"Wrestler Model 089",price:0,image:"images/wrestlers/wrestler089.jpg"},
+{name:"Wrestler Model 090",price:0,image:"images/wrestlers/wrestler090.jpg"},
+{name:"Wrestler Model 091",price:0,image:"images/wrestlers/wrestler091.jpg"},
+{name:"Wrestler Model 092",price:0,image:"images/wrestlers/wrestler092.jpg"},
+{name:"Wrestler Model 093",price:0,image:"images/wrestlers/wrestler093.jpg"},
+{name:"Wrestler Model 094",price:0,image:"images/wrestlers/wrestler094.jpg"},
+{name:"Wrestler Model 095",price:0,image:"images/wrestlers/wrestler095.jpg"},
+{name:"Wrestler Model 096",price:0,image:"images/wrestlers/wrestler096.jpg"},
+{name:"Wrestler Model 097",price:0,image:"images/wrestlers/wrestler097.jpg"},
+{name:"Wrestler Model 098",price:0,image:"images/wrestlers/wrestler098.jpg"},
+{name:"Wrestler Model 099",price:0,image:"images/wrestlers/wrestler099.jpg"},
+{name:"Wrestler Model 100",price:10,image:"images/wrestlers/wrestler100.jpg"}
 
 ];
 
 
-let currentGame="hctp";
-let currentCategory="";
-let selectedWrestlers=[];
-let currentProduct=null;
-
-
-/* =========================================
-   PAGE SYSTEM
-========================================= */
-
-function showPage(page){
-
-document.querySelectorAll(".page").forEach(x=>{
-x.classList.add("hidden")
-});
-
-document.getElementById(page).classList.remove("hidden");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-/* =========================================
-   GAME
-========================================= */
-
-function openGame(game){
-
-currentGame=game;
-
-document.getElementById("gameTitle").innerText=
-game==="hctp"
-?"WWE SmackDown! Here Comes The Pain"
-:"SmackDown vs Raw";
-
-showPage("categories");
-
-}
-
-
-/* =========================================
-   CATEGORY
-========================================= */
-
-function openCategory(category){
-
-currentCategory=category;
-
-const names={
-wrestlers:"Wrestler Models",
-fullgame:"Full Game Mods",
-movesets:"Move Sets",
-arenas:"Arenas",
-titantrons:"Titantrons"
-};
-
-document.getElementById("categoryTitle").innerText=
-names[category];
-
-renderProducts();
-
-showPage("products");
-
-}
-
-
-/* =========================================
-   PRODUCTS
-========================================= */
-
-function renderProducts(){
-
-const grid=document.getElementById("productGrid");
-
-const list=products[currentCategory]||[];
-
-if(list.length===0){
-
-grid.innerHTML=`
-
-<div class="card" style="padding:40px;text-align:center">
-
-<div style="font-size:50px">🛠️</div>
-
-<h2>Coming Soon</h2>
-
-<p>
-Products will be added to this category soon.
-</p>
-
-</div>
-
-`;
-
-return;
-
-}
-
-
-grid.innerHTML=list.map((product,index)=>`
-
-<div class="card">
-
-<div class="card-img">
-
-${
-product.image
-?
-`<img src="${product.image}" alt="">`
-:
-`<div class="placeholder">MOD</div>`
-}
-
-</div>
-
-<div class="card-body">
-
-<div class="badge">ICONIC MODZ</div>
-
-<h2>${product.title}</h2>
-
-<div class="price ${product.price==="FREE"?"free":""}">
-${product.price}
-</div>
-
-<div class="buttons">
-
-<button class="btn dark"
-onclick='previewProduct(${JSON.stringify(product)})'>
-Preview
-</button>
-
-<button class="btn red"
-onclick='buyProduct(${JSON.stringify(product)})'>
-Get
-</button>
-
-</div>
-
-</div>
-</div>
-
-`).join("");
-
-}
-
-
-/* =========================================
-   PREVIEW
-========================================= */
-
-function previewProduct(product){
-
-currentProduct=product;
-
-document.getElementById("previewTitle").innerText=
-product.title;
-
-document.getElementById("previewDescription").innerText=
-product.description;
-
-document.getElementById("previewPrice").innerText=
-product.price;
-
-document.getElementById("previewList").innerHTML=
-product.features.map(x=>`<li>${x}</li>`).join("");
-
-document.getElementById("previewModal")
-.classList.remove("hidden");
-
-}
-
-
-function closePreview(){
-
-document.getElementById("previewModal")
-.classList.add("hidden");
-
-}
-
-
-/* =========================================
-   PAYMENT
-========================================= */
-
-function payment(){
-
-if(!currentProduct)return;
-
-if(currentProduct.price==="FREE"){
-
-alert(
-"Free download system yahan connect kiya jayega."
-);
-
-return;
-
-}
-
-
-/*
-=========================================
-APNA PAYMENT LINK YAHAN DALNA
-
-UPI example:
-
-window.location.href =
-"upi://pay?pa=YOURUPI@upi&pn=ICONICMODZ&am=99&cu=INR";
-
-PAYPAL:
-
-window.location.href =
-"https://paypal.me/YOURPAYPAL";
-=========================================
-*/
-
-alert(
-"Payment page yahan connect hoga.\n\n"+
-"Product: "+currentProduct.title+
-"\nPrice: "+currentProduct.price
-);
-
-}
-
-
-/* =========================================
-   GET BUTTON
-========================================= */
-
-function buyProduct(product){
-
-currentProduct=product;
-
-if(product.price==="FREE"){
-
-alert("Free download link yahan add hoga.");
-
-}else{
-
-alert(
-"Payment selected:\n"+
-product.title+
-"\n"+
-product.price+
-"\n\nUPI / PayPal payment yahan connect hoga."
-);
-
-}
-
-}
-
-
-/* =========================================
-   CUSTOM MOD
-========================================= */
-
-function renderWrestlers(){
-
-const grid=document.getElementById("wrestlerGrid");
-
-grid.innerHTML=wrestlers.map((w,index)=>{
-
-const selected=selectedWrestlers.some(
-x=>x.name===w.name
-);
-
-return `
-
-<div class="card wrestler ${selected?"selected":""}"
-onclick="toggleWrestler(${index})">
-
-<div class="card-img">
-
-${
-w.image
-?
-`<img src="${w.image}" alt="">`
-:
-`<div class="placeholder">W</div>`
-}
-
-</div>
-
-<div class="card-body">
-
-<div class="check">✓</div>
-
-<h2>${w.name}</h2>
-
-<div class="price">
-₹${w.price}
-</div>
-
-<p>
-${selected?"Selected":"Select Model"}
-</p>
-
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-updateTotal();
-
-}
-
-
-function toggleWrestler(index){
-
-const wrestler=wrestlers[index];
-
-const exists=selectedWrestlers.some(
-x=>x.name===wrestler.name
-);
-
-if(exists){
-
-selectedWrestlers=
-selectedWrestlers.filter(
-x=>x.name!==wrestler.name
-);
-
-}else{
-
-selectedWrestlers.push(wrestler);
-
-}
-
-renderWrestlers();
-
-}
-
-
-function updateTotal(){
-
-const total=selectedWrestlers.reduce(
-(sum,x)=>sum+x.price,0
-);
-
-document.getElementById("selectedCount")
-.innerText=
-selectedWrestlers.length+" Wrestlers";
-
-document.getElementById("totalPrice")
-.innerText=
-"Total: ₹"+total;
-
-}
-
-
-function customPayment(){
-
-if(selectedWrestlers.length===0){
-
-alert("Pehle wrestler models select karo.");
-
-return;
-
-}
-
-const names=selectedWrestlers
-.map(x=>x.name)
-.join(", ");
-
-alert(
-"Custom Mod Order\n\n"+
-names+
-"\n\nTotal: ₹"+
-selectedWrestlers.reduce(
-(sum,x)=>sum+x.price,0
-)+
-"\n\nUPI / PayPal payment yahan connect hoga."
-);
-
-}
-
-
-/* =========================================
-   START
-========================================= */
-
-renderWrestlers();
-
-</script>
-
-</body>
-</html>
+const customArenas=[
+{ n
