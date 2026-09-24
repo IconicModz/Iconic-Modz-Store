@@ -729,5 +729,577 @@ const wrestlers=[
 ];
 
 
+
 const customArenas=[
-{ n
+{ name:"Arena 01",price:0,image:"" },
+{ name:"Arena 02",price:0,image:"" },
+{ name:"Arena 03",price:0,image:"" },
+{ name:"Arena 04",price:0,image:"" },
+{ name:"Arena 05",price:0,image:"" },
+{ name:"Arena 06",price:0,image:"" },
+{ name:"Arena 07",price:0,image:"" },
+{ name:"Arena 08",price:0,image:"" },
+{ name:"Arena 09",price:0,image:"" },
+{ name:"Arena 10",price:0,image:"" }
+];
+
+const customTitantrons=[
+{ name:"Titantron 01",price:0,image:"" },
+{ name:"Titantron 02",price:0,image:"" },
+{ name:"Titantron 03",price:0,image:"" },
+{ name:"Titantron 04",price:0,image:"" },
+{ name:"Titantron 05",price:0,image:"" },
+{ name:"Titantron 06",price:0,image:"" },
+{ name:"Titantron 07",price:0,image:"" },
+{ name:"Titantron 08",price:0,image:"" },
+{ name:"Titantron 09",price:0,image:"" },
+{ name:"Titantron 10",price:0,image:"" }
+];
+
+
+let currentGame="hctp";
+let currentCategory="";
+let selectedWrestlers=[];
+let selectedArenas=[];
+let selectedTitantrons=[];
+let currentCustomSection="wrestlers";
+let currentProduct=null;
+
+
+/* =========================================
+   PAGE SYSTEM
+========================================= */
+
+function showPage(page){
+
+document.querySelectorAll(".page").forEach(x=>{
+x.classList.add("hidden")
+});
+
+document.getElementById(page).classList.remove("hidden");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================================
+   GAME
+========================================= */
+
+function openGame(game){
+
+currentGame=game;
+
+document.getElementById("gameTitle").innerText=
+game==="hctp"
+?"WWE SmackDown! Here Comes The Pain"
+:"SmackDown vs Raw";
+
+showPage("categories");
+
+}
+
+
+/* =========================================
+   CATEGORY
+========================================= */
+
+function openCategory(category){
+
+currentCategory=category;
+
+const names={
+wrestlers:"Wrestler Models",
+fullgame:"Full Game Mods",
+movesets:"Move Sets",
+arenas:"Arenas",
+titantrons:"Titantrons"
+};
+
+document.getElementById("categoryTitle").innerText=
+names[category];
+
+renderProducts();
+
+showPage("products");
+
+}
+
+
+/* =========================================
+   PRODUCTS
+========================================= */
+
+function renderProducts(){
+
+const grid=document.getElementById("productGrid");
+
+const list=products[currentCategory]||[];
+
+if(list.length===0){
+
+grid.innerHTML=`
+
+<div class="card" style="padding:40px;text-align:center">
+
+<div style="font-size:50px">🛠️</div>
+
+<h2>Coming Soon</h2>
+
+<p>
+Products will be added to this category soon.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+grid.innerHTML=list.map((product,index)=>`
+
+<div class="card">
+
+<div class="card-img">
+
+${
+product.image
+?
+`<img src="${product.image}" alt="">`
+:
+`<div class="placeholder">MOD</div>`
+}
+
+</div>
+
+<div class="card-body">
+
+<div class="badge">ICONIC MODZ</div>
+
+<h2>${product.title}</h2>
+
+<div class="price ${product.price==="FREE"?"free":""}">
+${product.price}
+</div>
+
+<div class="buttons">
+
+<button class="btn dark"
+onclick='previewProduct(${JSON.stringify(product)})'>
+Preview
+</button>
+
+<button class="btn red"
+onclick='buyProduct(${JSON.stringify(product)})'>
+Get
+</button>
+
+</div>
+
+</div>
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================================
+   PREVIEW
+========================================= */
+
+
+function getYouTubeId(url){
+    if(!url) return "";
+    try{
+        const u = new URL(url);
+        if(u.hostname.includes("youtu.be")) return u.pathname.replace("/","").split("/")[0];
+        if(u.searchParams.get("v")) return u.searchParams.get("v");
+        const parts = u.pathname.split("/");
+        const idx = parts.indexOf("embed");
+        if(idx >= 0 && parts[idx+1]) return parts[idx+1];
+        const shorts = parts.indexOf("shorts");
+        if(shorts >= 0 && parts[shorts+1]) return parts[shorts+1];
+    }catch(e){}
+    return "";
+}
+
+function previewProduct(product){
+
+currentProduct=product;
+
+document.getElementById("previewTitle").innerText=product.title;
+document.getElementById("previewDescription").innerText=product.description;
+document.getElementById("previewPrice").innerText=product.price;
+document.getElementById("previewList").innerHTML=
+product.features.map(x=>`<li>${x}</li>`).join("");
+
+const videoWrap=document.getElementById("previewVideoWrap");
+const video=document.getElementById("previewVideo");
+const videoLinkWrap=document.getElementById("previewVideoLinkWrap");
+const videoLink=document.getElementById("previewVideoLink");
+const videoId=getYouTubeId(product.youtube || "");
+
+videoWrap.classList.add("hidden");
+videoLinkWrap.classList.add("hidden");
+video.removeAttribute("src");
+videoLink.removeAttribute("href");
+
+if(videoId){
+    video.src=`https://www.youtube-nocookie.com/embed/${videoId}`;
+    videoWrap.classList.remove("hidden");
+    videoLink.href=product.youtube;
+    videoLinkWrap.classList.remove("hidden");
+}
+
+document.getElementById("previewModal").classList.remove("hidden");
+
+}
+
+
+function closePreview(){
+
+document.getElementById("previewModal").classList.add("hidden");
+
+const video=document.getElementById("previewVideo");
+if(video) video.removeAttribute("src");
+
+}
+
+
+/* =========================================
+   PAYMENT
+========================================= */
+
+function payment(){
+
+if(!currentProduct)return;
+
+if(currentProduct.price==="FREE"){
+
+alert(
+"Free download system yahan connect kiya jayega."
+);
+
+return;
+
+}
+
+
+/*
+=========================================
+APNA PAYMENT LINK YAHAN DALNA
+
+UPI example:
+
+window.location.href =
+"upi://pay?pa=YOURUPI@upi&pn=ICONICMODZ&am=99&cu=INR";
+
+PAYPAL:
+
+window.location.href =
+"https://paypal.me/YOURPAYPAL";
+=========================================
+*/
+
+alert(
+"Payment page yahan connect hoga.\n\n"+
+"Product: "+currentProduct.title+
+"\nPrice: "+currentProduct.price
+);
+
+}
+
+
+/* =========================================
+   GET BUTTON
+========================================= */
+
+function buyProduct(product){
+
+currentProduct=product;
+
+if(product.price==="FREE"){
+
+alert("Free download link yahan add hoga.");
+
+}else{
+
+alert(
+"Payment selected:\n"+
+product.title+
+"\n"+
+product.price+
+"\n\nUPI / PayPal payment yahan connect hoga."
+);
+
+}
+
+}
+
+
+/* =========================================
+   CUSTOM MOD
+========================================= */
+
+function showCustomSection(section){
+
+currentCustomSection=section;
+
+document.getElementById("wrestlerGrid").classList.toggle("hidden",section!=="wrestlers");
+document.getElementById("arenaGrid").classList.toggle("hidden",section!=="arenas");
+document.getElementById("titantronGrid").classList.toggle("hidden",section!=="titantrons");
+
+const title={
+wrestlers:"WRESTLER MODELS",
+arenas:"ARENAS",
+titantrons:"TITANTRONS"
+};
+
+document.getElementById("customSectionTitle").innerText=title[section];
+
+if(section==="wrestlers") renderWrestlers();
+if(section==="arenas") renderCustomItems("arenas");
+if(section==="titantrons") renderCustomItems("titantrons");
+
+}
+
+
+function renderWrestlers(){
+
+const grid=document.getElementById("wrestlerGrid");
+
+grid.innerHTML=wrestlers.map((w,index)=>{
+
+const selected=selectedWrestlers.some(x=>x.name===w.name);
+
+return `
+
+<div class="card wrestler ${selected?"selected":""}"
+onclick="toggleWrestler(${index})">
+
+<div class="card-img">
+${
+w.image
+?
+`<img src="${w.image}" alt="${w.name}">`
+:
+`<div class="placeholder">W</div>`
+}
+</div>
+
+<div class="card-body">
+
+<div class="check">✓</div>
+
+<h2>${w.name}</h2>
+
+<div class="price">
+${w.price>0?"₹"+w.price:"PRICE"}
+</div>
+
+<p>
+${selected?"Selected":"Select Model"}
+</p>
+
+</div>
+</div>
+
+`;
+
+}).join("");
+
+updateTotal();
+
+}
+
+
+function renderCustomItems(type){
+
+const grid=document.getElementById(
+type==="arenas"?"arenaGrid":"titantronGrid"
+);
+
+const list=type==="arenas"?customArenas:customTitantrons;
+const selected=type==="arenas"?selectedArenas:selectedTitantrons;
+
+grid.innerHTML=list.map((item,index)=>{
+
+const isSelected=selected.some(x=>x.name===item.name);
+
+return `
+
+<div class="card wrestler ${isSelected?"selected":""}"
+onclick="toggleCustomItem('${type}',${index})">
+
+<div class="card-img">
+${
+item.image
+?
+`<img src="${item.image}" alt="${item.name}">`
+:
+`<div class="placeholder">${type==="arenas"?"A":"T"}</div>`
+}
+</div>
+
+<div class="card-body">
+
+<div class="check">✓</div>
+
+<h2>${item.name}</h2>
+
+<div class="price">
+${item.price>0?"₹"+item.price:"PRICE"}
+</div>
+
+<p>
+${isSelected?"Selected":"Select "+(type==="arenas"?"Arena":"Titantron")}
+</p>
+
+</div>
+</div>
+
+`;
+
+}).join("");
+
+updateTotal();
+
+}
+
+
+function toggleWrestler(index){
+
+const wrestler=wrestlers[index];
+
+const exists=selectedWrestlers.some(
+x=>x.name===wrestler.name
+);
+
+if(exists){
+
+selectedWrestlers=selectedWrestlers.filter(
+x=>x.name!==wrestler.name
+);
+
+}else{
+
+selectedWrestlers.push(wrestler);
+
+}
+
+renderWrestlers();
+
+}
+
+
+function toggleCustomItem(type,index){
+
+const list=type==="arenas"?customArenas:customTitantrons;
+const target=list[index];
+
+if(type==="arenas"){
+
+const exists=selectedArenas.some(x=>x.name===target.name);
+
+if(exists){
+selectedArenas=selectedArenas.filter(x=>x.name!==target.name);
+}else{
+selectedArenas.push(target);
+}
+
+renderCustomItems("arenas");
+
+}else{
+
+const exists=selectedTitantrons.some(x=>x.name===target.name);
+
+if(exists){
+selectedTitantrons=selectedTitantrons.filter(x=>x.name!==target.name);
+}else{
+selectedTitantrons.push(target);
+}
+
+renderCustomItems("titantrons");
+
+}
+
+}
+
+
+function updateTotal(){
+
+const all=[
+...selectedWrestlers,
+...selectedArenas,
+...selectedTitantrons
+];
+
+const total=all.reduce(
+(sum,x)=>sum+Number(x.price||0),0
+);
+
+document.getElementById("selectedCount")
+.innerText=
+all.length+" Items";
+
+document.getElementById("totalPrice")
+.innerText=
+total>0?"Total: ₹"+total:"Total: Price to be set";
+
+
+}
+
+
+function customPayment(){
+
+const all=[
+...selectedWrestlers,
+...selectedArenas,
+...selectedTitantrons
+];
+
+if(all.length===0){
+
+alert("Pehle wrestler, arena ya titantron select karo.");
+
+return;
+
+}
+
+const names=all
+.map(x=>x.name)
+.join(", ");
+
+const total=all.reduce(
+(sum,x)=>sum+Number(x.price||0),0
+);
+
+alert(
+"Custom Mod Order\n\n"+
+names+
+"\n\n"+
+(total>0?"Total: ₹"+total:"Price: To be set")+
+"\n\nUPI / PayPal payment yahan connect hoga."
+);
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+renderWrestlers();
+
+</script>
+
+</body>
+</html>
