@@ -291,7 +291,19 @@ color:#666
 .preview-video{position:relative;width:100%;aspect-ratio:16/9;margin-top:18px;border-radius:12px;overflow:hidden;background:#000}
 .preview-video iframe{width:100%;height:100%;border:0;display:block}
 
-.payment-choice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+/* ICONIC MODZ - lightweight visual animations only */
+.hero h1{animation:imzFadeUp .7s ease both}
+.hero .small{animation:imzFadeUp .5s ease both}
+.hero p{animation:imzFadeUp .9s ease both}
+.card{animation:imzCardIn .55s ease both}
+.category-icon{transition:transform .25s ease}
+.category:hover .category-icon{transform:scale(1.08) rotate(-2deg)}
+.btn{transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.btn:hover{transform:translateY(-2px)}
+@keyframes imzFadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes imzCardIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
 </style>
 </head>
 
@@ -463,24 +475,6 @@ Get Custom Mod
 </section>
 
 
-
-<div id="paymentModal" class="modal hidden">
-<div class="modal-box" style="max-width:520px;text-align:center">
-<button class="close" onclick="closePayment()">×</button>
-<div class="small">PAYMENT</div>
-<h2 id="paymentTitle">Choose Payment Method</h2>
-<p id="paymentInfo"></p>
-<div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
-<a class="btn red" href="https://paypal.me/Gsoni07" target="_blank" rel="noopener">💳 PayPal</a>
-<button class="btn dark" onclick="showUPI()">₹ UPI</button>
-</div>
-<div id="upiBox" class="hidden" style="margin-top:18px;padding:20px;border:1px dashed #444;border-radius:12px">
-<strong>UPI</strong>
-<p>UPI QR code will be added here.</p>
-</div>
-</div>
-</div>
-
 <!-- PREVIEW MODAL -->
 <div id="previewModal" class="modal hidden">
 
@@ -521,21 +515,40 @@ Get Mod
 
 
 
-<section style="padding:20px">
+<section id="credits" class="page" style="display:block!important;background:#050505">
 <div class="container" style="padding-top:20px;padding-bottom:20px">
 <div class="card" style="padding:25px">
 <div class="small">CREDITS</div>
-<h2>ICONIC MODZ CREDITS</h2>
-<p>Add the names of the modders, creators, tools developers and contributors who made these mods possible.</p>
-<div id="creditsList" style="color:#aaa;line-height:2">
+<h2 style="margin-top:8px">Modders & Contributors</h2>
+<p>Add the names of the people, tools and creators who made these mods possible.</p>
+<div style="line-height:2;color:#bbb">
 • Add Credit Name 01<br>
 • Add Credit Name 02<br>
 • Add Credit Name 03<br>
-• Add Credit Name 04<br>
+• Add Credit Name 04
 </div>
 </div>
 </div>
 </section>
+
+<!-- PAYMENT MODAL -->
+<div id="paymentModal" class="modal hidden">
+<div class="modal-box">
+<button class="close" onclick="closePayment()">×</button>
+<div class="small">SECURE PAYMENT</div>
+<h2 id="paymentTitle">Purchase</h2>
+<p id="paymentInfo">Choose your payment method.</p>
+<div class="buttons" style="margin-top:20px">
+<a id="paypalButton" class="btn red" href="https://paypal.me/Gsoni07" target="_blank" rel="noopener">Pay with PayPal</a>
+<button class="btn dark" onclick="showUPI()">UPI</button>
+</div>
+<div id="upiBox" class="hidden" style="margin-top:18px;padding:18px;border:1px solid #333;border-radius:12px;text-align:center">
+<strong>UPI</strong>
+<p style="margin:8px 0 0">UPI QR / payment details can be added here.</p>
+<div style="margin-top:12px;padding:28px;border:1px dashed #555;border-radius:10px;color:#777">UPI QR PLACEHOLDER</div>
+</div>
+</div>
+</div>
 
 <footer>
 <div style="max-width:900px;margin:auto">
@@ -577,6 +590,7 @@ ICONIC MODZ • WWE Modding Store
 
 <script>
 
+   
 /* =========================================
    WEBSITE DATA
    YAHAN BAAD MEIN PRODUCTS ADD KAR SAKTE HO
@@ -1014,72 +1028,38 @@ if(video) video.removeAttribute("src");
    PAYMENT
 ========================================= */
 
-function payment(){
-
-if(!currentProduct)return;
-
-if(currentProduct.price==="FREE"){
-alert("This item is free. Free download link can be added here later.");
+function openPayment(product){
+currentProduct=product;
+if(product.price==="FREE"){
+alert("Ye item FREE hai. Free download link baad me yahan add kiya ja sakta hai.");
 return;
 }
+document.getElementById("paymentTitle").innerText=product.title;
+document.getElementById("paymentInfo").innerText="Price: "+product.price+" — payment method choose karo.";
+document.getElementById("upiBox").classList.add("hidden");
+document.getElementById("paymentModal").classList.remove("hidden");
+}
 
+function closePayment(){
+document.getElementById("paymentModal").classList.add("hidden");
+}
+
+function showUPI(){
+document.getElementById("upiBox").classList.remove("hidden");
+}
+
+function payment(){
+if(!currentProduct)return;
 openPayment(currentProduct);
-
 }
-
-
-/*
-=========================================
-APNA PAYMENT LINK YAHAN DALNA
-
-UPI example:
-
-window.location.href =
-"upi://pay?pa=YOURUPI@upi&pn=ICONICMODZ&am=99&cu=INR";
-
-PAYPAL:
-
-window.location.href =
-"https://paypal.me/YOURPAYPAL";
-=========================================
-*/
-
-alert(
-"Payment page yahan connect hoga.\n\n"+
-"Product: "+currentProduct.title+
-"\nPrice: "+currentProduct.price
-);
-
-}
-
 
 /* =========================================
    GET BUTTON
 ========================================= */
 
 function buyProduct(product){
-
 currentProduct=product;
-
-if(product.price==="FREE"){
-alert("This item is free. Free download link can be added here later.");
-return;
-}
-
 openPayment(product);
-
-}else{
-
-alert(
-"Payment selected:\n"+
-product.title+
-"\n"+
-product.price+
-"\n\nUPI / PayPal payment yahan connect hoga."
-);
-
-}
-
 }
 
 
@@ -1305,18 +1285,10 @@ const all=[
 ];
 
 if(all.length===0){
+
 alert("Pehle wrestler, arena ya titantron select karo.");
+
 return;
-}
-
-const names=all.map(x=>x.name).join(", ");
-const total=all.reduce((sum,x)=>sum+Number(x.price||0),0);
-
-openPayment({
-title:"Custom Mod",
-price:total>0?"₹"+total:"Price to be set",
-description:names
-});
 
 }
 
@@ -1328,41 +1300,13 @@ const total=all.reduce(
 (sum,x)=>sum+Number(x.price||0),0
 );
 
-alert(
-"Custom Mod Order\n\n"+
-names+
-"\n\n"+
-(total>0?"Total: ₹"+total:"Price: To be set")+
-"\n\nUPI / PayPal payment yahan connect hoga."
-);
+openPayment({
+title:"Custom Mod Order",
+price:total>0?"₹"+total:"Price to be set"
+});
 
 }
 
-
-function openPayment(product){
-
-currentProduct=product;
-
-document.getElementById("paymentTitle").innerText="Choose Payment Method";
-document.getElementById("paymentInfo").innerText=
-(product.title||"Custom Mod")+" • "+(product.price||"");
-
-document.getElementById("upiBox").classList.add("hidden");
-document.getElementById("paymentModal").classList.remove("hidden");
-
-}
-
-function closePayment(){
-
-document.getElementById("paymentModal").classList.add("hidden");
-
-}
-
-function showUPI(){
-
-document.getElementById("upiBox").classList.remove("hidden");
-
-}
 
 /* =========================================
    START
@@ -1374,3 +1318,4 @@ renderWrestlers();
 
 </body>
 </html>
+   
