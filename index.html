@@ -304,6 +304,10 @@ color:#666
 @keyframes imzCardIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+
+.brand-wrap{display:flex;align-items:center;gap:10px}
+.brand-logo{width:42px;height:42px;object-fit:contain;border-radius:8px}
+.brand-wrap b{color:#e50914}
 </style>
 </head>
 
@@ -311,7 +315,7 @@ color:#666
 
 <header>
 <div class="nav">
-<div class="logo">ICONIC <span>MODZ</span></div>
+<div class="logo brand-wrap"><img class="brand-logo" src="images/logo/iconic-modz.png" alt="ICONIC MODZ" onerror="this.style.display='none'"> <span>ICONIC <b>MODZ</b></span></div>
 
 <button class="btn dark" onclick="showPage('custom')">
 Create Custom Mod
@@ -337,7 +341,8 @@ move sets, arenas and titantrons — all in one place.
 
 <div class="card" onclick="openGame('svr')">
 <div class="card-img">
-<div class="placeholder">SVR</div>
+<img src="images/games/svr.jpg" alt="SmackDown vs Raw" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<div class="placeholder" style="display:none">SVR</div>
 </div>
 
 <div class="card-body">
@@ -350,7 +355,8 @@ move sets, arenas and titantrons — all in one place.
 
 <div class="card" onclick="openGame('hctp')">
 <div class="card-img">
-<div class="placeholder">HCTP</div>
+<img src="images/games/hctp.jpg" alt="WWE SmackDown Here Comes The Pain" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<div class="placeholder" style="display:none">HCTP</div>
 </div>
 
 <div class="card-body">
@@ -590,7 +596,6 @@ ICONIC MODZ • WWE Modding Store
 
 <script>
 
-   
 /* =========================================
    WEBSITE DATA
    YAHAN BAAD MEIN PRODUCTS ADD KAR SAKTE HO
@@ -673,6 +678,7 @@ titantrons:[]
    WRESTLER LIST
    BAAD MEIN APNI ACTUAL LIST YAHAN DALNA
 ========================================= */
+   
 
 const wrestlers=[
 
@@ -781,29 +787,29 @@ const wrestlers=[
 
 
 const customArenas=[
-{ name:"Arena 01",price:0,image:"" },
-{ name:"Arena 02",price:0,image:"" },
-{ name:"Arena 03",price:0,image:"" },
-{ name:"Arena 04",price:0,image:"" },
-{ name:"Arena 05",price:0,image:"" },
-{ name:"Arena 06",price:0,image:"" },
-{ name:"Arena 07",price:0,image:"" },
-{ name:"Arena 08",price:0,image:"" },
-{ name:"Arena 09",price:0,image:"" },
-{ name:"Arena 10",price:0,image:"" }
+{ name:"Arena 01",price:0,image:"images/arenas/arena01.jpg" },
+{ name:"Arena 02",price:0,image:"images/arenas/arena02.jpg" },
+{ name:"Arena 03",price:0,image:"images/arenas/arena03.jpg" },
+{ name:"Arena 04",price:0,image:"images/arenas/arena04.jpg" },
+{ name:"Arena 05",price:0,image:"images/arenas/arena05.jpg" },
+{ name:"Arena 06",price:0,image:"images/arenas/arena06.jpg" },
+{ name:"Arena 07",price:0,image:"images/arenas/arena07.jpg" },
+{ name:"Arena 08",price:0,image:"images/arenas/arena08.jpg" },
+{ name:"Arena 09",price:0,image:"images/arenas/arena09.jpg" },
+{ name:"Arena 10",price:0,image:"images/arenas/arena10.jpg" }
 ];
 
 const customTitantrons=[
-{ name:"Titantron 01",price:0,image:"" },
-{ name:"Titantron 02",price:0,image:"" },
-{ name:"Titantron 03",price:0,image:"" },
-{ name:"Titantron 04",price:0,image:"" },
-{ name:"Titantron 05",price:0,image:"" },
-{ name:"Titantron 06",price:0,image:"" },
-{ name:"Titantron 07",price:0,image:"" },
-{ name:"Titantron 08",price:0,image:"" },
-{ name:"Titantron 09",price:0,image:"" },
-{ name:"Titantron 10",price:0,image:"" }
+{ name:"Titantron 01",price:0,image:"images/titantrons/titantron01.jpg" },
+{ name:"Titantron 02",price:0,image:"images/titantrons/titantron02.jpg" },
+{ name:"Titantron 03",price:0,image:"images/titantrons/titantron03.jpg" },
+{ name:"Titantron 04",price:0,image:"images/titantrons/titantron04.jpg" },
+{ name:"Titantron 05",price:0,image:"images/titantrons/titantron05.jpg" },
+{ name:"Titantron 06",price:0,image:"images/titantrons/titantron06.jpg" },
+{ name:"Titantron 07",price:0,image:"images/titantrons/titantron07.jpg" },
+{ name:"Titantron 08",price:0,image:"images/titantrons/titantron08.jpg" },
+{ name:"Titantron 09",price:0,image:"images/titantrons/titantron09.jpg" },
+{ name:"Titantron 10",price:0,image:"images/titantrons/titantron10.jpg" }
 ];
 
 
