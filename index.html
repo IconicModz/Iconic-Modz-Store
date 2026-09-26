@@ -95,18 +95,25 @@ box-shadow:0 10px 40px rgba(229,9,20,.12)
 }
 
 .card-img{
-height:190px;
+width:100%;
+aspect-ratio:1 / 1;
+height:auto;
+min-height:240px;
 background:linear-gradient(135deg,#191919,#080808);
 display:flex;
 align-items:center;
 justify-content:center;
-overflow:hidden
+overflow:hidden;
+padding:10px;
+box-sizing:border-box
 }
 
 .card-img img{
 width:100%;
 height:100%;
-object-fit:cover
+object-fit:contain;
+border-radius:10px;
+display:block
 }
 
 .placeholder{
@@ -291,6 +298,16 @@ color:#666
 .preview-video{position:relative;width:100%;aspect-ratio:16/9;margin-top:18px;border-radius:12px;overflow:hidden;background:#000}
 .preview-video iframe{width:100%;height:100%;border:0;display:block}
 
+.preview-product-image{width:100%;height:280px;object-fit:cover;border-radius:12px;display:block}
+.youtube-section{margin-top:24px}
+.youtube-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.youtube-card{display:flex;align-items:center;gap:12px;padding:10px;border:1px solid #2b2b2b;border-radius:12px;background:#151515;color:#fff;text-decoration:none;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.youtube-card:hover{transform:translateY(-2px);border-color:#e50914;background:#1b1b1b}
+.youtube-thumb{width:110px;height:62px;object-fit:cover;border-radius:8px;background:#222;flex:none}
+.youtube-card-title{font-weight:800;font-size:14px;line-height:1.3}
+.youtube-card-label{font-size:11px;color:#aaa;margin-top:4px}
+@media(max-width:600px){.youtube-grid{grid-template-columns:1fr}.youtube-thumb{width:100px;height:56px}}
+
 /* ICONIC MODZ - lightweight visual animations only */
 .hero h1{animation:imzFadeUp .7s ease both}
 .hero .small{animation:imzFadeUp .5s ease both}
@@ -346,8 +363,8 @@ move sets, arenas and titantrons — all in one place.
 </div>
 
 <div class="card-body">
-<h2>SmackDown vs Raw Mods</h2>
-<p>Explore SmackDown vs Raw modifications.</p>
+<h2>SVR Modz</h2>
+<p>Explore SmackDown vs Raw Modz and custom modifications.</p>
 <button class="btn red">Explore Mods →</button>
 </div>
 </div>
@@ -360,7 +377,7 @@ move sets, arenas and titantrons — all in one place.
 </div>
 
 <div class="card-body">
-<h2>WWE SmackDown! Here Comes The Pain</h2>
+<h2>SmackDown Here Comes The Pain Modz</h2>
 <p>Explore HCTP wrestler models, moves, arenas and complete mods.</p>
 <button class="btn red">Explore Mods →</button>
 </div>
@@ -492,8 +509,9 @@ Get Custom Mod
 
 <h2 id="previewTitle"></h2>
 
-<div class="preview-image">
-<div class="placeholder">IMAGE</div>
+<div class="preview-image" id="previewImageWrap">
+<div class="placeholder" id="previewImagePlaceholder">IMAGE</div>
+<img id="previewProductImage" class="preview-product-image hidden" alt="Mod preview">
 </div>
 
 <p id="previewDescription"></p>
@@ -501,6 +519,12 @@ Get Custom Mod
 <h3>What's Included</h3>
 
 <ul id="previewList"></ul>
+
+<div class="youtube-section">
+<h3>YouTube Videos</h3>
+<p style="color:#888;margin:6px 0">Click any video to watch the mod preview on YouTube.</p>
+<div id="youtubeVideoList" class="youtube-grid"></div>
+</div>
 
 <div class="price" id="previewPrice"></div>
 
@@ -624,13 +648,27 @@ fullgame:[
 title:"Free Iconic Edition Modz",
 price:"FREE",
 image:"images/mods/free-iconic-edition.jpg",
-youtube:"",
-description:"Free WWE HCTP Iconic Edition modification.",
+description:"Free WWE SmackDown! Here Comes The Pain Iconic Edition mod. Yahan tum apne free build ke exact roster, arenas, entrances, moves aur other features detail me likh sakte ho.",
 features:[
-"Updated wrestlers",
-"Updated arenas",
-"New entrance content",
-"Updated moves"
+"Roster: Add your final roster list here",
+"Arenas: Add the included arenas here",
+"Updated wrestler models",
+"Updated moves and movesets",
+"Updated entrances and themes",
+"Titantrons and presentation updates",
+"Other Iconic Edition features"
+],
+youtubeVideos:[
+{title:"Free Mod Trailer",url:""},
+{title:"Roster Showcase",url:""},
+{title:"Arena Showcase",url:""},
+{title:"Wrestler Models Showcase",url:""},
+{title:"Moves & Movesets Showcase",url:""},
+{title:"Entrances & Themes Showcase",url:""},
+{title:"Titantrons Showcase",url:""},
+{title:"Gameplay Showcase",url:""},
+{title:"Update / Features Video",url:""},
+{title:"Full Mod Showcase",url:""}
 ]
 },
 
@@ -638,14 +676,29 @@ features:[
 title:"WWE HCTP Iconic Edition V1",
 price:"₹99",
 image:"images/mods/hctp-v1.jpg",
-youtube:"",
-description:"WWE SmackDown Here Comes The Pain Iconic Edition V1.",
+description:"WWE SmackDown! Here Comes The Pain Iconic Edition V1. Preview me roster, arenas, wrestler models, moves, entrances, titantrons aur doosre included features ka complete breakdown diya ja sakta hai.",
 features:[
+"Roster: Add V1 roster details here",
+"Arenas: Add V1 arena list here",
 "Updated wrestler models",
-"Updated moves",
-"New arenas",
-"Updated entrances",
-"New content"
+"Updated movesets",
+"Updated entrances and themes",
+"Titantrons",
+"Gameplay and presentation updates",
+"Additional V1 content"
+],
+youtubeVideos:[
+{title:"V1 Official Trailer",url:""},
+{title:"V1 Roster Showcase",url:""},
+{title:"V1 Arena Showcase",url:""},
+{title:"V1 Wrestler Models",url:""},
+{title:"V1 Moves & Movesets",url:""},
+{title:"V1 Entrances & Themes",url:""},
+{title:"V1 Titantrons",url:""},
+{title:"V1 Gameplay",url:""},
+{title:"V1 Features Part 1",url:""},
+{title:"V1 Features Part 2",url:""},
+{title:"V1 Full Showcase",url:""}
 ]
 },
 
@@ -653,14 +706,28 @@ features:[
 title:"WWE HCTP Iconic Edition V2",
 price:"₹149",
 image:"images/mods/hctp-v2.jpg",
-youtube:"",
-description:"WWE SmackDown Here Comes The Pain Iconic Edition V2.",
+description:"WWE SmackDown! Here Comes The Pain Iconic Edition V2. Is preview me V2 ke exact roster, arenas, models, movesets, entrances, titantrons aur latest additions ko showcase kiya ja sakta hai.",
 features:[
+"Roster: Add V2 roster details here",
+"Arenas: Add V2 arena list here",
 "New wrestler models",
 "Updated movesets",
-"New arenas",
+"Updated entrances and themes",
 "Updated titantrons",
-"More mod content"
+"Latest V2 additions",
+"Additional gameplay and presentation updates"
+],
+youtubeVideos:[
+{title:"V2 Official Trailer",url:""},
+{title:"V2 Roster Showcase",url:""},
+{title:"V2 Arena Showcase",url:""},
+{title:"V2 Wrestler Models",url:""},
+{title:"V2 Moves & Movesets",url:""},
+{title:"V2 Entrances & Themes",url:""},
+{title:"V2 Titantrons",url:""},
+{title:"V2 Gameplay",url:""},
+{title:"V2 New Features",url:""},
+{title:"V2 Full Showcase",url:""}
 ]
 }
 
@@ -678,9 +745,8 @@ titantrons:[]
    WRESTLER LIST
    BAAD MEIN APNI ACTUAL LIST YAHAN DALNA
 ========================================= */
-   
 
-const wrestlers=[
+   const wrestlers=[
 
 {name:"Wrestler Model 001",price:0,image:"images/wrestlers/wrestler001.jpg"},
 {name:"Wrestler Model 002",price:0,image:"images/wrestlers/wrestler002.jpg"},
@@ -995,24 +1061,36 @@ document.getElementById("previewTitle").innerText=product.title;
 document.getElementById("previewDescription").innerText=product.description;
 document.getElementById("previewPrice").innerText=product.price;
 document.getElementById("previewList").innerHTML=
-product.features.map(x=>`<li>${x}</li>`).join("");
+(product.features||[]).map(x=>`<li>${x}</li>`).join("");
 
-const videoWrap=document.getElementById("previewVideoWrap");
-const video=document.getElementById("previewVideo");
-const videoLinkWrap=document.getElementById("previewVideoLinkWrap");
-const videoLink=document.getElementById("previewVideoLink");
-const videoId=getYouTubeId(product.youtube || "");
+const productImage=document.getElementById("previewProductImage");
+const productPlaceholder=document.getElementById("previewImagePlaceholder");
+if(product.image){
+    productImage.src=product.image;
+    productImage.classList.remove("hidden");
+    productPlaceholder.classList.add("hidden");
+}else{
+    productImage.classList.add("hidden");
+    productPlaceholder.classList.remove("hidden");
+}
 
-videoWrap.classList.add("hidden");
-videoLinkWrap.classList.add("hidden");
-video.removeAttribute("src");
-videoLink.removeAttribute("href");
+const youtubeList=document.getElementById("youtubeVideoList");
+youtubeList.innerHTML="";
+(product.youtubeVideos||[]).forEach((video,index)=>{
+    if(!video.url) return;
+    const id=getYouTubeId(video.url);
+    if(!id) return;
+    const a=document.createElement("a");
+    a.className="youtube-card";
+    a.href=video.url;
+    a.target="_blank";
+    a.rel="noopener";
+    a.innerHTML=`<img class="youtube-thumb" src="https://img.youtube.com/vi/${id}/mqdefault.jpg" alt="YouTube video ${index+1}"><div><div class="youtube-card-title">${video.title}</div><div class="youtube-card-label">▶ Watch on YouTube</div></div>`;
+    youtubeList.appendChild(a);
+});
 
-if(videoId){
-    video.src=`https://www.youtube-nocookie.com/embed/${videoId}`;
-    videoWrap.classList.remove("hidden");
-    videoLink.href=product.youtube;
-    videoLinkWrap.classList.remove("hidden");
+if(!youtubeList.children.length){
+    youtubeList.innerHTML='<div style="grid-column:1/-1;padding:18px;border:1px dashed #444;border-radius:12px;color:#777;text-align:center">YouTube videos will appear here after you add their links in the product settings.</div>';
 }
 
 document.getElementById("previewModal").classList.remove("hidden");
