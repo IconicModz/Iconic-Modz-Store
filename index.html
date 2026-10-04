@@ -393,6 +393,11 @@ color:#666
 
 /* Screenshot slider */
 .screenshot-slider{margin:20px 0 24px}.slider-head{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:900;letter-spacing:2px;color:#aaa;margin-bottom:10px}.slider-stage{position:relative;aspect-ratio:16/9;border:1px solid #2b2b2b;border-radius:14px;overflow:hidden;background:#080808}.slider-stage img{width:100%;height:100%;object-fit:contain;display:block}.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:42px;height:42px;border:1px solid #444;border-radius:50%;background:rgba(0,0,0,.78);color:#fff;font-size:30px;line-height:1;cursor:pointer}.slider-arrow:hover{background:#e50914;border-color:#e50914}.slider-arrow.left{left:12px}.slider-arrow.right{right:12px}.slider-dots{display:flex;justify-content:center;gap:6px;margin-top:10px;flex-wrap:wrap}.slider-dot{width:8px;height:8px;border-radius:50%;background:#444;border:0;padding:0;cursor:pointer}.slider-dot.active{background:#e50914;transform:scale(1.25)}
+
+/* Site search */
+.site-search{position:relative;display:flex;align-items:center;width:min(430px,42vw);margin-left:auto;margin-right:14px}.site-search input{width:100%;height:42px;padding:0 42px 0 42px;border:1px solid #333;border-radius:22px;background:#0d0d0d;color:#fff;outline:none;font-size:14px}.site-search input:focus{border-color:#e50914;box-shadow:0 0 0 3px rgba(229,9,20,.12)}.site-search .search-icon{position:absolute;left:15px;color:#aaa;font-size:17px;pointer-events:none}.site-search .search-clear{position:absolute;right:10px;background:none;border:0;color:#888;font-size:18px;cursor:pointer;display:none}.search-results{position:absolute;top:49px;left:0;right:0;max-height:330px;overflow:auto;background:#101010;border:1px solid #333;border-radius:14px;box-shadow:0 18px 45px rgba(0,0,0,.65);z-index:9999;display:none}.search-result{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #222;cursor:pointer}.search-result:last-child{border-bottom:0}.search-result:hover{background:#1b1b1b}.search-result b{display:block;color:#fff}.search-result small{color:#999}.search-empty{padding:18px;color:#aaa;text-align:center}.search-result-icon{width:38px;height:38px;border-radius:8px;background:#181818;display:flex;align-items:center;justify-content:center;color:#e50914;font-weight:900;flex:none}@media(max-width:760px){.nav{flex-wrap:wrap;gap:10px}.site-search{order:3;width:100%;margin:0}.site-search input{height:40px}.search-results{top:46px}.nav .btn{font-size:12px;padding:9px 12px}}
+
+/* Mobile/browser back navigation */
 </style>
 </head>
 
@@ -401,6 +406,13 @@ color:#666
 <header>
 <div class="nav">
 <div class="logo brand-wrap"><img class="brand-logo" src="images/logo/iconic-modz.png" alt="ICONIC MODZ" onerror="this.style.display='none'"> <span>ICONIC <b>MODZ</b></span></div>
+
+<div class="site-search" id="siteSearch">
+<span class="search-icon">⌕</span>
+<input id="siteSearchInput" type="search" autocomplete="off" placeholder="Search mods, wrestlers, arenas..." aria-label="Search ICONIC MODZ">
+<button class="search-clear" id="siteSearchClear" type="button" aria-label="Clear search">×</button>
+<div class="search-results" id="searchResults"></div>
+</div>
 
 <button class="btn dark" onclick="showPage('custom')">
 Create Custom Mod
@@ -467,8 +479,7 @@ move sets, arenas and titantrons — all in one place.
 </div>
 </section>
 
-
-<!-- CATEGORIES -->
+  <!-- CATEGORIES -->
 <section id="categories" class="page hidden">
 <div class="container">
 
@@ -521,7 +532,8 @@ move sets, arenas and titantrons — all in one place.
 </div>
 </section>
 
-  <!-- PRODUCTS -->
+
+<!-- PRODUCTS -->
 <section id="products" class="page hidden">
 <div class="container">
 
@@ -701,7 +713,7 @@ Get Mod
   <div id="paymentPromoStatus" style="font-size:12px;color:#777;margin-top:7px">Use ICONIC10 to get the offer price.</div>
 </div>
 <div class="buttons" style="margin-top:20px">
-<a id="paypalButton" class="btn red" href="https://paypal.me/Gsoni07/62" target="_blank" rel="noopener">Pay $62 USD with PayPal</a>
+<a id="paypalButton" class="btn red" href="https://paypal.me/Gsoni07" target="_blank" rel="noopener">Pay with PayPal</a>
 <button class="btn dark" onclick="showUPI()">UPI</button>
 </div>
 <div id="upiBox" class="hidden" style="margin-top:18px;padding:18px;border:1px solid #333;border-radius:12px;text-align:center">
@@ -1047,20 +1059,35 @@ let currentProduct=null;
    PAGE SYSTEM
 ========================================= */
 
-function showPage(page){
+function showPage(page, pushHistory=true){
 
 document.querySelectorAll(".page").forEach(x=>{
 x.classList.add("hidden")
 });
 
-document.getElementById(page).classList.remove("hidden");
+const target=document.getElementById(page);
+if(!target)return;
+target.classList.remove("hidden");
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+if(pushHistory){
+  history.pushState({iconicPage:page}, "", "#"+page);
+}
+
+window.scrollTo({top:0,behavior:"smooth"});
 
 }
+
+/* Make the browser/mobile Back button move through ICONIC MODZ pages first. */
+window.addEventListener("popstate", function(e){
+  const page=(e.state&&e.state.iconicPage)||"home";
+  showPage(page,false);
+});
+
+(function initSiteHistory(){
+  const initial=location.hash.replace("#","");
+  const page=document.getElementById(initial)&&document.getElementById(initial).classList.contains("page")?initial:"home";
+  history.replaceState({iconicPage:page}, "", "#"+page);
+})();
 
 
 /* =========================================
@@ -1187,10 +1214,9 @@ Get
 
 `).join("");
 
-}
+  }
 
-
-/* =========================================
+  /* =========================================
    PREVIEW
 ========================================= */
 
@@ -1301,7 +1327,8 @@ if(video) video.removeAttribute("src");
 
 }
 
-  /* =========================================
+
+/* =========================================
    PAYMENT
 ========================================= */
 
@@ -1313,14 +1340,13 @@ function openPayment(product){
   document.getElementById("paymentTitle").innerText=product.title;
   const regularUSD=62, regularINR=5962, finalUSD=60, finalINR=5769;
   document.getElementById("regularPrice").innerText=`$${regularUSD} • ₹${regularINR.toLocaleString("en-IN")}`;
-  document.getElementById("discountPrice").innerText="-$0 • -₹0 (not applied)";
-  document.getElementById("finalPrice").innerText=`$${regularUSD} • ₹${regularINR.toLocaleString("en-IN")}`;
-  document.getElementById("paymentInfo").innerText="Regular price: $62 USD • ₹5,962. Apply ICONIC10 to unlock $60 / ₹5,769.";
+  document.getElementById("discountPrice").innerText=`-$${regularUSD-finalUSD} • -₹${(regularINR-finalINR).toLocaleString("en-IN")}`;
+  document.getElementById("finalPrice").innerText=`$${finalUSD} • ₹${finalINR.toLocaleString("en-IN")}`;
+  document.getElementById("paymentInfo").innerText="Apply ICONIC10 to unlock the $60 / ₹5,769 offer price. Choose your payment method below.";
   document.getElementById("paymentPromoInput").value="";
   document.getElementById("paymentPromoStatus").innerText="Use ICONIC10 to get the offer price.";
   document.getElementById("paymentPromoStatus").style.color="#777";
-  document.getElementById("paypalButton").innerText="Pay $62 USD with PayPal";
-  document.getElementById("paypalButton").href="https://paypal.me/Gsoni07/62";
+  document.getElementById("paypalButton").innerText="Pay $60 USD with PayPal";
   document.getElementById("upiBox").classList.add("hidden");
   document.getElementById("paymentModal").classList.remove("hidden");
 }
@@ -1330,18 +1356,11 @@ function applyPaymentPromo(){
   const status=document.getElementById("paymentPromoStatus");
   const code=(input.value||"").trim().toUpperCase();
   if(code===PROMO_CODE){
-    status.innerText="✓ Code applied — you save $2 / ₹193. Final payable: $60 USD / ₹5,769."; status.style.color="#63d471";
-    document.getElementById("discountPrice").innerText="-$2 • -₹193";
-    document.getElementById("finalPrice").innerText="$60 • ₹5,769";
+    status.innerText="✓ Code applied — you pay $60 USD / ₹5,769."; status.style.color="#63d471";
     document.getElementById("paymentInfo").innerText="Discount applied. Final payable amount: $60 USD • ₹5,769.";
     document.getElementById("paypalButton").innerText="Pay $60 USD with PayPal";
-    document.getElementById("paypalButton").href="https://paypal.me/Gsoni07/60";
   }else{
     status.innerText="Invalid code. Enter ICONIC10."; status.style.color="#ff6b6b";
-    document.getElementById("discountPrice").innerText="-$0 • -₹0 (not applied)";
-    document.getElementById("finalPrice").innerText="$62 • ₹5,962";
-    document.getElementById("paypalButton").innerText="Pay $62 USD with PayPal";
-    document.getElementById("paypalButton").href="https://paypal.me/Gsoni07/62";
   }
 }
 
@@ -1704,9 +1723,54 @@ if(el){el.classList.remove("hidden");localStorage.setItem(seenKey,String(Date.no
 }
 
 /* =========================================
+   SITE SEARCH
+========================================= */
+function getSearchItems(){
+  const items=[
+    {title:"SVR Modz",type:"Game",action:()=>openGame("svr")},
+    {title:"SmackDown Here Comes The Pain Modz",type:"Game",action:()=>openGame("hctp")}
+  ];
+  const cats=[
+    ["Wrestler Models","wrestlers"],["Full Game Mods","fullgame"],["Move Sets","movesets"],["Arenas","arenas"],["Titantrons","titantrons"]
+  ];
+  cats.forEach(([label,key])=>{
+    items.push({title:label,type:"Category",action:()=>{openCategory(key)}});
+    (products[key]||[]).forEach(product=>{
+      items.push({title:product.title||"Untitled",type:label,action:()=>{openCategory(key);setTimeout(()=>previewProduct(product),80)}});
+    });
+  });
+  return items;
+}
+
+function renderSearchResults(query){
+  const box=document.getElementById("searchResults");
+  const clear=document.getElementById("siteSearchClear");
+  if(!box)return;
+  query=(query||"").trim().toLowerCase();
+  clear.style.display=query?"block":"none";
+  if(!query){box.style.display="none";box.innerHTML="";return;}
+  const matches=getSearchItems().filter(x=>x.title.toLowerCase().includes(query)).slice(0,12);
+  box.innerHTML=matches.length?matches.map((x,i)=>`<div class="search-result" data-search-index="${i}"><span class="search-result-icon">⌕</span><div><b>${x.title}</b><small>${x.type}</small></div></div>`).join(""):`<div class="search-empty">No matching mods or categories found.</div>`;
+  if(matches.length){
+    box.querySelectorAll(".search-result").forEach((el,i)=>el.addEventListener("click",()=>{matches[i].action();box.style.display="none";document.getElementById("siteSearchInput").value="";document.getElementById("siteSearchClear").style.display="none";}));
+  }
+  box.style.display="block";
+}
+
+function initSiteSearch(){
+  const input=document.getElementById("siteSearchInput"), clear=document.getElementById("siteSearchClear"), box=document.getElementById("searchResults");
+  if(!input)return;
+  input.addEventListener("input",()=>renderSearchResults(input.value));
+  input.addEventListener("keydown",e=>{if(e.key==="Escape"){input.value="";renderSearchResults("");input.blur();}});
+  clear.addEventListener("click",()=>{input.value="";renderSearchResults("");input.focus();});
+  document.addEventListener("click",e=>{if(!document.getElementById("siteSearch")?.contains(e.target))box.style.display="none";});
+}
+
+/* =========================================
    START
 ========================================= */
 
+initSiteSearch();
 renderWrestlers();
 renderFeatured();
 startPromoCountdown();
@@ -1723,3 +1787,4 @@ function closeCredits(){document.getElementById("creditsModal").classList.add("h
 
 </body>
 </html>
+  
