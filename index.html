@@ -94,7 +94,7 @@ border-color:#e50914;
 box-shadow:0 10px 40px rgba(229,9,20,.12)
 }
 
-.card-img{position:relative;
+.card-img{
 width:100%;
 aspect-ratio:1 / 1;
 height:auto;
@@ -308,6 +308,27 @@ color:#666
 .youtube-card-label{font-size:11px;color:#aaa;margin-top:4px}
 @media(max-width:600px){.youtube-grid{grid-template-columns:1fr}.youtube-thumb{width:100px;height:56px}}
 
+/* PRODUCT RATINGS */
+.product-rating{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 22px 0;
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+.product-rating .stars{color:#f5c542;
+  text-shadow:0 0 8px rgba(245,197,66,.18);
+}
+.product-rating .empty-star{color:#555}
+.product-rating small{
+  color:#999;
+  font-size:11px;
+  letter-spacing:0;
+  font-weight:700;
+}
+
 /* ICONIC MODZ - lightweight visual animations only */
 .hero h1{animation:imzFadeUp .7s ease both}
 .hero .small{animation:imzFadeUp .5s ease both}
@@ -330,7 +351,7 @@ color:#666
 .featured-section{margin-top:45px}
 .featured-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:18px}
 .featured-head h2{margin:0}
-.featured-card .card-img{aspect-ratio:1/1;min-height:210px;position:relative}
+.featured-card .card-img{aspect-ratio:1/1;min-height:210px}
 .promo-overlay{position:fixed;inset:0;z-index:250;background:rgba(0,0,0,.82);backdrop-filter:blur(7px);display:flex;align-items:center;justify-content:center;padding:18px}
 .promo-box{width:min(560px,100%);background:linear-gradient(145deg,#171717,#080808);border:1px solid #3b3b3b;border-radius:22px;padding:28px;box-shadow:0 25px 90px rgba(0,0,0,.65),0 0 45px rgba(229,9,20,.12);position:relative;animation:promoIn .35s ease both}
 .promo-close{position:absolute;right:16px;top:16px;width:38px;height:38px;border:1px solid #333;border-radius:50%;background:#222;color:#fff;font-size:22px;cursor:pointer}
@@ -351,9 +372,27 @@ color:#666
 @media(max-width:600px){.promo-grid{grid-template-columns:1fr}.promo-box{padding:22px}.promo-timer{align-items:flex-start;flex-direction:column}.promo-timer strong{font-size:20px}}
 
 
-.rating-stars{display:inline-flex;align-items:center;gap:6px;margin:7px 0 5px;padding:4px 8px;border:1px solid rgba(245,197,66,.25);border-radius:999px;background:rgba(245,197,66,.055);color:#f5c542;font-size:14px;letter-spacing:1.5px;font-weight:900;line-height:1;text-shadow:0 0 7px rgba(245,197,66,.16)}
-.rating-stars span{color:#555}
-.rating-stars small{color:#999;font-size:10px;letter-spacing:0;font-weight:800}
+/* ===== ICONIC MODZ PREMIUM MOTION ===== */
+@keyframes imzFadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes imzGlow{0%,100%{box-shadow:0 0 0 rgba(229,9,20,0)}50%{box-shadow:0 0 30px rgba(229,9,20,.14)}}
+@keyframes imzModal{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.page:not(.hidden){animation:imzFadeUp .35s ease both}
+.hero h1{animation:imzFadeUp .55s ease both}
+.card{animation:imzFadeUp .45s ease both}
+.card:hover{transform:translateY(-7px) scale(1.008);box-shadow:0 14px 42px rgba(229,9,20,.13);transition:.25s ease}
+.card-img img{transition:transform .45s ease,filter .45s ease}
+.card:hover .card-img img{transform:scale(1.035);filter:brightness(1.06)}
+.btn{transition:transform .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.28)}
+.modal:not(.hidden) .modal-box{animation:imzModal .3s ease both}
+.modal:not(.hidden){backdrop-filter:blur(5px)}
+.category-icon{transition:transform .25s ease}
+.category:hover .category-icon{transform:scale(1.1) rotate(-3deg)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+
+/* Screenshot slider */
+.screenshot-slider{margin:20px 0 24px}.slider-head{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:900;letter-spacing:2px;color:#aaa;margin-bottom:10px}.slider-stage{position:relative;aspect-ratio:16/9;border:1px solid #2b2b2b;border-radius:14px;overflow:hidden;background:#080808}.slider-stage img{width:100%;height:100%;object-fit:contain;display:block}.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:42px;height:42px;border:1px solid #444;border-radius:50%;background:rgba(0,0,0,.78);color:#fff;font-size:30px;line-height:1;cursor:pointer}.slider-arrow:hover{background:#e50914;border-color:#e50914}.slider-arrow.left{left:12px}.slider-arrow.right{right:12px}.slider-dots{display:flex;justify-content:center;gap:6px;margin-top:10px;flex-wrap:wrap}.slider-dot{width:8px;height:8px;border-radius:50%;background:#444;border:0;padding:0;cursor:pointer}.slider-dot.active{background:#e50914;transform:scale(1.25)}
 </style>
 </head>
 
@@ -482,8 +521,7 @@ move sets, arenas and titantrons — all in one place.
 </div>
 </section>
 
-
-<!-- PRODUCTS -->
+  <!-- PRODUCTS -->
 <section id="products" class="page hidden">
 <div class="container">
 
@@ -499,7 +537,8 @@ move sets, arenas and titantrons — all in one place.
 </div>
 </section>
 
-  <!-- CUSTOM -->
+
+<!-- CUSTOM -->
 <section id="custom" class="page hidden">
 <div class="container">
 
@@ -554,6 +593,16 @@ Get Custom Mod
 <img id="previewProductImage" class="preview-product-image hidden" alt="Mod preview">
 </div>
 
+<div id="screenshotSlider" class="screenshot-slider hidden">
+  <div class="slider-head"><span>SCREENSHOTS</span><span id="sliderCounter">1 / 10</span></div>
+  <div class="slider-stage">
+    <button class="slider-arrow left" onclick="changeScreenshot(-1)" aria-label="Previous screenshot">‹</button>
+    <img id="sliderImage" src="" alt="Mod screenshot" onerror="sliderImageError(this)">
+    <button class="slider-arrow right" onclick="changeScreenshot(1)" aria-label="Next screenshot">›</button>
+  </div>
+  <div id="sliderDots" class="slider-dots"></div>
+</div>
+
 <p id="previewDescription"></p>
 
 <h3>What's Included</h3>
@@ -585,21 +634,7 @@ Get Mod
 
 
 
-<section id="credits" class="page" style="display:block!important;background:#050505">
-<div class="container" style="padding-top:20px;padding-bottom:20px">
-<div class="card" style="padding:25px">
-<div class="small">CREDITS</div>
-<h2 style="margin-top:8px">Modders & Contributors</h2>
-<p>Add the names of the people, tools and creators who made these mods possible.</p>
-<div style="line-height:2;color:#bbb">
-• Add Credit Name 01<br>
-• Add Credit Name 02<br>
-• Add Credit Name 03<br>
-• Add Credit Name 04
-</div>
-</div>
-</div>
-</section>
+
 
 <!-- ICONIC MODZ PROMO POPUP -->
 <div id="promoPopup" class="promo-overlay hidden" role="dialog" aria-modal="true" aria-label="Iconic Modz special offer">
@@ -651,14 +686,40 @@ Get Mod
 <div class="small">SECURE PAYMENT</div>
 <h2 id="paymentTitle">Purchase</h2>
 <p id="paymentInfo">Choose your payment method.</p>
+<div id="paymentPriceBox" style="margin-top:18px;padding:16px;border:1px solid #333;border-radius:14px;background:#111">
+  <div style="display:flex;justify-content:space-between;gap:12px"><span style="color:#888">Regular price</span><strong id="regularPrice">$62 • ₹5,962</strong></div>
+  <div style="display:flex;justify-content:space-between;gap:12px;margin-top:8px"><span style="color:#888">Discount</span><strong id="discountPrice" style="color:#63d471">-$2 • -₹193</strong></div>
+  <div style="height:1px;background:#292929;margin:12px 0"></div>
+  <div style="display:flex;justify-content:space-between;gap:12px;font-size:18px"><span>Payable now</span><strong id="finalPrice">$60 • ₹5,769</strong></div>
+</div>
+<div class="discount-box" style="margin-top:14px">
+  <div class="small">DISCOUNT CODE</div>
+  <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+    <input id="paymentPromoInput" value="" placeholder="Enter ICONIC10" style="flex:1;min-width:180px;padding:12px;border-radius:10px;border:1px solid #333;background:#0d0d0d;color:#fff">
+    <button class="btn dark" onclick="applyPaymentPromo()">Apply</button>
+  </div>
+  <div id="paymentPromoStatus" style="font-size:12px;color:#777;margin-top:7px">Use ICONIC10 to get the offer price.</div>
+</div>
 <div class="buttons" style="margin-top:20px">
-<a id="paypalButton" class="btn red" href="https://paypal.me/Gsoni07" target="_blank" rel="noopener">Pay with PayPal</a>
+<a id="paypalButton" class="btn red" href="https://paypal.me/Gsoni07/62" target="_blank" rel="noopener">Pay $62 USD with PayPal</a>
 <button class="btn dark" onclick="showUPI()">UPI</button>
 </div>
 <div id="upiBox" class="hidden" style="margin-top:18px;padding:18px;border:1px solid #333;border-radius:12px;text-align:center">
 <strong>UPI</strong>
 <p style="margin:8px 0 0">UPI QR / payment details can be added here.</p>
 <div style="margin-top:12px;padding:28px;border:1px dashed #555;border-radius:10px;color:#777">UPI QR PLACEHOLDER</div>
+</div>
+</div>
+</div>
+
+<div id="creditsModal" class="modal hidden">
+<div class="modal-box" style="max-width:620px">
+<button class="close" onclick="closeCredits()">×</button>
+<div class="small">CREDITS & THANKS</div>
+<h2>Credits & Thanks</h2>
+<p>Big thanks to all the amazing developers and modders who made this release possible.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:20px">
+<div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">Aguila316</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">80las</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">ModdingGeneration</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">Nero619</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">Riot</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">ERI619</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">Erm31</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">Ps2 Eater</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">LGIYT</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">Ryukuuma</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">a7med7assan5</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">angrygamershow</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">L.O.M.</div><div style="padding:12px 14px;border:1px solid #2d2d2d;border-radius:10px;background:#151515;font-weight:800;color:#ddd">THQ</div>
 </div>
 </div>
 </div>
@@ -684,6 +745,8 @@ YouTube
 </svg>
 Discord
 </a>
+
+<button class="btn dark" onclick="openCredits()">★ Credits & Thanks</button>
 
 <a class="btn dark" href="https://paypal.me/Gsoni07" target="_blank" rel="noopener">
 <svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align:-5px;margin-right:7px" aria-hidden="true">
@@ -730,8 +793,8 @@ fullgame:[
 {
 title:"Free Iconic Edition Modz",
 price:"FREE",
-rating:4,
 image:"images/mods/free-iconic-edition.jpg",
+screenshots:Array.from({length:10},(_,i)=>`images/previews/free/screenshot${String(i+1).padStart(2,"0")}`),
 description:"Free WWE SmackDown! Here Comes The Pain Iconic Edition mod. Yahan tum apne free build ke exact roster, arenas, entrances, moves aur other features detail me likh sakte ho.",
 features:[
 "Roster: Add your final roster list here",
@@ -759,8 +822,9 @@ youtubeVideos:[
 {
 title:"WWE HCTP Iconic Edition V1",
 rating:4,
-price:"₹99",
+price:"$62",
 image:"images/mods/hctp-v1.jpg",
+screenshots:Array.from({length:10},(_,i)=>`images/previews/v1/screenshot${String(i+1).padStart(2,"0")}`),
 description:"WWE SmackDown! Here Comes The Pain Iconic Edition V1. Preview me roster, arenas, wrestler models, moves, entrances, titantrons aur doosre included features ka complete breakdown diya ja sakta hai.",
 features:[
 "Roster: Add V1 roster details here",
@@ -790,8 +854,9 @@ youtubeVideos:[
 {
 title:"WWE HCTP Iconic Edition V2",
 rating:4,
-price:"₹149",
+price:"$62",
 image:"images/mods/hctp-v2.jpg",
+screenshots:Array.from({length:10},(_,i)=>`images/previews/v2/screenshot${String(i+1).padStart(2,"0")}`),
 description:"WWE SmackDown! Here Comes The Pain Iconic Edition V2. Is preview me V2 ke exact roster, arenas, models, movesets, entrances, titantrons aur latest additions ko showcase kiya ja sakta hai.",
 features:[
 "Roster: Add V2 roster details here",
@@ -826,8 +891,7 @@ titantrons:[]
 
 };
 
-
-/* =========================================
+  /* =========================================
    WRESTLER LIST
    BAAD MEIN APNI ACTUAL LIST YAHAN DALNA
 ========================================= */
@@ -1080,6 +1144,8 @@ grid.innerHTML=list.map((product,index)=>`
 
 <div class="card">
 
+${product.rating ? `<div class="product-rating"><span class="stars">${"★".repeat(product.rating)}</span><span class="stars empty-star">${"★".repeat(5-product.rating)}</span><small>${product.rating}.0/5</small></div>` : ""}
+
 <div class="card-img">
 
 ${
@@ -1089,16 +1155,14 @@ product.image
 :
 `<div class="placeholder">MOD</div>`
 }
+
 </div>
 
 <div class="card-body">
 
-
 <div class="badge">ICONIC MODZ</div>
 
 <h2>${product.title}</h2>
-
-<div class="rating-stars" aria-label="4 out of 5 stars">★★★★<span>★</span> <small>4.0/5</small></div>
 
 <div class="price ${product.price==="FREE"?"free":""}">
 ${product.price}
@@ -1149,45 +1213,82 @@ function getYouTubeId(url){
 function previewProduct(product){
 
 currentProduct=product;
-
 document.getElementById("previewTitle").innerText=product.title;
 document.getElementById("previewDescription").innerText=product.description;
 document.getElementById("previewPrice").innerText=product.price;
-document.getElementById("previewList").innerHTML=
-(product.features||[]).map(x=>`<li>${x}</li>`).join("");
+document.getElementById("previewList").innerHTML=(product.features||[]).map(x=>`<li>${x}</li>`).join("");
 
 const productImage=document.getElementById("previewProductImage");
 const productPlaceholder=document.getElementById("previewImagePlaceholder");
 if(product.image){
-    productImage.src=product.image;
-    productImage.classList.remove("hidden");
-    productPlaceholder.classList.add("hidden");
+  productImage.src=product.image;
+  productImage.classList.remove("hidden");
+  productPlaceholder.classList.add("hidden");
 }else{
-    productImage.classList.add("hidden");
-    productPlaceholder.classList.remove("hidden");
+  productImage.classList.add("hidden");
+  productPlaceholder.classList.remove("hidden");
 }
+
+setupScreenshotSlider(product);
 
 const youtubeList=document.getElementById("youtubeVideoList");
 youtubeList.innerHTML="";
 (product.youtubeVideos||[]).forEach((video,index)=>{
-    if(!video.url) return;
-    const id=getYouTubeId(video.url);
-    if(!id) return;
-    const a=document.createElement("a");
-    a.className="youtube-card";
-    a.href=video.url;
-    a.target="_blank";
-    a.rel="noopener";
-    a.innerHTML=`<img class="youtube-thumb" src="https://img.youtube.com/vi/${id}/mqdefault.jpg" alt="YouTube video ${index+1}"><div><div class="youtube-card-title">${video.title}</div><div class="youtube-card-label">▶ Watch on YouTube</div></div>`;
-    youtubeList.appendChild(a);
+  if(!video.url) return;
+  const id=getYouTubeId(video.url);
+  if(!id) return;
+  const a=document.createElement("a");
+  a.className="youtube-card"; a.href=video.url; a.target="_blank"; a.rel="noopener";
+  a.innerHTML=`<img class="youtube-thumb" src="https://img.youtube.com/vi/${id}/mqdefault.jpg" alt="YouTube video ${index+1}"><div><div class="youtube-card-title">${video.title}</div><div class="youtube-card-label">▶ Watch on YouTube</div></div>`;
+  youtubeList.appendChild(a);
 });
-
 if(!youtubeList.children.length){
-    youtubeList.innerHTML='<div style="grid-column:1/-1;padding:18px;border:1px dashed #444;border-radius:12px;color:#777;text-align:center">YouTube videos will appear here after you add their links in the product settings.</div>';
+  youtubeList.innerHTML='<div style="grid-column:1/-1;padding:18px;border:1px dashed #444;border-radius:12px;color:#777;text-align:center">YouTube videos will appear here after you add their links in the product settings.</div>';
 }
 
 document.getElementById("previewModal").classList.remove("hidden");
 
+}
+
+let sliderImages=[];
+let sliderIndex=0;
+let sliderExtIndex=0;
+
+function setupScreenshotSlider(product){
+  const box=document.getElementById("screenshotSlider");
+  sliderImages=product.screenshots||[]; sliderIndex=0; sliderExtIndex=0;
+  if(!sliderImages.length){box.classList.add("hidden");return;}
+  box.classList.remove("hidden");
+  const dots=document.getElementById("sliderDots");
+  dots.innerHTML=sliderImages.map((_,i)=>`<button class="slider-dot ${i===0?"active":""}" onclick="goToScreenshot(${i})" aria-label="Screenshot ${i+1}"></button>`).join("");
+  loadScreenshot();
+}
+
+function loadScreenshot(){
+  const img=document.getElementById("sliderImage");
+  const base=sliderImages[sliderIndex];
+  sliderExtIndex=0;
+  img.dataset.base=base;
+  img.src=base+".jpg";
+  document.getElementById("sliderCounter").innerText=(sliderIndex+1)+" / "+sliderImages.length;
+  document.querySelectorAll(".slider-dot").forEach((d,i)=>d.classList.toggle("active",i===sliderIndex));
+}
+
+function sliderImageError(img){
+  const exts=[".png",".jpeg",".webp"];
+  if(sliderExtIndex<exts.length){ img.src=img.dataset.base+exts[sliderExtIndex++]; return; }
+  img.onerror=null; img.alt="Add screenshot image";
+}
+
+function changeScreenshot(step){
+  if(!sliderImages.length)return;
+  sliderIndex=(sliderIndex+step+sliderImages.length)%sliderImages.length;
+  loadScreenshot();
+}
+
+function goToScreenshot(index){
+  if(index<0||index>=sliderImages.length)return;
+  sliderIndex=index; loadScreenshot();
 }
 
 
@@ -1205,16 +1306,45 @@ if(video) video.removeAttribute("src");
 ========================================= */
 
 function openPayment(product){
-currentProduct=product;
-if(product.price==="FREE"){
-alert("Ye item FREE hai. Free download link baad me yahan add kiya ja sakta hai.");
-return;
+  currentProduct=product;
+  if(product.price==="FREE"){
+    alert("Ye item FREE hai. Free download link baad me yahan add kiya ja sakta hai."); return;
+  }
+  document.getElementById("paymentTitle").innerText=product.title;
+  const regularUSD=62, regularINR=5962, finalUSD=60, finalINR=5769;
+  document.getElementById("regularPrice").innerText=`$${regularUSD} • ₹${regularINR.toLocaleString("en-IN")}`;
+  document.getElementById("discountPrice").innerText="-$0 • -₹0 (not applied)";
+  document.getElementById("finalPrice").innerText=`$${regularUSD} • ₹${regularINR.toLocaleString("en-IN")}`;
+  document.getElementById("paymentInfo").innerText="Regular price: $62 USD • ₹5,962. Apply ICONIC10 to unlock $60 / ₹5,769.";
+  document.getElementById("paymentPromoInput").value="";
+  document.getElementById("paymentPromoStatus").innerText="Use ICONIC10 to get the offer price.";
+  document.getElementById("paymentPromoStatus").style.color="#777";
+  document.getElementById("paypalButton").innerText="Pay $62 USD with PayPal";
+  document.getElementById("paypalButton").href="https://paypal.me/Gsoni07/62";
+  document.getElementById("upiBox").classList.add("hidden");
+  document.getElementById("paymentModal").classList.remove("hidden");
 }
-document.getElementById("paymentTitle").innerText=product.title;
-document.getElementById("paymentInfo").innerText="Price: "+product.price+" — payment method choose karo.";
-document.getElementById("upiBox").classList.add("hidden");
-document.getElementById("paymentModal").classList.remove("hidden");
+
+function applyPaymentPromo(){
+  const input=document.getElementById("paymentPromoInput");
+  const status=document.getElementById("paymentPromoStatus");
+  const code=(input.value||"").trim().toUpperCase();
+  if(code===PROMO_CODE){
+    status.innerText="✓ Code applied — you save $2 / ₹193. Final payable: $60 USD / ₹5,769."; status.style.color="#63d471";
+    document.getElementById("discountPrice").innerText="-$2 • -₹193";
+    document.getElementById("finalPrice").innerText="$60 • ₹5,769";
+    document.getElementById("paymentInfo").innerText="Discount applied. Final payable amount: $60 USD • ₹5,769.";
+    document.getElementById("paypalButton").innerText="Pay $60 USD with PayPal";
+    document.getElementById("paypalButton").href="https://paypal.me/Gsoni07/60";
+  }else{
+    status.innerText="Invalid code. Enter ICONIC10."; status.style.color="#ff6b6b";
+    document.getElementById("discountPrice").innerText="-$0 • -₹0 (not applied)";
+    document.getElementById("finalPrice").innerText="$62 • ₹5,962";
+    document.getElementById("paypalButton").innerText="Pay $62 USD with PayPal";
+    document.getElementById("paypalButton").href="https://paypal.me/Gsoni07/62";
+  }
 }
+
 
 function closePayment(){
 document.getElementById("paymentModal").classList.add("hidden");
@@ -1498,7 +1628,6 @@ grid.innerHTML=list.map(product=>`
   <div class="card-body">
     <div class="badge">FEATURED</div>
     <h2>${product.title}</h2>
-    <div class="rating-stars" aria-label="4 out of 5 stars">★★★★<span>★</span> <small>4.0/5</small></div>
     <div class="price ${product.price==="FREE"?"free":""}">${product.price}</div>
     <div class="buttons">
       <button class="btn dark" onclick='previewProduct(${JSON.stringify(product)})'>Preview</button>
@@ -1586,6 +1715,10 @@ maybeShowPromo();
 document.getElementById("promoPopup")?.addEventListener("click",function(e){
 if(e.target===this)closePromoPopup();
 });
+
+function openCredits(){document.getElementById("creditsModal").classList.remove("hidden")}
+function closeCredits(){document.getElementById("creditsModal").classList.add("hidden")}
+
 </script>
 
 </body>
