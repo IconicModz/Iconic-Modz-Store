@@ -290,7 +290,7 @@ text-align:center;
 color:#666
 }
 
-@media(max-width:600px){
+  @media(max-width:600px){
 .buttons{flex-direction:column}
 .totalbar{flex-direction:column;align-items:stretch}
 }
@@ -301,12 +301,14 @@ color:#666
 .preview-product-image{width:100%;height:280px;object-fit:cover;border-radius:12px;display:block}
 .youtube-section{margin-top:24px}
 .youtube-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
-.youtube-card{display:flex;align-items:center;gap:12px;padding:10px;border:1px solid #2b2b2b;border-radius:12px;background:#151515;color:#fff;text-decoration:none;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.youtube-card{display:flex;align-items:center;gap:16px;padding:14px;border:1px solid #2b2b2b;border-radius:12px;background:#151515;color:#fff;text-decoration:none;transition:transform .18s ease,border-color .18s ease,background .18s ease}
 .youtube-card:hover{transform:translateY(-2px);border-color:#e50914;background:#1b1b1b}
-.youtube-thumb{width:110px;height:62px;object-fit:cover;border-radius:8px;background:#222;flex:none}
+.youtube-thumb{width:180px;height:102px;object-fit:cover;border-radius:8px;background:#222;flex:none}
 .youtube-card-title{font-weight:800;font-size:14px;line-height:1.3}
 .youtube-card-label{font-size:11px;color:#aaa;margin-top:4px}
-@media(max-width:600px){.youtube-grid{grid-template-columns:1fr}.youtube-thumb{width:100px;height:56px}}
+@media(max-width:900px){.youtube-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.youtube-grid{grid-template-columns:1fr}.youtube-card{gap:12px;padding:12px}.youtube-thumb{width:150px;height:84px}.youtube-card-title{font-size:15px}}
+@media(max-width:420px){.youtube-thumb{width:135px;height:76px}.youtube-card{align-items:center}}
 
 /* PRODUCT RATINGS */
 .product-rating{
@@ -394,10 +396,97 @@ color:#666
 /* Screenshot slider */
 .screenshot-slider{margin:20px 0 24px}.slider-head{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:900;letter-spacing:2px;color:#aaa;margin-bottom:10px}.slider-stage{position:relative;aspect-ratio:16/9;border:1px solid #2b2b2b;border-radius:14px;overflow:hidden;background:#080808}.slider-stage img{width:100%;height:100%;object-fit:contain;display:block}.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:42px;height:42px;border:1px solid #444;border-radius:50%;background:rgba(0,0,0,.78);color:#fff;font-size:30px;line-height:1;cursor:pointer}.slider-arrow:hover{background:#e50914;border-color:#e50914}.slider-arrow.left{left:12px}.slider-arrow.right{right:12px}.slider-dots{display:flex;justify-content:center;gap:6px;margin-top:10px;flex-wrap:wrap}.slider-dot{width:8px;height:8px;border-radius:50%;background:#444;border:0;padding:0;cursor:pointer}.slider-dot.active{background:#e50914;transform:scale(1.25)}
 
-/* Site search */
-.site-search{position:relative;display:flex;align-items:center;width:min(430px,42vw);margin-left:auto;margin-right:14px}.site-search input{width:100%;height:42px;padding:0 42px 0 42px;border:1px solid #333;border-radius:22px;background:#0d0d0d;color:#fff;outline:none;font-size:14px}.site-search input:focus{border-color:#e50914;box-shadow:0 0 0 3px rgba(229,9,20,.12)}.site-search .search-icon{position:absolute;left:15px;color:#aaa;font-size:17px;pointer-events:none}.site-search .search-clear{position:absolute;right:10px;background:none;border:0;color:#888;font-size:18px;cursor:pointer;display:none}.search-results{position:absolute;top:49px;left:0;right:0;max-height:330px;overflow:auto;background:#101010;border:1px solid #333;border-radius:14px;box-shadow:0 18px 45px rgba(0,0,0,.65);z-index:9999;display:none}.search-result{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #222;cursor:pointer}.search-result:last-child{border-bottom:0}.search-result:hover{background:#1b1b1b}.search-result b{display:block;color:#fff}.search-result small{color:#999}.search-empty{padding:18px;color:#aaa;text-align:center}.search-result-icon{width:38px;height:38px;border-radius:8px;background:#181818;display:flex;align-items:center;justify-content:center;color:#e50914;font-weight:900;flex:none}@media(max-width:760px){.nav{flex-wrap:wrap;gap:10px}.site-search{order:3;width:100%;margin:0}.site-search input{height:40px}.search-results{top:46px}.nav .btn{font-size:12px;padding:9px 12px}}
+/* Larger YouTube-style video previews */
+.video-list .video-card,
+.youtube-list .video-card,
+.yt-video,
+.video-item {
+  width: 100% !important;
+  max-width: 760px !important;
+  margin: 18px auto !important;
+}
+.video-list .video-card img,
+.youtube-list .video-card img,
+.yt-video img,
+.video-item img {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  display: block !important;
+}
+.video-list .video-card .video-thumb,
+.youtube-list .video-card .video-thumb,
+.yt-video .video-thumb,
+.video-item .video-thumb {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+}
+@media (max-width: 600px) {
+  .video-list .video-card,
+  .youtube-list .video-card,
+  .yt-video,
+  .video-item {
+    max-width: 100% !important;
+    margin: 16px auto !important;
+  }
+  .video-list .video-card img,
+  .youtube-list .video-card img,
+  .yt-video img,
+  .video-item img {
+    border-radius: 10px !important;
+  }
+}
 
-/* Mobile/browser back navigation */
+/* =========================================
+   V1 FEATURED SHOWCASE
+========================================= */
+.v1-showcase{position:fixed;inset:0;z-index:10000;overflow:auto;background:#050505;animation:imzFadeUp .35s ease both}
+.v1-showcase.hidden{display:none}
+.v1-hero{position:relative;min-height:520px;display:flex;align-items:flex-end;overflow:hidden;background:#080808}
+.v1-hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.76) 42%,rgba(0,0,0,.62) 100%),linear-gradient(0deg,rgba(0,0,0,.98) 0%,rgba(0,0,0,.1) 62%),url('images/mods/hctp-v1.jpg');background-size:cover;background-position:center;filter:saturate(.9)}
+.v1-hero-content{position:relative;z-index:2;width:min(1100px,92%);margin:auto;padding:80px 0 55px}
+.v1-kicker{display:inline-block;padding:7px 12px;border:1px solid rgba(229,9,20,.7);border-radius:999px;background:rgba(229,9,20,.12);color:#ff4a52;font-size:11px;font-weight:900;letter-spacing:2px}
+.v1-hero h1{font-size:clamp(34px,6vw,72px);line-height:.98;margin:15px 0 14px;max-width:800px;text-shadow:0 8px 35px #000}
+.v1-hero p{max-width:720px;color:#d0d0d0;font-size:16px;line-height:1.7}
+.v1-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.v1-close{position:absolute;right:24px;top:22px;z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid #444;background:rgba(0,0,0,.72);color:#fff;font-size:28px;cursor:pointer;transition:.2s}
+.v1-close:hover{border-color:#e50914;transform:rotate(90deg)}
+.v1-body{width:min(1100px,92%);margin:auto;padding:35px 0 80px}
+.v1-option-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:-55px auto 35px;position:relative;z-index:3}
+.v1-option{padding:18px 12px;border:1px solid #292929;background:rgba(16,16,16,.96);border-radius:14px;text-align:center;cursor:pointer;transition:.22s;box-shadow:0 15px 35px rgba(0,0,0,.35)}
+.v1-option:hover{transform:translateY(-5px);border-color:#e50914;box-shadow:0 18px 40px rgba(229,9,20,.16)}
+.v1-option .ico{font-size:24px;display:block;margin-bottom:8px}
+.v1-option strong{font-size:13px}
+.v1-section{margin-top:28px;padding:28px;border:1px solid #252525;border-radius:18px;background:linear-gradient(145deg,#111,#090909);box-shadow:0 15px 45px rgba(0,0,0,.2)}
+.v1-section h2{margin:0 0 12px;font-size:25px}
+.v1-section p{color:#aaa;line-height:1.75}
+.v1-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+.v1-feature{padding:13px 15px;border:1px solid #292929;border-radius:12px;background:#151515;color:#ddd;animation:imzFadeUp .45s ease both}
+.v1-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px}
+.v1-video{display:block;text-decoration:none;color:#fff;border:1px solid #292929;border-radius:15px;overflow:hidden;background:#111;transition:.22s;position:relative}
+.v1-video:hover{transform:translateY(-4px);border-color:#e50914;box-shadow:0 15px 35px rgba(229,9,20,.14)}
+.v1-video-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#191919}
+.v1-video-info{padding:14px 15px}
+.v1-video-title{font-weight:900;font-size:15px}
+.v1-video-meta{color:#999;font-size:12px;margin-top:6px}
+.v1-play{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:#e50914;color:#fff;display:grid;place-items:center;font-size:25px;box-shadow:0 8px 30px #000;transition:.2s}
+.v1-video:hover .v1-play{transform:translate(-50%,-50%) scale(1.12)}
+.v1-credits{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.v1-credit{padding:9px 12px;border-radius:10px;background:#151515;border:1px solid #292929;color:#ddd;font-weight:800;font-size:12px}
+@media(max-width:800px){.v1-option-grid{grid-template-columns:repeat(2,1fr);margin-top:-25px}.v1-video-grid{grid-template-columns:1fr}.v1-features{grid-template-columns:1fr}.v1-hero{min-height:590px}.v1-hero-content{padding-top:100px}}
+@media(max-width:430px){.v1-option-grid{grid-template-columns:1fr}.v1-body,.v1-hero-content{width:94%}.v1-section{padding:20px}.v1-close{right:12px;top:12px}}
+
+
+/* PREMIUM HOME FLOW + UNIVERSAL MOD SHOWCASE */
+.site-flow{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:35px 0;padding:12px;border:1px solid #252525;border-radius:14px;background:#0b0b0b;position:sticky;top:78px;z-index:20}
+.site-flow a{font-size:11px;font-weight:900;letter-spacing:1px;color:#aaa;padding:8px 10px;border-radius:8px}.site-flow a:hover{background:#e50914;color:#fff}
+.home-panel,.community-panel,.discord-panel,.credits-panel{margin:35px 0;padding:30px;border:1px solid #292929;border-radius:18px;background:linear-gradient(135deg,#101010,#070707);animation:imzFadeUp .6s ease both}.latest-yt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:20px}.latest-yt-card{display:block;border:1px solid #292929;border-radius:14px;overflow:hidden;background:#0c0c0c;transition:.25s}.latest-yt-card:hover{transform:translateY(-5px);border-color:#e50914}.latest-yt-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}.latest-yt-card div{padding:13px;font-weight:800}.community-panel,.discord-panel,.credits-panel{display:flex;align-items:center;justify-content:space-between;gap:20px}.community-panel p,.discord-panel p,.credits-panel p{margin-bottom:0}
+.mod-showcase{position:fixed;inset:0;z-index:20000;overflow:auto;background:#050505;animation:imzFadeUp .35s ease both}.mod-showcase.hidden{display:none}.ms-hero{min-height:560px;position:relative;display:flex;align-items:flex-end;overflow:hidden}.ms-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.85);transform:scale(1.02)}.ms-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.97),rgba(0,0,0,.78) 45%,rgba(0,0,0,.55)),linear-gradient(0deg,#050505,transparent 65%)}.ms-content{position:relative;z-index:2;width:min(1100px,92%);margin:auto;padding:90px 0 55px}.ms-content h1{max-width:850px}.ms-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.ms-close{position:fixed;right:22px;top:20px;z-index:4;width:46px;height:46px;border-radius:50%;border:1px solid #444;background:#111;color:#fff;font-size:28px}.ms-body{width:min(1100px,92%);margin:auto;padding:35px 0 80px}.ms-menu{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:-55px 0 35px;position:relative;z-index:3}.ms-menu button{padding:18px 8px;border:1px solid #292929;background:#111;color:#fff;border-radius:12px;font-weight:900}.ms-menu button:hover{border-color:#e50914;transform:translateY(-3px)}.ms-section{margin:38px 0;padding:25px;border:1px solid #252525;border-radius:18px;background:#0c0c0c}.ms-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}.ms-feature{padding:13px;border-radius:10px;background:#121212;border:1px solid #222;animation:imzFadeUp .5s both}.ms-slider{margin-top:20px}.ms-stage{position:relative;background:#000;border-radius:14px;overflow:hidden;border:1px solid #292929}.ms-stage img{width:100%;aspect-ratio:16/9;object-fit:contain;display:block}.ms-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:60px;background:rgba(0,0,0,.72);color:#fff;border:1px solid #444;font-size:32px;z-index:2}.ms-arrow:hover{background:#e50914}.ms-arrow.left{left:10px}.ms-arrow.right{right:10px}.ms-dots{text-align:center;padding:12px}.ms-dots button{width:8px;height:8px;border:0;border-radius:50%;background:#555;margin:4px}.ms-dots button.active{background:#e50914;transform:scale(1.3)}.ms-videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}.ms-video{display:block;background:#0a0a0a;border:1px solid #292929;border-radius:14px;overflow:hidden;transition:.25s}.ms-video:hover{transform:translateY(-4px);border-color:#e50914}.ms-video img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}.ms-video-info{padding:14px}.ms-video-title{font-weight:900}.ms-video-meta{color:#e50914;font-size:12px;margin-top:7px}.ms-credit-list{display:flex;flex-wrap:wrap;gap:8px}.ms-credit{padding:8px 11px;border:1px solid #292929;border-radius:999px;color:#bbb;background:#111}
+@media(max-width:700px){.site-flow{top:66px;overflow-x:auto;justify-content:flex-start;flex-wrap:nowrap}.site-flow a{white-space:nowrap}.community-panel,.discord-panel,.credits-panel{display:block}.community-panel .btn,.discord-panel .btn,.credits-panel .btn{margin-top:18px}.ms-menu{grid-template-columns:repeat(2,1fr);margin-top:-35px}.ms-hero{min-height:620px}.ms-content{padding-top:120px}.ms-videos{grid-template-columns:1fr}}
+
 </style>
 </head>
 
@@ -407,19 +496,14 @@ color:#666
 <div class="nav">
 <div class="logo brand-wrap"><img class="brand-logo" src="images/logo/iconic-modz.png" alt="ICONIC MODZ" onerror="this.style.display='none'"> <span>ICONIC <b>MODZ</b></span></div>
 
-<div class="site-search" id="siteSearch">
-<span class="search-icon">⌕</span>
-<input id="siteSearchInput" type="search" autocomplete="off" placeholder="Search mods, wrestlers, arenas..." aria-label="Search ICONIC MODZ">
-<button class="search-clear" id="siteSearchClear" type="button" aria-label="Clear search">×</button>
-<div class="search-results" id="searchResults"></div>
-</div>
-
 <button class="btn dark" onclick="showPage('custom')">
 Create Custom Mod
 </button>
 </div>
 </header>
 
+
+  
 
 <!-- HOME -->
 <section id="home" class="page">
@@ -476,10 +560,36 @@ move sets, arenas and titantrons — all in one place.
   <div id="featuredGrid" class="grid"></div>
 </div>
 
+<div class="site-flow">
+  <a href="#home">HOME</a><a href="#featuredGrid">FEATURED MOD</a><a href="#latestYoutube">LATEST YOUTUBE</a><a href="#categories">GAMES</a><a href="#categories">HCTP/SVR</a><a href="#featuredGrid">MODS</a><a href="#featuredGrid">PREVIEWS</a><a href="#community">COMMUNITY</a><a href="#discordSection">DISCORD</a><a href="#creditsSection">CREDITS</a>
+</div>
+
+<section id="latestYoutube" class="home-panel">
+  <div class="small">LATEST YOUTUBE</div><h2>ICONIC MODZ GAMEPLAY</h2>
+  <p>Latest gameplay, roster reveals, trailers and mod showcases.</p>
+  <div id="latestYoutubeGrid" class="latest-yt-grid"></div>
+</section>
+
+<section id="community" class="community-panel">
+  <div><div class="small">COMMUNITY</div><h2>ICONIC MODZ COMMUNITY</h2><p>Share your screenshots, mod ideas and gameplay. Stay connected with the latest releases and updates.</p></div>
+  <a class="btn red" href="https://discord.gg/nQYj2wMq" target="_blank" rel="noopener">Join Community →</a>
+</section>
+
+<section id="discordSection" class="discord-panel">
+  <div><div class="small">DISCORD</div><h2>JOIN THE ICONIC MODZ COMMUNITY</h2><p>Updates • Support • Modding • Early previews</p></div>
+  <a class="btn red" href="https://discord.gg/nQYj2wMq" target="_blank" rel="noopener">💬 JOIN DISCORD</a>
+</section>
+
+<section id="creditsSection" class="credits-panel">
+  <div><div class="small">CREDITS</div><h2>Credits & Thanks</h2><p>Big thanks to all developers and modders who helped make the ICONIC MODZ project possible.</p></div>
+  <button class="btn dark" onclick="openCredits()">View Credits</button>
+</section>
+
 </div>
 </section>
 
-  <!-- CATEGORIES -->
+
+<!-- CATEGORIES -->
 <section id="categories" class="page hidden">
 <div class="container">
 
@@ -691,6 +801,68 @@ Get Mod
   </div>
 </div>
 
+
+<!-- V1 FEATURED MOD SHOWCASE -->
+<div id="v1Showcase" class="v1-showcase hidden">
+  <button class="v1-close" onclick="closeV1Showcase()" aria-label="Close">×</button>
+  <section class="v1-hero">
+    <div class="v1-hero-bg"></div>
+    <div class="v1-hero-content">
+      <div class="v1-kicker">FEATURED MOD • HCTP ICONIC EDITION V1</div>
+      <h1>WWE HCTP<br><span style="color:#e50914">ICONIC EDITION V1</span></h1>
+      <p>A dedicated V1 showcase for the mod: read about it, check the new features, browse screenshots, watch gameplay videos and get the mod.</p>
+      <div class="v1-actions">
+        <button class="btn red" onclick="v1ScrollTo('v1Videos')">🎬 Watch Trailer</button>
+        <button class="btn dark" onclick="v1ScrollTo('v1Preview')">👀 View Preview</button>
+        <button class="btn red" onclick="v1Buy()">🛒 Get Mod</button>
+        <button class="btn dark" onclick="v1ScrollTo('v1Credits')">Credits</button>
+      </div>
+    </div>
+  </section>
+  <div class="v1-body">
+    <div class="v1-option-grid">
+      <div class="v1-option" onclick="v1ScrollTo('v1About')"><span class="ico">📖</span><strong>About Modz</strong></div>
+      <div class="v1-option" onclick="v1ScrollTo('v1Features')"><span class="ico">🔥</span><strong>New Features</strong></div>
+      <div class="v1-option" onclick="v1ScrollTo('v1Videos')"><span class="ico">🎬</span><strong>Watch Trailer</strong></div>
+      <div class="v1-option" onclick="v1ScrollTo('v1Preview')"><span class="ico">👀</span><strong>View Preview</strong></div>
+      <div class="v1-option" onclick="v1Buy()"><span class="ico">🛒</span><strong>Get Mod</strong></div>
+    </div>
+
+    <section id="v1About" class="v1-section">
+      <div class="small">ABOUT MODZ</div>
+      <h2>HCTP Iconic Edition V1</h2>
+      <p>WWE SmackDown! Here Comes The Pain — ICONIC EDITION V1. Yahan V1 ke bare mein complete description likh sakte ho. Is section ko poster ke upar dark overlay ke saath design kiya gaya hai, isliye background cover ke saath text clearly readable rahega.</p>
+    </section>
+
+    <section id="v1Features" class="v1-section">
+      <div class="small">WHAT'S NEW</div>
+      <h2>New Features</h2>
+      <div class="v1-features" id="v1FeatureList"></div>
+    </section>
+
+    <section id="v1Preview" class="v1-section">
+      <div class="small">VISUAL PREVIEW</div>
+      <h2>Screenshots</h2>
+      <p>10 screenshot slots. JPG, PNG, JPEG aur WebP supported.</p>
+      <div id="v1SliderMount"></div>
+    </section>
+
+    <section id="v1Videos" class="v1-section">
+      <div class="small">GAMEPLAY • YOUTUBE</div>
+      <h2>Gameplay & YouTube Videos</h2>
+      <p>5–6 ya jitne chahe YouTube links neeche add kar sakte ho. Ye cards YouTube-style thumbnails ke saath dikhenge.</p>
+      <div id="v1VideoGrid" class="v1-video-grid"></div>
+    </section>
+
+    <section id="v1Credits" class="v1-section">
+      <div class="small">CREDITS & THANKS</div>
+      <h2>Credits</h2>
+      <p>Big thanks to all the developers and modders who made this release possible.</p>
+      <div class="v1-credits" id="v1CreditsList"></div>
+    </section>
+  </div>
+</div>
+
 <!-- PAYMENT MODAL -->
 <div id="paymentModal" class="modal hidden">
 <div class="modal-box">
@@ -713,7 +885,7 @@ Get Mod
   <div id="paymentPromoStatus" style="font-size:12px;color:#777;margin-top:7px">Use ICONIC10 to get the offer price.</div>
 </div>
 <div class="buttons" style="margin-top:20px">
-<a id="paypalButton" class="btn red" href="https://paypal.me/Gsoni07" target="_blank" rel="noopener">Pay with PayPal</a>
+<a id="paypalButton" class="btn red" href="https://paypal.me/Gsoni07/62" target="_blank" rel="noopener">Pay $62 USD with PayPal</a>
 <button class="btn dark" onclick="showUPI()">UPI</button>
 </div>
 <div id="upiBox" class="hidden" style="margin-top:18px;padding:18px;border:1px solid #333;border-radius:12px;text-align:center">
@@ -849,8 +1021,8 @@ features:[
 "Additional V1 content"
 ],
 youtubeVideos:[
-{title:"V1 Official Trailer",url:"https://youtu.be/__0K7KZHdnY?si=VPGLqcpkCgUlrM0e"},
-{title:"V1 Roster Showcase",url:"https://youtu.be/MJgswQfCIPA?si=pnFDYQTBQJvXqXd5"},
+{title:"V1 Official Trailer",url:"https://youtu.be/__0K7KZHdnY?si=djlHcixXkUHgX9a2"},
+{title:"V1 Roster Showcase",url:"https://youtu.be/MJgswQfCIPA?si=pCuc86vgYi0t8_d0"},
 {title:"V1 Arena Showcase",url:""},
 {title:"V1 Wrestler Models",url:""},
 {title:"V1 Moves & Movesets",url:""},
@@ -903,7 +1075,8 @@ titantrons:[]
 
 };
 
-  /* =========================================
+
+/* =========================================
    WRESTLER LIST
    BAAD MEIN APNI ACTUAL LIST YAHAN DALNA
 ========================================= */
@@ -1014,7 +1187,7 @@ const wrestlers=[
 ];
 
 
-const customArenas=[
+  const customArenas=[
 { name:"Arena 01",price:0,image:"images/arenas/arena01.jpg" },
 { name:"Arena 02",price:0,image:"images/arenas/arena02.jpg" },
 { name:"Arena 03",price:0,image:"images/arenas/arena03.jpg" },
@@ -1059,35 +1232,20 @@ let currentProduct=null;
    PAGE SYSTEM
 ========================================= */
 
-function showPage(page, pushHistory=true){
+function showPage(page){
 
 document.querySelectorAll(".page").forEach(x=>{
 x.classList.add("hidden")
 });
 
-const target=document.getElementById(page);
-if(!target)return;
-target.classList.remove("hidden");
+document.getElementById(page).classList.remove("hidden");
 
-if(pushHistory){
-  history.pushState({iconicPage:page}, "", "#"+page);
-}
-
-window.scrollTo({top:0,behavior:"smooth"});
-
-}
-
-/* Make the browser/mobile Back button move through ICONIC MODZ pages first. */
-window.addEventListener("popstate", function(e){
-  const page=(e.state&&e.state.iconicPage)||"home";
-  showPage(page,false);
+window.scrollTo({
+top:0,
+behavior:"smooth"
 });
 
-(function initSiteHistory(){
-  const initial=location.hash.replace("#","");
-  const page=document.getElementById(initial)&&document.getElementById(initial).classList.contains("page")?initial:"home";
-  history.replaceState({iconicPage:page}, "", "#"+page);
-})();
+}
 
 
 /* =========================================
@@ -1198,7 +1356,8 @@ ${product.price}
 <div class="buttons">
 
 <button class="btn dark"
-onclick='previewProduct(${JSON.stringify(product)})'>
+onclick='${currentCategory==="fullgame"?`openModShowcase(${JSON.stringify(product).replace(/'/g,"&#39;")})`:`previewProduct(${JSON.stringify(product).replace(/'/g,"&#39;")})`}'
+>
 Preview
 </button>
 
@@ -1214,9 +1373,10 @@ Get
 
 `).join("");
 
-  }
+}
 
-  /* =========================================
+
+/* =========================================
    PREVIEW
 ========================================= */
 
@@ -1328,6 +1488,8 @@ if(video) video.removeAttribute("src");
 }
 
 
+  
+
 /* =========================================
    PAYMENT
 ========================================= */
@@ -1340,13 +1502,14 @@ function openPayment(product){
   document.getElementById("paymentTitle").innerText=product.title;
   const regularUSD=62, regularINR=5962, finalUSD=60, finalINR=5769;
   document.getElementById("regularPrice").innerText=`$${regularUSD} • ₹${regularINR.toLocaleString("en-IN")}`;
-  document.getElementById("discountPrice").innerText=`-$${regularUSD-finalUSD} • -₹${(regularINR-finalINR).toLocaleString("en-IN")}`;
-  document.getElementById("finalPrice").innerText=`$${finalUSD} • ₹${finalINR.toLocaleString("en-IN")}`;
-  document.getElementById("paymentInfo").innerText="Apply ICONIC10 to unlock the $60 / ₹5,769 offer price. Choose your payment method below.";
+  document.getElementById("discountPrice").innerText="-$0 • -₹0 (not applied)";
+  document.getElementById("finalPrice").innerText=`$${regularUSD} • ₹${regularINR.toLocaleString("en-IN")}`;
+  document.getElementById("paymentInfo").innerText="Regular price: $62 USD • ₹5,962. Apply ICONIC10 to unlock $60 / ₹5,769.";
   document.getElementById("paymentPromoInput").value="";
   document.getElementById("paymentPromoStatus").innerText="Use ICONIC10 to get the offer price.";
   document.getElementById("paymentPromoStatus").style.color="#777";
-  document.getElementById("paypalButton").innerText="Pay $60 USD with PayPal";
+  document.getElementById("paypalButton").innerText="Pay $62 USD with PayPal";
+  document.getElementById("paypalButton").href="https://paypal.me/Gsoni07/62";
   document.getElementById("upiBox").classList.add("hidden");
   document.getElementById("paymentModal").classList.remove("hidden");
 }
@@ -1356,11 +1519,18 @@ function applyPaymentPromo(){
   const status=document.getElementById("paymentPromoStatus");
   const code=(input.value||"").trim().toUpperCase();
   if(code===PROMO_CODE){
-    status.innerText="✓ Code applied — you pay $60 USD / ₹5,769."; status.style.color="#63d471";
+    status.innerText="✓ Code applied — you save $2 / ₹193. Final payable: $60 USD / ₹5,769."; status.style.color="#63d471";
+    document.getElementById("discountPrice").innerText="-$2 • -₹193";
+    document.getElementById("finalPrice").innerText="$60 • ₹5,769";
     document.getElementById("paymentInfo").innerText="Discount applied. Final payable amount: $60 USD • ₹5,769.";
     document.getElementById("paypalButton").innerText="Pay $60 USD with PayPal";
+    document.getElementById("paypalButton").href="https://paypal.me/Gsoni07/60";
   }else{
     status.innerText="Invalid code. Enter ICONIC10."; status.style.color="#ff6b6b";
+    document.getElementById("discountPrice").innerText="-$0 • -₹0 (not applied)";
+    document.getElementById("finalPrice").innerText="$62 • ₹5,962";
+    document.getElementById("paypalButton").innerText="Pay $62 USD with PayPal";
+    document.getElementById("paypalButton").href="https://paypal.me/Gsoni07/62";
   }
 }
 
@@ -1642,19 +1812,16 @@ const grid=document.getElementById("featuredGrid");
 if(!grid)return;
 const list=products.fullgame||[];
 grid.innerHTML=list.map(product=>`
-<div class="card featured-card">
+<div class="card featured-card" onclick='openModShowcase(${JSON.stringify(product).replace(/'/g,"&#39;")})'>
   <div class="card-img">${product.image?`<img src="${product.image}" alt="${product.title}">`:`<div class="placeholder">MOD</div>`}</div>
   <div class="card-body">
-    <div class="badge">FEATURED</div>
-    <h2>${product.title}</h2>
+    <div class="badge">FEATURED MOD</div><h2>${product.title}</h2>
     <div class="price ${product.price==="FREE"?"free":""}">${product.price}</div>
-    <div class="buttons">
-      <button class="btn dark" onclick='previewProduct(${JSON.stringify(product)})'>Preview</button>
-      <button class="btn red" onclick='buyProduct(${JSON.stringify(product)})'>Get</button>
-    </div>
+    <div class="buttons"><button class="btn dark" onclick='event.stopPropagation();openModShowcase(${JSON.stringify(product).replace(/'/g,"&#39;")})'>View Preview</button><button class="btn red" onclick='event.stopPropagation();buyProduct(${JSON.stringify(product).replace(/'/g,"&#39;")})'>Get Mod</button></div>
   </div>
 </div>`).join("");
 }
+
 
 const PROMO_CODE="ICONIC10"; // CHANGE THIS to your real discount code.
 const PROMO_DURATION=24*60*60*1000;
@@ -1722,55 +1889,69 @@ if(el){el.classList.remove("hidden");localStorage.setItem(seenKey,String(Date.no
 }
 }
 
+
 /* =========================================
-   SITE SEARCH
+   V1 FEATURED SHOWCASE
 ========================================= */
-function getSearchItems(){
-  const items=[
-    {title:"SVR Modz",type:"Game",action:()=>openGame("svr")},
-    {title:"SmackDown Here Comes The Pain Modz",type:"Game",action:()=>openGame("hctp")}
-  ];
-  const cats=[
-    ["Wrestler Models","wrestlers"],["Full Game Mods","fullgame"],["Move Sets","movesets"],["Arenas","arenas"],["Titantrons","titantrons"]
-  ];
-  cats.forEach(([label,key])=>{
-    items.push({title:label,type:"Category",action:()=>{openCategory(key)}});
-    (products[key]||[]).forEach(product=>{
-      items.push({title:product.title||"Untitled",type:label,action:()=>{openCategory(key);setTimeout(()=>previewProduct(product),80)}});
-    });
+const v1Credits=["Aguila316","80las","ModdingGeneration","Nero619","Riot","ERI619","Erm31","Ps2 Eater","LGIYT","Ryukuuma","a7med7assan5","angrygamershow","L.O.M.","THQ"];
+const v1Videos=[
+  {title:"V1 Official Trailer",url:"https://youtu.be/__0K7KZHdnY?si=djlHcixXkUHgX9a2"},
+  {title:"V1 Roster Showcase",url:"https://youtu.be/MJgswQfCIPA?si=pCuc86vgYi0t8_d0"},
+  {title:"V1 Gameplay Showcase",url:""},
+  {title:"V1 Arena Showcase",url:""},
+  {title:"V1 Wrestler Models",url:""},
+  {title:"V1 New Features",url:""}
+];
+const v1Features=[
+  "75 Superstars in Season Mode",
+  "82 Superstars in Exhibition",
+  "180+ Converted Moves",
+  "Updated themes, titantrons and BGM",
+  "New menu and presentation updates",
+  "Finisher logo, stables, taunts and belts",
+  "Updated entrances and Special Referee support",
+  "Hidden arenas by cheats",
+  "Damage adjustment and HD renders",
+  "Royal Rumble finishers for all 82",
+  "Latest 2025 arenas",
+  "Multiple attire previews and updated movesets"
+];
+function openV1Showcase(){
+  const el=document.getElementById('v1Showcase'); if(!el)return;
+  el.classList.remove('hidden'); document.body.style.overflow='hidden';
+  document.getElementById('v1FeatureList').innerHTML=v1Features.map((x,i)=>`<div class="v1-feature" style="animation-delay:${i*35}ms">✓ ${x}</div>`).join('');
+  document.getElementById('v1CreditsList').innerHTML=v1Credits.map(x=>`<span class="v1-credit">${x}</span>`).join('');
+  const grid=document.getElementById('v1VideoGrid'); grid.innerHTML='';
+  v1Videos.forEach((v,i)=>{
+    if(!v.url)return;
+    const id=getYouTubeId(v.url); if(!id)return;
+    const a=document.createElement('a'); a.className='v1-video'; a.href=v.url; a.target='_blank'; a.rel='noopener';
+    a.innerHTML=`<img class="v1-video-thumb" src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${v.title}"><span class="v1-play">▶</span><div class="v1-video-info"><div class="v1-video-title">${v.title}</div><div class="v1-video-meta">▶ Watch on YouTube</div></div>`;
+    grid.appendChild(a);
   });
-  return items;
+  if(!grid.children.length)grid.innerHTML='<div style="grid-column:1/-1;color:#888">Add your YouTube links in the v1Videos list.</div>';
+  const mount=document.getElementById('v1SliderMount');
+  mount.innerHTML=`<div class="screenshot-slider"><div class="slider-head"><span>SCREENSHOTS</span><span id="v1SliderCounter">1 / 10</span></div><div class="slider-stage"><button class="slider-arrow left" onclick="v1Screenshot(-1)">‹</button><img id="v1SliderImage" src="" alt="V1 screenshot"><button class="slider-arrow right" onclick="v1Screenshot(1)">›</button></div><div id="v1SliderDots" class="slider-dots"></div></div>`;
+  v1SliderIndex=0; v1LoadScreenshot();
 }
-
-function renderSearchResults(query){
-  const box=document.getElementById("searchResults");
-  const clear=document.getElementById("siteSearchClear");
-  if(!box)return;
-  query=(query||"").trim().toLowerCase();
-  clear.style.display=query?"block":"none";
-  if(!query){box.style.display="none";box.innerHTML="";return;}
-  const matches=getSearchItems().filter(x=>x.title.toLowerCase().includes(query)).slice(0,12);
-  box.innerHTML=matches.length?matches.map((x,i)=>`<div class="search-result" data-search-index="${i}"><span class="search-result-icon">⌕</span><div><b>${x.title}</b><small>${x.type}</small></div></div>`).join(""):`<div class="search-empty">No matching mods or categories found.</div>`;
-  if(matches.length){
-    box.querySelectorAll(".search-result").forEach((el,i)=>el.addEventListener("click",()=>{matches[i].action();box.style.display="none";document.getElementById("siteSearchInput").value="";document.getElementById("siteSearchClear").style.display="none";}));
-  }
-  box.style.display="block";
+function closeV1Showcase(){const el=document.getElementById('v1Showcase');if(el)el.classList.add('hidden');document.body.style.overflow='';}
+function v1ScrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
+function v1Buy(){closeV1Showcase();const p=(products.fullgame||[]).find(x=>x.title==='WWE HCTP Iconic Edition V1');if(p)buyProduct(p);}
+let v1SliderIndex=0,v1SliderExt=0;
+function v1LoadScreenshot(){
+ const img=document.getElementById('v1SliderImage'); if(!img)return;
+ const base=`images/previews/v1/screenshot${String(v1SliderIndex+1).padStart(2,'0')}`;v1SliderExt=0;img.dataset.base=base;img.src=base+'.jpg';
+ img.onerror=function(){const e=['.png','.jpeg','.webp'];if(v1SliderExt<e.length)this.src=this.dataset.base+e[v1SliderExt++];else{this.onerror=null;this.alt='Add screenshot image';}};
+ document.getElementById('v1SliderCounter').innerText=`${v1SliderIndex+1} / 10`;
+ const d=document.getElementById('v1SliderDots');if(d)d.innerHTML=Array.from({length:10},(_,i)=>`<button class="slider-dot ${i===v1SliderIndex?'active':''}" onclick="v1GoScreenshot(${i})"></button>`).join('');
 }
-
-function initSiteSearch(){
-  const input=document.getElementById("siteSearchInput"), clear=document.getElementById("siteSearchClear"), box=document.getElementById("searchResults");
-  if(!input)return;
-  input.addEventListener("input",()=>renderSearchResults(input.value));
-  input.addEventListener("keydown",e=>{if(e.key==="Escape"){input.value="";renderSearchResults("");input.blur();}});
-  clear.addEventListener("click",()=>{input.value="";renderSearchResults("");input.focus();});
-  document.addEventListener("click",e=>{if(!document.getElementById("siteSearch")?.contains(e.target))box.style.display="none";});
-}
+function v1Screenshot(step){v1SliderIndex=(v1SliderIndex+step+10)%10;v1LoadScreenshot();}
+function v1GoScreenshot(i){v1SliderIndex=i;v1LoadScreenshot();}
 
 /* =========================================
    START
 ========================================= */
 
-initSiteSearch();
 renderWrestlers();
 renderFeatured();
 startPromoCountdown();
@@ -1783,8 +1964,23 @@ if(e.target===this)closePromoPopup();
 function openCredits(){document.getElementById("creditsModal").classList.remove("hidden")}
 function closeCredits(){document.getElementById("creditsModal").classList.add("hidden")}
 
+
+/* UNIVERSAL V1 / V2 / FREE SHOWCASE */
+let msProduct=null,msIndex=0,msExt=0;
+function openModShowcase(product){msProduct=product;msIndex=0;const el=document.getElementById('modShowcase');const inner=document.getElementById('modShowcaseInner');if(!el||!inner)return;const safe=(product.title||'').replace(/</g,'&lt;');const videos=(product.youtubeVideos||[]).filter(v=>v.url);inner.innerHTML=`<section class="ms-hero"><div class="ms-bg" style="background-image:url('${product.image||''}')"></div><div class="ms-content"><div class="small">FEATURED MOD • ${safe}</div><h1>${safe}</h1><p>${product.description||'Complete ICONIC MODZ showcase.'}</p><div class="ms-actions"><button class="btn red" onclick="msScroll('msVideos')">🎬 Watch Gameplay</button><button class="btn dark" onclick="msScroll('msPreview')">👀 View Preview</button><button class="btn red" onclick="msGet()">🛒 Get Mod</button><button class="btn dark" onclick="msScroll('msCredits')">Credits</button></div></div></section><div class="ms-body"><div class="ms-menu"><button onclick="msScroll('msAbout')">📖 About Modz</button><button onclick="msScroll('msFeatures')">🔥 New Features</button><button onclick="msScroll('msVideos')">🎬 YouTube</button><button onclick="msScroll('msPreview')">📸 Screenshots</button><button onclick="msGet()">🛒 Get Mod</button></div><section id="msAbout" class="ms-section"><div class="small">ABOUT MODZ</div><h2>${safe}</h2><p>${product.description||''}</p></section><section id="msFeatures" class="ms-section"><div class="small">WHAT'S NEW</div><h2>New Features</h2><div class="ms-features">${(product.features||[]).map((x,i)=>`<div class="ms-feature" style="animation-delay:${i*30}ms">✓ ${x}</div>`).join('')}</div></section><section id="msPreview" class="ms-section"><div class="small">VISUAL PREVIEW</div><h2>Screenshots</h2><div id="msSlider"></div></section><section id="msVideos" class="ms-section"><div class="small">GAMEPLAY • YOUTUBE</div><h2>Gameplay Videos</h2><div class="ms-videos">${videos.length?videos.map(v=>{const id=getYouTubeId(v.url);return id?`<a class="ms-video" href="${v.url}" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${v.title}"><div class="ms-video-info"><div class="ms-video-title">${v.title}</div><div class="ms-video-meta">▶ Watch on YouTube</div></div></a>`:''}).join(''):'<p>Add your YouTube links in the product settings.</p>'}</div></section><section id="msCredits" class="ms-section"><div class="small">CREDITS & THANKS</div><h2>Credits</h2><div class="ms-credit-list">${v1Credits.map(x=>`<span class="ms-credit">${x}</span>`).join('')}</div></section></div>`;el.classList.remove('hidden');document.body.style.overflow='hidden';msBuildSlider();}
+function closeModShowcase(){document.getElementById('modShowcase')?.classList.add('hidden');document.body.style.overflow='';}
+function msScroll(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
+function msGet(){closeModShowcase();if(msProduct)buyProduct(msProduct);}
+function msBuildSlider(){const box=document.getElementById('msSlider');if(!box)return;const arr=msProduct.screenshots||[];box.innerHTML=`<div class="ms-slider"><div class="slider-head"><span>SCREENSHOTS</span><span id="msCounter">1 / ${arr.length||10}</span></div><div class="ms-stage"><button class="ms-arrow left" onclick="msShot(-1)">‹</button><img id="msImage" src="" alt="Screenshot"><button class="ms-arrow right" onclick="msShot(1)">›</button></div><div id="msDots" class="ms-dots"></div></div>`;msIndex=0;msLoadShot();}
+function msLoadShot(){const img=document.getElementById('msImage');if(!img)return;const arr=msProduct.screenshots||Array.from({length:10},(_,i)=>`images/previews/v1/screenshot${String(i+1).padStart(2,'0')}`);const base=arr[msIndex]||arr[0];msExt=0;img.dataset.base=base;img.src=base+'.jpg';img.onerror=function(){const e=['.png','.jpeg','.webp'];if(msExt<e.length)this.src=this.dataset.base+e[msExt++];else{this.onerror=null;this.alt='Add screenshot image';}};document.getElementById('msCounter').textContent=`${msIndex+1} / ${arr.length}`;document.getElementById('msDots').innerHTML=arr.map((_,i)=>`<button class="${i===msIndex?'active':''}" onclick="msGoShot(${i})"></button>`).join('');}
+function msShot(step){const n=(msProduct.screenshots||[]).length||10;msIndex=(msIndex+step+n)%n;msLoadShot();}
+function msGoShot(i){msIndex=i;msLoadShot();}
+function renderLatestYoutube(){const g=document.getElementById('latestYoutubeGrid');if(!g)return;const videos=(products.fullgame||[]).flatMap(p=>(p.youtubeVideos||[]).map(v=>({...v,mod:p.title}))).filter(v=>v.url).slice(0,6);g.innerHTML=videos.length?videos.map(v=>{const id=getYouTubeId(v.url);return id?`<a class="latest-yt-card" href="${v.url}" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/${id}/hqdefault.jpg"><div>▶ ${v.title}<small style="display:block;color:#888;margin-top:5px">${v.mod}</small></div></a>`:''}).join(''):'<p>Add your YouTube links to show latest gameplay here.</p>';}
+renderLatestYoutube();
+
 </script>
 
+
+<div id="modShowcase" class="mod-showcase hidden"><button class="ms-close" onclick="closeModShowcase()">×</button><div id="modShowcaseInner"></div></div>
 </body>
 </html>
-  
