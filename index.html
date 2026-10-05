@@ -821,6 +821,9 @@ Get Mod
     <div class="v1-option-grid">
       <div class="v1-option" onclick="v1ScrollTo('v1About')"><span class="ico">📖</span><strong>About Modz</strong></div>
       <div class="v1-option" onclick="v1ScrollTo('v1Features')"><span class="ico">🔥</span><strong>New Features</strong></div>
+      <div class="v1-option" onclick="v1ScrollTo('v1RosterSource')"><span class="ico">👥</span><strong>Full Roster</strong></div>
+      <div class="v1-option" onclick="v1ScrollTo('v1ArenaSource')"><span class="ico">🏟️</span><strong>All Arenas</strong></div>
+      <div class="v1-option" onclick="v1ScrollTo('v1PatchSource')"><span class="ico">⚡</span><strong>Full Patch</strong></div>
       <div class="v1-option" onclick="v1ScrollTo('v1Videos')"><span class="ico">🎬</span><strong>Watch Trailer</strong></div>
       <div class="v1-option" onclick="v1ScrollTo('v1Preview')"><span class="ico">👀</span><strong>View Preview</strong></div>
       <div class="v1-option" onclick="v1Buy()"><span class="ico">🛒</span><strong>Get Mod</strong></div>
@@ -836,6 +839,24 @@ Get Mod
       <div class="small">WHAT'S NEW</div>
       <h2>New Features</h2>
       <div class="v1-features" id="v1FeatureList"></div>
+    </section>
+
+    <section id="v1RosterSource" class="v1-section">
+      <div class="small">V1 SOURCE TXT</div>
+      <h2>Complete Roster & Special Content</h2>
+      <div class="v1-source-grid" id="v1RosterSourceList"></div>
+    </section>
+
+    <section id="v1ArenaSource" class="v1-section">
+      <div class="small">V1 SOURCE TXT</div>
+      <h2>Complete Arena List</h2>
+      <div class="v1-source-grid" id="v1ArenaSourceList"></div>
+    </section>
+
+    <section id="v1PatchSource" class="v1-section">
+      <div class="small">EXCLUSIVE NEXT LEVEL PATCH</div>
+      <h2>Complete Feature List From TXT</h2>
+      <div class="v1-features" id="v1PatchSourceList"></div>
     </section>
 
     <section id="v1Preview" class="v1-section">
@@ -1263,9 +1284,10 @@ game==="hctp"
 
 showPage("categories");
 
-  }
+}
 
-  /* =========================================
+
+/* =========================================
    CATEGORY
 ========================================= */
 
@@ -1291,7 +1313,7 @@ showPage("products");
 }
 
 
-/* =========================================
+  /* =========================================
    PRODUCTS
 ========================================= */
 
@@ -1797,7 +1819,7 @@ title:"Custom Mod Order",
 price:total>0?"₹"+total:"Price to be set"
 });
 
-}
+     }
 
   /* =========================================
    FEATURED MODS + PROMO
@@ -1891,18 +1913,18 @@ if(el){el.classList.remove("hidden");localStorage.setItem(seenKey,String(Date.no
 ========================================= */
 const v1Credits=["Aguila316","80las","ModdingGeneration","Nero619","Riot","ERI619","Erm31","Ps2 Eater","LGIYT","Ryukuuma","a7med7assan5","angrygamershow","L.O.M.","THQ"];
 const v1RosterGroups = [
-  {name:"BLOODLINE", members:["Roman Reigns","Solo Sikoa","Jey Uso","Jimmy Uso","Jacob Fatu","Paul Heyman"]},
-  {name:"THE WYATT FAMILY", members:["Luke Harper","Erick Rowan","Bray Wyatt / The Fiend"]},
-  {name:"THE NEW DAY", members:["Big E","Kofi Kingston","Xavier Woods"]},
-  {name:"THE JUDGEMENT DAY", members:["Finn Balor","Damien Priest","Dominik Mysterio"]},
-  {name:"DIVAS", members:["Lita [Diva]","Sable [Diva]","Stacy Keibler [Diva]","Torrie Wilson [Diva]","Trish Stratus [Diva]"], optional:["Nikkie Bella","Berrie Bella","Paige","Debra"]},
-  {name:"STAFF MEMBERS", members:["Earl Hebner [Staff]","Mike Chioda [Staff]","Stephanie McMahon [Staff]","Vince McMahon [Staff]"]},
-  {name:"UPDATED SUPERSTARS", members:["Kurt Angle","AJ Styles","Aleister Black","Angelo Dawkins","Baron Corbin","Batista","Big Show","Bobby Lashley","Braun Strowman","Brock Lesnar","Bron Breakker","Bryan Danielson","Bubba Ray Dudley","Cesaro","Chris Jericho","Christian","CM Punk","Cody Rhodes","Darby Allin","D-Von Dudley","Dolph Ziggler","Drew McIntyre","Edge","Goldberg","Gunther","Hulk Hogan","Jeff Hardy","Jinder Mahal","John Cena","John Morrison","Jon Moxley","Kane","Referee","Kevin Owens","Logan Paul","Mark Henry","Matt Hardy","Matt Riddle","Montez Ford","Omos","Randy Orton","Rey Mysterio","Ricochet","Rob Van Dam","Rusev","Ryback","Sami Zayn","Samoa Joe","Scott Hall","Scott Steiner","Seth Freakin Rollins","Shinsuke Nakamura","Sheamus","Shawn Michaels","Steve Austin","Sting","The Great Khali","The Miz","The Rock [Final Boss]","The Undertaker","Tommaso Ciampa","Triple H","Undertaker","Ultimo Dragon / Kalisto / Sin Cara"]},
-  {name:"SPECIAL", members:["Superstar CAWS 32","Special Cheats","HD TEXTURES that you can play 4k quality"]}
+  {name:"Bloodline Members", members:["1. Roman Reigns","2. Solo Sikoa","3. Jey Uso","4. Jimmy Uso","5. Jacob Fatu","6. Paul Heyman"]},
+  {name:"The Wyatt Family", members:["7. Luke Harper","8. Erick Rowan","9. Bray Wyatt / The Fiend"]},
+  {name:"The New Day", members:["10. Big E","11. Kofi Kingston","12. Xavier Woods"]},
+  {name:"The Judgement Day", members:["13. Finn Balor","14. Damien Priest","15. Dominik Mysterio"]},
+  {name:"Divas", members:["16. Lita [Diva]","17. Sable [Diva]","18. Stacy Keibler [Diva]","19. Torrie Wilson [Diva]","20. Trish Stratus [Diva]"], optional:["NIKKIE BELLA","BERRIE BELLA","PAIGE","DEBRA"]},
+  {name:"Staff Members", members:["21. Earl Hebner [Staff]","22. Mike Chioda [Staff]","23. Stephanie McMahon [Staff]","24. Vince McMahon [Staff]"]},
+  {name:"Updated Superstars", members:["25. Kurt Angle","26. AJ Styles","27. Aleister Black","28. Angelo Dawkins","29. Baron Corbin","30. Batista","31. Big Show","32. Bobby Lashley","33. Braun Strowman","34. Brock Lesnar","35. Bron Breakker","36. Bryan Danielson","37. Bubba Ray Dudley","38. Cesaro","39. Chris Jericho","40. Christian","41. CM Punk","42. Cody Rhodes","43. Darby Allin","44. D-Von Dudley","45. Dolph Ziggler","46. Drew McIntyre","47. Edge","48. Goldberg","49. Gunther","50. Hulk Hogan","51. Jeff Hardy","52. Jinder Mahal","53. John Cena","54. John Morrison","55. Jon Moxley","56. Kane","57. Referee","58. Kevin Owens","59. Logan Paul","60. Mark Henry","61. Matt Hardy","62. Matt Riddle","63. Montez Ford","64. Omos","65. Randy Orton","66. Rey Mysterio","67. Ricochet","68. Rob Van Dam","69. Rusev","70. Ryback","71. Sami Zayn","72. Samoa Joe","73. Scott Hall","74. Scott Steiner","75. Seth Freakin Rollins","76. Shinsuke Nakamura","77. Sheamus","78. Shawn Michaels","79. Steve Austin","80. Sting","81. The Great Khali","82. The Miz","83. The Rock [Final Boss]","84. The Undertaker","85. Tommaso Ciampa","86. Triple H","87. Undertaker","88. Ultimo Dragon / Kalisto / Sin Cara"]},
+  {name:"Special", members:["89. Superstar CAWS 32","90. Special Cheats","91. HD TEXTURES that you can play 4k quality"]}
 ];
-const v1Arenas=["AEW Dynamite","ECW Old","Elimination Chamber 2025","Fast Lane","Hell in a Cell","Judgement Day","Night Of Champion","Payback","Raw latest 2025","Raw old","Royal Rumble 2025","SmackDown latest 2025","Smackdown old","Summer Slam","Survivor Series","TLC","Unforgiven","WrestleMania 9","WrestleMania XL","WM Backlash"];
+const v1Arenas=["1. AEW Dynamite","2. ECW  Old","3. Elimination Chamber  2025","4. Fast Lane","5. Hell in a Cell","6. Judgement Day","7. Night Of Champion","8. Payback","9. Raw latest 2025","10. Raw old","11. Royal Rumble 2025","12. SmackDown latest 2025","13. Smackdown old","14. Summer Slam","15. Survivor Series","16. TLC","17. Unforgiven","18. WrestleMania 9","19. WrestleMania XL","20. WM Backlash"];
 const v1HiddenArenas=["NWO","WCW Nitro","ETC"];
-const v1PatchFeatures=["75 Superstars Playable In Season Mode","100 + movies Titantrons","New BGM Music","Royal Rumble Finishers for All 82 Superstars","82 Superstars Playable In Exhibition instead of 65","Adjust Proper Moves Damage","All Wrestlers Added in Special Referee","Can Play With Hidden Arenas","Maximum Superstars Have 4 to 5 Attires (280 - 300)","New 180+ Updated Converted Realistic Moves [with sound Added]","New Rumble Roses moves added","New Submission moves","New Updated Finishers","New Steel Cage","New Steel Hell in a Cell","New Background Music","New Championship Belts","New Converted Taunts","New Different Matches Added","New Finisher Logo","New Titantrons","New Improved HD Renders for All Superstars","New Latest Arenas","New Loading Screens","New Main Menu Style","New Proper Entrance Motion Added","New Themes & Titantrons","New Updated Stables","Proper Height & Weight Set","Proper Moves Set – Can Play Without Memory Card"];
+const v1PatchFeatures=["75 Superstars Playable In Season Mode","100 + movies Titantrons","New BGM Music","Royal Rumble Finishers for All 82 Superstars","82 Superstars Playable In Exhibition instead of 65","Adjust Proper Moves Damage","All Wrestlers Added in Special Referee","Can Play With Hidden Arenas","Maximum Superstars Have 4 to 5 Attires( 280 -300) (Added Preview Soon)","New 180+ Updated Converted    Realistic Moves [ with sound Added]","New Rumble Roses moves added","New Submission moves","New Updated Finishers","New Steel Cage","New Steel Hell in a Cell","New Background Music","New Championship Belts","New Converted Taunts","New Different Matches Added","New Finisher Logo","New Titantrons","New Improved HD Renders for All Superstars","New Latest Arenas","New Loading Screens","New Main Menu Style","New Proper Entrance Motion Added","New Themes & Titantrons","New Updated Stables","Proper Height & Weight Set","Proper Moves Set – Can Play Without Memory Card"];
 products.fullgame[1].description="WWE SmackDown! Here Comes The Pain Iconic Edition V1 — full showcase of the supplied V1 roster, arenas and Exclusive Next Level Patch features.";
 products.fullgame[1].features=v1PatchFeatures;
 
@@ -1932,6 +1954,12 @@ function openV1Showcase(){
   const el=document.getElementById('v1Showcase'); if(!el)return;
   el.classList.remove('hidden'); document.body.style.overflow='hidden';
   document.getElementById('v1FeatureList').innerHTML=v1Features.map((x,i)=>`<div class="v1-feature" style="animation-delay:${i*35}ms">✓ ${x}</div>`).join('');
+  const rosterBox=document.getElementById('v1RosterSourceList');
+  if(rosterBox) rosterBox.innerHTML=v1RosterGroups.map(g=>`<div class="v1-source-card"><h3>${g.name}</h3>${g.members.map(x=>`<div>✓ ${x}</div>`).join('')}${g.optional?`<div class="v1-optional-source"><b>Optional divas</b><br>${g.optional.join(' • ')}</div>`:''}</div>`).join('');
+  const arenaBox=document.getElementById('v1ArenaSourceList');
+  if(arenaBox) arenaBox.innerHTML=`<div class="v1-source-card"><h3>ARENA</h3>${v1Arenas.map(x=>`<div>✓ ${x}</div>`).join('')}</div><div class="v1-source-card"><h3>Unselectable Arenas (Playable through cheats)</h3>${v1HiddenArenas.map(x=>`<div>✓ ${x}</div>`).join('')}</div>`;
+  const patchBox=document.getElementById('v1PatchSourceList');
+  if(patchBox) patchBox.innerHTML=v1PatchFeatures.map((x,i)=>`<div class="v1-feature" style="animation-delay:${i*25}ms">✓ ${x}</div>`).join('');
   document.getElementById('v1CreditsList').innerHTML=v1Credits.map(x=>`<span class="v1-credit">${x}</span>`).join('');
   const grid=document.getElementById('v1VideoGrid'); grid.innerHTML='';
   v1Videos.forEach((v,i)=>{
@@ -1996,3 +2024,4 @@ renderLatestYoutube();
 <div id="modShowcase" class="mod-showcase hidden"><button class="ms-close" onclick="closeModShowcase()">×</button><div id="modShowcaseInner"></div></div>
 </body>
 </html>
+  
