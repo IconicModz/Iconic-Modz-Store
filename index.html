@@ -352,7 +352,7 @@ color:#666
 .brand-logo{width:42px;height:42px;object-fit:contain;border-radius:8px}
 .brand-wrap b{color:#e50914}
 
-  /* ===== ICONIC MODZ UPGRADE ===== */
+/* ===== ICONIC MODZ UPGRADE ===== */
 .featured-section{margin-top:45px}
 .featured-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:18px}
 .featured-head h2{margin:0}
@@ -494,6 +494,46 @@ color:#666
 .latest-yt-head{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.subscribe-btn{box-shadow:0 8px 25px rgba(229,9,20,.18)}
 .ms-roster-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:18px}.ms-roster-group{background:#111;border:1px solid #292929;border-radius:14px;padding:16px;animation:imzFadeUp .45s both}.ms-roster-group h3{font-size:13px;color:#e50914;letter-spacing:1px;margin:0 0 12px}.ms-member-list{display:flex;flex-wrap:wrap;gap:7px}.ms-member-list span{padding:7px 9px;background:#181818;border:1px solid #252525;border-radius:8px;color:#ddd;font-size:12px}.ms-optional{margin-top:12px;color:#999;font-size:11px;line-height:1.6}.ms-arena-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:9px;margin-top:18px}.ms-arena{display:flex;gap:10px;align-items:center;padding:12px;background:#111;border:1px solid #252525;border-radius:10px;color:#ddd}.ms-arena b{color:#e50914;font-size:11px}.ms-hidden-arenas{margin-top:14px;padding:13px;border:1px dashed #4b2427;border-radius:10px;color:#bbb}.ms-patch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin-top:18px}.ms-patch{padding:13px;border-radius:11px;background:linear-gradient(145deg,#151515,#0d0d0d);border:1px solid #282828;color:#ddd;line-height:1.5;animation:imzFadeUp .45s both}.ms-patch span{color:#e50914;font-weight:900;margin-right:8px}
 @media(max-width:700px){.latest-yt-head{align-items:flex-start}.subscribe-btn{width:100%;text-align:center}}
+
+
+/* =========================================
+   RED NEON PAYMENT + CART UPGRADE
+========================================= */
+:root{--imz-red:#ff1730;--imz-red2:#e50914;--imz-red-glow:rgba(255,23,48,.35)}
+body{background:radial-gradient(circle at 50% -10%,rgba(229,9,20,.10),transparent 34%),#050505}
+header{border-bottom-color:rgba(255,23,48,.38);box-shadow:0 0 22px rgba(229,9,20,.10)}
+.card,.home-panel,.community-panel,.discord-panel,.credits-panel,.ms-section,.v1-section{border-color:rgba(255,23,48,.25);box-shadow:0 0 0 1px rgba(255,23,48,.03),0 12px 45px rgba(229,9,20,.05)}
+.card:hover,.latest-yt-card:hover,.v1-video:hover,.ms-video:hover{border-color:var(--imz-red);box-shadow:0 0 26px rgba(255,23,48,.20),0 16px 45px rgba(229,9,20,.12)}
+.red{background:linear-gradient(135deg,#ff1730,#c90018);box-shadow:0 0 16px rgba(255,23,48,.24)}
+.red:hover{background:linear-gradient(135deg,#ff3045,#e50914);box-shadow:0 0 25px rgba(255,23,48,.38)}
+.dark{border-color:rgba(255,23,48,.30);background:#0e0e0e}
+.dark:hover{background:#181010;border-color:var(--imz-red);box-shadow:0 0 18px rgba(255,23,48,.16)}
+.btn{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.site-flow{border-color:rgba(255,23,48,.30);box-shadow:0 0 20px rgba(229,9,20,.08)}
+.site-flow a:hover{background:var(--imz-red2);box-shadow:0 0 15px rgba(255,23,48,.28)}
+.cart-badge{display:inline-flex;min-width:22px;height:22px;padding:0 6px;border-radius:999px;align-items:center;justify-content:center;background:#fff;color:#d60019;font-size:11px;font-weight:950;margin-left:6px;box-shadow:0 0 12px rgba(255,255,255,.25)}
+.cart-float{position:fixed;right:18px;bottom:18px;z-index:9000;box-shadow:0 0 28px rgba(255,23,48,.35)}
+.cart-list{display:grid;gap:10px;margin-top:16px}
+.cart-item{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:12px;border:1px solid rgba(255,23,48,.20);border-radius:12px;background:#0d0d0d}
+.cart-item-title{font-weight:900}.cart-item-price{color:#ff5867;font-weight:900}.cart-qty{display:flex;align-items:center;gap:6px}.cart-qty button{width:30px;height:30px;border-radius:8px;border:1px solid #3b1d20;background:#160a0b;color:#fff}
+.cart-empty{padding:22px;border:1px dashed #5a272c;border-radius:12px;text-align:center;color:#888}
+.payment-proof{margin-top:20px;padding:18px;border:1px solid rgba(255,23,48,.28);border-radius:16px;background:linear-gradient(145deg,#120708,#090909);box-shadow:inset 0 0 30px rgba(229,9,20,.04)}
+.payment-proof h3{margin:0 0 7px}.proof-option{margin-top:14px;padding:16px;border:1px solid #332022;border-radius:13px;background:#0b0b0b}.proof-option ol{margin:10px 0 0 20px;padding:0;color:#ddd}.proof-option li{margin:7px 0;line-height:1.5}.proof-note{color:#ff6976;font-size:12px}.proof-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}.proof-form input{width:100%;padding:11px 12px;border-radius:10px;border:1px solid #3b2023;background:#080808;color:#fff;outline:none}.proof-form input:focus{border-color:var(--imz-red);box-shadow:0 0 14px rgba(255,23,48,.12)}.proof-form .full{grid-column:1/-1}.proof-email{color:#ff5b68;font-weight:900}.gmail-footer{border-color:rgba(255,23,48,.30)!important}
+@media(max-width:600px){.proof-form{grid-template-columns:1fr}.cart-item{grid-template-columns:1fr auto}.cart-item .cart-qty{grid-column:1/-1}}
+
+/* ===== PAYMENT PROOF CENTER ===== */
+.payment-help{margin-top:42px;padding:28px;border:1px solid rgba(255,23,48,.38);border-radius:22px;background:linear-gradient(145deg,#110607,#070707);box-shadow:0 0 35px rgba(255,23,48,.08),inset 0 0 40px rgba(255,23,48,.035);position:relative;overflow:hidden}
+.payment-help:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,23,48,.045),transparent);transform:translateX(-100%);animation:paymentScan 5s linear infinite;pointer-events:none}
+.payment-help-head{text-align:center;position:relative;z-index:1}.payment-help-head .small{color:#ff4052}.payment-help-head h2{margin:8px 0;font-size:clamp(25px,4vw,38px);text-shadow:0 0 20px rgba(255,23,48,.22)}.payment-help-head p{color:#aaa;margin:0 auto;max-width:760px;line-height:1.6}
+.payment-help-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px;position:relative;z-index:1}
+.payment-help-card{padding:22px;border-radius:18px;background:linear-gradient(145deg,#0d0d0d,#080808);border:1px solid rgba(255,23,48,.28);box-shadow:0 12px 35px rgba(0,0,0,.35);transition:.25s ease}
+.payment-help-card:hover{transform:translateY(-5px);border-color:#ff1730;box-shadow:0 0 28px rgba(255,23,48,.18),0 18px 40px rgba(0,0,0,.4)}
+.payment-help-title{display:flex;align-items:center;gap:13px;margin-bottom:14px}.payment-help-icon{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;background:#121212;border:1px solid rgba(255,23,48,.35);font-size:25px;box-shadow:0 0 18px rgba(255,23,48,.10)}.payment-help-title h3{margin:0;font-size:21px}.payment-help-title span{display:block;color:#ff4052;font-size:11px;font-weight:900;letter-spacing:1.5px;margin-top:3px}
+.payment-help-card ol{margin:12px 0 0 20px;padding:0;color:#ddd}.payment-help-card li{margin:10px 0;line-height:1.55}.payment-help-card li::marker{color:#ff1730;font-weight:900}.payment-email{padding:11px 13px;border-radius:10px;background:#16080a;border:1px solid rgba(255,23,48,.3);color:#fff;font-weight:900;word-break:break-all}.payment-email b{color:#ff4052}.payment-note{margin-top:14px;padding:11px 13px;border-left:3px solid #ff1730;background:#110708;color:#aaa;line-height:1.5;font-size:12px}.payment-help-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.payment-help-actions .btn{flex:1;min-width:170px;text-align:center}
+.payment-help-copy{margin-top:22px;padding:17px;border-radius:15px;border:1px dashed rgba(255,23,48,.35);background:#090909;color:#bbb;line-height:1.65;font-size:13px}.payment-help-copy strong{color:#fff}.payment-help-copy .copy-label{color:#ff4052;font-weight:950;letter-spacing:1px;margin-bottom:8px}
+.gmail-footer{box-shadow:0 0 16px rgba(255,23,48,.08)}
+@keyframes paymentScan{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@media(max-width:760px){.payment-help{padding:20px}.payment-help-grid{grid-template-columns:1fr}.payment-help-card{padding:18px}.payment-help-actions .btn{min-width:100%;}}
 
 
 /* ===== RED NEON SCROLL REVEAL ===== */
@@ -820,8 +860,6 @@ move sets, arenas and titantrons — all in one place.
 </section>
 
 
-  
-
 <!-- PRODUCTS -->
 <section id="products" class="page hidden">
 <div class="container">
@@ -997,7 +1035,9 @@ Get Mod
 
 
 
-  <!-- ICONIC MODZ PROMO POPUP -->
+
+
+<!-- ICONIC MODZ PROMO POPUP -->
 <div id="promoPopup" class="promo-overlay hidden" role="dialog" aria-modal="true" aria-label="Iconic Modz special offer">
   <div class="promo-box">
     <button class="promo-close" onclick="closePromoPopup()" aria-label="Close">×</button>
@@ -1269,8 +1309,7 @@ ICONIC MODZ • WWE Modding Store
 
 <script>
 
-
-  /* =========================================
+/* =========================================
    WEBSITE DATA
    YAHAN BAAD MEIN PRODUCTS ADD KAR SAKTE HO
 ========================================= */
@@ -1402,6 +1441,91 @@ titantrons:[]
 };
 
 
+/* RESTORED V1 PREVIEW DATA — preserved from the original site build */
+const v1Credits=["Aguila316","80las","ModdingGeneration","Nero619","Riot","ERI619","Erm31","Ps2 Eater","LGIYT","Ryukuuma","a7med7assan5","angrygamershow","L.O.M.","THQ"];
+const v1RosterGroups = [
+  {name:"BLOODLINE", members:["Roman Reigns","Solo Sikoa","Jey Uso","Jimmy Uso","Jacob Fatu","Paul Heyman"]},
+  {name:"THE WYATT FAMILY", members:["Luke Harper","Erick Rowan","Bray Wyatt / The Fiend"]},
+  {name:"THE NEW DAY", members:["Big E","Kofi Kingston","Xavier Woods"]},
+  {name:"THE JUDGEMENT DAY", members:["Finn Balor","Damien Priest","Dominik Mysterio"]},
+  {name:"DIVAS", members:["Lita [Diva]","Sable [Diva]","Stacy Keibler [Diva]","Torrie Wilson [Diva]","Trish Stratus [Diva]"], optional:["Nikkie Bella","Berrie Bella","Paige","Debra"]},
+  {name:"STAFF MEMBERS", members:["Earl Hebner [Staff]","Mike Chioda [Staff]","Stephanie McMahon [Staff]","Vince McMahon [Staff]"]},
+  {name:"UPDATED SUPERSTARS", members:["Kurt Angle","AJ Styles","Aleister Black","Angelo Dawkins","Baron Corbin","Batista","Big Show","Bobby Lashley","Braun Strowman","Brock Lesnar","Bron Breakker","Bryan Danielson","Bubba Ray Dudley","Cesaro","Chris Jericho","Christian","CM Punk","Cody Rhodes","Darby Allin","D-Von Dudley","Dolph Ziggler","Drew McIntyre","Edge","Goldberg","Gunther","Hulk Hogan","Jeff Hardy","Jinder Mahal","John Cena","John Morrison","Jon Moxley","Kane","Referee","Kevin Owens","Logan Paul","Mark Henry","Matt Hardy","Matt Riddle","Montez Ford","Omos","Randy Orton","Rey Mysterio","Ricochet","Rob Van Dam","Rusev","Ryback","Sami Zayn","Samoa Joe","Scott Hall","Scott Steiner","Seth Freakin Rollins","Shinsuke Nakamura","Sheamus","Shawn Michaels","Steve Austin","Sting","The Great Khali","The Miz","The Rock [Final Boss]","The Undertaker","Tommaso Ciampa","Triple H","Undertaker","Ultimo Dragon / Kalisto / Sin Cara"]},
+  {name:"SPECIAL", members:["Superstar CAWS 32","Special Cheats","HD TEXTURES that you can play 4k quality"]}
+];
+const v1Arenas=["AEW Dynamite","ECW Old","Elimination Chamber 2025","Fast Lane","Hell in a Cell","Judgement Day","Night Of Champion","Payback","Raw latest 2025","Raw old","Royal Rumble 2025","SmackDown latest 2025","Smackdown old","Summer Slam","Survivor Series","TLC","Unforgiven","WrestleMania 9","WrestleMania XL","WM Backlash"];
+const v1HiddenArenas=["NWO","WCW Nitro","ETC"];
+const v1PatchFeatures=["75 Superstars Playable In Season Mode","100 + movies Titantrons","New BGM Music","Royal Rumble Finishers for All 82 Superstars","82 Superstars Playable In Exhibition instead of 65","Adjust Proper Moves Damage","All Wrestlers Added in Special Referee","Can Play With Hidden Arenas","Maximum Superstars Have 4 to 5 Attires (280 - 300)","New 180+ Updated Converted Realistic Moves [with sound Added]","New Rumble Roses moves added","New Submission moves","New Updated Finishers","New Steel Cage","New Steel Hell in a Cell","New Background Music","New Championship Belts","New Converted Taunts","New Different Matches Added","New Finisher Logo","New Titantrons","New Improved HD Renders for All Superstars","New Latest Arenas","New Loading Screens","New Main Menu Style","New Proper Entrance Motion Added","New Themes & Titantrons","New Updated Stables","Proper Height & Weight Set","Proper Moves Set – Can Play Without Memory Card"];
+
+/* RESTORED V1 PREVIEW / SHOWCASE FLOW — original section preserved */
+const v1Videos=[
+  {title:"V1 Official Trailer",url:"https://youtu.be/__0K7KZHdnY?si=djlHcixXkUHgX9a2"},
+  {title:"V1 Roster Showcase",url:"https://youtu.be/MJgswQfCIPA?si=pCuc86vgYi0t8_d0"},
+  {title:"V1 Gameplay Showcase",url:""},
+  {title:"V1 Arena Showcase",url:""},
+  {title:"V1 Wrestler Models",url:""},
+  {title:"V1 New Features",url:""}
+];
+const v1Features=[
+  "75 Superstars in Season Mode",
+  "82 Superstars in Exhibition",
+  "180+ Converted Moves",
+  "Updated themes, titantrons and BGM",
+  "New menu and presentation updates",
+  "Finisher logo, stables, taunts and belts",
+  "Updated entrances and Special Referee support",
+  "Hidden arenas by cheats",
+  "Damage adjustment and HD renders",
+  "Royal Rumble finishers for all 82",
+  "Latest 2025 arenas",
+  "Multiple attire previews and updated movesets"
+];
+products.fullgame[1].description="WWE SmackDown! Here Comes The Pain — ICONIC EDITION V1. Full V1 showcase with roster, arenas, 10 screenshot slots, YouTube trailer/showcase links and Exclusive Next Level Patch features.";
+products.fullgame[1].features=v1PatchFeatures;
+products.fullgame[1].youtubeVideos=v1Videos.concat(products.fullgame[1].youtubeVideos||[]).filter((v,i,a)=>a.findIndex(x=>x.title===v.title)===i);
+
+function openV1Showcase(){
+  const el=document.getElementById('v1Showcase');
+  if(!el)return;
+  el.classList.remove('hidden');
+  document.body.style.overflow='hidden';
+  const featureList=document.getElementById('v1FeatureList');
+  if(featureList) featureList.innerHTML=v1Features.map((x,i)=>`<div class="v1-feature" style="animation-delay:${i*35}ms">✓ ${x}</div>`).join('');
+  const creditsList=document.getElementById('v1CreditsList');
+  if(creditsList) creditsList.innerHTML=v1Credits.map(x=>`<span class="v1-credit">${x}</span>`).join('');
+  const grid=document.getElementById('v1VideoGrid');
+  if(grid){
+    grid.innerHTML='';
+    v1Videos.forEach(v=>{
+      if(!v.url)return;
+      const id=getYouTubeId(v.url);
+      if(!id)return;
+      const a=document.createElement('a');
+      a.className='v1-video'; a.href=v.url; a.target='_blank'; a.rel='noopener';
+      a.innerHTML=`<img class="v1-video-thumb" src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${v.title}"><span class="v1-play">▶</span><div class="v1-video-info"><div class="v1-video-title">${v.title}</div><div class="v1-video-meta">▶ Watch on YouTube</div></div>`;
+      grid.appendChild(a);
+    });
+    if(!grid.children.length)grid.innerHTML='<div style="grid-column:1/-1;color:#888">Add your YouTube links in the v1Videos list.</div>';
+  }
+  const mount=document.getElementById('v1SliderMount');
+  if(mount){
+    mount.innerHTML=`<div class="screenshot-slider"><div class="slider-head"><span>SCREENSHOTS</span><span id="v1SliderCounter">1 / 10</span></div><div class="slider-stage"><button class="slider-arrow left" onclick="v1Screenshot(-1)">‹</button><img id="v1SliderImage" src="" alt="V1 screenshot"><button class="slider-arrow right" onclick="v1Screenshot(1)">›</button></div><div id="v1SliderDots" class="slider-dots"></div></div>`;
+    v1SliderIndex=0; v1LoadScreenshot();
+  }
+}
+let v1SliderIndex=0,v1SliderExt=0;
+function v1LoadScreenshot(){
+  const img=document.getElementById('v1SliderImage'); if(!img)return;
+  const base=`images/previews/v1/screenshot${String(v1SliderIndex+1).padStart(2,'0')}`;
+  v1SliderExt=0; img.dataset.base=base; img.src=base+'.jpg';
+  img.onerror=function(){const e=['.png','.jpeg','.webp'];if(v1SliderExt<e.length)this.src=this.dataset.base+e[v1SliderExt++];else{this.onerror=null;this.alt='Add screenshot image';}};
+  const counter=document.getElementById('v1SliderCounter'); if(counter)counter.innerText=`${v1SliderIndex+1} / 10`;
+  const dots=document.getElementById('v1SliderDots'); if(dots)dots.innerHTML=Array.from({length:10},(_,i)=>`<button class="slider-dot ${i===v1SliderIndex?'active':''}" onclick="v1GoScreenshot(${i})"></button>`).join('');
+}
+function v1Screenshot(step){v1SliderIndex=(v1SliderIndex+step+10)%10;v1LoadScreenshot();}
+function v1GoScreenshot(i){v1SliderIndex=i;v1LoadScreenshot();}
+
+
 /* =========================================
    WRESTLER LIST
    BAAD MEIN APNI ACTUAL LIST YAHAN DALNA
@@ -1519,7 +1643,7 @@ const wrestlers=[
 ];
 
 
-  // Individual Wrestler Models — separate from the 79-wrestler Custom Mod builder.
+// Individual Wrestler Models — separate from the 79-wrestler Custom Mod builder.
 products.wrestlers=wrestlers.map(w=>({title:`Wrestler Model — ${w.name}`,price:"$6.50",usdPrice:6.5,inrPrice:625,productType:"wrestler",wrestlerName:w.name,image:w.image,description:`Individual wrestler model: ${w.name}`,features:["Individual wrestler model","$6.50 per wrestler","Bulk offer available at checkout"],youtubeVideos:[]}));
 
 const customArenas=[
@@ -1642,7 +1766,7 @@ showPage("categories");
 }
 
 
-  /* =========================================
+/* =========================================
    CATEGORY
 ========================================= */
 
@@ -1743,7 +1867,7 @@ ${product.price}
 <div class="buttons">
 
 <button class="btn dark"
-onclick='${currentCategory==="fullgame"?`openModShowcase(${JSON.stringify(product).replace(/'/g,"&#39;")})`:`previewProduct(${JSON.stringify(product).replace(/'/g,"&#39;")})`}'
+onclick='${currentCategory==="fullgame"?(product.title.includes("Iconic Edition V1")?`openV1Showcase()`:`openModShowcase(${JSON.stringify(product).replace(/'/g,"&#39;")})`):`previewProduct(${JSON.stringify(product).replace(/'/g,"&#39;")})`}'
 >
 Preview
 </button>
@@ -1899,7 +2023,7 @@ function promoBuy(version){
 }
 function promoPreview(version){
   const product=(products.fullgame||[]).find(p=>p.title.includes(`V${version}`));
-  if(product){closePromoPopup();openModShowcase(product);}
+  if(product){closePromoPopup();if(version===1){openV1Showcase();}else{openModShowcase(product);}}
 }
 function startPromoCountdown(){
   const el=document.getElementById("promoCountdown");
@@ -2098,9 +2222,9 @@ function showUPI(){
 function payment(){
   if(!currentProduct)return;
   openPayment(currentProduct);
-  }
+}
 
-  /* =========================================
+/* =========================================
    CART
 ========================================= */
 function saveCart(){
