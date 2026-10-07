@@ -352,7 +352,7 @@ color:#666
 .brand-logo{width:42px;height:42px;object-fit:contain;border-radius:8px}
 .brand-wrap b{color:#e50914}
 
-/* ===== ICONIC MODZ UPGRADE ===== */
+  /* ===== ICONIC MODZ UPGRADE ===== */
 .featured-section{margin-top:45px}
 .featured-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:18px}
 .featured-head h2{margin:0}
@@ -443,7 +443,7 @@ color:#666
   }
 }
 
-  /* =========================================
+/* =========================================
    V1 FEATURED SHOWCASE
 ========================================= */
 .v1-showcase{position:fixed;inset:0;z-index:10000;overflow:auto;background:#050505;animation:imzFadeUp .35s ease both}
@@ -496,46 +496,6 @@ color:#666
 @media(max-width:700px){.latest-yt-head{align-items:flex-start}.subscribe-btn{width:100%;text-align:center}}
 
 
-  /* =========================================
-   RED NEON PAYMENT + CART UPGRADE
-========================================= */
-:root{--imz-red:#ff1730;--imz-red2:#e50914;--imz-red-glow:rgba(255,23,48,.35)}
-body{background:radial-gradient(circle at 50% -10%,rgba(229,9,20,.10),transparent 34%),#050505}
-header{border-bottom-color:rgba(255,23,48,.38);box-shadow:0 0 22px rgba(229,9,20,.10)}
-.card,.home-panel,.community-panel,.discord-panel,.credits-panel,.ms-section,.v1-section{border-color:rgba(255,23,48,.25);box-shadow:0 0 0 1px rgba(255,23,48,.03),0 12px 45px rgba(229,9,20,.05)}
-.card:hover,.latest-yt-card:hover,.v1-video:hover,.ms-video:hover{border-color:var(--imz-red);box-shadow:0 0 26px rgba(255,23,48,.20),0 16px 45px rgba(229,9,20,.12)}
-.red{background:linear-gradient(135deg,#ff1730,#c90018);box-shadow:0 0 16px rgba(255,23,48,.24)}
-.red:hover{background:linear-gradient(135deg,#ff3045,#e50914);box-shadow:0 0 25px rgba(255,23,48,.38)}
-.dark{border-color:rgba(255,23,48,.30);background:#0e0e0e}
-.dark:hover{background:#181010;border-color:var(--imz-red);box-shadow:0 0 18px rgba(255,23,48,.16)}
-.btn{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-.site-flow{border-color:rgba(255,23,48,.30);box-shadow:0 0 20px rgba(229,9,20,.08)}
-.site-flow a:hover{background:var(--imz-red2);box-shadow:0 0 15px rgba(255,23,48,.28)}
-.cart-badge{display:inline-flex;min-width:22px;height:22px;padding:0 6px;border-radius:999px;align-items:center;justify-content:center;background:#fff;color:#d60019;font-size:11px;font-weight:950;margin-left:6px;box-shadow:0 0 12px rgba(255,255,255,.25)}
-.cart-float{position:fixed;right:18px;bottom:18px;z-index:9000;box-shadow:0 0 28px rgba(255,23,48,.35)}
-.cart-list{display:grid;gap:10px;margin-top:16px}
-.cart-item{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:12px;border:1px solid rgba(255,23,48,.20);border-radius:12px;background:#0d0d0d}
-.cart-item-title{font-weight:900}.cart-item-price{color:#ff5867;font-weight:900}.cart-qty{display:flex;align-items:center;gap:6px}.cart-qty button{width:30px;height:30px;border-radius:8px;border:1px solid #3b1d20;background:#160a0b;color:#fff}
-.cart-empty{padding:22px;border:1px dashed #5a272c;border-radius:12px;text-align:center;color:#888}
-.payment-proof{margin-top:20px;padding:18px;border:1px solid rgba(255,23,48,.28);border-radius:16px;background:linear-gradient(145deg,#120708,#090909);box-shadow:inset 0 0 30px rgba(229,9,20,.04)}
-.payment-proof h3{margin:0 0 7px}.proof-option{margin-top:14px;padding:16px;border:1px solid #332022;border-radius:13px;background:#0b0b0b}.proof-option ol{margin:10px 0 0 20px;padding:0;color:#ddd}.proof-option li{margin:7px 0;line-height:1.5}.proof-note{color:#ff6976;font-size:12px}.proof-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}.proof-form input{width:100%;padding:11px 12px;border-radius:10px;border:1px solid #3b2023;background:#080808;color:#fff;outline:none}.proof-form input:focus{border-color:var(--imz-red);box-shadow:0 0 14px rgba(255,23,48,.12)}.proof-form .full{grid-column:1/-1}.proof-email{color:#ff5b68;font-weight:900}.gmail-footer{border-color:rgba(255,23,48,.30)!important}
-@media(max-width:600px){.proof-form{grid-template-columns:1fr}.cart-item{grid-template-columns:1fr auto}.cart-item .cart-qty{grid-column:1/-1}}
-
-/* ===== PAYMENT PROOF CENTER ===== */
-.payment-help{margin-top:42px;padding:28px;border:1px solid rgba(255,23,48,.38);border-radius:22px;background:linear-gradient(145deg,#110607,#070707);box-shadow:0 0 35px rgba(255,23,48,.08),inset 0 0 40px rgba(255,23,48,.035);position:relative;overflow:hidden}
-.payment-help:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,23,48,.045),transparent);transform:translateX(-100%);animation:paymentScan 5s linear infinite;pointer-events:none}
-.payment-help-head{text-align:center;position:relative;z-index:1}.payment-help-head .small{color:#ff4052}.payment-help-head h2{margin:8px 0;font-size:clamp(25px,4vw,38px);text-shadow:0 0 20px rgba(255,23,48,.22)}.payment-help-head p{color:#aaa;margin:0 auto;max-width:760px;line-height:1.6}
-.payment-help-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px;position:relative;z-index:1}
-.payment-help-card{padding:22px;border-radius:18px;background:linear-gradient(145deg,#0d0d0d,#080808);border:1px solid rgba(255,23,48,.28);box-shadow:0 12px 35px rgba(0,0,0,.35);transition:.25s ease}
-.payment-help-card:hover{transform:translateY(-5px);border-color:#ff1730;box-shadow:0 0 28px rgba(255,23,48,.18),0 18px 40px rgba(0,0,0,.4)}
-.payment-help-title{display:flex;align-items:center;gap:13px;margin-bottom:14px}.payment-help-icon{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;background:#121212;border:1px solid rgba(255,23,48,.35);font-size:25px;box-shadow:0 0 18px rgba(255,23,48,.10)}.payment-help-title h3{margin:0;font-size:21px}.payment-help-title span{display:block;color:#ff4052;font-size:11px;font-weight:900;letter-spacing:1.5px;margin-top:3px}
-.payment-help-card ol{margin:12px 0 0 20px;padding:0;color:#ddd}.payment-help-card li{margin:10px 0;line-height:1.55}.payment-help-card li::marker{color:#ff1730;font-weight:900}.payment-email{padding:11px 13px;border-radius:10px;background:#16080a;border:1px solid rgba(255,23,48,.3);color:#fff;font-weight:900;word-break:break-all}.payment-email b{color:#ff4052}.payment-note{margin-top:14px;padding:11px 13px;border-left:3px solid #ff1730;background:#110708;color:#aaa;line-height:1.5;font-size:12px}.payment-help-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.payment-help-actions .btn{flex:1;min-width:170px;text-align:center}
-.payment-help-copy{margin-top:22px;padding:17px;border-radius:15px;border:1px dashed rgba(255,23,48,.35);background:#090909;color:#bbb;line-height:1.65;font-size:13px}.payment-help-copy strong{color:#fff}.payment-help-copy .copy-label{color:#ff4052;font-weight:950;letter-spacing:1px;margin-bottom:8px}
-.gmail-footer{box-shadow:0 0 16px rgba(255,23,48,.08)}
-@keyframes paymentScan{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-@media(max-width:760px){.payment-help{padding:20px}.payment-help-grid{grid-template-columns:1fr}.payment-help-card{padding:18px}.payment-help-actions .btn{min-width:100%;}}
-
-
 /* ===== RED NEON SCROLL REVEAL ===== */
 body{font-family:'Rajdhani',Arial,Helvetica,sans-serif}
 
@@ -575,6 +535,31 @@ body{font-family:'Rajdhani',Arial,Helvetica,sans-serif}
 
 @media(prefers-reduced-motion:reduce){[data-scroll-reveal]{opacity:1;transform:none;filter:none;transition:none}.click-pop{animation:none}}
 
+
+/* ===== ADDITIVE ICONIC MODZ FEATURES — ORIGINAL MOTION/BLUR/SOUND PRESERVED ===== */
+.imz-search-wrap{position:relative;width:min(560px,100%);margin:18px auto 0}
+.imz-search{width:100%;padding:14px 18px 14px 46px;border:1px solid rgba(255,23,48,.35);border-radius:12px;background:#0b0b0b;color:#fff;outline:none;font:600 15px 'Rajdhani',Arial,sans-serif;box-shadow:0 0 20px rgba(229,9,20,.06)}
+.imz-search:focus{border-color:#ff1730;box-shadow:0 0 22px rgba(255,23,48,.14)}
+.imz-search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:22px;color:#ff4052;pointer-events:none}
+.imz-search-results{position:absolute;left:0;right:0;top:calc(100% + 7px);z-index:80;max-height:360px;overflow:auto;background:#0c0c0c;border:1px solid #3a2023;border-radius:14px;box-shadow:0 18px 55px rgba(0,0,0,.7)}
+.imz-search-result{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-bottom:1px solid #1f1f1f;cursor:pointer}.imz-search-result:last-child{border-bottom:0}.imz-search-result:hover{background:#17090b}.imz-search-result small{color:#ff4052;font-weight:900;letter-spacing:1px}.imz-search-result b{font-size:15px}.imz-search-result span{color:#888;font-size:12px}
+.imz-search-empty{padding:18px;color:#888;text-align:center}
+.imz-section{margin:35px 0;padding:28px;border:1px solid rgba(255,23,48,.25);border-radius:18px;background:linear-gradient(145deg,#101010,#070707);box-shadow:0 12px 45px rgba(229,9,20,.05)}
+.imz-section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:15px;flex-wrap:wrap}.imz-section-head h2{margin:5px 0}.imz-review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}.imz-review{padding:18px;border:1px solid #292929;border-radius:14px;background:#111}.imz-review .stars{color:#f5c542;letter-spacing:2px}.imz-review p{margin:9px 0;color:#ccc}.imz-review small{color:#777;font-weight:800}
+.imz-academy{margin:40px 0;padding:32px;border:1px solid rgba(255,23,48,.42);border-radius:22px;background:radial-gradient(circle at 90% 10%,rgba(229,9,20,.13),transparent 32%),linear-gradient(145deg,#130607,#070707);box-shadow:0 0 38px rgba(255,23,48,.08),inset 0 0 45px rgba(255,23,48,.025);position:relative;overflow:hidden}.imz-academy:before{content:'MODDING ACADEMY';position:absolute;right:-20px;top:15px;font:900 42px 'Black Ops One',Impact,sans-serif;letter-spacing:3px;color:rgba(255,255,255,.025);pointer-events:none}.imz-academy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:22px}.imz-course{position:relative;padding:22px;border:1px solid #342022;border-radius:16px;background:#0c0c0c;transition:.25s}.imz-course:hover{transform:translateY(-5px);border-color:#ff1730;box-shadow:0 0 25px rgba(255,23,48,.13)}.imz-course h3{margin:7px 0;font-size:23px}.imz-course .imz-course-price{font:900 27px 'Black Ops One',Impact,sans-serif;color:#fff;margin:10px 0}.imz-course ul{padding-left:19px;color:#bbb;line-height:1.65}.imz-course li{margin:4px 0}.imz-course .btn{width:100%;margin-top:10px;text-align:center}.imz-course-img{height:145px;border-radius:12px;overflow:hidden;background:#151515;border:1px solid #272727}.imz-course-img img{width:100%;height:100%;object-fit:cover;display:block}.imz-academy-mobile{margin-top:18px;padding:16px;border:1px dashed #5b282e;border-radius:13px;background:#0a0a0a;color:#bbb}.imz-academy-mobile b{color:#ff4052}
+.imz-disclaimer{margin:35px 0;padding:25px;border:1px solid rgba(255,23,48,.45);border-radius:18px;background:linear-gradient(145deg,#160708,#090909);box-shadow:inset 0 0 35px rgba(255,23,48,.035)}.imz-disclaimer h2{color:#ff4052;margin:0 0 12px}.imz-disclaimer p{color:#bbb;margin:9px 0;line-height:1.7}.imz-platforms{display:inline-block;margin-top:8px;padding:10px 13px;border-left:3px solid #ff1730;background:#0e0809;color:#ddd;font-weight:800}
+.imz-list-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 18px}.imz-filter{flex:1;min-width:220px;padding:12px 14px;border-radius:10px;border:1px solid #333;background:#0b0b0b;color:#fff;font:600 15px 'Rajdhani',Arial,sans-serif;outline:none}.imz-filter:focus{border-color:#ff1730}.imz-result-count{color:#888;font-size:12px;font-weight:800}.imz-builder-requirements{margin:20px 0 24px;padding:22px;border:1px solid rgba(255,23,48,.42);border-radius:18px;background:linear-gradient(145deg,#140708,#090909);box-shadow:inset 0 0 28px rgba(255,23,48,.035)}.imz-builder-requirements h2{margin:0 0 7px;font-family:'Black Ops One',sans-serif;letter-spacing:.5px}.imz-builder-sub{color:#aaa;line-height:1.55;margin:0 0 16px}.imz-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.imz-step{padding:16px;border:1px solid #292929;border-radius:14px;background:#0d0d0d}.imz-step-head{display:flex;justify-content:space-between;gap:10px;align-items:center}.imz-step-title{font-weight:900;font-size:16px}.imz-step-count{font-weight:900;color:#ff6572}.imz-step.done{border-color:rgba(45,220,125,.55);box-shadow:0 0 18px rgba(45,220,125,.05)}.imz-step.done .imz-step-count{color:#49e39a}.imz-step-instruction{font-size:13px;color:#aaa;margin:8px 0 10px;line-height:1.45}.imz-bonus{font-size:12px;line-height:1.5;color:#ddd;padding:9px 10px;border-radius:9px;background:#151515;border-left:3px solid #ff1730}.imz-complete{margin-top:15px;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,23,48,.5);background:#120708;color:#fff;font-weight:900;line-height:1.5}.imz-complete.locked{border-color:#303030;color:#aaa;background:#0d0d0d}.imz-builder-warning{margin-top:10px;color:#ff9aa4;font-size:12px;font-weight:800}.imz-limit-note{font-size:11px;color:#777;margin-top:7px}.imz-custom-totalbar-locked{opacity:.72}.imz-custom-get:disabled{cursor:not-allowed;filter:grayscale(.45);opacity:.55}
+.imz-selection-summary{margin:14px 0 18px;padding:16px;border:1px solid #292929;border-radius:14px;background:#0b0b0b;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.imz-selection-box{padding:12px 14px;border:1px solid #222;border-radius:10px;background:#101010}.imz-selection-box b{font-size:18px}.imz-selection-box span{display:block;color:#777;font-size:11px;margin-top:3px;font-weight:800}
+.imz-copy-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.imz-copy-row .btn{margin:0}.imz-copy-status{color:#63d471;font-size:12px;font-weight:800;align-self:center}
+.imz-buy-model{display:block;width:100%;margin-top:9px;padding:9px 11px;border:1px solid #3a2023;border-radius:9px;background:#16090b;color:#fff;font:800 13px 'Rajdhani',Arial,sans-serif;cursor:pointer}.imz-buy-model:hover{border-color:#ff1730;background:#210b0e}
+.imz-cart-model{display:block;width:100%;margin-top:7px;padding:8px 11px;border:1px solid #292929;border-radius:9px;background:#0d0d0d;color:#bbb;font:800 12px 'Rajdhani',Arial,sans-serif;cursor:pointer}.imz-cart-model:hover{border-color:#666;color:#fff}.imz-offer-box{margin-top:15px;padding:15px;border:1px solid rgba(255,23,48,.35);border-radius:13px;background:linear-gradient(145deg,#150708,#0b0b0b)}.imz-offer-box h3{margin:0 0 9px;color:#ff4052}.imz-offer-row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #222;color:#ccc;font-size:13px}
+.imz-offer-row{cursor:pointer;transition:transform .18s ease,border-color .18s ease}.imz-offer-row:hover{transform:translateX(3px);border-color:#e50914}.imz-offer-row:last-child{border-bottom:0}.imz-offer-row b{color:#fff}.imz-copy-list{max-height:280px;overflow:auto;margin-top:12px;padding:12px;border:1px solid #222;border-radius:10px;background:#080808;color:#bbb;font-size:12px;line-height:1.6;white-space:pre-wrap}
+@media(max-width:600px){.imz-selection-summary{grid-template-columns:1fr}}
+@media(max-width:700px){.imz-steps{grid-template-columns:1fr}}
+@media(max-width:850px){.imz-academy-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.imz-academy{padding:20px}.imz-academy-grid{grid-template-columns:1fr}.imz-academy:before{font-size:25px}.imz-search-wrap{margin-top:12px}}
+
 </style>
 </head>
 
@@ -605,10 +590,16 @@ Create Custom Mod
 WWE SmackDown mods, wrestler models, complete game modifications,
 move sets, arenas and titantrons — all in one place.
 </p>
+
+<div class="imz-search-wrap">
+  <span class="imz-search-icon">⌕</span>
+  <input id="imzGlobalSearch" class="imz-search" type="search" autocomplete="off" placeholder="Search mods, wrestlers, arenas, tutorials..." oninput="imzGlobalSearch(this.value)" onfocus="imzGlobalSearch(this.value)">
+  <div id="imzSearchResults" class="imz-search-results hidden"></div>
+</div>
 </div>
 
 <div class="site-flow">
-  <a href="#home">HOME</a><a href="#featuredGrid">FEATURED MOD</a><a href="#latestYoutube">LATEST YOUTUBE</a><a href="#categories">GAMES</a><a href="#categories">HCTP/SVR</a><a href="#featuredGrid">MODS</a><a href="#featuredGrid">PREVIEWS</a><a href="#paymentHelp">PAYMENT PROOF</a><a href="#community">COMMUNITY</a><a href="#discordSection">DISCORD</a><a href="#creditsSection">CREDITS</a>
+  <a href="#home">HOME</a><a href="#featuredGrid">FEATURED MOD</a><a href="#latestYoutube">LATEST YOUTUBE</a><a href="#categories">GAMES</a><a href="#categories">HCTP/SVR</a><a href="#featuredGrid">MODS</a><a href="#featuredGrid">PREVIEWS</a><a href="#moddingAcademy">ACADEMY</a><a href="#importantDisclaimer">DISCLAIMER</a><a href="#reviews">REVIEWS</a><a href="#paymentHelp">PAYMENT PROOF</a><a href="#noRefundPolicy">NO REFUND</a><a href="#community">COMMUNITY</a><a href="#discordSection">DISCORD</a><a href="#creditsSection">CREDITS</a>
 </div>
 
 <div class="grid">
@@ -653,7 +644,50 @@ move sets, arenas and titantrons — all in one place.
   <div id="featuredGrid" class="grid"></div>
 </div>
 
+<section id="moddingAcademy" class="imz-academy">
+  <div class="imz-section-head">
+    <div><div class="small">MODDING ACADEMY</div><h2>Learn WWE Modding — Basic to Advanced</h2><p style="margin:4px 0 0;max-width:760px">Step-by-step learning packs for modders. Separate visual style, course images and direct purchase options. Review cards below are example placeholders until you add real customer feedback.</p></div>
+  </div>
+  <div class="imz-academy-grid">
+    <div class="imz-course">
+      <div class="imz-course-img"><img src="images/academy/basic-course.jpg" alt="Basic Modding Course" onerror="this.style.display='none'"></div>
+      <div class="badge">BEGINNER</div><h3>Basic Modding</h3><div class="imz-course-price">$60</div>
+      <ul><li>Game files & folder structure</li><li>Backup & restore</li><li>Texture editing basics</li><li>Basic wrestler model replacement</li><li>YOBJ basics & attire editing</li><li>Moveset / entrance workflow</li><li>Arena & titantron workflow</li><li>Emulator testing & beginner troubleshooting</li></ul>
+      <div class="buttons"><button class="btn dark" onclick="academyInfo('basic')">Course Info</button><button class="btn red" onclick="buyAcademy('basic')">🛒 Buy Course</button></div>
+    </div>
+    <div class="imz-course">
+      <div class="imz-course-img"><img src="images/academy/advanced-course.jpg" alt="Advanced Modding Course" onerror="this.style.display='none'"></div>
+      <div class="badge">ADVANCED</div><h3>Advanced Modding</h3><div class="imz-course-price">$100</div>
+      <ul><li>Everything in Basic</li><li>Advanced YOBJ workflow</li><li>Model conversion</li><li>UV / texture troubleshooting</li><li>Advanced wrestler modifications</li><li>Advanced moveset work</li><li>Arena / stage modifications</li><li>Titantron & audio workflow</li><li>Hex / file-structure concepts</li><li>Crash & real PS2 testing concepts</li></ul>
+      <div class="buttons"><button class="btn dark" onclick="academyInfo('advanced')">Course Info</button><button class="btn red" onclick="buyAcademy('advanced')">🛒 Buy Course</button></div>
+    </div>
+    <div class="imz-course">
+      <div class="imz-course-img"><img src="images/academy/mobile-01.jpg" alt="Mobile Modding Tutorial" onerror="this.style.display='none'"></div>
+      <div class="badge">INCLUDED</div><h3>Mobile Tutorial</h3><div class="imz-course-price">Included</div>
+      <ul><li>Mobile setup</li><li>Mobile texture workflow</li><li>Mobile testing</li><li>Practical file handling on Android</li><li>Included with course access</li></ul>
+      <div class="buttons"><button class="btn dark" onclick="academyInfo('mobile')">Tutorial Info</button><a class="btn red" href="#moddingAcademy">View Tutorial</a></div>
+    </div>
+  </div>
+  <div class="imz-academy-mobile"><b>Course image slots:</b> <code>images/academy/basic-course.jpg</code> • <code>images/academy/advanced-course.jpg</code> • <code>images/academy/mobile-01.jpg</code> • <code>images/academy/mobile-02.jpg</code> • <code>images/academy/mobile-03.jpg</code></div>
+</section>
 
+<section id="importantDisclaimer" class="imz-disclaimer">
+  <div class="small">IMPORTANT</div><h2>IMPORTANT DISCLAIMER</h2>
+  <p>This is an independent, non-commercial, fan-made modification project created purely for community enjoyment. This project contains only custom mod files (textures and assets) and does not include the original game, ROM, or any copyrighted software. To use this pack, users must own a legal, original copy of the game.</p>
+  <p>We are not affiliated with, endorsed by, or connected to the game developers, publishers, or any rights holders. All trademarks and copyrights belong to their respective owners.</p>
+  <div class="imz-platforms">The mod works on PS2, PC (via PCSX2), and Android, as well as on PS3, PS4, and PS5 (using PS2 emulators).</div>
+</section>
+
+<section id="reviews" class="imz-section">
+  <div class="small">COMMUNITY REVIEW EXAMPLES</div><h2>Community Feedback</h2>
+  <div class="imz-review-grid">
+    <div class="imz-review"><div class="stars">★★★★★</div><p>“The presentation feels polished and the mod showcase makes it easy to understand what you are getting.”</p><small>🇮🇳 India</small></div>
+    <div class="imz-review"><div class="stars">★★★★★</div><p>“Great collection and very easy to browse. The HCTP focus is exactly what I was looking for.”</p><small>🇺🇸 USA</small></div>
+    <div class="imz-review"><div class="stars">★★★★★</div><p>“The custom mod section is a nice idea for building a personal pack.”</p><small>🇬🇧 United Kingdom</small></div>
+    <div class="imz-review"><div class="stars">★★★★★</div><p>“Clean design, useful previews and a strong community vibe.”</p><small>🇧🇷 Brazil</small></div>
+    <div class="imz-review"><div class="stars">★★★★★</div><p>“The modding academy concept is especially useful for people starting their first project.”</p><small>🇵🇭 Philippines</small></div>
+  </div>
+</section>
 
 <section id="latestYoutube" class="home-panel">
   <div class="latest-yt-head"><div><div class="small">LATEST YOUTUBE</div><h2>ICONIC MODZ GAMEPLAY</h2><p>Latest gameplay, roster reveals, trailers and mod showcases.</p></div><a class="btn red subscribe-btn" href="https://youtube.com/@iconicmodz?si=zI7OylvV75PRZc7_" target="_blank" rel="noopener">▶ SUBSCRIBE ON YOUTUBE</a></div>
@@ -661,6 +695,12 @@ move sets, arenas and titantrons — all in one place.
 </section>
 
 
+
+<section id="noRefundPolicy" class="home-panel" style="margin-top:20px;border:1px solid rgba(255,23,48,.35)">
+  <div class="small">STORE POLICY</div>
+  <h2>🚫 NO REFUND POLICY</h2>
+  <p style="max-width:900px;line-height:1.7;color:#aaa">All purchases are final once payment is verified. Because digital mod files, custom builds and project resources are prepared specifically for the order, <b style="color:#fff">refunds are not available</b> after payment verification. Please review the product details, selected wrestler/arena list, price and delivery time before purchasing. For payment or delivery issues, contact ICONIC MODZ support by Gmail or Discord.</p>
+</section>
 
 <section id="paymentHelp" class="payment-help">
   <div class="payment-help-head">
@@ -682,7 +722,7 @@ move sets, arenas and titantrons — all in one place.
         <li>Fill out your details in the form above and click <b>“Open Email & Attach Screenshot”</b>.</li>
         <li>Your mail app will open automatically with your details pre-filled. Just attach your payment screenshot and hit <b>Send!</b></li>
       </ol>
-      <div class="payment-note">✅ You’ll receive your files shortly. Please make sure the payment screenshot is clear and readable.</div>
+      <div class="payment-note">✅ After verification, you will receive an order confirmation. V1/V2 and individual models are normally delivered within 1–2 working days; Custom Mod builds take approximately 1–2 weeks.</div>
       <div class="payment-help-actions">
         <a class="btn red" href="mailto:wwegamenewsk@gmail.com?subject=ICONIC%20MODZ%20Payment%20Proof">✉️ Email Payment Proof</a>
       </div>
@@ -700,7 +740,7 @@ move sets, arenas and titantrons — all in one place.
           <li>Complete your payment using the <b>QR code on the website.</b></li>
           <li>Take a clear screenshot of the <b>payment success page.</b></li>
           <li>Upload the screenshot here in this channel along with your <b>Order ID / Mod Name.</b></li>
-          <li>Our team will verify and deliver your <b>direct download link within 5-10 minutes!</b></li>
+          <li>Our team will verify and deliver your <b>verification/confirmation message immediately after proof is received. V1/V2 and individual models are normally delivered within 1–2 working days; Custom Mod builds take approximately 1–2 weeks.</b></li>
         </ol>
         <div class="payment-note"><b style="color:#ff4052">Note:</b> Please do not share fake screenshots. All transactions are verified.</div>
       </div>
@@ -780,6 +820,8 @@ move sets, arenas and titantrons — all in one place.
 </section>
 
 
+  
+
 <!-- PRODUCTS -->
 <section id="products" class="page hidden">
 <div class="container">
@@ -789,6 +831,13 @@ move sets, arenas and titantrons — all in one place.
 <div class="hero" style="text-align:left">
 <div class="small">COLLECTION</div>
 <h1 id="categoryTitle"></h1>
+</div>
+<div id="categoryOfferBox" class="imz-offer-box hidden" style="margin-bottom:18px">
+  <h3>🔥 MODEL OFFER — ALWAYS AVAILABLE</h3>
+  <div class="imz-offer-row"><span>1 item</span><b>$6.50 each (Total: $6.50)</b></div>
+  <div class="imz-offer-row"><span>6 items</span><b>$6.00 each (Total: $36.00)</b></div>
+  <div class="imz-offer-row"><span>10 items</span><b>$5.50 each (Total: $55.00)</b></div>
+  <div style="margin-top:10px;color:#bbb;font-size:12px;line-height:1.5">🛒 Add the items you want to your cart. The matching bulk rate is applied automatically at checkout. <b style="color:#fff">ICONIC10 applies only to V1/V2.</b></div>
 </div>
 
 <div id="productGrid" class="grid"></div>
@@ -806,7 +855,43 @@ move sets, arenas and titantrons — all in one place.
 <div class="hero" style="text-align:left">
 <div class="small">CUSTOM BUILDER</div>
 <h1>Create Custom Mod</h1>
-<p>Select the wrestler models you want.</p>
+<p>Select exactly <b>79 wrestlers + 18 arenas</b> for the complete custom game package. Once both are complete, the <b>$80.00</b> Custom Mod purchase unlocks.</p>
+</div>
+
+<div class="imz-builder-requirements" id="customPackageBenefits">
+  <div class="small">CUSTOM MOD • $80 PACKAGE</div>
+  <h2>WHAT YOU RECEIVE</h2>
+  <p class="imz-builder-sub">Complete <b>79/79 wrestlers + 18/18 arenas</b> to unlock the <b>$80 Custom Mod</b> purchase.</p>
+  <div class="imz-steps">
+    <div class="imz-step"><div class="imz-step-head"><div class="imz-step-title">🎮 Complete Custom Mod</div><div class="imz-step-count">$80</div></div><div class="imz-step-instruction">Your selected 79 wrestlers and 18 arenas are assembled into the requested custom mod package.</div><div class="imz-bonus">✨ SPECIAL PERK: Custom Mod Making &amp; Assembly Charges = <b>100% FREE ($0 Value)</b></div></div>
+    <div class="imz-step"><div class="imz-step-head"><div class="imz-step-title">🖼️ 4K Texture Assets</div></div><div class="imz-step-instruction">Supported 4K-quality texture assets are provided for visual enhancement of the mod.</div></div>
+    <div class="imz-step"><div class="imz-step-head"><div class="imz-step-title">💾 Save Memory Card</div></div><div class="imz-step-instruction">A prepared save/memory-card file is included where applicable for the project setup.</div></div>
+    <div class="imz-step"><div class="imz-step-head"><div class="imz-step-title">🎯 Cheats &amp; Bonus Assets</div></div><div class="imz-step-instruction">Cheat codes plus the listed free staff, backstage and bonus project assets are included.</div></div>
+  </div>
+  <div class="imz-complete" style="margin-top:14px">⏳ <b>Custom build delivery: approximately 1–2 weeks after payment verification.</b> You receive an immediate order confirmation after your proof is received. <b>The original game/ISO is not supplied.</b> You must own a legal copy of the game and use a compatible emulator/setup such as PCSX2 or a compatible Android emulator.</div>
+  <div style="margin-top:12px;color:#aaa;font-size:12px;line-height:1.55">📩 <b>After selecting:</b> use <b>Copy Custom List</b> below and paste your 79-wrestler + 18-arena list into a private Gmail message/email or Discord DM together with your Order ID.</div>
+</div>
+
+<div class="imz-builder-requirements" id="customRequirements">
+  <div class="small">CUSTOM MOD REQUIREMENTS</div>
+  <h2>BUILD YOUR COMPLETE MOD</h2>
+  <p class="imz-builder-sub">For the complete custom game package, select the required core roster and main arenas below. Extra staff, officials and hidden areas are included automatically.</p>
+  <div class="imz-steps">
+    <div class="imz-step" id="rosterRequirement">
+      <div class="imz-step-head"><div class="imz-step-title">Step 1: Select Roster</div><div class="imz-step-count" id="rosterProgress">0 / 79 Required</div></div>
+      <div class="imz-step-instruction">Pick your 79 core playable wrestlers to fill the game slots safely.</div>
+      <div class="imz-bonus">🎁 <b>Free Bonus Included:</b> All Referees, Commentators, and Staff (Mike Chioda, Earl Hebner, Jim Ross, Jerry Lawler, Linda McMahon, Security, Dummies, etc.) are bundled FREE automatically!</div>
+      <div class="imz-limit-note">Maximum selectable core wrestlers: 79</div>
+    </div>
+    <div class="imz-step" id="arenaRequirement">
+      <div class="imz-step-head"><div class="imz-step-title">Step 2: Select Arenas</div><div class="imz-step-count" id="arenaProgress">0 / 18 Required</div></div>
+      <div class="imz-step-instruction">Pick your 18 main TV &amp; PPV select-screen arenas.</div>
+      <div class="imz-bonus">🎁 <b>Free Bonus Included:</b> All Backstage zones, Parking lots, Training rooms, Times Square, and Secret experimental arenas come FREE automatically!</div>
+      <div class="imz-limit-note">Maximum selectable main arenas: 18</div>
+    </div>
+  </div>
+  <div id="customCompletionStatus" class="imz-complete locked">🔒 Complete the required <b>79 wrestlers + 18 arenas</b> to unlock the <b>$80.00 Custom Mod</b>.</div>
+  <div id="customBuilderWarning" class="imz-builder-warning"></div>
 </div>
 
 <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px">
@@ -816,19 +901,38 @@ move sets, arenas and titantrons — all in one place.
 </div>
 
 <div id="customSectionTitle" class="small" style="margin-bottom:12px">WRESTLER MODELS</div>
+<div id="wrestlerPermanentOffer" class="imz-offer-box" style="margin-bottom:15px">
+  <h3>🔥 WRESTLER MODEL OFFER — ALWAYS AVAILABLE</h3>
+  <div class="imz-offer-row"><span>1 model</span><b>$6.50 each (Total: $6.50)</b></div>
+  <div class="imz-offer-row"><span>6 models</span><b>$6.00 each (Total: $36.00)</b></div>
+  <div class="imz-offer-row"><span>10 models</span><b>$5.50 each (Total: $55.00)</b></div>
+  <div style="margin-top:10px;color:#bbb;font-size:12px;line-height:1.5">🛒 Add the wrestler models you want to your cart. The matching bulk rate is applied automatically at checkout. <b style="color:#fff">ICONIC10 does not apply to wrestler models.</b></div>
+</div>
+<div class="imz-list-toolbar"><input id="customListSearch" class="imz-filter" type="search" placeholder="Search wrestler / arena..." oninput="filterCustomList(this.value)"><span id="customResultCount" class="imz-result-count"></span></div>
+<div class="imz-selection-summary">
+  <div class="imz-selection-box"><b id="selectedWrestlerCount">0 / 79</b><span>CORE WRESTLERS SELECTED</span></div>
+  <div class="imz-selection-box"><b id="selectedArenaCount">0 / 18</b><span>MAIN ARENAS SELECTED</span></div>
+  <div class="imz-copy-row" style="grid-column:1/-1">
+    <button class="btn dark" onclick="copyCustomSelections()">📋 Copy My Selection</button>
+    <button class="btn dark" onclick="showCustomSelectionList()">👁 View Selected List</button>
+    <span id="copySelectionStatus" class="imz-copy-status"></span>
+  </div>
+  <div id="customSelectionList" class="imz-copy-list hidden" style="grid-column:1/-1"></div>
+</div>
 <div id="wrestlerGrid" class="grid"></div>
 <div id="arenaGrid" class="grid hidden"></div>
 <div id="titantronGrid" class="grid hidden"></div>
 
 <div class="totalbar">
 <div>
-<div style="color:#888">Selected Models</div>
-<strong id="selectedCount">0 Items</strong>
-<div id="totalPrice" class="price">Total: ₹0</div>
+<div style="color:#888">Custom Mod Package</div>
+<strong id="selectedCount">0 Wrestlers + 0 Arenas</strong>
+<div id="totalPrice" class="price">Custom Package: 79 Wrestlers + 18 Arenas Required</div>
+<div style="color:#888;font-size:12px;margin-top:4px">Complete package price: <b style="color:#fff">$80.00</b></div>
 </div>
 
-<button class="btn red" onclick="customPayment()">
-Get Custom Mod
+<button id="customGetButton" class="btn red imz-custom-get" onclick="customPayment()" disabled title="Select 79 wrestlers and 18 arenas first">
+🔒 Complete 79 + 18 First
 </button>
 </div>
 
@@ -893,14 +997,13 @@ Get Mod
 
 
 
-
   <!-- ICONIC MODZ PROMO POPUP -->
 <div id="promoPopup" class="promo-overlay hidden" role="dialog" aria-modal="true" aria-label="Iconic Modz special offer">
   <div class="promo-box">
     <button class="promo-close" onclick="closePromoPopup()" aria-label="Close">×</button>
     <div class="promo-kicker">🔥 ICONIC MODZ SPECIAL</div>
     <h2>WWE HCTP ICONIC EDITION</h2>
-    <p>Choose your V1 or V2 edition, use the discount code, and join the ICONIC MODZ Discord community.</p>
+    <p>V1 is $42 and V2 is $62. ICONIC10 saves $2 on V1/V2 only. Wrestler and Arena models have separate $6.50 / $6 / $5.50 bulk offers.</p>
 
     <div class="promo-grid">
       <div class="promo-option">
@@ -1023,12 +1126,12 @@ Get Mod
 <h2 id="paymentTitle">Purchase</h2>
 <p id="paymentInfo">Choose your payment method.</p>
 <div id="paymentPriceBox" style="margin-top:18px;padding:16px;border:1px solid #333;border-radius:14px;background:#111">
-  <div style="display:flex;justify-content:space-between;gap:12px"><span style="color:#888">Regular price</span><strong id="regularPrice">$62 • ₹5,962</strong></div>
-  <div style="display:flex;justify-content:space-between;gap:12px;margin-top:8px"><span style="color:#888">Discount</span><strong id="discountPrice" style="color:#63d471">-$2 • -₹193</strong></div>
+  <div style="display:flex;justify-content:space-between;gap:12px"><span style="color:#888">Regular price</span><strong id="regularPrice">$42 • ₹4,038</strong></div>
+  <div style="display:flex;justify-content:space-between;gap:12px;margin-top:8px"><span style="color:#888">Discount</span><strong id="discountPrice" style="color:#63d471">-$2 • -₹192</strong></div>
   <div style="height:1px;background:#292929;margin:12px 0"></div>
-  <div style="display:flex;justify-content:space-between;gap:12px;font-size:18px"><span>Payable now</span><strong id="finalPrice">$60 • ₹5,769</strong></div>
+  <div style="display:flex;justify-content:space-between;gap:12px;font-size:18px"><span>Payable now</span><strong id="finalPrice">$40 • ₹3,846</strong></div>
 </div>
-<div class="discount-box" style="margin-top:14px">
+<div id="paymentPromoBox" class="discount-box" style="margin-top:14px">
   <div class="small">DISCOUNT CODE</div>
   <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
     <input id="paymentPromoInput" value="" placeholder="Enter ICONIC10" style="flex:1;min-width:180px;padding:12px;border-radius:10px;border:1px solid #333;background:#0d0d0d;color:#fff">
@@ -1036,10 +1139,21 @@ Get Mod
   </div>
   <div id="paymentPromoStatus" style="font-size:12px;color:#777;margin-top:7px">Use ICONIC10 to get the offer price.</div>
 </div>
-<div class="buttons" style="margin-top:20px">
-<a id="paypalButton" class="btn red" href="https://paypal.me/Gsoni07/62" target="_blank" rel="noopener">Pay $62 USD with PayPal</a>
-<button class="btn dark" onclick="showUPI()">UPI</button>
+<div id="wrestlerOfferBox" class="imz-offer-box hidden">
+  <h3 id="bulkOfferTitle">🔥 Wrestler / Arena Bulk Offer</h3>
+  <div class="imz-offer-row" onclick="bulkOfferSelect(1)"><span>1 item</span><b>$6.50 each (Total: $6.50) • Choose</b></div>
+  <div class="imz-offer-row" onclick="bulkOfferSelect(6)"><span>6 items</span><b>$6.00 each (Total: $36.00) • Choose</b></div>
+  <div class="imz-offer-row" onclick="bulkOfferSelect(10)"><span>10 items</span><b>$5.50 each (Total: $55.00) • Choose</b></div>
+  <div style="margin-top:10px;color:#bbb;font-size:12px">🛒 <b>How to use the offer:</b> add the wrestler models or arenas you want to your cart. The checkout automatically applies the matching rate when your cart reaches 6 or 10 items of the same purchasable type.</div>
+  <button id="bulkOfferAddMore" type="button" class="btn dark" style="width:100%;margin-top:10px" onclick="closePayment();openCategory('wrestlers')">➕ Add More</button>
+  <button type="button" class="btn red" style="width:100%;margin-top:8px" onclick="closePayment();showPage('custom');showCustomSection('wrestlers');setTimeout(()=>document.getElementById('customRequirements')?.scrollIntoView({behavior:'smooth'}),80)">💥 THE ULTIMATE COMBO — Custom Mod $80</button>
+  <div style="margin-top:9px;color:#ff9da6;font-size:12px;font-weight:800">✨ SPECIAL PERK: Custom Mod Making & Assembly Charges = 100% FREE! ($0 Value)</div>
 </div>
+<div class="buttons" style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+  <a id="paypalButton" class="btn red" href="https://paypal.me/Gsoni07" target="_blank" rel="noopener" style="flex:1;min-width:220px;text-align:center">💳 Pay with PayPal</a>
+  <button type="button" id="upiButton" class="btn dark" onclick="showUPI()" style="flex:1;min-width:220px">📱 Pay with UPI</button>
+</div>
+<div style="margin-top:9px;color:#999;font-size:12px;text-align:center">Choose PayPal or UPI above, complete payment, then send your payment screenshot by Gmail or Discord for verification.</div>
 <div id="upiBox" class="hidden" style="margin-top:18px;padding:18px;border:1px solid #333;border-radius:12px;text-align:center">
 <strong>UPI</strong>
 <p style="margin:8px 0 0">UPI QR / payment details can be added here.</p>
@@ -1060,11 +1174,11 @@ Get Mod
       <li>Fill out your details in the form below and click <b>“Open Email & Attach Screenshot”</b>.</li>
       <li>Your mail app will open automatically with your details pre-filled. Just attach your payment screenshot and hit Send!</li>
     </ol>
-    <p class="proof-note">You’ll receive your files shortly. The screenshot must be attached manually because browsers do not allow a website to attach a local file to a mail app automatically.</p>
+    <p class="proof-note">After verification, you will receive an order confirmation. V1/V2 and individual models are normally delivered within 1–2 working days; Custom Mod builds take approximately 1–2 weeks. The screenshot must be attached manually because browsers do not allow a website to attach a local file to a mail app automatically.</p>
     <div class="proof-form">
       <input id="proofName" placeholder="Your Name">
       <input id="proofEmail" type="email" placeholder="Your Email">
-      <input id="proofOrderId" placeholder="Order ID" class="full">
+      <input id="proofOrderId" placeholder="Order ID" class="full" readonly title="Automatically generated Order ID — cannot be edited">
       <input id="proofModName" placeholder="Mod / Order Details" class="full">
       <input id="proofScreenshot" type="file" accept="image/png,image/jpeg,image/webp" class="full">
     </div>
@@ -1080,7 +1194,7 @@ Get Mod
         <li>Complete your payment using the QR code on the website.</li>
         <li>Take a clear screenshot of the payment success page.</li>
         <li>Upload the screenshot here in this channel along with your Order ID / Mod Name.</li>
-        <li>Our team will verify and deliver your direct download link within 5-10 minutes!</li>
+        <li>Our team will verify and deliver your verification/confirmation message immediately after proof is received. V1/V2 and individual models are normally delivered within 1–2 working days; Custom Mod builds take approximately 1–2 weeks.</li>
       </ol>
       <p class="proof-note"><b>Note:</b> Please do not share fake screenshots. All transactions are verified.</p>
     </div>
@@ -1155,7 +1269,8 @@ ICONIC MODZ • WWE Modding Store
 
 <script>
 
-/* =========================================
+
+  /* =========================================
    WEBSITE DATA
    YAHAN BAAD MEIN PRODUCTS ADD KAR SAKTE HO
 ========================================= */
@@ -1211,7 +1326,10 @@ youtubeVideos:[
 {
 title:"WWE HCTP Iconic Edition V1",
 rating:4,
-price:"$62",
+price:"$42",
+usdPrice:42,
+inrPrice:4038,
+productType:"mod",
 image:"images/mods/hctp-v1.jpg",
 screenshots:Array.from({length:10},(_,i)=>`images/previews/v1/screenshot${String(i+1).padStart(2,"0")}`),
 description:"WWE SmackDown! Here Comes The Pain Iconic Edition V1. Preview me roster, arenas, wrestler models, moves, entrances, titantrons aur doosre included features ka complete breakdown diya ja sakta hai.",
@@ -1244,6 +1362,9 @@ youtubeVideos:[
 title:"WWE HCTP Iconic Edition V2",
 rating:4,
 price:"$62",
+usdPrice:62,
+inrPrice:5962,
+productType:"mod",
 image:"images/mods/hctp-v2.jpg",
 screenshots:Array.from({length:10},(_,i)=>`images/previews/v2/screenshot${String(i+1).padStart(2,"0")}`),
 description:"WWE SmackDown! Here Comes The Pain Iconic Edition V2. Is preview me V2 ke exact roster, arenas, models, movesets, entrances, titantrons aur latest additions ko showcase kiya ja sakta hai.",
@@ -1281,128 +1402,173 @@ titantrons:[]
 };
 
 
-  /* =========================================
+/* =========================================
    WRESTLER LIST
    BAAD MEIN APNI ACTUAL LIST YAHAN DALNA
 ========================================= */
 
 const wrestlers=[
-
-{name:"Wrestler Model 001",price:0,image:"images/wrestlers/wrestler001.jpg"},
-{name:"Wrestler Model 002",price:0,image:"images/wrestlers/wrestler002.jpg"},
-{name:"Wrestler Model 003",price:0,image:"images/wrestlers/wrestler003.jpg"},
-{name:"Wrestler Model 004",price:0,image:"images/wrestlers/wrestler004.jpg"},
-{name:"Wrestler Model 005",price:0,image:"images/wrestlers/wrestler005.jpg"},
-{name:"Wrestler Model 006",price:0,image:"images/wrestlers/wrestler006.jpg"},
-{name:"Wrestler Model 007",price:0,image:"images/wrestlers/wrestler007.jpg"},
-{name:"Wrestler Model 008",price:0,image:"images/wrestlers/wrestler008.jpg"},
-{name:"Wrestler Model 009",price:0,image:"images/wrestlers/wrestler009.jpg"},
-{name:"Wrestler Model 010",price:0,image:"images/wrestlers/wrestler010.jpg"},
-{name:"Wrestler Model 011",price:0,image:"images/wrestlers/wrestler011.jpg"},
-{name:"Wrestler Model 012",price:0,image:"images/wrestlers/wrestler012.jpg"},
-{name:"Wrestler Model 013",price:0,image:"images/wrestlers/wrestler013.jpg"},
-{name:"Wrestler Model 014",price:0,image:"images/wrestlers/wrestler014.jpg"},
-{name:"Wrestler Model 015",price:0,image:"images/wrestlers/wrestler015.jpg"},
-{name:"Wrestler Model 016",price:0,image:"images/wrestlers/wrestler016.jpg"},
-{name:"Wrestler Model 017",price:0,image:"images/wrestlers/wrestler017.jpg"},
-{name:"Wrestler Model 018",price:0,image:"images/wrestlers/wrestler018.jpg"},
-{name:"Wrestler Model 019",price:0,image:"images/wrestlers/wrestler019.jpg"},
-{name:"Wrestler Model 020",price:0,image:"images/wrestlers/wrestler020.jpg"},
-{name:"Wrestler Model 021",price:0,image:"images/wrestlers/wrestler021.jpg"},
-{name:"Wrestler Model 022",price:0,image:"images/wrestlers/wrestler022.jpg"},
-{name:"Wrestler Model 023",price:0,image:"images/wrestlers/wrestler023.jpg"},
-{name:"Wrestler Model 024",price:0,image:"images/wrestlers/wrestler024.jpg"},
-{name:"Wrestler Model 025",price:0,image:"images/wrestlers/wrestler025.jpg"},
-{name:"Wrestler Model 026",price:0,image:"images/wrestlers/wrestler026.jpg"},
-{name:"Wrestler Model 027",price:0,image:"images/wrestlers/wrestler027.jpg"},
-{name:"Wrestler Model 028",price:0,image:"images/wrestlers/wrestler028.jpg"},
-{name:"Wrestler Model 029",price:0,image:"images/wrestlers/wrestler029.jpg"},
-{name:"Wrestler Model 030",price:0,image:"images/wrestlers/wrestler030.jpg"},
-{name:"Wrestler Model 031",price:0,image:"images/wrestlers/wrestler031.jpg"},
-{name:"Wrestler Model 032",price:0,image:"images/wrestlers/wrestler032.jpg"},
-{name:"Wrestler Model 033",price:0,image:"images/wrestlers/wrestler033.jpg"},
-{name:"Wrestler Model 034",price:0,image:"images/wrestlers/wrestler034.jpg"},
-{name:"Wrestler Model 035",price:0,image:"images/wrestlers/wrestler035.jpg"},
-{name:"Wrestler Model 036",price:0,image:"images/wrestlers/wrestler036.jpg"},
-{name:"Wrestler Model 037",price:0,image:"images/wrestlers/wrestler037.jpg"},
-{name:"Wrestler Model 038",price:0,image:"images/wrestlers/wrestler038.jpg"},
-{name:"Wrestler Model 039",price:0,image:"images/wrestlers/wrestler039.jpg"},
-{name:"Wrestler Model 040",price:0,image:"images/wrestlers/wrestler040.jpg"},
-{name:"Wrestler Model 041",price:0,image:"images/wrestlers/wrestler041.jpg"},
-{name:"Wrestler Model 042",price:0,image:"images/wrestlers/wrestler042.jpg"},
-{name:"Wrestler Model 043",price:0,image:"images/wrestlers/wrestler043.jpg"},
-{name:"Wrestler Model 044",price:0,image:"images/wrestlers/wrestler044.jpg"},
-{name:"Wrestler Model 045",price:0,image:"images/wrestlers/wrestler045.jpg"},
-{name:"Wrestler Model 046",price:0,image:"images/wrestlers/wrestler046.jpg"},
-{name:"Wrestler Model 047",price:0,image:"images/wrestlers/wrestler047.jpg"},
-{name:"Wrestler Model 048",price:0,image:"images/wrestlers/wrestler048.jpg"},
-{name:"Wrestler Model 049",price:0,image:"images/wrestlers/wrestler049.jpg"},
-{name:"Wrestler Model 050",price:0,image:"images/wrestlers/wrestler050.jpg"},
-{name:"Wrestler Model 051",price:0,image:"images/wrestlers/wrestler051.jpg"},
-{name:"Wrestler Model 052",price:0,image:"images/wrestlers/wrestler052.jpg"},
-{name:"Wrestler Model 053",price:0,image:"images/wrestlers/wrestler053.jpg"},
-{name:"Wrestler Model 054",price:0,image:"images/wrestlers/wrestler054.jpg"},
-{name:"Wrestler Model 055",price:0,image:"images/wrestlers/wrestler055.jpg"},
-{name:"Wrestler Model 056",price:0,image:"images/wrestlers/wrestler056.jpg"},
-{name:"Wrestler Model 057",price:0,image:"images/wrestlers/wrestler057.jpg"},
-{name:"Wrestler Model 058",price:0,image:"images/wrestlers/wrestler058.jpg"},
-{name:"Wrestler Model 059",price:0,image:"images/wrestlers/wrestler059.jpg"},
-{name:"Wrestler Model 060",price:0,image:"images/wrestlers/wrestler060.jpg"},
-{name:"Wrestler Model 061",price:0,image:"images/wrestlers/wrestler061.jpg"},
-{name:"Wrestler Model 062",price:0,image:"images/wrestlers/wrestler062.jpg"},
-{name:"Wrestler Model 063",price:0,image:"images/wrestlers/wrestler063.jpg"},
-{name:"Wrestler Model 064",price:0,image:"images/wrestlers/wrestler064.jpg"},
-{name:"Wrestler Model 065",price:0,image:"images/wrestlers/wrestler065.jpg"},
-{name:"Wrestler Model 066",price:0,image:"images/wrestlers/wrestler066.jpg"},
-{name:"Wrestler Model 067",price:0,image:"images/wrestlers/wrestler067.jpg"},
-{name:"Wrestler Model 068",price:0,image:"images/wrestlers/wrestler068.jpg"},
-{name:"Wrestler Model 069",price:0,image:"images/wrestlers/wrestler069.jpg"},
-{name:"Wrestler Model 070",price:0,image:"images/wrestlers/wrestler070.jpg"},
-{name:"Wrestler Model 071",price:0,image:"images/wrestlers/wrestler071.jpg"},
-{name:"Wrestler Model 072",price:0,image:"images/wrestlers/wrestler072.jpg"},
-{name:"Wrestler Model 073",price:0,image:"images/wrestlers/wrestler073.jpg"},
-{name:"Wrestler Model 074",price:0,image:"images/wrestlers/wrestler074.jpg"},
-{name:"Wrestler Model 075",price:0,image:"images/wrestlers/wrestler075.jpg"},
-{name:"Wrestler Model 076",price:0,image:"images/wrestlers/wrestler076.jpg"},
-{name:"Wrestler Model 077",price:0,image:"images/wrestlers/wrestler077.jpg"},
-{name:"Wrestler Model 078",price:0,image:"images/wrestlers/wrestler078.jpg"},
-{name:"Wrestler Model 079",price:0,image:"images/wrestlers/wrestler079.jpg"},
-{name:"Wrestler Model 080",price:0,image:"images/wrestlers/wrestler080.jpg"},
-{name:"Wrestler Model 081",price:0,image:"images/wrestlers/wrestler081.jpg"},
-{name:"Wrestler Model 082",price:0,image:"images/wrestlers/wrestler082.jpg"},
-{name:"Wrestler Model 083",price:0,image:"images/wrestlers/wrestler083.jpg"},
-{name:"Wrestler Model 084",price:0,image:"images/wrestlers/wrestler084.jpg"},
-{name:"Wrestler Model 085",price:0,image:"images/wrestlers/wrestler085.jpg"},
-{name:"Wrestler Model 086",price:0,image:"images/wrestlers/wrestler086.jpg"},
-{name:"Wrestler Model 087",price:0,image:"images/wrestlers/wrestler087.jpg"},
-{name:"Wrestler Model 088",price:0,image:"images/wrestlers/wrestler088.jpg"},
-{name:"Wrestler Model 089",price:0,image:"images/wrestlers/wrestler089.jpg"},
-{name:"Wrestler Model 090",price:0,image:"images/wrestlers/wrestler090.jpg"},
-{name:"Wrestler Model 091",price:0,image:"images/wrestlers/wrestler091.jpg"},
-{name:"Wrestler Model 092",price:0,image:"images/wrestlers/wrestler092.jpg"},
-{name:"Wrestler Model 093",price:0,image:"images/wrestlers/wrestler093.jpg"},
-{name:"Wrestler Model 094",price:0,image:"images/wrestlers/wrestler094.jpg"},
-{name:"Wrestler Model 095",price:0,image:"images/wrestlers/wrestler095.jpg"},
-{name:"Wrestler Model 096",price:0,image:"images/wrestlers/wrestler096.jpg"},
-{name:"Wrestler Model 097",price:0,image:"images/wrestlers/wrestler097.jpg"},
-{name:"Wrestler Model 098",price:0,image:"images/wrestlers/wrestler098.jpg"},
-{name:"Wrestler Model 099",price:0,image:"images/wrestlers/wrestler099.jpg"},
-{name:"Wrestler Model 100",price:0,image:"images/wrestlers/wrestler100.jpg"}
+{name:"Roman Reigns",price:0,image:"images/wrestlers/wrestler001.jpg"},
+{name:"Solo Sikoa",price:0,image:"images/wrestlers/wrestler002.jpg"},
+{name:"Jey Uso",price:0,image:"images/wrestlers/wrestler003.jpg"},
+{name:"Jimmy Uso",price:0,image:"images/wrestlers/wrestler004.jpg"},
+{name:"Jacob Fatu",price:0,image:"images/wrestlers/wrestler005.jpg"},
+{name:"Tama Tonga",price:0,image:"images/wrestlers/wrestler006.jpg"},
+{name:"Tonga Loa",price:0,image:"images/wrestlers/wrestler007.jpg"},
+{name:"Paul Heyman",price:0,image:"images/wrestlers/wrestler008.jpg"},
+{name:"The Rock (Final Boss)",price:0,image:"images/wrestlers/wrestler009.jpg"},
+{name:"Sami Zayn",price:0,image:"images/wrestlers/wrestler010.jpg"},
+{name:"Rikishi",price:0,image:"images/wrestlers/wrestler011.jpg"},
+{name:"Jeff Hardy",price:0,image:"images/wrestlers/wrestler012.jpg"},
+{name:"Matt Hardy",price:0,image:"images/wrestlers/wrestler013.jpg"},
+{name:"Omos",price:0,image:"images/wrestlers/wrestler014.jpg"},
+{name:"Dominik Mysterio",price:0,image:"images/wrestlers/wrestler015.jpg"},
+{name:"El Grande Americano",price:0,image:"images/wrestlers/wrestler016.jpg"},
+{name:"Jinder Mahal",price:0,image:"images/wrestlers/wrestler017.jpg"},
+{name:"Cody Rhodes",price:0,image:"images/wrestlers/wrestler018.jpg"},
+{name:"Seth Rollins",price:0,image:"images/wrestlers/wrestler019.jpg"},
+{name:"CM Punk",price:0,image:"images/wrestlers/wrestler020.jpg"},
+{name:"Randy Orton",price:0,image:"images/wrestlers/wrestler021.jpg"},
+{name:"Drew McIntyre",price:0,image:"images/wrestlers/wrestler022.jpg"},
+{name:"Gunther",price:0,image:"images/wrestlers/wrestler023.jpg"},
+{name:"Kevin Owens",price:0,image:"images/wrestlers/wrestler024.jpg"},
+{name:"LA Knight",price:0,image:"images/wrestlers/wrestler025.jpg"},
+{name:"Logan Paul",price:0,image:"images/wrestlers/wrestler026.jpg"},
+{name:"AJ Styles",price:0,image:"images/wrestlers/wrestler027.jpg"},
+{name:"Rey Mysterio",price:0,image:"images/wrestlers/wrestler028.jpg"},
+{name:"Finn B\u00e1lor",price:0,image:"images/wrestlers/wrestler029.jpg"},
+{name:"Damian Priest",price:0,image:"images/wrestlers/wrestler030.jpg"},
+{name:"Shinsuke Nakamura",price:0,image:"images/wrestlers/wrestler031.jpg"},
+{name:"Bobby Lashley",price:0,image:"images/wrestlers/wrestler032.jpg"},
+{name:"Montez Ford",price:0,image:"images/wrestlers/wrestler033.jpg"},
+{name:"Angelo Dawkins",price:0,image:"images/wrestlers/wrestler034.jpg"},
+{name:"Chad Gable",price:0,image:"images/wrestlers/wrestler035.jpg"},
+{name:"Otis",price:0,image:"images/wrestlers/wrestler036.jpg"},
+{name:"The Miz",price:0,image:"images/wrestlers/wrestler037.jpg"},
+{name:"R-Truth",price:0,image:"images/wrestlers/wrestler038.jpg"},
+{name:"Austin Theory",price:0,image:"images/wrestlers/wrestler039.jpg"},
+{name:"Grayson Waller",price:0,image:"images/wrestlers/wrestler040.jpg"},
+{name:"Carmelo Hayes",price:0,image:"images/wrestlers/wrestler041.jpg"},
+{name:"Bron Breakker",price:0,image:"images/wrestlers/wrestler042.jpg"},
+{name:"Ilja Dragunov",price:0,image:"images/wrestlers/wrestler043.jpg"},
+{name:"Dragon Lee",price:0,image:"images/wrestlers/wrestler044.jpg"},
+{name:"Ricochet",price:0,image:"images/wrestlers/wrestler045.jpg"},
+{name:"Karrion Kross",price:0,image:"images/wrestlers/wrestler046.jpg"},
+{name:"Bronson Reed",price:0,image:"images/wrestlers/wrestler047.jpg"},
+{name:"Andrade",price:0,image:"images/wrestlers/wrestler048.jpg"},
+{name:"Pete Dunne",price:0,image:"images/wrestlers/wrestler049.jpg"},
+{name:"Tyler Bate",price:0,image:"images/wrestlers/wrestler050.jpg"},
+{name:"Santos Escobar",price:0,image:"images/wrestlers/wrestler051.jpg"},
+{name:"JD McDonagh",price:0,image:"images/wrestlers/wrestler052.jpg"},
+{name:"Ludwig Kaiser",price:0,image:"images/wrestlers/wrestler053.jpg"},
+{name:"Giovanni Vinci",price:0,image:"images/wrestlers/wrestler054.jpg"},
+{name:"Akira Tozawa",price:0,image:"images/wrestlers/wrestler055.jpg"},
+{name:"Cedric Alexander",price:0,image:"images/wrestlers/wrestler056.jpg"},
+{name:"Ashante \"Thee\" Adonis",price:0,image:"images/wrestlers/wrestler057.jpg"},
+{name:"Baron Corbin",price:0,image:"images/wrestlers/wrestler058.jpg"},
+{name:"Apollo Crews",price:0,image:"images/wrestlers/wrestler059.jpg"},
+{name:"Dexter Lumis",price:0,image:"images/wrestlers/wrestler060.jpg"},
+{name:"Trick Williams",price:0,image:"images/wrestlers/wrestler061.jpg"},
+{name:"Oba Femi",price:0,image:"images/wrestlers/wrestler062.jpg"},
+{name:"Joe Hendry",price:0,image:"images/wrestlers/wrestler063.jpg"},
+{name:"Rey Fenix",price:0,image:"images/wrestlers/wrestler064.jpg"},
+{name:"Penta El Zero Miedo",price:0,image:"images/wrestlers/wrestler065.jpg"},
+{name:"Je'Von Evans",price:0,image:"images/wrestlers/wrestler066.jpg"},
+{name:"Axiom",price:0,image:"images/wrestlers/wrestler067.jpg"},
+{name:"The Undertaker",price:0,image:"images/wrestlers/wrestler068.jpg"},
+{name:"Stone Cold Steve Austin",price:0,image:"images/wrestlers/wrestler069.jpg"},
+{name:"The Rock",price:0,image:"images/wrestlers/wrestler070.jpg"},
+{name:"John Cena",price:0,image:"images/wrestlers/wrestler071.jpg"},
+{name:"Triple H",price:0,image:"images/wrestlers/wrestler072.jpg"},
+{name:"Shawn Michaels",price:0,image:"images/wrestlers/wrestler073.jpg"},
+{name:"Brock Lesnar",price:0,image:"images/wrestlers/wrestler074.jpg"},
+{name:"Goldberg",price:0,image:"images/wrestlers/wrestler075.jpg"},
+{name:"Hulk Hogan / Hollywood Hogan",price:0,image:"images/wrestlers/wrestler076.jpg"},
+{name:"Kane",price:0,image:"images/wrestlers/wrestler077.jpg"},
+{name:"Edge",price:0,image:"images/wrestlers/wrestler078.jpg"},
+{name:"Kurt Angle",price:0,image:"images/wrestlers/wrestler079.jpg"},
+{name:"Mick Foley / Mankind / Cactus Jack",price:0,image:"images/wrestlers/wrestler080.jpg"},
+{name:"Batista",price:0,image:"images/wrestlers/wrestler081.jpg"},
+{name:"Big Show",price:0,image:"images/wrestlers/wrestler082.jpg"},
+{name:"Rob Van Dam (RVD)",price:0,image:"images/wrestlers/wrestler083.jpg"},
+{name:"Eddie Guerrero",price:0,image:"images/wrestlers/wrestler084.jpg"},
+{name:"Booker T",price:0,image:"images/wrestlers/wrestler085.jpg"},
+{name:"Bret \"The Hitman\" Hart",price:0,image:"images/wrestlers/wrestler086.jpg"},
+{name:"\"Macho Man\" Randy Savage",price:0,image:"images/wrestlers/wrestler087.jpg"},
+{name:"Ultimate Warrior",price:0,image:"images/wrestlers/wrestler088.jpg"},
+{name:"Andre The Giant",price:0,image:"images/wrestlers/wrestler089.jpg"},
+{name:"JBL (John Bradshaw Layfield)",price:0,image:"images/wrestlers/wrestler090.jpg"},
+{name:"Roddy Piper",price:0,image:"images/wrestlers/wrestler091.jpg"},
+{name:"Ric Flair",price:0,image:"images/wrestlers/wrestler092.jpg"},
+{name:"Diesel / Kevin Nash",price:0,image:"images/wrestlers/wrestler093.jpg"},
+{name:"Razor Ramon / Scott Hall",price:0,image:"images/wrestlers/wrestler094.jpg"},
+{name:"The Great Khali",price:0,image:"images/wrestlers/wrestler095.jpg"},
+{name:"The Fiend Bray Wyatt",price:0,image:"images/wrestlers/wrestler096.jpg"},
+{name:"Bubba Ray Dudley",price:0,image:"images/wrestlers/wrestler097.jpg"},
+{name:"D-Von Dudley",price:0,image:"images/wrestlers/wrestler098.jpg"},
+{name:"Umaga",price:0,image:"images/wrestlers/wrestler099.jpg"},
+{name:"Ken Shamrock",price:0,image:"images/wrestlers/wrestler100.jpg"},
+{name:"Sheamus",price:0,image:"images/wrestlers/wrestler101.jpg"},
+{name:"Wade Barrett",price:0,image:"images/wrestlers/wrestler102.jpg"},
+{name:"William Regal",price:0,image:"images/wrestlers/wrestler103.jpg"},
+{name:"Christian / Christian Cage",price:0,image:"images/wrestlers/wrestler104.jpg"},
+{name:"X-Pac",price:0,image:"images/wrestlers/wrestler105.jpg"},
+{name:"Road Dogg",price:0,image:"images/wrestlers/wrestler106.jpg"},
+{name:"Billy Gunn",price:0,image:"images/wrestlers/wrestler107.jpg"},
 
 ];
 
 
+  // Individual Wrestler Models — separate from the 79-wrestler Custom Mod builder.
+products.wrestlers=wrestlers.map(w=>({title:`Wrestler Model — ${w.name}`,price:"$6.50",usdPrice:6.5,inrPrice:625,productType:"wrestler",wrestlerName:w.name,image:w.image,description:`Individual wrestler model: ${w.name}`,features:["Individual wrestler model","$6.50 per wrestler","Bulk offer available at checkout"],youtubeVideos:[]}));
+
 const customArenas=[
-{ name:"Arena 01",price:0,image:"images/arenas/arena01.jpg" },
-{ name:"Arena 02",price:0,image:"images/arenas/arena02.jpg" },
-{ name:"Arena 03",price:0,image:"images/arenas/arena03.jpg" },
-{ name:"Arena 04",price:0,image:"images/arenas/arena04.jpg" },
-{ name:"Arena 05",price:0,image:"images/arenas/arena05.jpg" },
-{ name:"Arena 06",price:0,image:"images/arenas/arena06.jpg" },
-{ name:"Arena 07",price:0,image:"images/arenas/arena07.jpg" },
-{ name:"Arena 08",price:0,image:"images/arenas/arena08.jpg" },
-{ name:"Arena 09",price:0,image:"images/arenas/arena09.jpg" },
-{ name:"Arena 10",price:0,image:"images/arenas/arena10.jpg" }
+{ name:"2K26 \u2022 Raw",price:0,image:"images/arenas/arena01.jpg" },
+{ name:"2K26 \u2022 SmackDown",price:0,image:"images/arenas/arena02.jpg" },
+{ name:"2K26 \u2022 NXT",price:0,image:"images/arenas/arena03.jpg" },
+{ name:"2K26 \u2022 Main Event",price:0,image:"images/arenas/arena04.jpg" },
+{ name:"2K26 \u2022 WWE Performance Center",price:0,image:"images/arenas/arena05.jpg" },
+{ name:"2K26 \u2022 WrestleMania XL",price:0,image:"images/arenas/arena06.jpg" },
+{ name:"2K26 \u2022 WrestleMania 41",price:0,image:"images/arenas/arena07.jpg" },
+{ name:"2K26 \u2022 WrestleMania 39",price:0,image:"images/arenas/arena08.jpg" },
+{ name:"2K26 \u2022 WrestleMania 30",price:0,image:"images/arenas/arena09.jpg" },
+{ name:"2K26 \u2022 Royal Rumble",price:0,image:"images/arenas/arena10.jpg" },
+{ name:"2K26 \u2022 SummerSlam",price:0,image:"images/arenas/arena11.jpg" },
+{ name:"2K26 \u2022 Survivor Series WarGames",price:0,image:"images/arenas/arena12.jpg" },
+{ name:"2K26 \u2022 Money in the Bank",price:0,image:"images/arenas/arena13.jpg" },
+{ name:"2K26 \u2022 Elimination Chamber",price:0,image:"images/arenas/arena14.jpg" },
+{ name:"2K26 \u2022 Backlash France",price:0,image:"images/arenas/arena15.jpg" },
+{ name:"2K26 \u2022 Bash in Berlin",price:0,image:"images/arenas/arena16.jpg" },
+{ name:"2K26 \u2022 Clash at the Castle",price:0,image:"images/arenas/arena17.jpg" },
+{ name:"2K26 \u2022 Crown Jewel",price:0,image:"images/arenas/arena18.jpg" },
+{ name:"2K26 \u2022 King and Queen of the Ring",price:0,image:"images/arenas/arena19.jpg" },
+{ name:"2K26 \u2022 Fastlane",price:0,image:"images/arenas/arena20.jpg" },
+{ name:"2K26 \u2022 Bad Blood",price:0,image:"images/arenas/arena21.jpg" },
+{ name:"2K26 \u2022 SmackDown Fist Arena",price:0,image:"images/arenas/arena22.jpg" },
+{ name:"2K26 \u2022 Raw Is War",price:0,image:"images/arenas/arena23.jpg" },
+{ name:"2K26 \u2022 Raw Oval Screen",price:0,image:"images/arenas/arena24.jpg" },
+{ name:"2K26 \u2022 ECW One Night Stand",price:0,image:"images/arenas/arena25.jpg" },
+{ name:"2K26 \u2022 WCW Monday Nitro",price:0,image:"images/arenas/arena26.jpg" },
+{ name:"2K26 \u2022 WCW Halloween Havoc",price:0,image:"images/arenas/arena27.jpg" },
+{ name:"OLD \u2022 Raw",price:0,image:"images/arenas/arena28.jpg" },
+{ name:"OLD \u2022 SmackDown",price:0,image:"images/arenas/arena29.jpg" },
+{ name:"OLD \u2022 Heat",price:0,image:"images/arenas/arena30.jpg" },
+{ name:"OLD \u2022 Velocity",price:0,image:"images/arenas/arena31.jpg" },
+{ name:"OLD \u2022 WrestleMania XIX",price:0,image:"images/arenas/arena32.jpg" },
+{ name:"OLD \u2022 Royal Rumble",price:0,image:"images/arenas/arena33.jpg" },
+{ name:"OLD \u2022 SummerSlam",price:0,image:"images/arenas/arena34.jpg" },
+{ name:"OLD \u2022 Survivor Series",price:0,image:"images/arenas/arena35.jpg" },
+{ name:"OLD \u2022 Backlash",price:0,image:"images/arenas/arena36.jpg" },
+{ name:"OLD \u2022 Judgment Day",price:0,image:"images/arenas/arena37.jpg" },
+{ name:"OLD \u2022 Vengeance",price:0,image:"images/arenas/arena38.jpg" },
+{ name:"OLD \u2022 Unforgiven",price:0,image:"images/arenas/arena39.jpg" },
+{ name:"OLD \u2022 No Mercy",price:0,image:"images/arenas/arena40.jpg" },
+{ name:"OLD \u2022 Armageddon",price:0,image:"images/arenas/arena41.jpg" },
+{ name:"OLD \u2022 Bad Blood",price:0,image:"images/arenas/arena42.jpg" },
+{ name:"OLD \u2022 InsurreXtion",price:0,image:"images/arenas/arena43.jpg" },
+{ name:"OLD \u2022 Rebellion",price:0,image:"images/arenas/arena44.jpg" },
+{ name:"OLD \u2022 No Way Out",price:0,image:"images/arenas/arena45.jpg" },
+
 ];
 
 const customTitantrons=[
@@ -1419,7 +1585,7 @@ const customTitantrons=[
 ];
 
 // Category listings use the same numbered image system as the Custom Builder.
-products.arenas=customArenas.map((x,i)=>({title:x.name,price:x.price?"₹"+x.price:"PRICE",image:x.image,description:"Arena listing placeholder — add the exact arena description here.",features:["Arena preview image","Add exact arena details here"],youtubeVideos:[]}));
+products.arenas=customArenas.map((x,i)=>({title:`Arena — ${x.name}`,price:"$6.50",usdPrice:6.5,inrPrice:625,productType:"arena",arenaName:x.name,image:x.image,description:`Individual arena: ${x.name}`,features:["Individual arena", "$6.50 per arena", "Bulk offer available at checkout"],youtubeVideos:[]}));
 products.titantrons=customTitantrons.map((x,i)=>({title:x.name,price:x.price?"₹"+x.price:"PRICE",image:x.image,description:"Titantron listing placeholder — add the exact titantron details here.",features:["Titantron preview image","Add exact titantron details here"],youtubeVideos:[]}));
 products.movesets=Array.from({length:10},(_,i)=>({title:`Move Set ${String(i+1).padStart(2,"0")}`,price:"PRICE",image:"",description:"Move set listing placeholder. Add the wrestler, moves and exact contents for this pack.",features:["Add wrestler / pack name","Add included moves","Add compatibility details"],youtubeVideos:[]}));
 
@@ -1429,10 +1595,12 @@ let currentCategory="";
 let selectedWrestlers=[];
 let selectedArenas=[];
 let selectedTitantrons=[];
+let currentCustomOrderDetails=null;
 let currentCustomSection="wrestlers";
 let currentProduct=null;
 let checkoutItems=[];
 let cartItems=[];
+const PROMO_CODE="ICONIC10";
 try{cartItems=JSON.parse(localStorage.getItem("iconicModzCart")||"[]");}catch(e){cartItems=[];}
 
 
@@ -1453,10 +1621,10 @@ top:0,
 behavior:"smooth"
 });
 
-  }
+}
 
 
-  /* =========================================
+/* =========================================
    GAME
 ========================================= */
 
@@ -1474,7 +1642,7 @@ showPage("categories");
 }
 
 
-/* =========================================
+  /* =========================================
    CATEGORY
 ========================================= */
 
@@ -1492,6 +1660,17 @@ titantrons:"Titantrons"
 
 document.getElementById("categoryTitle").innerText=
 names[category];
+const categoryOffer=document.getElementById("categoryOfferBox");
+if(categoryOffer){
+  const showOffer=category==="wrestlers" || category==="arenas";
+  categoryOffer.classList.toggle("hidden",!showOffer);
+  if(showOffer){
+    const label=category==="arenas"?"ARENA MODEL OFFER":"WRESTLER MODEL OFFER";
+    const singular=category==="arenas"?"arena":"model";
+    const plural=category==="arenas"?"arenas":"models";
+    categoryOffer.innerHTML=`<h3>🔥 ${label} — ALWAYS AVAILABLE</h3><div class="imz-offer-row"><span>1 ${singular}</span><b>$6.50 each (Total: $6.50)</b></div><div class="imz-offer-row"><span>6 ${plural}</span><b>$6.00 each (Total: $36.00)</b></div><div class="imz-offer-row"><span>10 ${plural}</span><b>$5.50 each (Total: $55.00)</b></div><div style="margin-top:10px;color:#bbb;font-size:12px;line-height:1.5">🛒 Add the ${plural} you want to your cart. The matching bulk rate is applied automatically at checkout. <b style="color:#fff">ICONIC10 does not apply to ${plural}.</b></div>`;
+  }
+}
 
 renderProducts();
 
@@ -1570,8 +1749,8 @@ Preview
 </button>
 
 <button class="btn red"
-onclick='buyProduct(${JSON.stringify(product)})'>
-Get
+onclick='${product.productType==="wrestler"?`buyProduct(${JSON.stringify(product)})`:`buyProduct(${JSON.stringify(product)})`}' >
+${isBulkProduct(product)?`💳 Buy $6.50`:(product.productType==="mod"?"Get Mod":"Get")}
 </button>
 <button class="btn dark"
 onclick='event.stopPropagation();addToCart(${JSON.stringify(product)})'>
@@ -1701,52 +1880,172 @@ if(video) video.removeAttribute("src");
 
 
 /* =========================================
+   ALWAYS-AVAILABLE PROMO POPUP
+========================================= */
+function closePromoPopup(){
+  document.getElementById("promoPopup")?.classList.add("hidden");
+}
+function openPromoPopup(){
+  document.getElementById("promoPopup")?.classList.remove("hidden");
+}
+function copyPromoCode(){
+  const code=document.getElementById("promoCode")?.innerText||"ICONIC10";
+  navigator.clipboard?.writeText(code).catch(()=>{});
+  alert("ICONIC10 copied. It applies only to V1 and V2.");
+}
+function promoBuy(version){
+  const product=(products.fullgame||[]).find(p=>p.title.includes(`V${version}`));
+  if(product){closePromoPopup();buyProduct(product);}
+}
+function promoPreview(version){
+  const product=(products.fullgame||[]).find(p=>p.title.includes(`V${version}`));
+  if(product){closePromoPopup();openModShowcase(product);}
+}
+function startPromoCountdown(){
+  const el=document.getElementById("promoCountdown");
+  if(!el)return;
+  const tick=()=>{
+    const d=new Date();
+    const remaining=(24*60*60)-((d.getHours()*3600)+(d.getMinutes()*60)+d.getSeconds());
+    const h=Math.floor(remaining/3600),m=Math.floor((remaining%3600)/60),sec=remaining%60;
+    el.textContent=`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+  };
+  tick(); setInterval(tick,1000);
+}
+function maybeShowPromo(){
+  // The offer remains available on every visit; it is not a one-time popup.
+  setTimeout(openPromoPopup,900);
+}
+
+/* =========================================
    PAYMENT
 ========================================= */
 
-function getProductUnitPrice(product){
-  return product && product.price!=="FREE" ? 62 : 0;
+function isWrestlerProduct(product){
+  return !!product && product.productType==="wrestler";
 }
-
+function isArenaProduct(product){
+  return !!product && product.productType==="arena";
+}
+function isBulkProduct(product){
+  return isWrestlerProduct(product) || isArenaProduct(product);
+}
+function bulkUnitPrice(count){
+  if(count>=10) return 5.5;
+  if(count>=6) return 6;
+  return 6.5;
+}
+function wrestlerBulkUnitPrice(count){ return bulkUnitPrice(count); }
+function bulkOfferSelect(count){
+  const type=(currentProduct&&isArenaProduct(currentProduct))?"arenas":"wrestlers";
+  closePayment();
+  showPage("custom");
+  showCustomSection(type);
+  setTimeout(()=>{
+    const grid=document.getElementById(type==='wrestlers'?'wrestlerGrid':'arenaGrid');
+    if(grid) grid.scrollIntoView({behavior:'smooth',block:'start'});
+    alert(`Offer selected: add ${count} ${type==='arenas'?'arenas':'wrestler models'} to your cart. The matching bulk rate will apply automatically at checkout.`);
+  },120);
+}
+function getProductUnitPrice(product, bulkCount){
+  if(!product || product.price==="FREE" || product.productType==="custom") return 0;
+  if(isBulkProduct(product)) return bulkUnitPrice(bulkCount||1);
+  if(Number.isFinite(Number(product.usdPrice))) return Number(product.usdPrice);
+  return 62;
+}
+function getProductINRPrice(product, bulkCount){
+  if(!product || product.price==="FREE" || product.productType==="custom") return 0;
+  if(isBulkProduct(product)){
+    const usd=bulkUnitPrice(bulkCount||1);
+    return Math.round(usd*96.15);
+  }
+  if(Number.isFinite(Number(product.inrPrice))) return Number(product.inrPrice);
+  return 5962;
+}
+function promoEligibleProduct(product){
+  return !!product && product.productType==="mod" && (product.title.includes("Iconic Edition V1") || product.title.includes("Iconic Edition V2"));
+}
 function getCheckoutTotals(){
   const count=checkoutItems.reduce((n,p)=>n+(p.qty||1),0);
-  const regularUSD=checkoutItems.reduce((n,p)=>n+getProductUnitPrice(p)*(p.qty||1),0);
-  const regularINR=checkoutItems.reduce((n,p)=>n+5962*(p.qty||1),0);
+  const wrestlerCount=checkoutItems.reduce((n,p)=>n+(isWrestlerProduct(p)?(p.qty||1):0),0);
+  const arenaCount=checkoutItems.reduce((n,p)=>n+(isArenaProduct(p)?(p.qty||1):0),0);
+  const bulkCountByType={wrestler:wrestlerCount,arena:arenaCount};
+  const regularUSD=checkoutItems.reduce((n,p)=>{
+    const bulkCount=isWrestlerProduct(p)?wrestlerCount:isArenaProduct(p)?arenaCount:1;
+    return n+getProductUnitPrice(p,bulkCount)*(p.qty||1);
+  },0);
+  const regularINR=checkoutItems.reduce((n,p)=>{
+    const bulkCount=isWrestlerProduct(p)?wrestlerCount:isArenaProduct(p)?arenaCount:1;
+    return n+getProductINRPrice(p,bulkCount)*(p.qty||1);
+  },0);
   const code=(document.getElementById("paymentPromoInput")?.value||"").trim().toUpperCase();
-  const discountUSD=code===PROMO_CODE && regularUSD>0 ? 2 : 0;
-  const discountINR=code===PROMO_CODE && regularINR>0 ? 193 : 0;
-  return {count,regularUSD,regularINR,discountUSD,discountINR,finalUSD:Math.max(0,regularUSD-discountUSD),finalINR:Math.max(0,regularINR-discountINR)};
+  const promoEligible=checkoutItems.every(p=>promoEligibleProduct(p));
+  const discountUSD=code===PROMO_CODE && promoEligible && regularUSD>0 ? 2 : 0;
+  const discountINR=code===PROMO_CODE && promoEligible && regularINR>0 ? 192 : 0;
+  return {count,wrestlerCount,arenaCount,regularUSD,regularINR,discountUSD,discountINR,finalUSD:Math.max(0,regularUSD-discountUSD),finalINR:Math.max(0,regularINR-discountINR)};
 }
 
 function makeOrderId(){
-  return "IMZ-"+Date.now().toString(36).toUpperCase()+"-"+Math.random().toString(36).slice(2,6).toUpperCase();
+  let main;
+  if(currentCustomOrderDetails){
+    const firstW=orderSlug((selectedWrestlers[0]&&selectedWrestlers[0].name)||"ROSTER");
+    const firstA=orderSlug((selectedArenas[0]&&selectedArenas[0].name)||"ARENA");
+    main=`CUSTOM-${firstW}-${firstA}`;
+  }else{
+    const names=checkoutItems.length?checkoutItems.map(x=>x.title||x.name).join(' '):'ORDER';
+    main=orderSlug(names).split('-').slice(0,3).join('-');
+  }
+  const date=new Date();const stamp=date.getFullYear().toString()+String(date.getMonth()+1).padStart(2,'0')+String(date.getDate()).padStart(2,'0');
+  const serial=String(Date.now()).slice(-6);
+  const random=Math.random().toString(36).slice(2,6).toUpperCase();
+  return `IMZ-${main}-${stamp}-${serial}-${random}`;
 }
 
 function openPayment(product){
   currentProduct=product;
   checkoutItems=[product];
+  currentCustomOrderDetails=product.customOrderDetails||null;
   if(product.price==="FREE"){
     alert("Ye item FREE hai. Free download link baad me yahan add kiya ja sakta hai."); return;
   }
   document.getElementById("paymentTitle").innerText=product.title;
   document.getElementById("paymentPromoInput").value="";
-  document.getElementById("paymentPromoStatus").innerText="Use ICONIC10 to get the offer price.";
+  const eligiblePromo=promoEligibleProduct(product);
+  document.getElementById("paymentPromoStatus").innerText=isBulkProduct(product)?"Bulk offer will apply automatically when buying multiple items of this type.":(product.productType==="custom"?"Custom Mod is a fixed $80 package — no ICONIC10 discount.":(eligiblePromo?"Use ICONIC10 to get $2 off this V1/V2 mod.":"ICONIC10 is only valid for V1 and V2."));
   document.getElementById("paymentPromoStatus").style.color="#777";
+  document.getElementById("paymentPromoBox").classList.toggle("hidden",!eligiblePromo);
   document.getElementById("upiBox").classList.add("hidden");
+  const offer=document.getElementById("wrestlerOfferBox");
+  if(offer){
+    offer.classList.toggle("hidden",!isBulkProduct(product));
+    const title=document.getElementById("bulkOfferTitle");
+    if(title) title.innerText=isArenaProduct(product)?"🔥 Arena Bulk Offer":"🔥 Wrestler Model Bulk Offer";
+    const addMore=document.getElementById("bulkOfferAddMore");
+    if(addMore){ addMore.innerText=isArenaProduct(product)?"➕ Add More Arenas":"➕ Add More Wrestler Models"; addMore.onclick=()=>{closePayment();openCategory(isArenaProduct(product)?"arenas":"wrestlers")}; }
+  }
   document.getElementById("proofOrderId").value=makeOrderId();
-  document.getElementById("proofModName").value=product.title;
+  if(currentCustomOrderDetails){
+    document.getElementById("proofModName").value=`Custom Mod — $80.00 | 79 Wrestlers + 18 Arenas | Optional Titantrons: ${selectedTitantrons.length}`;
+  }else{
+    document.getElementById("proofModName").value=product.title;
+  }
   updatePaymentTotals();
   document.getElementById("paymentModal").classList.remove("hidden");
 }
 
 function openCartCheckout(){
   if(!cartItems.length){alert("Cart is empty.");return;}
+  currentCustomOrderDetails=null;
   checkoutItems=cartItems.map(x=>({...x}));
   document.getElementById("paymentTitle").innerText="ICONIC MODZ — Cart Checkout";
   document.getElementById("paymentPromoInput").value="";
-  document.getElementById("paymentPromoStatus").innerText="Use ICONIC10 to get the offer price.";
+  const cartPromoEligible=checkoutItems.length>0 && checkoutItems.every(promoEligibleProduct);
+  document.getElementById("paymentPromoStatus").innerText=cartPromoEligible?"ICONIC10 saves $2 on V1/V2 only. Wrestler/Arena offers are separate.":"ICONIC10 is only valid for V1 and V2.";
   document.getElementById("paymentPromoStatus").style.color="#777";
+  document.getElementById("paymentPromoBox").classList.toggle("hidden",!cartPromoEligible);
   document.getElementById("upiBox").classList.add("hidden");
+  const offer=document.getElementById("wrestlerOfferBox");
+  if(offer) offer.classList.toggle("hidden",!checkoutItems.some(isWrestlerProduct));
   document.getElementById("proofOrderId").value=makeOrderId();
   document.getElementById("proofModName").value=checkoutItems.map(x=>`${x.title} x${x.qty||1}`).join(", ");
   updatePaymentTotals();
@@ -1756,22 +2055,34 @@ function openCartCheckout(){
 
 function updatePaymentTotals(){
   const t=getCheckoutTotals();
-  document.getElementById("regularPrice").innerText=`$${t.regularUSD} • ₹${t.regularINR.toLocaleString("en-IN")}`;
-  document.getElementById("discountPrice").innerText=t.discountUSD?`-$${t.discountUSD} • -₹${t.discountINR}`:"-$0 • -₹0 (not applied)";
-  document.getElementById("finalPrice").innerText=`$${t.finalUSD} • ₹${t.finalINR.toLocaleString("en-IN")}`;
-  document.getElementById("paymentInfo").innerText=`${t.count} item${t.count===1?"":"s"} in this order. Regular: $${t.regularUSD} USD • ₹${t.regularINR.toLocaleString("en-IN")}. Apply ICONIC10 to save $2 / ₹193.`;
-  document.getElementById("paypalButton").innerText=`Pay $${t.finalUSD} USD with PayPal`;
-  document.getElementById("paypalButton").href=`https://paypal.me/Gsoni07/${t.finalUSD}`;
+  if(currentCustomOrderDetails){
+    const customUSD=80;
+    const customINR=7692;
+    document.getElementById("regularPrice").innerText=`$${customUSD.toFixed(2)} • ₹${customINR.toLocaleString("en-IN")}`;
+    document.getElementById("discountPrice").innerText="—";
+    document.getElementById("finalPrice").innerText=`$${customUSD.toFixed(2)} • ₹${customINR.toLocaleString("en-IN")}`;
+    document.getElementById("paymentInfo").innerText=`Custom Mod complete: ${selectedWrestlers.length}/79 wrestlers + ${selectedArenas.length}/18 arenas. Fixed package price: $80.00. Pay via PayPal or UPI, then send your payment screenshot by Gmail or Discord. Confirmation is sent immediately after proof verification; the Custom Mod build is delivered in approximately 1–2 weeks. Original game/ISO is not supplied.`;
+    document.getElementById("paypalButton").innerText="Pay $80.00 USD with PayPal";
+    document.getElementById("paypalButton").href="https://paypal.me/Gsoni07/80";
+    return;
+  }
+  document.getElementById("regularPrice").innerText=`$${t.regularUSD.toFixed(2)} • ₹${t.regularINR.toLocaleString("en-IN")}`;
+  document.getElementById("discountPrice").innerText=t.discountUSD?`-$${t.discountUSD.toFixed(2)} • -₹${t.discountINR}`:"-$0 • -₹0 (not applied)";
+  document.getElementById("finalPrice").innerText=`$${t.finalUSD.toFixed(2)} • ₹${t.finalINR.toLocaleString("en-IN")}`;
+  const offerText=t.wrestlerCount?` ${t.wrestlerCount} wrestler model${t.wrestlerCount===1?"":"s"} • bulk rate: $${wrestlerBulkUnitPrice(t.wrestlerCount).toFixed(2)} each.`:"";
+  document.getElementById("paymentInfo").innerText=`${t.count} item${t.count===1?"":"s"} in this order. Regular: $${t.regularUSD.toFixed(2)} USD • ₹${t.regularINR.toLocaleString("en-IN")}.${offerText}`;
+  document.getElementById("paypalButton").innerText=`Pay $${t.finalUSD.toFixed(2)} USD with PayPal`;
+  document.getElementById("paypalButton").href=`https://paypal.me/Gsoni07/${t.finalUSD.toFixed(2)}`;
 }
 
 function applyPaymentPromo(){
   const input=document.getElementById("paymentPromoInput");
   const status=document.getElementById("paymentPromoStatus");
   const code=(input.value||"").trim().toUpperCase();
-  if(code===PROMO_CODE){
-    status.innerText="✓ Code applied — you save $2 / ₹193."; status.style.color="#63d471";
+  if(code===PROMO_CODE && checkoutItems.length && checkoutItems.every(promoEligibleProduct)){
+    status.innerText="✓ ICONIC10 applied — you save $2.00."; status.style.color="#63d471";
   }else{
-    status.innerText="Invalid code. Enter ICONIC10."; status.style.color="#ff6b6b";
+    status.innerText="ICONIC10 is only valid for V1 and V2."; status.style.color="#ff6b6b";
   }
   updatePaymentTotals();
 }
@@ -1787,9 +2098,9 @@ function showUPI(){
 function payment(){
   if(!currentProduct)return;
   openPayment(currentProduct);
-}
+  }
 
-/* =========================================
+  /* =========================================
    CART
 ========================================= */
 function saveCart(){
@@ -1826,10 +2137,19 @@ function closeCart(){document.getElementById("cartModal").classList.add("hidden"
 function renderCart(){
   const box=document.getElementById("cartItems"), summary=document.getElementById("cartSummary");
   if(!box||!summary)return;
-  if(!cartItems.length){box.innerHTML='<div class="cart-empty">Your cart is empty.<br>Add V1, V2 or other paid mods with <b>🛒 Add to Cart</b>.</div>';summary.innerHTML='<b>Total: $0 • ₹0</b>';updateCartCount();return;}
-  box.innerHTML=cartItems.map((item,i)=>`<div class="cart-item"><div><div class="cart-item-title">${item.title||item.name}</div><div style="color:#777;font-size:11px">$62 • ₹5,962 each</div></div><div class="cart-qty"><button onclick="changeCartQty(${i},-1)">−</button><b>${item.qty||1}</b><button onclick="changeCartQty(${i},1)">+</button></div><button class="btn dark" onclick="removeFromCart(${i})">Remove</button></div>`).join('');
-  const count=cartItems.reduce((n,x)=>n+(x.qty||1),0), usd=count*62, inr=count*5962;
-  summary.innerHTML=`<div style="display:flex;justify-content:space-between"><span>Items</span><b>${count}</b></div><div style="display:flex;justify-content:space-between;margin-top:7px"><span>Regular total</span><b>$${usd} • ₹${inr.toLocaleString("en-IN")}</b></div><div style="margin-top:9px;color:#ff6572;font-size:12px">ICONIC10 gives $2 / ₹193 off the complete order.</div>`;
+  if(!cartItems.length){box.innerHTML='<div class="cart-empty">Your cart is empty.<br>Add V1, V2, wrestler models or arenas with <b>🛒 Add to Cart</b>.</div>';summary.innerHTML='<b>Total: $0 • ₹0</b>';updateCartCount();return;}
+  const wrestlerCount=cartItems.reduce((n,x)=>n+(isWrestlerProduct(x)?(x.qty||1):0),0);
+  const arenaCount=cartItems.reduce((n,x)=>n+(isArenaProduct(x)?(x.qty||1):0),0);
+  box.innerHTML=cartItems.map((item,i)=>{
+    const bulkCount=isWrestlerProduct(item)?wrestlerCount:isArenaProduct(item)?arenaCount:1;
+    const unit=isBulkProduct(item)?bulkUnitPrice(bulkCount):getProductUnitPrice(item,0);
+    const inr=isBulkProduct(item)?Math.round(unit*96.15):getProductINRPrice(item,0);
+    return `<div class="cart-item"><div><div class="cart-item-title">${item.title||item.name}</div><div style="color:#777;font-size:11px">$${unit.toFixed(2)} • ₹${inr.toLocaleString("en-IN")} each</div></div><div class="cart-qty"><button onclick="changeCartQty(${i},-1)">−</button><b>${item.qty||1}</b><button onclick="changeCartQty(${i},1)">+</button></div><button class="btn dark" onclick="removeFromCart(${i})">Remove</button></div>`;
+  }).join('');
+  const totals=cartItems.reduce((n,x)=>{const bulkCount=isWrestlerProduct(x)?wrestlerCount:isArenaProduct(x)?arenaCount:1;const unit=isBulkProduct(x)?bulkUnitPrice(bulkCount):getProductUnitPrice(x,0);return n+unit*(x.qty||1)},0);
+  const inr=cartItems.reduce((n,x)=>{const bulkCount=isWrestlerProduct(x)?wrestlerCount:isArenaProduct(x)?arenaCount:1;const unit=isBulkProduct(x)?Math.round(bulkUnitPrice(bulkCount)*96.15):getProductINRPrice(x,0);return n+unit*(x.qty||1)},0);
+  const count=cartItems.reduce((n,x)=>n+(x.qty||1),0);
+  summary.innerHTML=`<div style="display:flex;justify-content:space-between"><span>Items</span><b>${count}</b></div><div style="display:flex;justify-content:space-between;margin-top:7px"><span>Regular total</span><b>$${totals.toFixed(2)} • ₹${inr.toLocaleString("en-IN")}</b></div>${wrestlerCount?`<div style="margin-top:9px;color:#63d471;font-size:12px">${wrestlerCount} wrestler model${wrestlerCount===1?"":"s"} → $${bulkUnitPrice(wrestlerCount).toFixed(2)} each bulk rate.</div>`:""}${arenaCount?`<div style="margin-top:9px;color:#63d471;font-size:12px">${arenaCount} arena${arenaCount===1?"":"s"} → $${bulkUnitPrice(arenaCount).toFixed(2)} each bulk rate.</div>`:""}`;
   updateCartCount();
 }
 
@@ -1848,7 +2168,12 @@ function openPaymentEmail(){
   const file=document.getElementById("proofScreenshot").files?.[0];
   if(!name || !buyerEmail || !modName){alert("Please fill Your Name, Your Email and Mod / Order Details first.");return;}
   const t=getCheckoutTotals();
-  const body=`Hello ICONIC MODZ Team,%0D%0A%0D%0APayment proof for my order:%0D%0AOrder ID: ${encodeURIComponent(orderId)}%0D%0AName: ${encodeURIComponent(name)}%0D%0ABuyer Email: ${encodeURIComponent(buyerEmail)}%0D%0AMod / Order: ${encodeURIComponent(modName)}%0D%0AAmount Paid: $${t.finalUSD} USD / ₹${t.finalINR}%0D%0A%0D%0AI have completed the payment. I am attaching the successful transaction screenshot.%0D%0A%0D%0AThank you.`;
+  const amountText=currentCustomOrderDetails?"$80.00 USD / ₹7,692":`$${t.finalUSD.toFixed(2)} USD / ₹${t.finalINR}`;
+  let customDetails="";
+  if(currentCustomOrderDetails){
+    customDetails=`%0D%0ACUSTOM MOD REQUIREMENTS:%0D%0ARoster: ${encodeURIComponent(currentCustomOrderDetails.requiredRoster)}%0D%0AWrestlers: ${encodeURIComponent(currentCustomOrderDetails.wrestlers)}%0D%0AArenas: ${encodeURIComponent(currentCustomOrderDetails.arenas)}%0D%0ATitantrons: ${encodeURIComponent(currentCustomOrderDetails.titantrons)}%0D%0ABonus Package: ${encodeURIComponent(currentCustomOrderDetails.packageNotes)}`;
+  }
+  const body=`Hello ICONIC MODZ Team,%0D%0A%0D%0APayment proof for my order:%0D%0AOrder ID: ${encodeURIComponent(orderId)}%0D%0AName: ${encodeURIComponent(name)}%0D%0ABuyer Email: ${encodeURIComponent(buyerEmail)}%0D%0AMod / Order: ${encodeURIComponent(modName)}%0D%0AAmount Paid: ${encodeURIComponent(amountText)}${customDetails}%0D%0A%0D%0AI have completed the payment. I am attaching the successful transaction screenshot.%0D%0A%0D%0AThank you.`;
   const subject=encodeURIComponent(`ICONIC MODZ Payment Proof - ${orderId}`);
   const mailto=`mailto:wwegamenewsk@gmail.com?subject=${subject}&body=${body}`;
   if(file) alert("Your payment screenshot is selected. Your mail app will open next — please attach the selected screenshot manually and press Send.");
@@ -1861,11 +2186,26 @@ function openPaymentEmail(){
 
 function buyProduct(product){
 currentProduct=product;
+currentCustomOrderDetails=null;
 openPayment(product);
 }
 
+/* Dedicated V1 showcase payment/navigation helpers */
+function v1ScrollTo(id){
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function closeV1Showcase(){
+  const el=document.getElementById('v1Showcase');
+  if(el) el.classList.add('hidden');
+  document.body.style.overflow='';
+}
+function v1Buy(){
+  const product=(products.fullgame||[]).find(p=>p.title.includes('Iconic Edition V1'));
+  if(product){ closeV1Showcase(); buyProduct(product); }
+}
 
-  /* =========================================
+
+/* =========================================
    CUSTOM MOD
 ========================================= */
 
@@ -1884,10 +2224,16 @@ titantrons:"TITANTRONS"
 };
 
 document.getElementById("customSectionTitle").innerText=title[section];
+const permanentOffer=document.getElementById("wrestlerPermanentOffer");
+if(permanentOffer){
+  permanentOffer.innerHTML=section==='arenas' ? `<h3>🔥 ARENA MODEL OFFER — ALWAYS AVAILABLE</h3><div class="imz-offer-row"><span>1 arena</span><b>$6.50 each (Total: $6.50)</b></div><div class="imz-offer-row"><span>6 arenas</span><b>$6.00 each (Total: $36.00)</b></div><div class="imz-offer-row"><span>10 arenas</span><b>$5.50 each (Total: $55.00)</b></div><div style="margin-top:10px;color:#bbb;font-size:12px;line-height:1.5">🛒 Add the arenas you want to your cart. The matching bulk rate is applied automatically at checkout. <b style="color:#fff">ICONIC10 does not apply to arenas.</b></div>` : `<h3>🔥 WRESTLER MODEL OFFER — ALWAYS AVAILABLE</h3><div class="imz-offer-row"><span>1 model</span><b>$6.50 each (Total: $6.50)</b></div><div class="imz-offer-row"><span>6 models</span><b>$6.00 each (Total: $36.00)</b></div><div class="imz-offer-row"><span>10 models</span><b>$5.50 each (Total: $55.00)</b></div><div style="margin-top:10px;color:#bbb;font-size:12px;line-height:1.5">🛒 Add the wrestler models you want to your cart. The matching bulk rate is applied automatically at checkout. <b style="color:#fff">ICONIC10 does not apply to wrestler models.</b></div>`;
+}
 
-if(section==="wrestlers") renderWrestlers();
-if(section==="arenas") renderCustomItems("arenas");
-if(section==="titantrons") renderCustomItems("titantrons");
+const search=document.getElementById("customListSearch");if(search)search.value="";
+if(section==="wrestlers") { renderWrestlers(); filterCustomList(""); }
+if(section==="arenas") { renderCustomItems("arenas"); filterCustomList(""); }
+if(section==="titantrons") { renderCustomItems("titantrons"); filterCustomList(""); }
+updateBuilderRequirements();
 
 }
 
@@ -1901,43 +2247,21 @@ grid.innerHTML=wrestlers.map((w,index)=>{
 const selected=selectedWrestlers.some(x=>x.name===w.name);
 
 return `
-
-<div class="card wrestler ${selected?"selected":""}"
-onclick="toggleWrestler(${index})">
-
+<div class="card wrestler ${selected?"selected":""}" onclick="toggleWrestler(${index})">
 <div class="card-img">
-${
-w.image
-?
-`<img src="${w.image}" alt="${w.name}">`
-:
-`<div class="placeholder">W</div>`
-}
+${w.image?`<img src="${w.image}" alt="${w.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:''}
+<div class="placeholder" style="${w.image?'display:none':''}">W</div>
 </div>
-
 <div class="card-body">
-
 <div class="check">✓</div>
-
-<h2>${w.name}</h2>
-
-<div class="price">
-${w.price>0?"₹"+w.price:"PRICE"}
+<h2>${imzEscape(w.name)}</h2>
+<div class="price">Included in $80 Custom Mod</div>
+<p>${selected?"Selected":"Select Model"}</p>
 </div>
-
-<p>
-${selected?"Selected":"Select Model"}
-</p>
-
-</div>
-</div>
-
-`;
-
+</div>`;
 }).join("");
 
 updateTotal();
-
 }
 
 
@@ -1982,6 +2306,7 @@ ${item.price>0?"₹"+item.price:"PRICE"}
 <p>
 ${isSelected?"Selected":"Select "+(type==="arenas"?"Arena":"Titantron")}
 </p>
+${type==="arenas"?`<button type="button" class="imz-buy-model" onclick="event.stopPropagation();buyArena(${index})">💳 Buy Arena — $6.50</button><button type="button" class="imz-cart-model" onclick="event.stopPropagation();addArenaToCart(${index})">🛒 Add to Cart</button>`:""}
 
 </div>
 </div>
@@ -1998,25 +2323,21 @@ updateTotal();
 function toggleWrestler(index){
 
 const wrestler=wrestlers[index];
-
-const exists=selectedWrestlers.some(
-x=>x.name===wrestler.name
-);
+if(!wrestler)return;
+const exists=selectedWrestlers.some(x=>x.name===wrestler.name);
 
 if(exists){
-
-selectedWrestlers=selectedWrestlers.filter(
-x=>x.name!==wrestler.name
-);
-
+  selectedWrestlers=selectedWrestlers.filter(x=>x.name!==wrestler.name);
 }else{
-
-selectedWrestlers.push(wrestler);
-
+  if(selectedWrestlers.length>=79){
+    alert("Roster requirement is 79 wrestlers. You already selected 79/79. Remove one first if you want to replace it.");
+    return;
+  }
+  selectedWrestlers.push(wrestler);
 }
 
 renderWrestlers();
-
+updateBuilderRequirements();
 }
 
 
@@ -2024,322 +2345,264 @@ function toggleCustomItem(type,index){
 
 const list=type==="arenas"?customArenas:customTitantrons;
 const target=list[index];
+if(!target)return;
 
 if(type==="arenas"){
-
-const exists=selectedArenas.some(x=>x.name===target.name);
-
-if(exists){
-selectedArenas=selectedArenas.filter(x=>x.name!==target.name);
+  const exists=selectedArenas.some(x=>x.name===target.name);
+  if(exists){
+    selectedArenas=selectedArenas.filter(x=>x.name!==target.name);
+  }else{
+    if(selectedArenas.length>=18){
+      alert("Arena requirement is 18 arenas. You already selected 18/18. Remove one first if you want to replace it.");
+      return;
+    }
+    selectedArenas.push(target);
+  }
+  renderCustomItems("arenas");
 }else{
-selectedArenas.push(target);
+  const exists=selectedTitantrons.some(x=>x.name===target.name);
+  if(exists){
+    selectedTitantrons=selectedTitantrons.filter(x=>x.name!==target.name);
+  }else{
+    selectedTitantrons.push(target);
+  }
+  renderCustomItems("titantrons");
+}
+updateBuilderRequirements();
 }
 
-renderCustomItems("arenas");
 
-}else{
+function updateBuilderRequirements(){
+  const rw=selectedWrestlers.length;
+  const ra=selectedArenas.length;
+  const rosterDone=rw===79;
+  const arenaDone=ra===18;
+  const complete=rosterDone&&arenaDone;
 
-const exists=selectedTitantrons.some(x=>x.name===target.name);
+  const rp=document.getElementById("rosterProgress");
+  const ap=document.getElementById("arenaProgress");
+  if(rp)rp.textContent=`${rw} / 79 Required`;
+  if(ap)ap.textContent=`${ra} / 18 Required`;
+  const sw=document.getElementById("selectedWrestlerCount");
+  const sa=document.getElementById("selectedArenaCount");
+  if(sw)sw.textContent=`${rw} / 79`;
+  if(sa)sa.textContent=`${ra} / 18`;
 
-if(exists){
-selectedTitantrons=selectedTitantrons.filter(x=>x.name!==target.name);
-}else{
-selectedTitantrons.push(target);
+  const rs=document.getElementById("rosterRequirement");
+  const as=document.getElementById("arenaRequirement");
+  if(rs)rs.classList.toggle("done",rosterDone);
+  if(as)as.classList.toggle("done",arenaDone);
+
+  const status=document.getElementById("customCompletionStatus");
+  if(status){
+    status.classList.toggle("locked",!complete);
+    status.innerHTML=complete
+      ? "✅ <b>Complete Mod Package Ready!</b> 79/79 wrestlers + 18/18 arenas selected. Your included staff, referees, commentators and hidden/backstage bonus areas are added automatically."
+      : `🔒 <b>Complete the required 79 wrestlers + 18 arenas</b> to unlock the final custom-mod order. Remaining: ${Math.max(0,79-rw)} wrestlers and ${Math.max(0,18-ra)} arenas.`;
+  }
+
+  const warning=document.getElementById("customBuilderWarning");
+  if(warning){
+    if(complete) warning.textContent="";
+    else warning.textContent="The final Get Custom Mod button stays locked until both required steps are complete.";
+  }
+
+  const btn=document.getElementById("customGetButton");
+  if(btn){
+    btn.disabled=!complete;
+    btn.textContent=complete?"💳 Get Custom Mod — $80":"🔒 Complete 79 + 18 First";
+    btn.title=complete?"Your custom mod package is complete":"Select 79 wrestlers and 18 arenas first";
+  }
 }
-
-renderCustomItems("titantrons");
-
-}
-
-}
-
 
 function updateTotal(){
-
-const all=[
-...selectedWrestlers,
-...selectedArenas,
-...selectedTitantrons
-];
-
-const total=all.reduce(
-(sum,x)=>sum+Number(x.price||0),0
-);
-
-document.getElementById("selectedCount")
-.innerText=
-all.length+" Items";
-
-document.getElementById("totalPrice")
-.innerText=
-total>0?"Total: ₹"+total:"Total: Price to be set";
-
-
+const all=[...selectedWrestlers,...selectedArenas,...selectedTitantrons];
+const total=all.reduce((sum,x)=>sum+Number(x.price||0),0);
+const selectedEl=document.getElementById("selectedCount");
+if(selectedEl)selectedEl.innerText=`${selectedWrestlers.length} Wrestlers + ${selectedArenas.length} Arenas${selectedTitantrons.length?` + ${selectedTitantrons.length} Titantrons`:""}`;
+const totalEl=document.getElementById("totalPrice");
+if(totalEl){
+  totalEl.innerText=(selectedWrestlers.length===79 && selectedArenas.length===18) ? "Custom Mod Total: $80.00" : "Custom Package: 79 Wrestlers + 18 Arenas Required";
+}
 }
 
+
+function buyWrestler(index){
+  const w=wrestlers[index];
+  if(!w)return;
+  openPayment({
+    title:`Wrestler Model — ${w.name}`,
+    price:"$6.50",
+    usdPrice:6.5,
+    inrPrice:625,
+    productType:"wrestler",
+    wrestlerName:w.name,
+    image:w.image,
+    description:`Individual wrestler model: ${w.name}`
+  });
+}
+
+function addWrestlerToCart(index){
+  const w=wrestlers[index];
+  if(!w)return;
+  addToCart({title:`Wrestler Model — ${w.name}`,price:"$6.50",usdPrice:6.5,inrPrice:625,productType:"wrestler",wrestlerName:w.name,image:w.image,description:`Individual wrestler model: ${w.name}`});
+}
+
+function buyArena(index){
+  const a=customArenas[index];
+  if(!a)return;
+  openPayment({
+    title:`Arena — ${a.name}`,
+    price:"$6.50",
+    usdPrice:6.5,
+    inrPrice:625,
+    productType:"arena",
+    arenaName:a.name,
+    image:a.image,
+    description:`Individual arena: ${a.name}`
+  });
+}
+
+function addArenaToCart(index){
+  const a=customArenas[index];
+  if(!a)return;
+  addToCart({title:`Arena — ${a.name}`,price:"$6.50",usdPrice:6.5,inrPrice:625,productType:"arena",arenaName:a.name,image:a.image,description:`Individual arena: ${a.name}`});
+}
+
+function getCustomSelectionText(){
+  const wrestlersText=selectedWrestlers.map((x,i)=>`${i+1}. ${x.name}`).join("\n")||"None";
+  const arenasText=selectedArenas.map((x,i)=>`${i+1}. ${x.name}`).join("\n")||"None";
+  const titanText=selectedTitantrons.map((x,i)=>`${i+1}. ${x.name}`).join("\n")||"None";
+  return `ICONIC MODZ — MY CUSTOM MOD SELECTION\n\nWRESTLERS (${selectedWrestlers.length}/79)\n${wrestlersText}\n\nARENAS (${selectedArenas.length}/18)\n${arenasText}\n\nOPTIONAL TITANTRONS (${selectedTitantrons.length})\n${titanText}`;
+}
+
+function showCustomSelectionList(){
+  const box=document.getElementById("customSelectionList");
+  if(!box)return;
+  box.textContent=getCustomSelectionText();
+  box.classList.toggle("hidden");
+}
+
+async function copyCustomSelections(){
+  const text=getCustomSelectionText();
+  try{
+    await navigator.clipboard.writeText(text);
+  }catch(e){
+    const ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();
+  }
+  const status=document.getElementById("copySelectionStatus");
+  if(status){status.textContent="✓ Selection copied — paste it anywhere.";setTimeout(()=>status.textContent="",2500);}
+}
 
 function customPayment(){
 
-const all=[
-...selectedWrestlers,
-...selectedArenas,
-...selectedTitantrons
-];
+updateBuilderRequirements();
 
-if(all.length===0){
-
-alert("Pehle wrestler, arena ya titantron select karo.");
-
-return;
-
+if(selectedWrestlers.length!==79 || selectedArenas.length!==18){
+  alert(`Custom Mod is not complete yet. Required: 79 wrestlers + 18 arenas. Current: ${selectedWrestlers.length}/79 wrestlers + ${selectedArenas.length}/18 arenas.`);
+  return;
 }
 
-const names=all
-.map(x=>x.name)
-.join(", ");
+const all=[
+  ...selectedWrestlers,
+  ...selectedArenas,
+  ...selectedTitantrons
+];
 
-const total=all.reduce(
-(sum,x)=>sum+Number(x.price||0),0
-);
+const names=all.map(x=>x.name).join(", ");
+const rosterNames=selectedWrestlers.map(x=>x.name).join(", ");
+const arenaNames=selectedArenas.map(x=>x.name).join(", ");
+const titantronNames=selectedTitantrons.map(x=>x.name).join(", ");
+const total=all.reduce((sum,x)=>sum+Number(x.price||0),0);
 
 openPayment({
-title:"Custom Mod Order",
-price:total>0?"₹"+total:"Price to be set"
+  title:"Custom Mod Order — 79 Wrestlers + 18 Arenas",
+  price:"$80.00",
+  usdPrice:80,
+  inrPrice:7692,
+  productType:"custom",
+  customOrderDetails:{
+    requiredRoster:"79/79",
+    requiredArenas:"18/18",
+    wrestlers:rosterNames,
+    arenas:arenaNames,
+    titantrons:titantronNames||"None selected",
+    packageNotes:"Free bonus: referees, commentators, staff, backstage zones, parking lots, training rooms, Times Square and secret experimental arenas included automatically. Package also includes supported 4K texture assets, save memory-card file and cheat codes. Original game/ISO is not supplied; customer must own a legal copy."
+  }
 });
 
 }
 
 
-/* =========================================
-   FEATURED MODS + PROMO
-========================================= */
-
-function renderFeatured(){
-const grid=document.getElementById("featuredGrid");
-if(!grid)return;
-const list=products.fullgame||[];
-grid.innerHTML=list.map(product=>`
-<div class="card featured-card" onclick='openModShowcase(${JSON.stringify(product).replace(/'/g,"&#39;")})'>
-  <div class="card-img">${product.image?`<img src="${product.image}" alt="${product.title}">`:`<div class="placeholder">MOD</div>`}</div>
-  <div class="card-body">
-    <div class="badge">FEATURED MOD</div><h2>${product.title}</h2>
-    <div class="price ${product.price==="FREE"?"free":""}">${product.price}</div>
-    <div class="buttons"><button class="btn dark" onclick='event.stopPropagation();openModShowcase(${JSON.stringify(product).replace(/'/g,"&#39;")})'>View Preview</button><button class="btn red" onclick='event.stopPropagation();buyProduct(${JSON.stringify(product).replace(/'/g,"&#39;")})'>Get Mod</button><button class="btn dark" onclick='event.stopPropagation();addToCart(${JSON.stringify(product).replace(/'/g,"&#39;")})'>🛒 Add to Cart</button></div>
-  </div>
-</div>`).join("");
-}
-
-
-const PROMO_CODE="ICONIC10"; // CHANGE THIS to your real discount code.
-const PROMO_DURATION=24*60*60*1000;
-let promoTimer=null;
-
-function closePromoPopup(){
-const el=document.getElementById("promoPopup");
-if(el)el.classList.add("hidden");
-}
-
-function promoPreview(index){
-closePromoPopup();
-if(products.fullgame&&products.fullgame[index]) previewProduct(products.fullgame[index]);
-}
-
-function promoBuy(index){
-closePromoPopup();
-if(products.fullgame&&products.fullgame[index]) buyProduct(products.fullgame[index]);
-}
-
-async function copyPromoCode(){
-const code=document.getElementById("promoCode");
-try{
-await navigator.clipboard.writeText(PROMO_CODE);
-alert("Discount code copied: "+PROMO_CODE);
-}catch(e){
-alert("Discount code: "+PROMO_CODE);
-}
-}
-
-function startPromoCountdown(){
-const key="iconic_modz_promo_end";
-let end=Number(localStorage.getItem(key)||0);
-if(!end || Date.now()>=end){
-end=Date.now()+PROMO_DURATION;
-localStorage.setItem(key,String(end));
-}
-const timer=document.getElementById("promoCountdown");
-function tick(){
-let left=Math.max(0,end-Date.now());
-const total=Math.floor(left/1000);
-const h=Math.floor(total/3600);
-const m=Math.floor((total%3600)/60);
-const sec=total%60;
-if(timer)timer.textContent=[h,m,sec].map(x=>String(x).padStart(2,"0")).join(":");
-if(left<=0){
-localStorage.removeItem(key);
-end=Date.now()+PROMO_DURATION;
-localStorage.setItem(key,String(end));
-}
-}
-tick();
-if(promoTimer)clearInterval(promoTimer);
-promoTimer=setInterval(tick,1000);
-}
-
-function maybeShowPromo(){
-const seenKey="iconic_modz_promo_seen";
-const seen=Number(localStorage.getItem(seenKey)||0);
-if(!seen || Date.now()-seen>=PROMO_DURATION){
-setTimeout(()=>{
-const el=document.getElementById("promoPopup");
-if(el){el.classList.remove("hidden");localStorage.setItem(seenKey,String(Date.now()));}
-},1800);
-}
-}
-
 
 /* =========================================
-   V1 FEATURED SHOWCASE
+   SEARCH + CUSTOM LIST FILTER
 ========================================= */
-const v1Credits=["Aguila316","80las","ModdingGeneration","Nero619","Riot","ERI619","Erm31","Ps2 Eater","LGIYT","Ryukuuma","a7med7assan5","angrygamershow","L.O.M.","THQ"];
-const v1RosterGroups = [
-  {name:"BLOODLINE", members:["Roman Reigns","Solo Sikoa","Jey Uso","Jimmy Uso","Jacob Fatu","Paul Heyman"]},
-  {name:"THE WYATT FAMILY", members:["Luke Harper","Erick Rowan","Bray Wyatt / The Fiend"]},
-  {name:"THE NEW DAY", members:["Big E","Kofi Kingston","Xavier Woods"]},
-  {name:"THE JUDGEMENT DAY", members:["Finn Balor","Damien Priest","Dominik Mysterio"]},
-  {name:"DIVAS", members:["Lita [Diva]","Sable [Diva]","Stacy Keibler [Diva]","Torrie Wilson [Diva]","Trish Stratus [Diva]"], optional:["Nikkie Bella","Berrie Bella","Paige","Debra"]},
-  {name:"STAFF MEMBERS", members:["Earl Hebner [Staff]","Mike Chioda [Staff]","Stephanie McMahon [Staff]","Vince McMahon [Staff]"]},
-  {name:"UPDATED SUPERSTARS", members:["Kurt Angle","AJ Styles","Aleister Black","Angelo Dawkins","Baron Corbin","Batista","Big Show","Bobby Lashley","Braun Strowman","Brock Lesnar","Bron Breakker","Bryan Danielson","Bubba Ray Dudley","Cesaro","Chris Jericho","Christian","CM Punk","Cody Rhodes","Darby Allin","D-Von Dudley","Dolph Ziggler","Drew McIntyre","Edge","Goldberg","Gunther","Hulk Hogan","Jeff Hardy","Jinder Mahal","John Cena","John Morrison","Jon Moxley","Kane","Referee","Kevin Owens","Logan Paul","Mark Henry","Matt Hardy","Matt Riddle","Montez Ford","Omos","Randy Orton","Rey Mysterio","Ricochet","Rob Van Dam","Rusev","Ryback","Sami Zayn","Samoa Joe","Scott Hall","Scott Steiner","Seth Freakin Rollins","Shinsuke Nakamura","Sheamus","Shawn Michaels","Steve Austin","Sting","The Great Khali","The Miz","The Rock [Final Boss]","The Undertaker","Tommaso Ciampa","Triple H","Undertaker","Ultimo Dragon / Kalisto / Sin Cara"]},
-  {name:"SPECIAL", members:["Superstar CAWS 32","Special Cheats","HD TEXTURES that you can play 4k quality"]}
-];
-const v1Arenas=["AEW Dynamite","ECW Old","Elimination Chamber 2025","Fast Lane","Hell in a Cell","Judgement Day","Night Of Champion","Payback","Raw latest 2025","Raw old","Royal Rumble 2025","SmackDown latest 2025","Smackdown old","Summer Slam","Survivor Series","TLC","Unforgiven","WrestleMania 9","WrestleMania XL","WM Backlash"];
-const v1HiddenArenas=["NWO","WCW Nitro","ETC"];
-const v1PatchFeatures=["75 Superstars Playable In Season Mode","100 + movies Titantrons","New BGM Music","Royal Rumble Finishers for All 82 Superstars","82 Superstars Playable In Exhibition instead of 65","Adjust Proper Moves Damage","All Wrestlers Added in Special Referee","Can Play With Hidden Arenas","Maximum Superstars Have 4 to 5 Attires (280 - 300)","New 180+ Updated Converted Realistic Moves [with sound Added]","New Rumble Roses moves added","New Submission moves","New Updated Finishers","New Steel Cage","New Steel Hell in a Cell","New Background Music","New Championship Belts","New Converted Taunts","New Different Matches Added","New Finisher Logo","New Titantrons","New Improved HD Renders for All Superstars","New Latest Arenas","New Loading Screens","New Main Menu Style","New Proper Entrance Motion Added","New Themes & Titantrons","New Updated Stables","Proper Height & Weight Set","Proper Moves Set – Can Play Without Memory Card"];
-products.fullgame[1].description="WWE SmackDown! Here Comes The Pain Iconic Edition V1 — full showcase of the supplied V1 roster, arenas and Exclusive Next Level Patch features.";
-products.fullgame[1].features=v1PatchFeatures;
-
-const v1Videos=[
-  {title:"V1 Official Trailer",url:"https://youtu.be/__0K7KZHdnY?si=djlHcixXkUHgX9a2"},
-  {title:"V1 Roster Showcase",url:"https://youtu.be/MJgswQfCIPA?si=pCuc86vgYi0t8_d0"},
-  {title:"V1 Gameplay Showcase",url:""},
-  {title:"V1 Arena Showcase",url:""},
-  {title:"V1 Wrestler Models",url:""},
-  {title:"V1 New Features",url:""}
-];
-const v1Features=[
-  "75 Superstars in Season Mode",
-  "82 Superstars in Exhibition",
-  "180+ Converted Moves",
-  "Updated themes, titantrons and BGM",
-  "New menu and presentation updates",
-  "Finisher logo, stables, taunts and belts",
-  "Updated entrances and Special Referee support",
-  "Hidden arenas by cheats",
-  "Damage adjustment and HD renders",
-  "Royal Rumble finishers for all 82",
-  "Latest 2025 arenas",
-  "Multiple attire previews and updated movesets"
-];
-function openV1Showcase(){
-  const el=document.getElementById('v1Showcase'); if(!el)return;
-  el.classList.remove('hidden'); document.body.style.overflow='hidden';
-  document.getElementById('v1FeatureList').innerHTML=v1Features.map((x,i)=>`<div class="v1-feature" style="animation-delay:${i*35}ms">✓ ${x}</div>`).join('');
-  document.getElementById('v1CreditsList').innerHTML=v1Credits.map(x=>`<span class="v1-credit">${x}</span>`).join('');
-  const grid=document.getElementById('v1VideoGrid'); grid.innerHTML='';
-  v1Videos.forEach((v,i)=>{
-    if(!v.url)return;
-    const id=getYouTubeId(v.url); if(!id)return;
-    const a=document.createElement('a'); a.className='v1-video'; a.href=v.url; a.target='_blank'; a.rel='noopener';
-    a.innerHTML=`<img class="v1-video-thumb" src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${v.title}"><span class="v1-play">▶</span><div class="v1-video-info"><div class="v1-video-title">${v.title}</div><div class="v1-video-meta">▶ Watch on YouTube</div></div>`;
-    grid.appendChild(a);
-  });
-  if(!grid.children.length)grid.innerHTML='<div style="grid-column:1/-1;color:#888">Add your YouTube links in the v1Videos list.</div>';
-  const mount=document.getElementById('v1SliderMount');
-  mount.innerHTML=`<div class="screenshot-slider"><div class="slider-head"><span>SCREENSHOTS</span><span id="v1SliderCounter">1 / 10</span></div><div class="slider-stage"><button class="slider-arrow left" onclick="v1Screenshot(-1)">‹</button><img id="v1SliderImage" src="" alt="V1 screenshot"><button class="slider-arrow right" onclick="v1Screenshot(1)">›</button></div><div id="v1SliderDots" class="slider-dots"></div></div>`;
-  v1SliderIndex=0; v1LoadScreenshot();
+function imzEscape(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function imzGlobalSearch(query){
+  const box=document.getElementById('imzSearchResults'); if(!box)return;
+  const q=(query||'').trim().toLowerCase();
+  if(!q){box.classList.add('hidden');box.innerHTML='';return;}
+  const pool=[];
+  (products.fullgame||[]).forEach(p=>pool.push({name:p.title,type:'MOD',action:`openModShowcase(products.fullgame[${products.fullgame.indexOf(p)}])`}));
+  wrestlers.forEach((w,i)=>pool.push({name:w.name,type:'WRESTLER',action:`openSearchCustom('wrestlers',${i})`}));
+  customArenas.forEach((a,i)=>pool.push({name:a.name,type:'ARENA',action:`openSearchCustom('arenas',${i})`}));
+  pool.push({name:'Basic Modding — $60',type:'ACADEMY',action:"academyInfo('basic')"},{name:'Advanced Modding — $100',type:'ACADEMY',action:"academyInfo('advanced')"},{name:'Mobile Tutorial — Included',type:'ACADEMY',action:"academyInfo('mobile')"});
+  const found=pool.filter(x=>x.name.toLowerCase().includes(q)).slice(0,14);
+  box.classList.remove('hidden');
+  box.innerHTML=found.length?found.map(x=>`<div class="imz-search-result" onclick="${x.action};document.getElementById('imzSearchResults').classList.add('hidden')"><div><b>${imzEscape(x.name)}</b><br><span>Open ${x.type.toLowerCase()}</span></div><small>${x.type}</small></div>`).join(''):'<div class="imz-search-empty">No matching mod, wrestler, arena or tutorial found.</div>';
 }
-function closeV1Showcase(){const el=document.getElementById('v1Showcase');if(el)el.classList.add('hidden');document.body.style.overflow='';}
-function v1ScrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
-function v1Buy(){closeV1Showcase();const p=(products.fullgame||[]).find(x=>x.title==='WWE HCTP Iconic Edition V1');if(p)buyProduct(p);}
-let v1SliderIndex=0,v1SliderExt=0;
-function v1LoadScreenshot(){
- const img=document.getElementById('v1SliderImage'); if(!img)return;
- const base=`images/previews/v1/screenshot${String(v1SliderIndex+1).padStart(2,'0')}`;v1SliderExt=0;img.dataset.base=base;img.src=base+'.jpg';
- img.onerror=function(){const e=['.png','.jpeg','.webp'];if(v1SliderExt<e.length)this.src=this.dataset.base+e[v1SliderExt++];else{this.onerror=null;this.alt='Add screenshot image';}};
- document.getElementById('v1SliderCounter').innerText=`${v1SliderIndex+1} / 10`;
- const d=document.getElementById('v1SliderDots');if(d)d.innerHTML=Array.from({length:10},(_,i)=>`<button class="slider-dot ${i===v1SliderIndex?'active':''}" onclick="v1GoScreenshot(${i})"></button>`).join('');
+function openSearchCustom(type,index){showPage('custom');showCustomSection(type);setTimeout(()=>{const input=document.getElementById('customListSearch');if(input)input.value=type==='wrestlers'?wrestlers[index]?.name||'':customArenas[index]?.name||'';filterCustomList(input?.value||'');},80);}
+function filterCustomList(query){
+  const q=(query||'').trim().toLowerCase();
+  const section=currentCustomSection;
+  const list=section==='wrestlers'?wrestlers:section==='arenas'?customArenas:customTitantrons;
+  const filtered=list.map((item,index)=>({item,index})).filter(x=>!q||x.item.name.toLowerCase().includes(q));
+  const grid=document.getElementById(section==='wrestlers'?'wrestlerGrid':section==='arenas'?'arenaGrid':'titantronGrid');
+  if(!grid)return;
+  const selected=section==='wrestlers'?selectedWrestlers:section==='arenas'?selectedArenas:selectedTitantrons;
+  grid.innerHTML=filtered.map(({item,index})=>{
+    const isSelected=selected.some(x=>x.name===item.name);
+    const typeLabel=section==='wrestlers'?'Select Model':section==='arenas'?'Select Arena':'Select Titantron';
+    const icon=section==='wrestlers'?'W':section==='arenas'?'A':'T';
+    const click=section==='wrestlers'?`toggleWrestler(${index})`:`toggleCustomItem('${section}',${index})`;
+    const buy=section==='wrestlers'?`<span class="imz-limit-note">Included in $80 Custom Mod</span>`:section==='arenas'?`<button type="button" class="imz-buy-model" onclick="event.stopPropagation();buyArena(${index})">💳 Buy Arena — $6.50</button><button type="button" class="imz-cart-model" onclick="event.stopPropagation();addArenaToCart(${index})">🛒 Add to Cart</button>`:'';
+    return `<div class="card wrestler ${isSelected?'selected':''}" onclick="${click}"><div class="card-img">${item.image?`<img src="${item.image}" alt="${imzEscape(item.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:''}<div class="placeholder" style="${item.image?'display:none':''}">${icon}</div></div><div class="card-body"><div class="check">✓</div><h2>${imzEscape(item.name)}</h2><div class="price">${section==='wrestlers'?'Included in $80 Custom Mod':item.price>0?'₹'+item.price:'PRICE'}</div><p>${isSelected?'Selected':typeLabel}</p>${buy}</div></div>`;
+  }).join('') || '<div class="card" style="padding:30px;text-align:center;grid-column:1/-1"><h2>No matches</h2><p>Try another name.</p></div>';
+  const c=document.getElementById('customResultCount');if(c)c.textContent=`${filtered.length} of ${list.length}`;
+  updateTotal();
 }
-function v1Screenshot(step){v1SliderIndex=(v1SliderIndex+step+10)%10;v1LoadScreenshot();}
-function v1GoScreenshot(i){v1SliderIndex=i;v1LoadScreenshot();}
+
+/* =========================================
+   MODDING ACADEMY
+========================================= */
+const ACADEMY_COURSES={
+ basic:{title:'ICONIC MODZ Modding Academy — Basic',price:'$60',usdPrice:60,inrPrice:5769,description:'Beginner course covering the core workflow needed to start WWE modding.',features:['Game files & folder structure','Backup & restore','Texture editing basics','Basic wrestler model replacement','YOBJ basics','Attire editing','Moveset / entrance workflow','Arena & titantron workflow','Emulator testing','Beginner troubleshooting'],image:'images/academy/basic-course.jpg'},
+ advanced:{title:'ICONIC MODZ Modding Academy — Advanced',price:'$100',usdPrice:100,inrPrice:9615,description:'Advanced workflow for experienced modders, including model conversion and deeper troubleshooting concepts.',features:['Everything in Basic','Advanced YOBJ workflow','Model conversion','UV / texture troubleshooting','Advanced wrestler modifications','Advanced moveset work','Arena / stage modifications','Titantron & audio workflow','Hex / file-structure concepts','Crash & real PS2 testing concepts','Complete project workflow'],image:'images/academy/advanced-course.jpg'},
+ mobile:{title:'ICONIC MODZ Modding Academy — Mobile Tutorial',price:'Included',usdPrice:0,inrPrice:0,description:'Mobile-focused setup and testing tutorial included with course access.',features:['Mobile Setup','Mobile Textures','Mobile Testing','Included with course access'],image:'images/academy/mobile-01.jpg'}
+};
+function academyInfo(key){const c=ACADEMY_COURSES[key];if(!c)return;alert(c.title+'\n\n'+c.features.map(x=>'• '+x).join('\n')+'\n\nPrice: '+c.price);}
+function buyAcademy(key){const c=ACADEMY_COURSES[key];if(!c)return;if(key==='mobile'){academyInfo(key);return;}buyProduct(c);}
+
+/* =========================================
+   ORDER ID — READABLE + AUTO GENERATED
+========================================= */
+function orderSlug(text){return String(text||'ITEM').toUpperCase().replace(/&/g,'AND').replace(/[^A-Z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,22)||'ITEM';}
+function refreshOrderId(){const el=document.getElementById('proofOrderId');if(el)el.value=makeOrderId();}
 
 
-/* ===== SCROLL REVEAL + CLICK SOUND ===== */
-(function initPremiumInteractions(){
-  const revealSelector = [
-    '.card','.latest-yt-card','.payment-help-card','.home-panel','.community-panel','.discord-panel','.credits-panel',
-    '.ms-feature','.ms-arena','.ms-patch','.ms-video','.v1-feature','.v1-video','.category','.featured-card'
-  ].join(',');
-  let revealObserver;
 
-  function prepareReveal(root=document){
-    if(!revealObserver) return;
-    const nodes=[];
-    if(root.matches && root.matches(revealSelector)) nodes.push(root);
-    if(root.querySelectorAll) root.querySelectorAll(revealSelector).forEach(n=>nodes.push(n));
-    nodes.forEach((el,i)=>{
-      if(el.dataset.scrollRevealReady) return;
-      el.dataset.scrollRevealReady='1';
-      el.setAttribute('data-scroll-reveal','');
-      el.classList.add('scroll-reveal-glow');
-      const parent=el.parentElement;
-      const siblings=parent ? Array.from(parent.children).filter(x=>x.matches && x.matches(revealSelector)) : [];
-      const idx=siblings.indexOf(el);
-      el.style.transitionDelay=(idx>=0 ? Math.min(idx*55,275) : Math.min(i*35,210))+'ms';
-      revealObserver.observe(el);
-    });
-  }
-
-  revealObserver=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('is-revealed');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },{threshold:.10,rootMargin:'0px 0px -55px 0px'});
-
-  prepareReveal(document);
-  const mutation=new MutationObserver(records=>records.forEach(r=>r.addedNodes.forEach(n=>{
-    if(n.nodeType===1) prepareReveal(n);
-  })));
-  mutation.observe(document.body,{childList:true,subtree:true});
-
-  // Browser-safe click sound: no external audio file required.
-  let audioCtx=null;
-  function clickSound(){
-    try{
-      audioCtx=audioCtx || new (window.AudioContext||window.webkitAudioContext)();
-      if(audioCtx.state==='suspended') audioCtx.resume();
-      const now=audioCtx.currentTime;
-      const osc=audioCtx.createOscillator(), gain=audioCtx.createGain();
-      osc.type='square'; osc.frequency.setValueAtTime(1150,now); osc.frequency.exponentialRampToValueAtTime(620,now+.055);
-      gain.gain.setValueAtTime(.0001,now); gain.gain.exponentialRampToValueAtTime(.055,now+.004); gain.gain.exponentialRampToValueAtTime(.0001,now+.065);
-      osc.connect(gain); gain.connect(audioCtx.destination); osc.start(now); osc.stop(now+.07);
-    }catch(e){}
-  }
-  document.addEventListener('click',e=>{
-    const target=e.target.closest('button,a,[onclick]');
-    if(!target) return;
-    if(target.dataset.noClickSound==='1') return;
-    clickSound();
-    target.classList.remove('click-pop'); void target.offsetWidth; target.classList.add('click-pop');
-  },true);
-})();
-
+document.addEventListener('click',function(e){
+  const wrap=document.querySelector('.imz-search-wrap');
+  const box=document.getElementById('imzSearchResults');
+  if(box && wrap && !wrap.contains(e.target)) box.classList.add('hidden');
+});
 /* =========================================
    START
 ========================================= */
 
 renderWrestlers();
+filterCustomList("");
 renderFeatured();
 startPromoCountdown();
 maybeShowPromo();
