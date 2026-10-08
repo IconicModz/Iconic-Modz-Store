@@ -617,6 +617,13 @@ body{font-family:'Rajdhani',Arial,Helvetica,sans-serif}
 .v1-member-list span{display:inline-block;padding:7px 10px;border:1px solid #252525;border-radius:999px;background:#111;font-family:'Rajdhani',sans-serif;font-weight:600}
 .v1-optional{margin-top:10px;color:#aaa;font-size:13px}
 </style>
+
+<style id="imz-professional-addons">
+.imz-pro-wrap{margin:18px 0;padding:18px;border:1px solid #2d2d2d;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(0,0,0,.18));box-shadow:0 14px 40px rgba(0,0,0,.2)}
+.imz-pro-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap}.imz-pro-kicker{font-size:11px;letter-spacing:2px;color:#e50914;font-weight:800}.imz-pro-head h3{margin:5px 0 3px}.imz-pro-muted{color:#8d8d8d;font-size:12px}.imz-pro-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:15px}.imz-pro-step{padding:12px;border:1px solid #292929;border-radius:13px;background:#0d0d0d}.imz-pro-step b{display:block;font-size:12px}.imz-pro-step span{display:block;color:#777;font-size:11px;margin-top:4px}.imz-pro-step.done{border-color:#3c8d4c}.imz-pro-step.active{border-color:#e50914;box-shadow:0 0 0 1px rgba(229,9,20,.12)}.imz-pro-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}.imz-pro-stat{padding:12px;border-radius:12px;background:#111;border:1px solid #252525}.imz-pro-stat strong{display:block;font-size:20px}.imz-pro-stat small{color:#777}.imz-pro-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.imz-pro-note{margin-top:11px;padding:10px 12px;border-radius:10px;background:#0b0b0b;color:#aaa;font-size:11px;line-height:1.5}.imz-view-model{width:100%;margin-top:7px}.imz-mini-badge{display:inline-block;margin-top:5px;padding:3px 7px;border-radius:999px;background:#1a1a1a;color:#aaa;font-size:10px}.imz-attire-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.imz-attire-card{border:1px solid #292929;border-radius:12px;overflow:hidden;background:#0e0e0e;cursor:pointer}.imz-attire-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}.imz-attire-card .imz-attire-info{padding:9px}.imz-attire-card b{font-size:11px}.imz-attire-card span{display:block;color:#777;font-size:10px;margin-top:3px}.imz-attire-card.active{border-color:#e50914}.imz-detail-preview{width:100%;max-height:480px;object-fit:contain;background:#080808;border:1px solid #242424;border-radius:14px;margin-top:12px}.imz-detail-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.imz-detail-price{font-size:22px;font-weight:800;color:#fff;margin-top:12px}.imz-detail-meta{color:#999;font-size:12px;margin-top:5px}.imz-order-chip{display:inline-flex;gap:6px;align-items:center;padding:6px 9px;border:1px solid #303030;border-radius:999px;font-size:10px;color:#bbb}.imz-order-chip.ok{border-color:#3c8d4c;color:#8ee39b}.imz-order-chip.lock{color:#888}
+@media(max-width:800px){.imz-pro-steps,.imz-pro-summary{grid-template-columns:repeat(2,1fr)}.imz-attire-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.imz-pro-steps,.imz-pro-summary{grid-template-columns:1fr}.imz-attire-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
 </head>
 
 <body>
@@ -926,6 +933,28 @@ move sets, arenas and titantrons — all in one place.
   <div style="margin-top:12px;color:#aaa;font-size:12px;line-height:1.55">📩 <b>After selecting:</b> use <b>Copy Custom List</b> below and paste your 79-wrestler + 18-arena list into a private Gmail message/email or Discord DM together with your Order ID.</div>
 </div>
 
+
+<div class="imz-pro-wrap" id="imzCustomProPanel">
+  <div class="imz-pro-head"><div><div class="imz-pro-kicker">ICONIC MODZ • CUSTOM BUILD WORKFLOW</div><h3>Your Custom Package</h3><div class="imz-pro-muted">Build → Review → Verify → Order. Existing selection rules remain unchanged.</div></div><div id="imzCustomReadyChip" class="imz-order-chip lock">🔒 BUILD INCOMPLETE</div></div>
+  <div class="imz-pro-steps">
+    <div class="imz-pro-step active" id="imzProStep1"><b>01 • ROSTER</b><span>Select exactly 79 core wrestlers</span></div>
+    <div class="imz-pro-step" id="imzProStep2"><b>02 • ARENAS</b><span>Select exactly 18 main arenas</span></div>
+    <div class="imz-pro-step" id="imzProStep3"><b>03 • REVIEW</b><span>Check your final selection</span></div>
+    <div class="imz-pro-step" id="imzProStep4"><b>04 • ORDER</b><span>Unlock the fixed $80 package</span></div>
+  </div>
+  <div class="imz-pro-summary">
+    <div class="imz-pro-stat"><strong id="imzProRosterCount">0 / 79</strong><small>Core Wrestlers</small></div>
+    <div class="imz-pro-stat"><strong id="imzProArenaCount">0 / 18</strong><small>Main Arenas</small></div>
+    <div class="imz-pro-stat"><strong>4K</strong><small>Texture Assets</small></div>
+    <div class="imz-pro-stat"><strong>$80</strong><small>Fixed Package</small></div>
+  </div>
+  <div class="imz-pro-actions">
+    <button class="btn dark" type="button" onclick="showCustomSelectionList();document.getElementById('customSelectionList')?.scrollIntoView({behavior:'smooth',block:'center'})">📋 Review My List</button>
+    <button class="btn dark" type="button" onclick="copyCustomSelections()">Copy Selection</button>
+    <button class="btn red" type="button" id="imzProOrderButton" onclick="customPayment()" disabled>🔒 Complete Build First</button>
+  </div>
+  <div class="imz-pro-note">Included automatically: staff/referees/commentators, supported 4K assets, save/memory-card file, cheats and the listed bonus/backstage assets. Original game/ISO is not supplied.</div>
+</div>
 <div class="imz-builder-requirements" id="customRequirements">
   <div class="small">CUSTOM MOD REQUIREMENTS</div>
   <h2>BUILD YOUR COMPLETE MOD</h2>
@@ -994,6 +1023,9 @@ move sets, arenas and titantrons — all in one place.
 </div>
 </section>
 
+
+
+<div id="imzModelModal" class="modal hidden"><div class="modal-box" style="max-width:900px"><button class="close" onclick="closeModelDetail()">×</button><div class="small" id="imzModelType">MODEL PREVIEW</div><h2 id="imzModelTitle"></h2><div id="imzModelBody"></div></div></div>
 
 <!-- PREVIEW MODAL -->
 <div id="previewModal" class="modal hidden">
@@ -2814,6 +2846,81 @@ function filterCustomList(query){
   updateTotal();
 }
 
+
+/* =========================================
+   PROFESSIONAL ADD-ONS — additive only
+========================================= */
+function imzModelImage(path,fallback){
+  return path || fallback || '';
+}
+function openWrestlerDetail(index){
+  const w=wrestlers[index]; if(!w)return;
+  const modal=document.getElementById('imzModelModal'), body=document.getElementById('imzModelBody');
+  document.getElementById('imzModelType').textContent='WRESTLER MODEL • INDIVIDUAL PREVIEW';
+  document.getElementById('imzModelTitle').textContent=w.name;
+  const folder='images/wrestlers/'+w.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  const main=w.image;
+  const attires=[1,2,3].map(n=>({name:'Alternate Attire '+n,image:folder+'/alternate-'+String(n).padStart(2,'0')+'.webp',youtube:''}));
+  body.innerHTML=`<div class="imz-detail-meta">Main Model • $6.50 • Alternate attires can be added later using the same folder structure.</div><img class="imz-detail-preview" id="imzModelMainImage" src="${imzEscape(main)}" alt="${imzEscape(w.name)}" onerror="this.style.opacity='.25'"><div class="imz-detail-price">$6.50 <span style="font-size:12px;color:#777">per wrestler model</span></div><div class="imz-attire-grid">${attires.map((a,i)=>`<div class="imz-attire-card ${i===0?'active':''}" onclick="imzSelectAttire(this,'${imzEscape(a.image)}','${imzEscape(a.youtube)}','${imzEscape(a.name)}')"><img src="${imzEscape(a.image)}" alt="${imzEscape(a.name)}" onerror="this.style.opacity='.2'"><div class="imz-attire-info"><b>${a.name}</b><span>${a.youtube?'▶ YouTube preview added':'YouTube link — add later'}</span></div></div>`).join('')}</div><div class="imz-detail-actions"><button class="btn red" onclick="buyWrestler(${index})">💳 Buy Main Model — $6.50</button><button class="btn dark" onclick="addWrestlerToCart(${index})">🛒 Add to Cart</button></div>`;
+  modal.classList.remove('hidden');
+}
+function imzSelectAttire(card,image,youtube,name){
+  document.querySelectorAll('#imzModelBody .imz-attire-card').forEach(x=>x.classList.remove('active'));card.classList.add('active');
+  const img=document.getElementById('imzModelMainImage');if(img){img.src=image;img.style.opacity='1';}
+  const meta=document.querySelector('#imzModelBody .imz-detail-meta');if(meta)meta.textContent=name+' • $6.50 • '+(youtube?'YouTube preview available':'YouTube preview can be added later');
+}
+function openArenaDetail(index){
+  const a=customArenas[index];if(!a)return;
+  const modal=document.getElementById('imzModelModal'),body=document.getElementById('imzModelBody');
+  document.getElementById('imzModelType').textContent='ARENA MODEL • INDIVIDUAL PREVIEW';document.getElementById('imzModelTitle').textContent=a.name;
+  body.innerHTML=`<div class="imz-detail-meta">Individual arena • $6.50 • Preview image</div><img class="imz-detail-preview" src="${imzEscape(a.image||'')}" alt="${imzEscape(a.name)}"><div class="imz-detail-price">$6.50 <span style="font-size:12px;color:#777">per arena</span></div><div class="imz-detail-actions"><button class="btn red" onclick="buyArena(${index})">💳 Buy Arena — $6.50</button><button class="btn dark" onclick="addArenaToCart(${index})">🛒 Add to Cart</button></div>`;
+  modal.classList.remove('hidden');
+}
+function closeModelDetail(){document.getElementById('imzModelModal')?.classList.add('hidden');}
+function imzUpdateProfessionalBuilder(){
+  const r=selectedWrestlers.length,a=selectedArenas.length,complete=r===79&&a===18;
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
+  set('imzProRosterCount',`${r} / 79`);set('imzProArenaCount',`${a} / 18`);
+  ['imzProStep1','imzProStep2','imzProStep3','imzProStep4'].forEach(id=>document.getElementById(id)?.classList.remove('done','active'));
+  document.getElementById('imzProStep1')?.classList.add(r===79?'done':'active');
+  document.getElementById('imzProStep2')?.classList.add(r===79?(a===18?'done':'active'):'');
+  document.getElementById('imzProStep3')?.classList.add(complete?'done':'active');
+  document.getElementById('imzProStep4')?.classList.add(complete?'done':'active');
+  const chip=document.getElementById('imzCustomReadyChip');if(chip){chip.className='imz-order-chip '+(complete?'ok':'lock');chip.textContent=complete?'✓ READY TO ORDER':'🔒 BUILD INCOMPLETE';}
+  const btn=document.getElementById('imzProOrderButton');if(btn){btn.disabled=!complete;btn.textContent=complete?'💳 Order Custom Mod — $80':'🔒 Complete Build First';}
+}
+const _imzOriginalUpdateBuilderRequirements=updateBuilderRequirements;
+updateBuilderRequirements=function(){_imzOriginalUpdateBuilderRequirements();imzUpdateProfessionalBuilder();};
+
+/* Add View Model buttons without altering the existing card structure/navigation. */
+const _imzOriginalRenderProducts=renderProducts;
+renderProducts=function(){
+  _imzOriginalRenderProducts();
+  const grid=document.getElementById('productGrid');if(!grid)return;
+  if(currentCategory==='wrestlers'){
+    [...grid.querySelectorAll('.card')].forEach((card)=>{
+      if(card.querySelector('.imz-view-model'))return;
+      const title=card.querySelector('h2')?.textContent||'';const name=title.replace(/^Wrestler Model —\s*/,'');const idx=wrestlers.findIndex(w=>w.name===name);
+      if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 View Model';b.onclick=e=>{e.stopPropagation();openWrestlerDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}
+    });
+  }else if(currentCategory==='arenas'){
+    [...grid.querySelectorAll('.card')].forEach((card)=>{
+      if(card.querySelector('.imz-view-model'))return;
+      const title=card.querySelector('h2')?.textContent||'';const name=title.replace(/^Arena —\s*/,'');const idx=customArenas.findIndex(a=>a.name===name);
+      if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 View Arena';b.onclick=e=>{e.stopPropagation();openArenaDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}
+    });
+  }
+};
+
+/* Custom-builder cards get the same optional preview entry; selection click remains untouched. */
+const _imzOriginalFilterCustomList=filterCustomList;
+filterCustomList=function(query){
+  _imzOriginalFilterCustomList(query);
+  const section=currentCustomSection,grid=document.getElementById(section==='wrestlers'?'wrestlerGrid':section==='arenas'?'arenaGrid':'titantronGrid');if(!grid)return;
+  if(section==='wrestlers') [...grid.querySelectorAll('.card')].forEach(card=>{if(card.querySelector('.imz-view-model'))return;const name=card.querySelector('h2')?.textContent||'';const idx=wrestlers.findIndex(w=>w.name===name);if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 Preview Model';b.onclick=e=>{e.stopPropagation();openWrestlerDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}});
+  if(section==='arenas') [...grid.querySelectorAll('.card')].forEach(card=>{if(card.querySelector('.imz-view-model'))return;const name=card.querySelector('h2')?.textContent||'';const idx=customArenas.findIndex(a=>a.name===name);if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 Preview Arena';b.onclick=e=>{e.stopPropagation();openArenaDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}});
+};
+
 /* =========================================
    MODDING ACADEMY
 ========================================= */
@@ -2890,6 +2997,7 @@ renderLatestYoutube();
 
 updateCartCount();
 renderCart();
+imzUpdateProfessionalBuilder();
 
 </script>
 
