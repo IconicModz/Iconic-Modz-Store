@@ -641,6 +641,17 @@ body{font-family:'Rajdhani',Arial,Helvetica,sans-serif}
 @media(max-width:800px){.imz-pro-steps,.imz-pro-summary{grid-template-columns:repeat(2,1fr)}.imz-attire-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.imz-pro-steps,.imz-pro-summary{grid-template-columns:1fr}.imz-attire-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
+
+<style id="imz-user-requested-fixes">
+/* Requested: no large bottom cart bar. Existing top Cart remains untouched. */
+.cart-float,#imzMobileCart{display:none!important}
+.imz-flash-overlay{position:fixed;inset:0;background:rgba(0,0,0,.76);backdrop-filter:blur(7px);z-index:18000;display:flex;align-items:center;justify-content:center;padding:18px}
+.imz-flash-overlay.hidden{display:none}
+.imz-flash-box{width:min(620px,100%);border:1px solid rgba(255,23,48,.48);border-radius:22px;background:linear-gradient(145deg,#160607,#090909);box-shadow:0 25px 100px rgba(0,0,0,.8),0 0 45px rgba(255,23,48,.14);padding:24px;position:relative;animation:imzFlashIn .28s ease-out}
+@keyframes imzFlashIn{from{opacity:0;transform:translateY(15px) scale(.97)}to{opacity:1;transform:none}}
+.imz-flash-kicker{font:900 11px 'Rajdhani',sans-serif;letter-spacing:3px;color:#ff4052}.imz-flash-box h2{font:900 30px 'Black Ops One',sans-serif;margin:8px 0}.imz-flash-box p{color:#aaa;line-height:1.55}.imz-flash-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}.imz-flash-card{padding:15px;border:1px solid #2b2b2b;border-radius:14px;background:#101010}.imz-flash-card b{display:block;color:#fff}.imz-flash-card span{display:block;color:#888;font-size:12px;margin-top:5px}.imz-flash-code{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:15px;padding:12px;border:1px dashed #4a2025;border-radius:12px;background:#0d0809}.imz-flash-code strong{color:#ff6875;letter-spacing:1px}.imz-flash-dots{text-align:center;margin-top:13px;color:#777;font-size:11px}.imz-flash-close{position:absolute;right:12px;top:10px;background:none;border:0;color:#aaa;font-size:28px;cursor:pointer}.imz-featured-strip,.imz-updated-strip,.imz-suggest-strip{margin:18px 0;padding:18px;border:1px solid #292929;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(0,0,0,.18))}.imz-mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}.imz-mini-product{padding:12px;border:1px solid #292929;border-radius:13px;background:#0d0d0d;cursor:pointer}.imz-mini-product:hover{border-color:#e50914}.imz-mini-product img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:9px;background:#080808}.imz-mini-product b{display:block;margin-top:8px;font-size:12px}.imz-mini-product small{display:block;color:#777;margin-top:3px}.imz-quick-modal{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);z-index:17000;display:flex;align-items:center;justify-content:center;padding:18px}.imz-quick-modal.hidden{display:none}.imz-quick-box{width:min(760px,100%);max-height:88vh;overflow:auto;background:#0b0b0b;border:1px solid #303030;border-radius:20px;padding:20px;position:relative}.imz-quick-layout{display:grid;grid-template-columns:minmax(220px,340px) 1fr;gap:18px}.imz-quick-layout img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;background:#070707}.imz-quick-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}.imz-meta-chip{padding:9px;border:1px solid #252525;border-radius:10px;background:#101010}.imz-meta-chip small{display:block;color:#777}.imz-meta-chip b{display:block;margin-top:3px}.imz-quick-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.imz-faq{margin-top:14px;border-top:1px solid #222}.imz-faq details{padding:10px 0;border-bottom:1px solid #222}.imz-faq summary{cursor:pointer;font-weight:800}.imz-faq p{color:#999;font-size:12px;line-height:1.5}.imz-share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.imz-currency-btn{position:fixed;right:18px;bottom:18px;z-index:8990}.imz-currency-modal{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);z-index:17500;display:flex;align-items:center;justify-content:center;padding:18px}.imz-currency-modal.hidden{display:none}.imz-currency-box{width:min(430px,100%);background:#0b0b0b;border:1px solid #303030;border-radius:18px;padding:20px;position:relative}.imz-currency-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.imz-currency-box input,.imz-currency-box select{width:100%;padding:11px;border-radius:10px;border:1px solid #292929;background:#111;color:#fff}.imz-currency-result{margin-top:14px;padding:14px;border-radius:12px;background:#111;border:1px solid #252525;text-align:center;font-size:22px;font-weight:900}.imz-copy-ok{color:#63d471;font-size:12px;margin-top:6px}.imz-attire-gallery{margin-top:14px}.imz-attire-gallery-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}.imz-attire-gallery-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:9px;border:1px solid #292929;cursor:pointer}.imz-attire-gallery-grid img:hover{border-color:#e50914}.imz-product-details-list{margin:10px 0;padding-left:18px;color:#aaa;line-height:1.6;font-size:13px}
+@media(max-width:650px){.imz-flash-grid,.imz-quick-layout{grid-template-columns:1fr}.imz-attire-gallery-grid{grid-template-columns:repeat(2,1fr)}.imz-currency-btn{right:10px;bottom:10px}.imz-quick-box{padding:15px}.imz-flash-box h2{font-size:24px}}
+</style>
 </head>
 
 <body>
@@ -1361,7 +1372,6 @@ Get Mod
 </div>
 </div>
 
-<button class="btn red cart-float" onclick="openCart()">🛒 Cart <span id="cartFloatCount" class="cart-badge">0</span></button>
 
 <footer>
 <div style="max-width:900px;margin:auto">
@@ -2269,8 +2279,12 @@ function getCheckoutTotals(){
   },0);
   const code=(document.getElementById("paymentPromoInput")?.value||"").trim().toUpperCase();
   const promoEligible=checkoutItems.every(p=>promoEligibleProduct(p));
-  const discountUSD=code===PROMO_CODE && promoEligible && regularUSD>0 ? 2 : 0;
-  const discountINR=code===PROMO_CODE && promoEligible && regularINR>0 ? 192 : 0;
+  const bulkEligible6=(wrestlerCount>=6 && wrestlerCount===count) || (arenaCount>=6 && arenaCount===count);
+  const bulkEligible10=(wrestlerCount>=10 && wrestlerCount===count) || (arenaCount>=10 && arenaCount===count);
+  let discountUSD=0,discountINR=0;
+  if(code===PROMO_CODE && promoEligible && regularUSD>0){discountUSD=2;discountINR=192;}
+  else if(code==="MODEL6" && bulkEligible6){discountUSD=3;discountINR=Math.round(3*96.15);}
+  else if(code==="MODEL10" && bulkEligible10){discountUSD=5;discountINR=Math.round(5*96.15);}
   return {count,wrestlerCount,arenaCount,regularUSD,regularINR,discountUSD,discountINR,finalUSD:Math.max(0,regularUSD-discountUSD),finalINR:Math.max(0,regularINR-discountINR)};
 }
 
@@ -2305,8 +2319,8 @@ function openPayment(product){
   }
   document.getElementById("paymentTitle").innerText=product.title;
   document.getElementById("paymentPromoInput").value="";
-  const eligiblePromo=promoEligibleProduct(product);
-  document.getElementById("paymentPromoStatus").innerText=isBulkProduct(product)?"Bulk offer will apply automatically when buying multiple items of this type.":(product.productType==="custom"?"Custom Mod is a fixed $80 package — no ICONIC10 discount.":(eligiblePromo?"Use ICONIC10 to get $2 off this V1/V2 mod.":"ICONIC10 is only valid for V1 and V2."));
+  const eligiblePromo=promoEligibleProduct(product)||isBulkProduct(product);
+  document.getElementById("paymentPromoStatus").innerText=isBulkProduct(product)?"Bulk offer applies automatically. MODEL6 = $3 off 6+ models • MODEL10 = $5 off 10+ models.":(product.productType==="custom"?"Custom Mod is a fixed $80 package — no coupon discount.":(eligiblePromo?"Use ICONIC10 to get $2 off this V1/V2 mod.":"Available codes: ICONIC10 for V1/V2 or model bulk coupons when eligible."));
   document.getElementById("paymentPromoStatus").style.color="#777";
   document.getElementById("paymentPromoBox").classList.toggle("hidden",!eligiblePromo);
   document.getElementById("upiBox").classList.add("hidden");
@@ -2334,8 +2348,8 @@ function openCartCheckout(){
   checkoutItems=cartItems.map(x=>({...x}));
   document.getElementById("paymentTitle").innerText="ICONIC MODZ — Cart Checkout";
   document.getElementById("paymentPromoInput").value="";
-  const cartPromoEligible=checkoutItems.length>0 && checkoutItems.every(promoEligibleProduct);
-  document.getElementById("paymentPromoStatus").innerText=cartPromoEligible?"ICONIC10 saves $2 on V1/V2 only. Wrestler/Arena offers are separate.":"ICONIC10 is only valid for V1 and V2.";
+  const cartPromoEligible=checkoutItems.length>0 && (checkoutItems.every(promoEligibleProduct) || checkoutItems.every(isBulkProduct));
+  document.getElementById("paymentPromoStatus").innerText=cartPromoEligible?"ICONIC10: $2 off V1/V2 • MODEL6: $3 off 6+ models • MODEL10: $5 off 10+ models.":"Available codes: ICONIC10 for V1/V2, MODEL6 for 6+ same-type models, MODEL10 for 10+ same-type models.";
   document.getElementById("paymentPromoStatus").style.color="#777";
   document.getElementById("paymentPromoBox").classList.toggle("hidden",!cartPromoEligible);
   document.getElementById("upiBox").classList.add("hidden");
@@ -2374,10 +2388,15 @@ function applyPaymentPromo(){
   const input=document.getElementById("paymentPromoInput");
   const status=document.getElementById("paymentPromoStatus");
   const code=(input.value||"").trim().toUpperCase();
+  const t=getCheckoutTotals();
   if(code===PROMO_CODE && checkoutItems.length && checkoutItems.every(promoEligibleProduct)){
     status.innerText="✓ ICONIC10 applied — you save $2.00."; status.style.color="#63d471";
+  }else if(code==="MODEL6" && t.wrestlerCount>=6 && t.wrestlerCount===t.count || code==="MODEL6" && t.arenaCount>=6 && t.arenaCount===t.count){
+    status.innerText="✓ MODEL6 applied — you save $3.00."; status.style.color="#63d471";
+  }else if(code==="MODEL10" && t.wrestlerCount>=10 && t.wrestlerCount===t.count || code==="MODEL10" && t.arenaCount>=10 && t.arenaCount===t.count){
+    status.innerText="✓ MODEL10 applied — you save $5.00."; status.style.color="#63d471";
   }else{
-    status.innerText="ICONIC10 is only valid for V1 and V2."; status.style.color="#ff6b6b";
+    status.innerText="Code not eligible for the current order."; status.style.color="#ff6b6b";
   }
   updatePaymentTotals();
 }
@@ -3292,6 +3311,91 @@ const mo=new MutationObserver(()=>{clearTimeout(window.__imzRepairDebounce);wind
 window.addEventListener('load',rerun);
 })();
 </script>
+
+<script id="imz-requested-feature-pack">
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const esc=v=>typeof imzEscape==='function'?imzEscape(v):String(v??'').replace(/[&<>\"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+const all=()=>{const ps=(typeof products!=='undefined'&&products)?products:{};return [...(ps.fullgame||[]),...(ps.wrestlers||[]),...(ps.arenas||[]),...(ps.movesets||[]),...(ps.titantrons||[])];};
+const titleOf=p=>String(p?.title||p?.name||'').trim();
+const findP=t=>all().find(p=>titleOf(p)===t)||null;
+const money=p=>p?.usdPrice||parseFloat(String(p?.price||'').replace(/[^0-9.]/g,''))||0;
+
+/* 1 Featured / Staff Picks + 11 Recently Updated + suggestions */
+function mini(p,label){if(!p)return '';const img=p.image||'';return `<div class="imz-mini-product" onclick="imzRequestedOpen(${JSON.stringify(titleOf(p))})"><img src="${esc(img)}" alt="${esc(titleOf(p))}" loading="lazy" decoding="async"><b>${esc(titleOf(p))}</b><small>${esc(label||p.productType||'PRODUCT')} ${money(p)?'• $'+money(p).toFixed(2):''}</small></div>`}
+window.imzRequestedOpen=function(t){const p=findP(t);if(!p)return;if(p.productType==='wrestler'&&typeof wrestlers!=='undefined'){const i=wrestlers.findIndex(w=>w.name===p.wrestlerName);if(i>=0){showPage('products');currentCategory='wrestlers';renderProducts();setTimeout(()=>openWrestlerDetail(i),80);return}}if(typeof openImzQuick==='function')openImzQuick(p)};
+function ensureHomeStrips(){
+ const home=document.querySelector('#home .container');if(!home)return;
+ let f=$('imzFeaturedStrip');if(!f){f=document.createElement('div');f.id='imzFeaturedStrip';f.className='imz-featured-strip';home.appendChild(f)}
+ const ps=all();const picks=[];['WWE HCTP Iconic Edition V2','WWE HCTP Iconic Edition V1'].forEach(t=>{const p=ps.find(x=>titleOf(x)===t);if(p)picks.push(p)});picks.push(...((typeof wrestlers!=='undefined'&&wrestlers)?wrestlers:[]).slice(0,4).map(w=>((typeof products!=='undefined'&&products.wrestlers)||[]).find(p=>p.wrestlerName===w.name)).filter(Boolean));
+ f.innerHTML='<div class="small">STAFF PICKS</div><h2 style="margin:4px 0">⭐ FEATURED ICONIC PICKS</h2><div class="imz-mini-grid">'+picks.slice(0,6).map(p=>mini(p,'FEATURED')).join('')+'</div>';
+ let u=$('imzUpdatedStrip');if(!u){u=document.createElement('div');u.id='imzUpdatedStrip';u.className='imz-updated-strip';home.appendChild(u)}
+ const recent=ps.filter(p=>p).slice(-6).reverse();u.innerHTML='<div class="small">LATEST DROPS</div><h2 style="margin:4px 0">🆕 RECENTLY UPDATED</h2><div class="imz-mini-grid">'+recent.map(p=>mini(p,'UPDATED')).join('')+'</div>';
+ let s=$('imzSuggestStrip');if(!s){s=document.createElement('div');s.id='imzSuggestStrip';s.className='imz-suggest-strip';home.appendChild(s)}
+ const rv=(()=>{try{return JSON.parse(localStorage.getItem('imzRecentlyViewedV1')||'[]')}catch(e){return[]}})();
+ const sug=rv.map(x=>findP(x.key)).filter(Boolean).slice(0,6);
+ s.innerHTML='<div class="small">FOR YOU</div><h2 style="margin:4px 0">👀 YOU MAY ALSO LIKE</h2><div class="imz-mini-grid">'+(sug.length?sug.map(p=>mini(p,'BASED ON RECENTLY VIEWED')).join(''):'<div style="color:#777;padding:10px">View a few products and your personalized suggestions will appear here.</div>')+'</div>';
+}
+
+/* 2 Search suggestions */
+function enhanceSearchSuggestions(){const input=$('imzFeatureSearch');if(!input||input.dataset.suggested)return;input.dataset.suggested='1';let dl=$('imzSearchSuggestions');if(!dl){dl=document.createElement('datalist');dl.id='imzSearchSuggestions';document.body.appendChild(dl)}input.setAttribute('list','imzSearchSuggestions');dl.innerHTML=all().slice(0,160).map(p=>`<option value="${esc(titleOf(p))}"></option>`).join('');}
+
+/* 3/4 Attire gallery + video preview links are already present; add gallery to quick view where available. */
+function attireGallery(p){if(p?.productType!=='wrestler'||!p.wrestlerName||typeof wrestlers==='undefined')return '';const slug=p.wrestlerName.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');return '<div class="imz-attire-gallery"><div class="small">ATTIRE GALLERY</div><div class="imz-attire-gallery-grid">'+Array.from({length:10},(_,i)=>{const n=String(i+1).padStart(2,'0');const src=`images/wrestlers/${slug}/alternate-${n}.webp`;return `<img src="${src}" alt="${esc(p.wrestlerName)} Attire #${i+1}" loading="lazy" decoding="async" onclick="openImzImage(this.src,this.alt)" onerror="this.style.opacity='.35'">`}).join('')+'</div></div>'}
+
+/* 5 Product details + 12 Product FAQ + quick view */
+window.openImzQuick=function(p){if(!p)return;let m=$('imzQuickModal');if(!m){m=document.createElement('div');m.id='imzQuickModal';m.className='imz-quick-modal hidden';document.body.appendChild(m)}
+ const features=Array.isArray(p.features)?p.features.slice(0,8):[];const videos=Array.isArray(p.youtubeVideos)?p.youtubeVideos.filter(v=>v&&v.url).slice(0,3):[];
+ const img=p.image||'';const type=p.productType||'PRODUCT';
+ m.innerHTML=`<div class="imz-quick-box"><button class="close" onclick="$('imzQuickModal').classList.add('hidden')">×</button><div class="small">QUICK PREVIEW • ${esc(type)}</div><h2 style="margin:5px 0 14px">${esc(titleOf(p))}</h2><div class="imz-quick-layout"><div><img src="${esc(img)}" alt="${esc(titleOf(p))}" loading="lazy" decoding="async" onclick="openImzImage(this.src,this.alt)"><div class="imz-share-row"><button class="btn dark" onclick="openImzImage('${esc(img)}','${esc(titleOf(p))}')">🔍 Zoom Image</button><button class="btn dark" onclick="imzShareProduct('${esc(titleOf(p))}')">🔗 Share</button></div></div><div><div class="imz-quick-meta"><div class="imz-meta-chip"><small>TYPE</small><b>${esc(type)}</b></div><div class="imz-meta-chip"><small>PRICE</small><b>${money(p)?'$'+money(p).toFixed(2):esc(p.price||'Contact')}</b></div><div class="imz-meta-chip"><small>VERSION</small><b>${/V2/i.test(titleOf(p))?'V2':/V1/i.test(titleOf(p))?'V1':'Current'}</b></div><div class="imz-meta-chip"><small>INSTALL</small><b>${type==='wrestler'?'Easy':'Standard'}</b></div></div><div class="small">PRODUCT DETAILS</div><p style="color:#aaa;line-height:1.55">${esc(p.description||'ICONIC MODZ product preview.')}</p>${features.length?'<ul class="imz-product-details-list">'+features.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':''}<div class="imz-quick-actions"><button class="btn red" onclick="imzQuickBuy('${esc(titleOf(p))}')">💳 Buy Now</button><button class="btn dark" onclick="addToCart(findP && findP('${esc(titleOf(p))}'))">🛒 Add to Cart</button></div>${videos.length?'<div style="margin-top:15px"><div class="small">VIDEO PREVIEW</div>'+videos.map(v=>`<a class="btn dark" style="display:block;margin-top:6px" href="${esc(v.url)}" target="_blank" rel="noopener">▶ ${esc(v.title||'Watch Preview')}</a>`).join('')+'</div>':''}<div class="imz-faq"><details><summary>What is included?</summary><p>${esc(features.length?features.join(' • '):'The product details shown above.')}</p></details><details><summary>How do I get the product?</summary><p>Complete the existing checkout/payment process. Original game software or ISO is not supplied.</p></details><details><summary>Do I need the original game?</summary><p>Yes. This store provides fan-made modification files/assets only; keep a legal original copy.</p></details></div></div></div>${attireGallery(p)}</div>`;m.classList.remove('hidden');m.onclick=e=>{if(e.target===m)m.classList.add('hidden')}}
+window.imzQuickBuy=function(t){const p=findP(t);if(p&&typeof openPayment==='function'){ $('imzQuickModal')?.classList.add('hidden');openPayment(p)}};
+
+/* 6 badges: preserve existing badges and add useful context without replacing them. */
+
+/* 7 Wishlist -> Add All to Cart */
+function enhanceWishlistActions(){const panel=$('imzWishlistPanel');if(!panel||panel.dataset.addall)return;panel.dataset.addall='1';const head=panel.querySelector('.imz-wishlist-head');if(head){const b=document.createElement('button');b.className='btn red';b.textContent='🛒 Add All';b.onclick=()=>{wish.forEach(k=>{const p=findP(k);if(p&&typeof addToCart==='function')addToCart(p)});alert('Wishlist items cart me add kar diye gaye.');};head.appendChild(b)}}
+
+/* 8 Better checkout: existing order summary stays; add copy-order button when summary exists. */
+function enhanceCheckout(){const box=$('imzCheckoutSummary');if(!box||box.dataset.copy)return;box.dataset.copy='1';const b=document.createElement('button');b.className='btn dark';b.style='margin-top:9px;width:100%';b.textContent='📋 Copy Order Details';b.onclick=()=>{const txt=box.innerText||'';navigator.clipboard?.writeText(txt).then(()=>alert('Order details copied.')).catch(()=>alert(txt))};box.appendChild(b)}
+
+/* 9 Share Product */
+window.imzShareProduct=async function(t){const p=findP(t);if(!p)return;const text=`ICONIC MODZ — ${titleOf(p)}
+${location.href}`;try{if(navigator.share)await navigator.share({title:titleOf(p),text,url:location.href});else{await navigator.clipboard.writeText(text);alert('Product link copied.')}}catch(e){}};
+
+/* 10 Copy Order Details is added above. */
+
+/* 11 Recently Updated + suggestions are mounted above. */
+
+/* 12 Product-specific FAQ is inside Quick Preview. */
+
+/* Quick View buttons on cards */
+function enhanceQuickButtons(){const grid=$('productGrid');if(!grid)return;grid.querySelectorAll('.card').forEach(card=>{const h=card.querySelector('h2');const p=h&&findP(h.textContent.trim());if(!p)return;const body=card.querySelector('.card-body');if(!body||body.querySelector('.imz-quick-btn'))return;const b=document.createElement('button');b.className='btn dark imz-quick-btn';b.style='width:100%;margin-top:7px';b.textContent='👀 Quick Preview';b.onclick=e=>{e.stopPropagation();openImzQuick(p)};body.appendChild(b)})}
+
+/* Currency converter — site-local, no external dependency. */
+const fxRates={USD:1,INR:83.6,EUR:.92,GBP:.79,AUD:1.52,CAD:1.36};
+function ensureCurrency(){if($('imzCurrencyBtn'))return;const b=document.createElement('button');b.id='imzCurrencyBtn';b.className='btn dark imz-currency-btn';b.textContent='💱 Currency';b.onclick=()=>openCurrency();document.body.appendChild(b);}
+window.openCurrency=function(){let m=$('imzCurrencyModal');if(!m){m=document.createElement('div');m.id='imzCurrencyModal';m.className='imz-currency-modal hidden';m.innerHTML='<div class="imz-currency-box"><button class="close" onclick="$(\'imzCurrencyModal\').classList.add(\'hidden\')">×</button><div class="small">PRICE CONVERTER</div><h2 style="margin:4px 0">💱 Currency Converter</h2><div class="imz-currency-row"><input id="imzFxAmount" type="number" min="0" value="1"><select id="imzFxFrom"><option>USD</option><option>INR</option><option>EUR</option><option>GBP</option><option>AUD</option><option>CAD</option></select></div><div class="imz-currency-row"><select id="imzFxTo"><option>INR</option><option>USD</option><option>EUR</option><option>GBP</option><option>AUD</option><option>CAD</option></select><button class="btn red" onclick="convertFx()">Convert</button></div><div id="imzFxResult" class="imz-currency-result">Enter an amount</div><p style="color:#777;font-size:11px;margin-top:10px">Indicative converter for browsing prices. Final checkout prices remain the store prices.</p></div>';document.body.appendChild(m);m.onclick=e=>{if(e.target===m)m.classList.add('hidden')}}m.classList.remove('hidden');convertFx()}
+window.convertFx=function(){const a=parseFloat($('imzFxAmount')?.value)||0;const f=$('imzFxFrom')?.value||'USD',t=$('imzFxTo')?.value||'INR';const out=a*(fxRates[t]/fxRates[f]);$('imzFxResult').textContent=`${a.toFixed(2)} ${f} ≈ ${out.toFixed(2)} ${t}`};
+
+/* Flash Sale: 4 rotating offers, shown as a popup. */
+const flash=[
+ {title:'V1 FLASH SALE',text:'ICONIC Edition V1',detail:'Use ICONIC10 and save $2 on V1.',code:'ICONIC10',action:()=>promoBuy(1)},
+ {title:'V2 FLASH SALE',text:'ICONIC Edition V2',detail:'Premium latest edition — limited promo.',code:'ICONIC10',action:()=>promoBuy(2)},
+ {title:'MODEL BUNDLE FLASH',text:'Buy 6 Models',detail:'Wrestler/Arena models • $6 each = $36.',code:'MODEL6',action:()=>showPage('products')},
+ {title:'MODEL 10 PACK',text:'Buy 10 Models',detail:'Wrestler/Arena models • $5.50 each = $55.',code:'MODEL10',action:()=>showPage('products')}
+];
+let flashIndex=0;
+function showFlash(i){flashIndex=(i+flash.length)%flash.length;let o=$('imzFlashOverlay');if(!o){o=document.createElement('div');o.id='imzFlashOverlay';o.className='imz-flash-overlay hidden';document.body.appendChild(o)}const x=flash[flashIndex];o.innerHTML=`<div class="imz-flash-box"><button class="imz-flash-close" onclick="closeFlashSale()">×</button><div class="imz-flash-kicker">🔥 FLASH SALE • ${flashIndex+1}/${flash.length}</div><h2>${esc(x.title)}</h2><p><b style="color:#fff">${esc(x.text)}</b><br>${esc(x.detail)}</p><div class="imz-flash-grid"><div class="imz-flash-card"><b>COUPON</b><span>Use this code at checkout</span><strong style="display:block;margin-top:7px;color:#ff5b69;letter-spacing:2px">${esc(x.code)}</strong></div><div class="imz-flash-card"><b>LIMITED OFFER</b><span>Check the store cart for the applicable offer.</span><button class="btn red" style="margin-top:9px" onclick="(${x.action.toString()})();closeFlashSale()">Shop Offer</button></div></div><div class="imz-flash-code"><span>Promo code</span><strong>${esc(x.code)}</strong><button class="btn dark" onclick="navigator.clipboard?.writeText('${esc(x.code)}');this.textContent='Copied!'">Copy</button></div><div class="imz-flash-dots">${flash.map((_,j)=>`<button class="btn dark" style="padding:4px 8px;margin:2px" onclick="showFlashSale(${j})">${j+1}</button>`).join('')}</div></div>`;o.classList.remove('hidden')}
+window.showFlashSale=i=>showFlash(i||0);window.closeFlashSale=()=>{$('imzFlashOverlay')?.classList.add('hidden')};
+function scheduleFlash(){setTimeout(()=>showFlash(0),2600);setInterval(()=>{if($('imzFlashOverlay')?.classList.contains('hidden'))showFlash(flashIndex+1)},90000)}
+
+/* Keep everything additive and rerun only when the existing product UI changes. */
+function runRequested(){ensureHomeStrips();enhanceSearchSuggestions();enhanceQuickButtons();enhanceWishlistActions();enhanceCheckout();ensureCurrency();}
+const obs=new MutationObserver(()=>{clearTimeout(window.__imzRequestedDebounce);window.__imzRequestedDebounce=setTimeout(runRequested,80)});obs.observe(document.body,{childList:true,subtree:true});
+window.addEventListener('load',()=>{runRequested();scheduleFlash()});
+setTimeout(runRequested,500);
+})();</script>
 
 </body>
 </html>
