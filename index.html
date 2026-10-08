@@ -607,6 +607,10 @@ body{font-family:'Rajdhani',Arial,Helvetica,sans-serif}
 .imz-alphabet .all{min-width:46px}
 @media(max-width:560px){.imz-alphabet{gap:5px}.imz-alphabet button{min-width:29px;height:31px;padding:0 7px}}
 .imz-search-focus{outline:2px solid #e50914;box-shadow:0 0 0 5px rgba(229,9,20,.16),0 0 28px rgba(229,9,20,.25)!important;}
+
+/* ===== ADDITIVE PROFESSIONAL POLISH ===== */
+.imz-academy-teaser{padding:24px;margin-top:30px}.imz-academy-teaser .imz-section-head{align-items:center}.imz-tutorial-mini{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.imz-tutorial-mini span{padding:9px 13px;border:1px solid #2b2021;border-radius:999px;background:#0b0b0b;color:#bbb;font:700 13px 'Rajdhani',sans-serif}.imz-tutorial-mini span:first-child,.imz-tutorial-mini span:nth-child(2){color:#fff}.imz-tutorial-mini span:last-child{color:#ff6572}
+@media(max-width:560px){.imz-academy-teaser .imz-section-head{align-items:flex-start}.imz-academy-teaser .btn{width:100%}.imz-tutorial-mini{display:grid;grid-template-columns:1fr}.imz-tutorial-mini span{border-radius:10px}}
 </style>
 
 <style>
@@ -662,7 +666,7 @@ move sets, arenas and titantrons — all in one place.
 </div>
 
 <div class="site-flow">
-  <a href="#home">HOME</a><a href="#featuredGrid">FEATURED MOD</a><a href="#latestYoutube">LATEST YOUTUBE</a><a href="#categories">GAMES</a><a href="#categories">HCTP/SVR</a><a href="#featuredGrid">MODS</a><a href="#featuredGrid">PREVIEWS</a><a href="#moddingAcademy">ACADEMY</a><a href="#importantDisclaimer">DISCLAIMER</a><a href="#reviews">REVIEWS</a><a href="#paymentHelp">PAYMENT PROOF</a><a href="#noRefundPolicy">NO REFUND</a><a href="#community">COMMUNITY</a><a href="#discordSection">DISCORD</a><a href="#creditsSection">CREDITS</a>
+  <a href="#home">HOME</a><a href="#featuredGrid">FEATURED MOD</a><a href="#latestYoutube">LATEST YOUTUBE</a><a href="#categories">GAMES</a><a href="#categories">HCTP/SVR</a><a href="#featuredGrid">MODS</a><a href="#featuredGrid">PREVIEWS</a><a href="#tutorials" onclick="showPage('tutorials');return false">ACADEMY</a><a href="#importantDisclaimer">DISCLAIMER</a><a href="#reviews">REVIEWS</a><a href="#paymentHelp">PAYMENT PROOF</a><a href="#noRefundPolicy">NO REFUND</a><a href="#community">COMMUNITY</a><a href="#discordSection">DISCORD</a><a href="#creditsSection">CREDITS</a>
 </div>
 
 <div class="grid">
@@ -707,30 +711,12 @@ move sets, arenas and titantrons — all in one place.
   <div id="featuredGrid" class="grid"></div>
 </div>
 
-<section id="moddingAcademy" class="imz-academy">
+<section id="moddingAcademy" class="imz-academy imz-academy-teaser">
   <div class="imz-section-head">
-    <div><div class="small">MODDING ACADEMY</div><h2>Learn WWE Modding — Basic to Advanced</h2><p style="margin:4px 0 0;max-width:760px">Step-by-step learning packs for modders. Separate visual style, course images and direct purchase options. Review cards below are example placeholders until you add real customer feedback.</p></div>
+    <div><div class="small">MODDING TUTORIALS</div><h2>ICONIC MODZ Modding Tutorials</h2><p style="margin:4px 0 0;max-width:760px">Learn WWE modding from Basic to Advanced, with a dedicated Mobile tutorial section.</p></div>
+    <button class="btn red" type="button" onclick="showPage('tutorials')">📚 Open Modding Tutorials →</button>
   </div>
-  <div class="imz-academy-grid">
-    <div class="imz-course">
-      <div class="imz-course-img"><img src="images/academy/basic-course.jpg" alt="Basic Modding Course" onerror="this.style.display='none'"></div>
-      <div class="badge">BEGINNER</div><h3>Basic Modding</h3><div class="imz-course-price">$60</div>
-      <ul><li>Game files & folder structure</li><li>Backup & restore</li><li>Texture editing basics</li><li>Basic wrestler model replacement</li><li>YOBJ basics & attire editing</li><li>Moveset / entrance workflow</li><li>Arena & titantron workflow</li><li>Emulator testing & beginner troubleshooting</li></ul>
-      <div class="buttons"><button class="btn dark" onclick="academyInfo('basic')">Course Info</button><button class="btn red" onclick="buyAcademy('basic')">🛒 Buy Course</button></div>
-    </div>
-    <div class="imz-course">
-      <div class="imz-course-img"><img src="images/academy/advanced-course.jpg" alt="Advanced Modding Course" onerror="this.style.display='none'"></div>
-      <div class="badge">ADVANCED</div><h3>Advanced Modding</h3><div class="imz-course-price">$100</div>
-      <ul><li>Everything in Basic</li><li>Advanced YOBJ workflow</li><li>Model conversion</li><li>UV / texture troubleshooting</li><li>Advanced wrestler modifications</li><li>Advanced moveset work</li><li>Arena / stage modifications</li><li>Titantron & audio workflow</li><li>Hex / file-structure concepts</li><li>Crash & real PS2 testing concepts</li></ul>
-      <div class="buttons"><button class="btn dark" onclick="academyInfo('advanced')">Course Info</button><button class="btn red" onclick="buyAcademy('advanced')">🛒 Buy Course</button></div>
-    </div>
-    <div class="imz-course">
-      <div class="imz-course-img"><img src="images/academy/mobile-01.jpg" alt="Mobile Modding Tutorial" onerror="this.style.display='none'"></div>
-      <div class="badge">INCLUDED</div><h3>Mobile Tutorial</h3><div class="imz-course-price">Included</div>
-      <ul><li>Mobile setup</li><li>Mobile texture workflow</li><li>Mobile testing</li><li>Practical file handling on Android</li><li>Included with course access</li></ul>
-      <div class="buttons"><button class="btn dark" onclick="academyInfo('mobile')">Tutorial Info</button><a class="btn red" href="#moddingAcademy">View Tutorial</a></div>
-    </div>
-  </div>
+  <div class="imz-tutorial-mini"><span>🎮 Basic • $60</span><span>⚡ Advanced • $100</span><span>📱 Mobile Tutorial • Included</span></div>
 </section>
 
 <section id="importantDisclaimer" class="imz-disclaimer">
@@ -906,6 +892,40 @@ move sets, arenas and titantrons — all in one place.
 </div>
 </section>
 
+
+<!-- MODDING TUTORIALS -->
+<section id="tutorials" class="page hidden">
+<div class="container">
+<a class="back" onclick="showPage('home')">← Back to Home</a>
+<div class="hero" style="text-align:left">
+<div class="small">MODDING TUTORIALS</div>
+<h1>ICONIC MODZ MODDING ACADEMY</h1>
+<p>Choose your learning path: Basic, Advanced, or Mobile. Course images, topics and purchase options are kept together on this dedicated page.</p>
+</div>
+<section class="imz-academy" style="margin-top:20px">
+  <div class="imz-academy-grid">
+    <div class="imz-course">
+      <div class="imz-course-img"><img src="images/academy/basic-course.jpg" alt="Basic Modding Course" onerror="this.style.display='none'"></div>
+      <div class="badge">BEGINNER</div><h3>Basic Modding</h3><div class="imz-course-price">$60</div>
+      <ul><li>Game files &amp; folder structure</li><li>Backup &amp; restore</li><li>Texture editing basics</li><li>Basic wrestler model replacement</li><li>YOBJ basics &amp; attire editing</li><li>Moveset / entrance workflow</li><li>Arena &amp; titantron workflow</li><li>Emulator testing &amp; beginner troubleshooting</li></ul>
+      <div class="buttons"><button class="btn dark" onclick="academyInfo('basic')">Course Info</button><button class="btn red" onclick="buyAcademy('basic')">🛒 Buy Course</button></div>
+    </div>
+    <div class="imz-course">
+      <div class="imz-course-img"><img src="images/academy/advanced-course.jpg" alt="Advanced Modding Course" onerror="this.style.display='none'"></div>
+      <div class="badge">ADVANCED</div><h3>Advanced Modding</h3><div class="imz-course-price">$100</div>
+      <ul><li>Everything in Basic</li><li>Advanced YOBJ workflow</li><li>Model conversion</li><li>UV / texture troubleshooting</li><li>Advanced wrestler modifications</li><li>Advanced moveset work</li><li>Arena / stage modifications</li><li>Titantron &amp; audio workflow</li><li>Hex / file-structure concepts</li><li>Crash &amp; real PS2 testing concepts</li></ul>
+      <div class="buttons"><button class="btn dark" onclick="academyInfo('advanced')">Course Info</button><button class="btn red" onclick="buyAcademy('advanced')">🛒 Buy Course</button></div>
+    </div>
+    <div class="imz-course">
+      <div class="imz-course-img"><img src="images/academy/mobile-01.jpg" alt="Mobile Modding Tutorial" onerror="this.style.display='none'"></div>
+      <div class="badge">INCLUDED</div><h3>Mobile Tutorial</h3><div class="imz-course-price">Included</div>
+      <ul><li>Mobile setup</li><li>Mobile texture workflow</li><li>Mobile testing</li><li>Practical file handling on Android</li><li>Included with course access</li></ul>
+      <div class="buttons"><button class="btn dark" onclick="academyInfo('mobile')">Tutorial Info</button></div>
+    </div>
+  </div>
+</section>
+</div>
+</section>
 
 <!-- CUSTOM -->
 <section id="custom" class="page hidden">
@@ -1806,20 +1826,32 @@ try{cartItems=JSON.parse(localStorage.getItem("iconicModzCart")||"[]");}catch(e)
    PAGE SYSTEM
 ========================================= */
 
-function showPage(page){
-
-document.querySelectorAll(".page").forEach(x=>{
-x.classList.add("hidden")
-});
-
-document.getElementById(page).classList.remove("hidden");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
+let imzHistoryNavigation=false;
+function showPage(page, fromHistory=false){
+  const target=document.getElementById(page);
+  if(!target)return;
+  document.querySelectorAll(".page").forEach(x=>x.classList.add("hidden"));
+  target.classList.remove("hidden");
+  if(!fromHistory && !imzHistoryNavigation){
+    try{history.pushState({imzPage:page},"",location.pathname+location.search+"#"+page);}catch(e){}
+  }
+  imzHistoryNavigation=false;
+  window.scrollTo({top:0,behavior:"smooth"});
 }
+window.addEventListener('popstate',function(e){
+  const page=(e.state&&e.state.imzPage)||((location.hash||'').slice(1));
+  const modalIds=['imzModelModal','previewModal','paymentModal','cartModal','promoPopup','batchPopup','modShowcase'];
+  let closed=false;
+  modalIds.forEach(id=>{const el=document.getElementById(id);if(el&&!el.classList.contains('hidden')){el.classList.add('hidden');closed=true;}});
+  if(closed){document.body.style.overflow='';return;}
+  if(document.getElementById(page)?.classList.contains('page')) showPage(page,true);
+  else showPage('home',true);
+});
+window.addEventListener('load',function(){
+  const hash=(location.hash||'').slice(1);
+  if(hash && document.getElementById(hash)?.classList.contains('page')){history.replaceState({imzPage:hash},"",location.pathname+location.search+"#"+hash);showPage(hash,true);}
+  else {try{history.replaceState({imzPage:'home'},"",location.pathname+location.search+"#home");}catch(e){}}
+});
 
 
 /* =========================================
@@ -2860,8 +2892,8 @@ function openWrestlerDetail(index){
   document.getElementById('imzModelTitle').textContent=w.name;
   const folder='images/wrestlers/'+w.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const main=w.image;
-  const attires=[1,2,3].map(n=>({name:'Alternate Attire '+n,image:folder+'/alternate-'+String(n).padStart(2,'0')+'.webp',youtube:''}));
-  body.innerHTML=`<div class="imz-detail-meta">Main Model • $6.50 • Alternate attires can be added later using the same folder structure.</div><img class="imz-detail-preview" id="imzModelMainImage" src="${imzEscape(main)}" alt="${imzEscape(w.name)}" onerror="this.style.opacity='.25'"><div class="imz-detail-price">$6.50 <span style="font-size:12px;color:#777">per wrestler model</span></div><div class="imz-attire-grid">${attires.map((a,i)=>`<div class="imz-attire-card ${i===0?'active':''}" onclick="imzSelectAttire(this,'${imzEscape(a.image)}','${imzEscape(a.youtube)}','${imzEscape(a.name)}')"><img src="${imzEscape(a.image)}" alt="${imzEscape(a.name)}" onerror="this.style.opacity='.2'"><div class="imz-attire-info"><b>${a.name}</b><span>${a.youtube?'▶ YouTube preview added':'YouTube link — add later'}</span></div></div>`).join('')}</div><div class="imz-detail-actions"><button class="btn red" onclick="buyWrestler(${index})">💳 Buy Main Model — $6.50</button><button class="btn dark" onclick="addWrestlerToCart(${index})">🛒 Add to Cart</button></div>`;
+  const attires=Array.from({length:10},(_,i)=>i+1).map(n=>({name:'Alternate Attire '+n,image:folder+'/alternate-'+String(n).padStart(2,'0')+'.webp',youtube:''}));
+  body.innerHTML=`<div class="imz-detail-meta">Main Model • $6.50 • 10 alternate attire slots available</div><img class="imz-detail-preview" id="imzModelMainImage" src="${imzEscape(main)}" alt="${imzEscape(w.name)}" onerror="this.style.opacity='.25'"><div class="imz-detail-price">$6.50 <span style="font-size:12px;color:#777">per wrestler model</span></div><div class="imz-attire-grid">${attires.map((a,i)=>`<div class="imz-attire-card ${i===0?'active':''}" onclick="imzSelectAttire(this,'${imzEscape(a.image)}','${imzEscape(a.youtube)}','${imzEscape(a.name)}')"><img src="${imzEscape(a.image)}" alt="${imzEscape(a.name)}" onerror="this.style.opacity='.2'"><div class="imz-attire-info"><b>${a.name}</b><span>${a.youtube?'▶ YouTube preview added':'YouTube link — add later'}</span></div></div>`).join('')}</div><div class="imz-detail-actions"><button class="btn red" onclick="buyWrestler(${index})">💳 Buy Main Model — $6.50</button><button class="btn dark" onclick="addWrestlerToCart(${index})">🛒 Add to Cart</button></div>`;
   modal.classList.remove('hidden');
 }
 function imzSelectAttire(card,image,youtube,name){
