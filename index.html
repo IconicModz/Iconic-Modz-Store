@@ -669,13 +669,53 @@ body{font-family:'Rajdhani',Arial,Helvetica,sans-serif}
 <style id="imzUpcomingModsStyles">
 .imz-upcoming-wrap{grid-column:1/-1;margin-top:22px;padding:18px;border:1px solid rgba(229,9,20,.35);border-radius:16px;background:linear-gradient(135deg,#111,#080808)}.imz-upcoming-wrap h2{margin:4px 0 6px}.imz-upcoming-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin-top:14px}.imz-upcoming-card{min-width:0;overflow:hidden;border:1px solid #33272a;border-radius:12px;background:#0d0d0f}.imz-upcoming-image{height:130px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,#3a171d,#101012 72%);color:#ff5968;font-family:'Black Ops One',sans-serif;font-size:24px;letter-spacing:1px}.imz-upcoming-image img{width:100%;height:100%;object-fit:cover}.imz-upcoming-card b{display:block;padding:10px 8px 3px;font-size:12px}.imz-upcoming-card small{display:block;padding:0 8px 11px;color:#999;font-size:10px;letter-spacing:1px}@media(max-width:560px){.imz-upcoming-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.imz-upcoming-image{height:105px}}
 </style>
+
+<style id="imzRosterCtaAndFullThumbFix">
+/* Keep complete front-page Modding Tutorials thumbnails visible instead of cropping their edges. */
+.imz-home-course-pick{display:flex;flex-direction:column;min-width:0}
+.imz-home-course-pick img{height:150px;min-height:150px;object-fit:contain!important;object-position:center;background:#09090b;padding:7px;box-sizing:border-box}
+.imz-home-course-pick b{flex:1;line-height:1.35}
+@media(max-width:560px){.imz-home-course-pick img{height:125px;min-height:125px;padding:5px}}
+/* A prominent, easy-to-find preview action above the custom roster grid. */
+.imz-roster-preview-cta{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:16px 0 18px;padding:18px 20px;border:1px solid rgba(255,65,80,.52);border-radius:16px;background:radial-gradient(circle at 8% 50%,rgba(229,9,20,.22),transparent 38%),linear-gradient(120deg,#18090b,#0b0b0d 65%);box-shadow:0 10px 30px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.04)}
+.imz-roster-preview-cta-copy{min-width:0;flex:1}.imz-roster-preview-cta-copy strong{display:block;color:#fff;font-size:clamp(15px,2vw,19px);letter-spacing:.25px}.imz-roster-preview-cta-copy span{display:block;color:#b9b9bf;font-size:12px;line-height:1.5;margin-top:4px}
+.imz-roster-preview-cta .imz-roster-preview-cta-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:13px 20px;border:1px solid #ff6975;border-radius:12px;background:linear-gradient(120deg,#a80713,#f31d31 55%,#870610);color:white;font:900 14px 'Rajdhani',sans-serif;letter-spacing:.7px;cursor:pointer;box-shadow:0 7px 22px rgba(229,9,20,.24);transition:transform .18s ease,box-shadow .18s ease}
+.imz-roster-preview-cta .imz-roster-preview-cta-button:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(229,9,20,.38)}
+.imz-roster-preview-cta .imz-roster-preview-cta-button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media(max-width:560px){.imz-roster-preview-cta{align-items:stretch;padding:15px}.imz-roster-preview-cta .imz-roster-preview-cta-button{width:100%}}
+</style>
+
+
+<style id="imzFinalNoCropAndPerformance2026">
+/* Show the full source image in image elements throughout the store. */
+img{object-fit:contain!important;object-position:center center!important;}
+/* Tutorial thumbnails: complete image visible, consistent card size. */
+.imz-home-course-pick img{display:block;width:100%;height:150px;min-height:150px;object-fit:contain!important;object-position:center!important;background:#09090b;padding:7px;box-sizing:border-box;}
+/* Showcase hero art: fit the whole source image rather than cropping its edges. */
+.v1-hero-bg{background-size:auto,auto,contain!important;background-repeat:no-repeat!important;background-color:#080808;}
+.ms-bg{background-size:contain!important;background-repeat:no-repeat!important;background-position:center center!important;background-color:#050505;}
+@media(max-width:560px){.imz-home-course-pick img{height:125px;min-height:125px;padding:5px;}}
+</style>
+<style id="imz-roster-youtube-final-fix">
+
+/* RESTORE LARGE YOUTUBE PREVIEW SIZE */
+#previewModal .modal-box{max-width:1100px;width:min(96vw,1100px)}
+#previewModal .preview-video{width:100%;max-width:none;aspect-ratio:16/9;min-height:0}
+#previewModal .preview-video iframe{width:100%;height:100%;min-height:0}
+/* MAIN RENDER ONLY IN SELECTED ROSTER SHOWCASE */
+.imz-review-overlay.roster-preview-mode .imz-review-img{aspect-ratio:3/4;background:linear-gradient(180deg,#222226,#101012)}
+.imz-review-overlay.roster-preview-mode .imz-review-img img{object-fit:contain;object-position:center bottom}
+.imz-roster-showcase-row{display:flex;justify-content:center;align-items:center;margin:18px 0 24px;position:relative;z-index:2}
+.imz-roster-showcase-btn{min-width:min(100%,340px);font-size:16px!important;padding:16px 26px!important}
+
+</style>
 </head>
 
 <body>
 
 <header>
 <div class="nav">
-<div class="logo brand-wrap"><img class="brand-logo" src="images/logo/iconic-modz.png" alt="ICONIC MODZ" onerror="this.style.display='none'"> <span class="brand-name">ICONIC MODZ</span></div>
+<div class="logo brand-wrap"><img class="brand-logo" src="images/logo/iconic-modz.png" alt="ICONIC MODZ" onerror="this.style.display='none'" loading="lazy" decoding="async"> <span class="brand-name">ICONIC MODZ</span></div>
 
 <div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
 <button class="btn dark" onclick="openCart()">🛒 Cart <span id="cartCount" class="cart-badge">0</span></button>
@@ -714,7 +754,7 @@ move sets, arenas and titantrons — all in one place.
 
 <div class="card" onclick="openGame('svr')">
 <div class="card-img">
-<img src="images/games/svr.jpg" alt="SmackDown vs Raw" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<img src="images/games/svr.jpg" alt="SmackDown vs Raw" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" decoding="async">
 <div class="placeholder" style="display:none">SVR</div>
 </div>
 
@@ -728,7 +768,7 @@ move sets, arenas and titantrons — all in one place.
 
 <div class="card" onclick="openGame('hctp')">
 <div class="card-img">
-<img src="images/games/hctp.jpg" alt="WWE SmackDown Here Comes The Pain" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<img src="images/games/hctp.jpg" alt="WWE SmackDown Here Comes The Pain" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" decoding="async">
 <div class="placeholder" style="display:none">HCTP</div>
 </div>
 
@@ -759,9 +799,9 @@ move sets, arenas and titantrons — all in one place.
   </div>
   <div class="imz-tutorial-mini"><span>🎮 Basic • $60</span><span>⚡ Advanced • $100</span><span>📱 Mobile Modding • $50</span></div>
   <div class="imz-home-course-picks">
-    <div class="imz-home-course-pick" onclick="showPage('tutorials')"><img src="images/academy/basic-course.jpg" alt="Basic Modding course" onerror="this.style.display='none'"><b>🎮 Basic Modding • $60 → Open Academy</b></div>
-    <div class="imz-home-course-pick" onclick="showPage('tutorials')"><img src="images/academy/advanced-course.jpg" alt="Advanced Modding course" onerror="this.style.display='none'"><b>⚡ Advanced Modding • $100 → Open Academy</b></div>
-    <div class="imz-home-course-pick" onclick="showPage('tutorials')"><img src="images/academy/mobile-01.jpg" alt="Mobile Modding course" onerror="this.style.display='none'"><b>📱 Mobile Modding • $50 → Open Academy</b></div>
+    <div class="imz-home-course-pick" onclick="showPage('tutorials')"><img src="images/academy/basic-course.webp" data-imz-fallback="images/academy/basic-course.jpg" alt="Basic Modding course" onerror="this.style.display='none'" loading="lazy" decoding="async"><b>🎮 Basic Modding • $60 → Open Academy</b></div>
+    <div class="imz-home-course-pick" onclick="showPage('tutorials')"><img src="images/academy/advanced-course.webp" data-imz-fallback="images/academy/advanced-course.jpg" alt="Advanced Modding course" onerror="this.style.display='none'" loading="lazy" decoding="async"><b>⚡ Advanced Modding • $100 → Open Academy</b></div>
+    <div class="imz-home-course-pick" onclick="showPage('tutorials')"><img src="images/academy/mobile-01.webp" data-imz-fallback="images/academy/mobile-01.jpg" alt="Mobile Modding course" onerror="this.style.display='none'" loading="lazy" decoding="async"><b>📱 Mobile Modding • $50 → Open Academy</b></div>
   </div>
 </section>
 
@@ -951,19 +991,19 @@ move sets, arenas and titantrons — all in one place.
 <section class="imz-academy" style="margin-top:20px">
   <div class="imz-academy-grid">
     <div class="imz-course">
-      <div class="imz-course-img"><img src="images/academy/basic-course.jpg" alt="Basic Modding Course" role="button" tabindex="0" title="Open course details" onclick="academyInfo('basic')" onkeydown="if(event.key==='Enter'||event.key===' ')academyInfo('basic')" onerror="this.style.display='none'"></div>
+      <div class="imz-course-img"><img src="images/academy/basic-course.jpg" alt="Basic Modding Course" role="button" tabindex="0" title="Open course details" onclick="academyInfo('basic')" onkeydown="if(event.key==='Enter'||event.key===' ')academyInfo('basic')" onerror="this.style.display='none'" loading="lazy" decoding="async"></div>
       <div class="badge">BEGINNER</div><h3>Basic Modding</h3><div class="imz-course-price">$60</div>
       <ul><li>Game files &amp; folder structure</li><li>Backup &amp; restore</li><li>Texture editing basics</li><li>Basic wrestler model replacement</li><li>YOBJ basics &amp; attire editing</li><li>Moveset / entrance workflow</li><li>Arena &amp; titantron workflow</li><li>Emulator testing &amp; beginner troubleshooting</li></ul>
       <div class="buttons"><button class="btn dark" onclick="academyInfo('basic')">Course Info</button><button class="btn red" onclick="buyAcademy('basic')">🛒 Buy Course</button></div>
     </div>
     <div class="imz-course">
-      <div class="imz-course-img"><img src="images/academy/advanced-course.jpg" alt="Advanced Modding Course" role="button" tabindex="0" title="Open course details" onclick="academyInfo('advanced')" onkeydown="if(event.key==='Enter'||event.key===' ')academyInfo('advanced')" onerror="this.style.display='none'"></div>
+      <div class="imz-course-img"><img src="images/academy/advanced-course.jpg" alt="Advanced Modding Course" role="button" tabindex="0" title="Open course details" onclick="academyInfo('advanced')" onkeydown="if(event.key==='Enter'||event.key===' ')academyInfo('advanced')" onerror="this.style.display='none'" loading="lazy" decoding="async"></div>
       <div class="badge">ADVANCED</div><h3>Advanced Modding</h3><div class="imz-course-price">$100</div>
       <ul><li>Everything in Basic</li><li>Advanced YOBJ workflow</li><li>Model conversion</li><li>UV / texture troubleshooting</li><li>Advanced wrestler modifications</li><li>Advanced moveset work</li><li>Arena / stage modifications</li><li>Titantron &amp; audio workflow</li><li>Hex / file-structure concepts</li><li>Crash &amp; real PS2 testing concepts</li></ul>
       <div class="buttons"><button class="btn dark" onclick="academyInfo('advanced')">Course Info</button><button class="btn red" onclick="buyAcademy('advanced')">🛒 Buy Course</button></div>
     </div>
     <div class="imz-course">
-      <div class="imz-course-img"><img src="images/academy/mobile-01.jpg" alt="Mobile Modding Tutorial" role="button" tabindex="0" title="Open course details" onclick="academyInfo('mobile')" onkeydown="if(event.key==='Enter'||event.key===' ')academyInfo('mobile')" onerror="this.style.display='none'"></div>
+      <div class="imz-course-img"><img src="images/academy/mobile-01.jpg" alt="Mobile Modding Tutorial" role="button" tabindex="0" title="Open course details" onclick="academyInfo('mobile')" onkeydown="if(event.key==='Enter'||event.key===' ')academyInfo('mobile')" onerror="this.style.display='none'" loading="lazy" decoding="async"></div>
       <div class="badge">MOBILE COURSE</div><h3>Mobile Modding</h3><div class="imz-course-price">$50</div>
       <ul><li>Mobile setup</li><li>Mobile texture workflow</li><li>Mobile testing</li><li>Practical file handling on Android</li><li>Standalone mobile course</li></ul>
       <div class="buttons"><button class="btn dark" onclick="academyInfo('mobile')">Course Info</button><button class="btn red" onclick="buyAcademy('mobile')">🛒 Buy for $50</button></div>
@@ -1017,8 +1057,6 @@ move sets, arenas and titantrons — all in one place.
   <div class="imz-pro-actions">
     <button class="btn dark" type="button" onclick="showCustomSelectionList();document.getElementById('customSelectionList')?.scrollIntoView({behavior:'smooth',block:'center'})">📋 Review My List</button>
     <button class="btn dark" type="button" onclick="copyCustomSelections()">Copy Selection</button>
-    <button class="btn red imz-confirm-action" type="button" onclick="imzOpenSelectionReview('wrestlers')">✓ Confirm Roster</button>
-    <button class="btn dark imz-confirm-action" type="button" onclick="imzOpenSelectionReview('arenas')">🏟️ Confirm Arenas</button>
     <button class="btn red" type="button" id="imzProOrderButton" onclick="customPayment()" disabled>🔒 Complete Build First</button>
   </div>
   <div class="imz-pro-note">Included automatically: staff/referees/commentators, supported 4K assets, save/memory-card file, cheats and the listed bonus/backstage assets. Original game/ISO is not supplied.</div>
@@ -1064,15 +1102,12 @@ move sets, arenas and titantrons — all in one place.
   </div>
   <div id="customSelectionList" class="imz-copy-list hidden" style="grid-column:1/-1"></div>
 </div>
+<div class="imz-grid-confirm-row imz-roster-showcase-row">
+<button class="btn red imz-roster-showcase-btn" type="button" onclick="imzOpenSelectionReview('selectedRoster')">👑 OPEN ROSTER SHOWCASE ↗</button>
+</div>
 <div id="wrestlerGrid" class="grid"></div>
 <div id="arenaGrid" class="grid hidden"></div>
 <div id="titantronGrid" class="grid hidden"></div>
-<div class="imz-grid-confirm-row" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0 24px">
-  <button class="btn red imz-roster-showcase-btn" type="button" onclick="imzOpenSelectionReview('selectedRoster')">👑 OPEN ROSTER SHOWCASE ↗</button>
-  <button class="btn red" type="button" onclick="imzOpenSelectionReview('wrestlers')">✓ Review &amp; Confirm Roster</button>
-  <button class="btn dark" type="button" onclick="imzOpenSelectionReview('arenas')">🏟️ Review &amp; Confirm Arenas</button>
-</div>
-
 <div class="totalbar">
 <div>
 <div style="color:#888">Custom Mod Package</div>
@@ -1106,14 +1141,14 @@ move sets, arenas and titantrons — all in one place.
 
 <div class="preview-image" id="previewImageWrap">
 <div class="placeholder" id="previewImagePlaceholder">IMAGE</div>
-<img id="previewProductImage" class="preview-product-image hidden" alt="Mod preview">
+<img id="previewProductImage" class="preview-product-image hidden" alt="Mod preview" loading="lazy" decoding="async">
 </div>
 
 <div id="screenshotSlider" class="screenshot-slider hidden">
   <div class="slider-head"><span>SCREENSHOTS</span><span id="sliderCounter">1 / 10</span></div>
   <div class="slider-stage">
     <button class="slider-arrow left" onclick="changeScreenshot(-1)" aria-label="Previous screenshot">‹</button>
-    <img id="sliderImage" src="" alt="Mod screenshot" onerror="sliderImageError(this)">
+    <img id="sliderImage" src="" alt="Mod screenshot" onerror="if(typeof sliderImageError==='function')sliderImageError(this);else{this.alt='Add screenshot image'}" loading="lazy" decoding="async">
     <button class="slider-arrow right" onclick="changeScreenshot(1)" aria-label="Next screenshot">›</button>
   </div>
   <div id="sliderDots" class="slider-dots"></div>
@@ -1606,7 +1641,7 @@ function imzV1MemberCard(member,compact=false){
   const aliases=clean.split(/\s*\/\s*/).map(x=>x.trim());
   const found=(typeof wrestlers!=='undefined'?wrestlers:[]).find(w=>aliases.some(a=>imzRosterKey(w.name)===imzRosterKey(a)))
     || (typeof wrestlers!=='undefined'?wrestlers:[]).find(w=>aliases.some(a=>imzRosterKey(w.name).includes(imzRosterKey(a))||imzRosterKey(a).includes(imzRosterKey(w.name))));
-  const image=found&&found.image?`<img src="${found.image}" alt="${clean.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${clean.slice(0,2).replace(/'/g,'')}';">`:'';
+  const image=found&&found.image?`<img src="${found.image}" alt="${clean.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${clean.slice(0,2).replace(/'/g,'')}';" decoding="async">`:'';
   const initials=clean.split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()||'W';
   const tag=/\[Diva\]/i.test(member)?'<span class="v1-member-tag">DIVA</span>':/\[Staff\]/i.test(member)?'<span class="v1-member-tag">STAFF</span>':'';
   return `<div class="v1-member-card"><div class="v1-member-photo">${image||initials}</div><div class="v1-member-name">${clean.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}${tag}</div></div>`;
@@ -1666,14 +1701,14 @@ function openV1Showcase(){
       if(!id)return;
       const a=document.createElement('a');
       a.className='v1-video'; a.href=v.url; a.target='_blank'; a.rel='noopener';
-      a.innerHTML=`<img class="v1-video-thumb" src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${v.title}"><span class="v1-play">▶</span><div class="v1-video-info"><div class="v1-video-title">${v.title}</div><div class="v1-video-meta">▶ Watch on YouTube</div></div>`;
+      a.innerHTML=`<img class="v1-video-thumb" src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${v.title}" loading="lazy" decoding="async"><span class="v1-play">▶</span><div class="v1-video-info"><div class="v1-video-title">${v.title}</div><div class="v1-video-meta">▶ Watch on YouTube</div></div>`;
       grid.appendChild(a);
     });
     if(!grid.children.length)grid.innerHTML='<div style="grid-column:1/-1;color:#888">Add your YouTube links in the v1Videos list.</div>';
   }
   const mount=document.getElementById('v1SliderMount');
   if(mount){
-    mount.innerHTML=`<div class="screenshot-slider"><div class="slider-head"><span>SCREENSHOTS</span><span id="v1SliderCounter">1 / 10</span></div><div class="slider-stage"><button class="slider-arrow left" onclick="v1Screenshot(-1)">‹</button><img id="v1SliderImage" src="" alt="V1 screenshot"><button class="slider-arrow right" onclick="v1Screenshot(1)">›</button></div><div id="v1SliderDots" class="slider-dots"></div></div>`;
+    mount.innerHTML=`<div class="screenshot-slider"><div class="slider-head"><span>SCREENSHOTS</span><span id="v1SliderCounter">1 / 10</span></div><div class="slider-stage"><button class="slider-arrow left" onclick="v1Screenshot(-1)">‹</button><img id="v1SliderImage" src="" alt="V1 screenshot" loading="lazy" decoding="async"><button class="slider-arrow right" onclick="v1Screenshot(1)">›</button></div><div id="v1SliderDots" class="slider-dots"></div></div>`;
     v1SliderIndex=0; v1LoadScreenshot();
   }
 }
@@ -2081,7 +2116,7 @@ ${product.rating ? `<div class="product-rating"><span class="stars">${"★".repe
 
 <div class="card-img" style="position:relative">
 ${(product.title||'').includes('Iconic Edition V2')?'<div class="imz-product-badges"><span class="imz-product-badge best">★ BEST SELLER</span></div>':(product.title||'').includes('Iconic Edition V1')?'<div class="imz-product-badges"><span class="imz-product-badge">POPULAR</span></div>':''}
-${product.image?`<img src="${product.image}" alt="">`:`<div class="placeholder">MOD</div>`}
+${product.image?`<img src="${product.image}" alt="" loading="lazy" decoding="async">`:`<div class="placeholder">MOD</div>`}
 </div>
 
 <div class="card-body">
@@ -2170,7 +2205,7 @@ youtubeList.innerHTML="";
   if(!id) return;
   const a=document.createElement("a");
   a.className="youtube-card"; a.href=video.url; a.target="_blank"; a.rel="noopener";
-  a.innerHTML=`<img class="youtube-thumb" src="https://img.youtube.com/vi/${id}/mqdefault.jpg" alt="YouTube video ${index+1}"><div><div class="youtube-card-title">${video.title}</div><div class="youtube-card-label">▶ Watch on YouTube</div></div>`;
+  a.innerHTML=`<img class="youtube-thumb" src="https://img.youtube.com/vi/${id}/mqdefault.jpg" alt="YouTube video ${index+1}" loading="lazy" decoding="async"><div><div class="youtube-card-title">${video.title}</div><div class="youtube-card-label">▶ Watch on YouTube</div></div>`;
   youtubeList.appendChild(a);
 });
 if(!youtubeList.children.length){
@@ -2569,7 +2604,7 @@ function openPaymentEmail(){
   const attireDetails=checkoutItems.filter(x=>isWrestlerProduct(x)&&x.attireNumber).map((x,i)=>`${i+1}. ${imzAttireOrderLabel(x)}${(x.qty||1)>1?` x${x.qty}`:''}`).join("\n");
   if(attireDetails){ customDetails+=`%0D%0ASELECTED WRESTLERS & ATTIRES:%0D%0A${encodeURIComponent(attireDetails).replace(/%0A/g,'%0D%0A')}`; }
   if(currentCustomOrderDetails){
-    customDetails=`%0D%0ACUSTOM MOD REQUIREMENTS:%0D%0ARoster: ${encodeURIComponent(currentCustomOrderDetails.requiredRoster)}%0D%0AWrestlers: ${encodeURIComponent(currentCustomOrderDetails.wrestlers)}%0D%0AArenas: ${encodeURIComponent(currentCustomOrderDetails.arenas)}%0D%0ATitantrons: ${encodeURIComponent(currentCustomOrderDetails.titantrons)}%0D%0ABonus Package: ${encodeURIComponent(currentCustomOrderDetails.packageNotes)}`;
+    customDetails=`%0D%0ACUSTOM MOD REQUIREMENTS:%0D%0ARoster: ${encodeURIComponent(currentCustomOrderDetails.requiredRoster)}%0D%0AWrestlers: ${encodeURIComponent(currentCustomOrderDetails.wrestlers)}%0D%0AWrestler Attires: ${encodeURIComponent(currentCustomOrderDetails.wrestlerAttires||'Attire 01 default for each selected wrestler')}%0D%0AArenas: ${encodeURIComponent(currentCustomOrderDetails.arenas)}%0D%0ATitantrons: ${encodeURIComponent(currentCustomOrderDetails.titantrons)}%0D%0ABonus Package: ${encodeURIComponent(currentCustomOrderDetails.packageNotes)}`;
   }
   const body=`Hello ICONIC MODZ Team,%0D%0A%0D%0APayment proof for my order:%0D%0AOrder ID: ${encodeURIComponent(orderId)}%0D%0AName: ${encodeURIComponent(name)}%0D%0ABuyer Email: ${encodeURIComponent(buyerEmail)}%0D%0AMod / Order: ${encodeURIComponent(modName)}%0D%0AAmount Paid: ${encodeURIComponent(amountText)}${customDetails}%0D%0A%0D%0AI have completed the payment. I am attaching the successful transaction screenshot.%0D%0A%0D%0AThank you.`;
   const subject=encodeURIComponent(`ICONIC MODZ Payment Proof - ${orderId}`);
@@ -2647,7 +2682,7 @@ const selected=selectedWrestlers.some(x=>x.name===w.name);
 return `
 <div class="card wrestler ${selected?"selected":""}" onclick="toggleWrestler(${index})">
 <div class="card-img">
-${w.image?`<img src="${w.image}" alt="${w.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:''}
+${w.image?`<img src="${w.image}" alt="${w.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" decoding="async">`:''}
 <div class="placeholder" style="${w.image?'display:none':''}">W</div>
 </div>
 <div class="card-body">
@@ -2655,6 +2690,8 @@ ${w.image?`<img src="${w.image}" alt="${w.name}" onerror="this.style.display='no
 <h2>${imzEscape(w.name)}</h2>
 <div class="price">Included in $85 Custom Mod</div>
 <p>${selected?"Selected":"Select Model"}</p>
+<div class="imz-custom-attire-current">${selected?`👕 ATTIRE #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[w.name])||1).padStart(2,"0")} SELECTED`:`Choose model to unlock attire selection`}</div>
+<button type="button" class="imz-custom-attire-button" ${selected?"":"disabled"} onclick="event.stopPropagation();imzOpenCustomAttirePicker(${index})">👕 CHOOSE ATTIRE • 10 AVAILABLE</button>
 </div>
 </div>`;
 }).join("");
@@ -2685,7 +2722,7 @@ onclick="toggleCustomItem('${type}',${index})">
 ${
 item.image
 ?
-`<img src="${item.image}" alt="${item.name}">`
+`<img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async">`
 :
 `<div class="placeholder">${type==="arenas"?"A":"T"}</div>`
 }
@@ -2726,12 +2763,14 @@ const exists=selectedWrestlers.some(x=>x.name===wrestler.name);
 
 if(exists){
   selectedWrestlers=selectedWrestlers.filter(x=>x.name!==wrestler.name);
+  if(window.imzCustomAttireChoices) delete window.imzCustomAttireChoices[wrestler.name];
 }else{
   if(selectedWrestlers.length>=79){
     alert("Roster requirement is 79 wrestlers. You already selected 79/79. Remove one first if you want to replace it.");
     return;
   }
   selectedWrestlers.push(wrestler);
+  if(window.imzCustomAttireChoices && !window.imzCustomAttireChoices[wrestler.name]) window.imzCustomAttireChoices[wrestler.name]=1;
 }
 
 renderWrestlers();
@@ -2857,7 +2896,7 @@ function addArenaToCart(index){
 }
 
 function getCustomSelectionText(){
-  const wrestlersText=selectedWrestlers.map((x,i)=>`${i+1}. ${x.name}`).join("\n")||"None";
+  const wrestlersText=selectedWrestlers.map((x,i)=>`${i+1}. ${x.name} — Attire #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[x.name])||1).padStart(2,"0")}`).join("\n")||"None";
   const arenasText=selectedArenas.map((x,i)=>`${i+1}. ${x.name}`).join("\n")||"None";
   const titanText=selectedTitantrons.map((x,i)=>`${i+1}. ${x.name}`).join("\n")||"None";
   return `ICONIC MODZ — MY CUSTOM MOD SELECTION\n\nWRESTLERS (${selectedWrestlers.length}/79)\n${wrestlersText}\n\nARENAS (${selectedArenas.length}/18)\n${arenasText}\n\nOPTIONAL TITANTRONS (${selectedTitantrons.length})\n${titanText}`;
@@ -2898,6 +2937,7 @@ const all=[
 
 const names=all.map(x=>x.name).join(", ");
 const rosterNames=selectedWrestlers.map(x=>x.name).join(", ");
+const rosterAttires=selectedWrestlers.map(x=>`${x.name} — Attire #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[x.name])||1).padStart(2,"0")}`).join(", ");
 const arenaNames=selectedArenas.map(x=>x.name).join(", ");
 const titantronNames=selectedTitantrons.map(x=>x.name).join(", ");
 const total=all.reduce((sum,x)=>sum+Number(x.price||0),0);
@@ -2912,6 +2952,7 @@ openPayment({
     requiredRoster:"79/79",
     requiredArenas:"18/18",
     wrestlers:rosterNames,
+    wrestlerAttires:rosterAttires,
     arenas:arenaNames,
     titantrons:titantronNames||"None selected",
     packageNotes:"Free bonus: referees, commentators, staff, backstage zones, parking lots, training rooms, Times Square and secret experimental arenas included automatically. Package also includes supported 4K texture assets, save memory-card file and cheat codes. Original game/ISO is not supplied; customer must own a legal copy."
@@ -2976,7 +3017,7 @@ function filterCustomList(query){
     const icon=section==='wrestlers'?'W':section==='arenas'?'A':'T';
     const click=section==='wrestlers'?`toggleWrestler(${index})`:`toggleCustomItem('${section}',${index})`;
     const buy=section==='wrestlers'?`<span class="imz-limit-note">Included in $85 Custom Mod</span>`:section==='arenas'?`<button type="button" class="imz-buy-model" onclick="event.stopPropagation();buyArena(${index})">💳 Buy Arena — $6.50</button><button type="button" class="imz-cart-model" onclick="event.stopPropagation();addArenaToCart(${index})">🛒 Add to Cart</button>`:'';
-    return `<div class="card wrestler ${isSelected?'selected':''}" onclick="${click}"><div class="card-img">${item.image?`<img src="${item.image}" alt="${imzEscape(item.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:''}<div class="placeholder" style="${item.image?'display:none':''}">${icon}</div></div><div class="card-body"><div class="check">✓</div><h2>${imzEscape(item.name)}</h2><div class="price">${section==='wrestlers'?'Included in $85 Custom Mod':item.price>0?'₹'+item.price:'PRICE'}</div><p>${isSelected?'Selected':typeLabel}</p>${buy}</div></div>`;
+    return `<div class="card wrestler ${isSelected?'selected':''}" onclick="${click}"><div class="card-img">${item.image?`<img src="${item.image}" alt="${imzEscape(item.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" decoding="async">`:''}<div class="placeholder" style="${item.image?'display:none':''}">${icon}</div></div><div class="card-body"><div class="check">✓</div><h2>${imzEscape(item.name)}</h2><div class="price">${section==='wrestlers'?'Included in $85 Custom Mod':item.price>0?'₹'+item.price:'PRICE'}</div><p>${isSelected?'Selected':typeLabel}</p>${buy}</div></div>`;
   }).join('') || '<div class="card" style="padding:30px;text-align:center;grid-column:1/-1"><h2>No matches</h2><p>Try another name.</p></div>';
   const c=document.getElementById('customResultCount');if(c)c.textContent=`${filtered.length} of ${list.length}`;
   updateTotal();
@@ -3018,13 +3059,13 @@ function openWrestlerDetail(index){
   const folder='images/wrestlers/'+w.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const attires=Array.from({length:10},(_,i)=>i+1).map(n=>({number:n,name:'Alternate Attire '+n,image:folder+'/alternate-'+String(n).padStart(2,'0')+'.webp',youtube:''}));
   body.innerHTML=`<div class="imz-detail-meta">Main Model • $6.50 • 10 alternate attire slots available</div>
-  <img class="imz-detail-preview" id="imzModelMainImage" src="${imzEscape(w.image)}" alt="${imzEscape(w.name)}" onerror="this.style.opacity='.25'">
+  <img class="imz-detail-preview" id="imzModelMainImage" src="${imzEscape(w.image)}" alt="${imzEscape(w.name)}" onerror="this.style.opacity='.25'" loading="lazy" decoding="async">
   <div class="imz-detail-price">$6.50 <span style="font-size:12px;color:#777">per model / attire</span></div>
   <div id="imzSelectedAttire" class="imz-selected-attire">Selected: <b>Main Model</b></div>
   <div class="imz-attire-grid">
     ${attires.map(a=>`<div class="imz-attire-card" data-attire="${a.number}">
       <div class="imz-attire-select" onclick="imzSelectAttire(this.parentElement,'${imzEscape(a.image)}','${imzEscape(a.youtube)}','${imzEscape(a.name)}',${a.number})">
-        <img src="${imzEscape(a.image)}" alt="${imzEscape(a.name)}" onerror="this.style.opacity='.2'"><div class="imz-attire-info"><b>${a.name}</b><span>${a.youtube?'▶ YouTube preview added':'YouTube link — add later'}</span></div>
+        <img src="${imzEscape(a.image)}" alt="${imzEscape(a.name)}" onerror="this.style.opacity='.2'" loading="lazy" decoding="async"><div class="imz-attire-info"><b>${a.name}</b><span>${a.youtube?'▶ YouTube preview added':'YouTube link — add later'}</span></div>
       </div>
       <div class="imz-attire-actions"><button class="btn red" onclick="imzBuySelectedAttire(${index},${a.number})">💳 Buy</button><button class="btn dark" onclick="imzAddSelectedAttire(${index},${a.number})">🛒 Add</button></div>
     </div>`).join('')}
@@ -3043,7 +3084,7 @@ function openArenaDetail(index){
   const a=customArenas[index];if(!a)return;
   const modal=document.getElementById('imzModelModal'),body=document.getElementById('imzModelBody');
   document.getElementById('imzModelType').textContent='ARENA MODEL • INDIVIDUAL PREVIEW';document.getElementById('imzModelTitle').textContent=a.name;
-  body.innerHTML=`<div class="imz-detail-meta">Individual arena • $6.50 • Preview image</div><img class="imz-detail-preview" src="${imzEscape(a.image||'')}" alt="${imzEscape(a.name)}"><div class="imz-detail-price">$6.50 <span style="font-size:12px;color:#777">per arena</span></div><div class="imz-detail-actions"><button class="btn red" onclick="buyArena(${index})">💳 Buy Arena — $6.50</button><button class="btn dark" onclick="addArenaToCart(${index})">🛒 Add to Cart</button></div>`;
+  body.innerHTML=`<div class="imz-detail-meta">Individual arena • $6.50 • Preview image</div><img class="imz-detail-preview" src="${imzEscape(a.image||'')}" alt="${imzEscape(a.name)}" loading="lazy" decoding="async"><div class="imz-detail-price">$6.50 <span style="font-size:12px;color:#777">per arena</span></div><div class="imz-detail-actions"><button class="btn red" onclick="buyArena(${index})">💳 Buy Arena — $6.50</button><button class="btn dark" onclick="addArenaToCart(${index})">🛒 Add to Cart</button></div>`;
   modal.classList.remove('hidden');
 }
 function closeModelDetail(){document.getElementById('imzModelModal')?.classList.add('hidden');}
@@ -3100,7 +3141,7 @@ const ACADEMY_COURSES={
  advanced:{title:'ICONIC MODZ Modding Academy — Advanced',price:'$100',usdPrice:100,inrPrice:9615,productType:'academy',description:'Advanced workflow for experienced modders, including model conversion and deeper troubleshooting concepts.',features:['Everything in Basic','Advanced YOBJ workflow','Model conversion','UV / texture troubleshooting','Advanced wrestler modifications','Advanced moveset work','Arena / stage modifications','Titantron & audio workflow','Hex / file-structure concepts','Crash & real PS2 testing concepts','Complete project workflow'],image:'images/academy/advanced-course.jpg'},
  mobile:{title:'ICONIC MODZ Modding Academy — Mobile Modding',price:'$50',usdPrice:50,inrPrice:4808,productType:'academy',description:'A standalone mobile-focused course for setup, textures, file handling and testing on Android.',features:['Mobile setup and file handling','Mobile texture workflow','Testing and troubleshooting','Android workflow tips','Standalone course — not included with other courses'],image:'images/academy/mobile-01.jpg'}
 };
-function academyInfo(key){const c=ACADEMY_COURSES[key];if(!c)return;let modal=document.getElementById('imzAcademyDetail');if(!modal){modal=document.createElement('div');modal.id='imzAcademyDetail';modal.className='imz-academy-detail hidden';modal.setAttribute('role','dialog');modal.setAttribute('aria-modal','true');document.body.appendChild(modal)}modal.innerHTML=`<div class="imz-academy-detail-box"><button class="btn dark" style="float:right" onclick="closeAcademyInfo()">✕ Close</button><div class="small">ICONIC MODZ ACADEMY</div><h2 style="margin:6px 0">${imzEscape(c.title)}</h2><img src="${imzEscape(c.image||'')}" alt="${imzEscape(c.title)}" onerror="this.style.display='none'"><p style="color:#bbb;line-height:1.6">${imzEscape(c.description||'Course details')}</p><div class="price">${imzEscape(c.price)}</div><ul>${(c.features||[]).map(x=>`<li>${imzEscape(x)}</li>`).join('')}</ul><div class="imz-academy-detail-actions"><button class="btn dark" onclick="closeAcademyInfo()">Back</button><button class="btn red" onclick="closeAcademyInfo();buyAcademy('${key}')">🛒 Buy Course — ${imzEscape(c.price)}</button></div></div>`;modal.classList.remove('hidden');modal.onclick=e=>{if(e.target===modal)closeAcademyInfo()};}window.closeAcademyInfo=function(){document.getElementById('imzAcademyDetail')?.classList.add('hidden')};
+function academyInfo(key){const c=ACADEMY_COURSES[key];if(!c)return;let modal=document.getElementById('imzAcademyDetail');if(!modal){modal=document.createElement('div');modal.id='imzAcademyDetail';modal.className='imz-academy-detail hidden';modal.setAttribute('role','dialog');modal.setAttribute('aria-modal','true');document.body.appendChild(modal)}modal.innerHTML=`<div class="imz-academy-detail-box"><button class="btn dark" style="float:right" onclick="closeAcademyInfo()">✕ Close</button><div class="small">ICONIC MODZ ACADEMY</div><h2 style="margin:6px 0">${imzEscape(c.title)}</h2><img src="${imzEscape(c.image||'')}" alt="${imzEscape(c.title)}" onerror="this.style.display='none'" loading="lazy" decoding="async"><p style="color:#bbb;line-height:1.6">${imzEscape(c.description||'Course details')}</p><div class="price">${imzEscape(c.price)}</div><ul>${(c.features||[]).map(x=>`<li>${imzEscape(x)}</li>`).join('')}</ul><div class="imz-academy-detail-actions"><button class="btn dark" onclick="closeAcademyInfo()">Back</button><button class="btn red" onclick="closeAcademyInfo();buyAcademy('${key}')">🛒 Buy Course — ${imzEscape(c.price)}</button></div></div>`;modal.classList.remove('hidden');modal.onclick=e=>{if(e.target===modal)closeAcademyInfo()};}window.closeAcademyInfo=function(){document.getElementById('imzAcademyDetail')?.classList.add('hidden')};
 function buyAcademy(key){const c=ACADEMY_COURSES[key];if(!c)return;buyProduct(c);}
 
 /* =========================================
@@ -3151,7 +3192,7 @@ function openModShowcase(product){
   const videos=(product.youtubeVideos||[]).filter(v=>v.url);
   const menuExtra=isV1?`<button onclick="msScroll('msRoster')">👥 Roster</button><button onclick="msScroll('msArenas')">🏟️ Arenas</button><button onclick="msScroll('msPatch')">⚡ Patch</button>`:'';
   const v1Extra=isV1?`<section id="msRoster" class="ms-section"><div class="small">V1 ROSTER</div><h2>Roster & Character Line-up</h2><div class="ms-roster-grid">${imzV1RosterGroupsHTML(v1RosterGroups,true)}</div></section><section id="msArenas" class="ms-section"><div class="small">V1 ARENAS</div><h2>20 Included Arenas</h2><div class="ms-arena-grid">${v1Arenas.map((a,i)=>`<div class="ms-arena"><b>${String(i+1).padStart(2,'0')}</b>${a}</div>`).join('')}</div><div class="ms-hidden-arenas"><strong>CHEAT / HIDDEN ARENAS:</strong> ${v1HiddenArenas.join(' • ')}</div></section><section id="msPatch" class="ms-section"><div class="small">EXCLUSIVE NEXT LEVEL PATCH</div><h2>What's New in V1</h2><div class="ms-patch-grid">${v1PatchFeatures.map(x=>`<div class="ms-patch"><span>✓</span>${x}</div>`).join('')}</div></section>`:'';
-  inner.innerHTML=`<section class="ms-hero"><div class="ms-bg" style="background-image:url('${product.image||''}')"></div><div class="ms-content"><div class="small">FEATURED MOD • ${safe}</div><h1>${safe}</h1><p>${product.description||'Complete ICONIC MODZ showcase.'}</p><div class="ms-actions"><button class="btn red" onclick="msScroll('msVideos')">🎬 Watch Gameplay</button><button class="btn dark" onclick="msScroll('msPreview')">👀 View Preview</button><button class="btn red" onclick="msGet()">🛒 Get Mod</button><button class="btn dark" onclick="msAddToCart()">🛒 Add to Cart</button></div></div></section><div class="ms-body"><div class="ms-menu"><button onclick="msScroll('msAbout')">📖 About Modz</button><button onclick="msScroll('msFeatures')">🔥 New Features</button>${menuExtra}<button onclick="msScroll('msVideos')">🎬 YouTube</button><button onclick="msScroll('msPreview')">📸 Screenshots</button><button onclick="msGet()">🛒 Get Mod</button></div><section id="msAbout" class="ms-section"><div class="small">ABOUT MODZ</div><h2>${safe}</h2><p>${product.description||''}</p></section><section id="msFeatures" class="ms-section"><div class="small">WHAT'S NEW</div><h2>New Features</h2><div class="ms-features">${(product.features||[]).map((x,i)=>`<div class="ms-feature" style="animation-delay:${i*30}ms">✓ ${x}</div>`).join('')}</div></section><section id="msPreview" class="ms-section"><div class="small">VISUAL PREVIEW</div><h2>10 Screenshots</h2><div id="msSlider"></div></section>${v1Extra}<section id="msVideos" class="ms-section"><div class="small">GAMEPLAY • YOUTUBE</div><h2>Trailer • Roster • Gameplay</h2><div class="ms-videos">${videos.length?videos.map(v=>{const id=getYouTubeId(v.url);return id?`<a class="ms-video" href="${v.url}" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${v.title}"><div class="ms-video-info"><div class="ms-video-title">${v.title}</div><div class="ms-video-meta">▶ Watch on YouTube</div></div></a>`:''}).join(''):'<p>Add your YouTube links in the product settings.</p>'}</div></section></div>`;
+  inner.innerHTML=`<section class="ms-hero"><div class="ms-bg" style="background-image:url('${product.image||''}')"></div><div class="ms-content"><div class="small">FEATURED MOD • ${safe}</div><h1>${safe}</h1><p>${product.description||'Complete ICONIC MODZ showcase.'}</p><div class="ms-actions"><button class="btn red" onclick="msScroll('msVideos')">🎬 Watch Gameplay</button><button class="btn dark" onclick="msScroll('msPreview')">👀 View Preview</button><button class="btn red" onclick="msGet()">🛒 Get Mod</button><button class="btn dark" onclick="msAddToCart()">🛒 Add to Cart</button></div></div></section><div class="ms-body"><div class="ms-menu"><button onclick="msScroll('msAbout')">📖 About Modz</button><button onclick="msScroll('msFeatures')">🔥 New Features</button>${menuExtra}<button onclick="msScroll('msVideos')">🎬 YouTube</button><button onclick="msScroll('msPreview')">📸 Screenshots</button><button onclick="msGet()">🛒 Get Mod</button></div><section id="msAbout" class="ms-section"><div class="small">ABOUT MODZ</div><h2>${safe}</h2><p>${product.description||''}</p></section><section id="msFeatures" class="ms-section"><div class="small">WHAT'S NEW</div><h2>New Features</h2><div class="ms-features">${(product.features||[]).map((x,i)=>`<div class="ms-feature" style="animation-delay:${i*30}ms">✓ ${x}</div>`).join('')}</div></section><section id="msPreview" class="ms-section"><div class="small">VISUAL PREVIEW</div><h2>10 Screenshots</h2><div id="msSlider"></div></section>${v1Extra}<section id="msVideos" class="ms-section"><div class="small">GAMEPLAY • YOUTUBE</div><h2>Trailer • Roster • Gameplay</h2><div class="ms-videos">${videos.length?videos.map(v=>{const id=getYouTubeId(v.url);return id?`<a class="ms-video" href="${v.url}" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${v.title}" loading="lazy" decoding="async"><div class="ms-video-info"><div class="ms-video-title">${v.title}</div><div class="ms-video-meta">▶ Watch on YouTube</div></div></a>`:''}).join(''):'<p>Add your YouTube links in the product settings.</p>'}</div></section></div>`;
   el.classList.remove('hidden');
   document.body.style.overflow='hidden';
   msBuildSlider();
@@ -3159,11 +3200,11 @@ function openModShowcase(product){
 function closeModShowcase(){document.getElementById('modShowcase')?.classList.add('hidden');document.body.style.overflow='';}
 function msScroll(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
 function msGet(){closeModShowcase();if(msProduct)buyProduct(msProduct);}
-function msBuildSlider(){const box=document.getElementById('msSlider');if(!box)return;const arr=(msProduct.screenshots&&msProduct.screenshots.length?msProduct.screenshots:Array.from({length:10},(_,i)=>`images/previews/${(msProduct.title||'').includes('V2')?'v2':'free'}/screenshot${String(i+1).padStart(2,'0')}`));msProduct.__showcaseScreenshots=arr;box.innerHTML=`<div class="ms-slider"><div class="slider-head"><span>10 SCREENSHOTS</span><span id="msCounter">1 / ${arr.length}</span></div><div class="ms-stage"><button class="ms-arrow left" onclick="msShot(-1)">‹</button><img id="msImage" src="" alt="Screenshot"><button class="ms-arrow right" onclick="msShot(1)">›</button></div><div id="msDots" class="ms-dots"></div></div>`;msIndex=0;msLoadShot();}
+function msBuildSlider(){const box=document.getElementById('msSlider');if(!box)return;const arr=(msProduct.screenshots&&msProduct.screenshots.length?msProduct.screenshots:Array.from({length:10},(_,i)=>`images/previews/${(msProduct.title||'').includes('V2')?'v2':'free'}/screenshot${String(i+1).padStart(2,'0')}`));msProduct.__showcaseScreenshots=arr;box.innerHTML=`<div class="ms-slider"><div class="slider-head"><span>10 SCREENSHOTS</span><span id="msCounter">1 / ${arr.length}</span></div><div class="ms-stage"><button class="ms-arrow left" onclick="msShot(-1)">‹</button><img id="msImage" src="" alt="Screenshot" loading="lazy" decoding="async"><button class="ms-arrow right" onclick="msShot(1)">›</button></div><div id="msDots" class="ms-dots"></div></div>`;msIndex=0;msLoadShot();}
 function msLoadShot(){const img=document.getElementById('msImage');if(!img)return;const arr=msProduct.__showcaseScreenshots||msProduct.screenshots||Array.from({length:10},(_,i)=>`images/previews/${(msProduct.title||'').includes('V2')?'v2':'free'}/screenshot${String(i+1).padStart(2,'0')}`);const base=arr[msIndex]||arr[0];msExt=0;img.dataset.base=base;img.src=base+'.jpg';img.onerror=function(){const e=['.png','.jpeg','.webp'];if(msExt<e.length)this.src=this.dataset.base+e[msExt++];else{this.onerror=null;this.alt='Add screenshot image';}};document.getElementById('msCounter').textContent=`${msIndex+1} / ${arr.length}`;document.getElementById('msDots').innerHTML=arr.map((_,i)=>`<button class="${i===msIndex?'active':''}" onclick="msGoShot(${i})"></button>`).join('');}
 function msShot(step){const n=(msProduct.__showcaseScreenshots||msProduct.screenshots||[]).length||10;msIndex=(msIndex+step+n)%n;msLoadShot();}
 function msGoShot(i){msIndex=i;msLoadShot();}
-function renderLatestYoutube(){const g=document.getElementById('latestYoutubeGrid');if(!g)return;const videos=(products.fullgame||[]).flatMap(p=>(p.youtubeVideos||[]).map(v=>({...v,mod:p.title}))).filter(v=>v.url).slice(0,6);g.innerHTML=videos.length?videos.map(v=>{const id=getYouTubeId(v.url);return id?`<a class="latest-yt-card" href="${v.url}" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/${id}/hqdefault.jpg"><div>▶ ${v.title}<small style="display:block;color:#888;margin-top:5px">${v.mod}</small></div></a>`:''}).join(''):'<p>Add your YouTube links to show latest gameplay here.</p>';}
+function renderLatestYoutube(){const g=document.getElementById('latestYoutubeGrid');if(!g)return;const videos=(products.fullgame||[]).flatMap(p=>(p.youtubeVideos||[]).map(v=>({...v,mod:p.title}))).filter(v=>v.url).slice(0,6);g.innerHTML=videos.length?videos.map(v=>{const id=getYouTubeId(v.url);return id?`<a class="latest-yt-card" href="${v.url}" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" loading="lazy" decoding="async"><div>▶ ${v.title}<small style="display:block;color:#888;margin-top:5px">${v.mod}</small></div></a>`:''}).join(''):'<p>Add your YouTube links to show latest gameplay here.</p>';}
 renderLatestYoutube();
 
 updateCartCount();
@@ -3248,7 +3289,7 @@ imzUpdateProfessionalBuilder();
     if(card){const title=card.querySelector('h2')?.textContent.trim();const p=findProductByKey(title);if(p)addRecent(p,p.productType||'PRODUCT');}
   },true);
   document.addEventListener('error',e=>{const img=e.target;if(img?.tagName==='IMG'){img.loading='lazy';img.decoding='async'}},true);
-  function ensureLightbox(){if(document.getElementById('imzImageLightbox'))return;const x=document.createElement('div');x.id='imzImageLightbox';x.className='imz-image-lightbox hidden';x.innerHTML='<button class="close" onclick="closeImzImage()">×</button><img id="imzLightboxImage" alt="Preview">';x.onclick=e=>{if(e.target===x)closeImzImage()};document.body.appendChild(x)}
+  function ensureLightbox(){if(document.getElementById('imzImageLightbox'))return;const x=document.createElement('div');x.id='imzImageLightbox';x.className='imz-image-lightbox hidden';x.innerHTML='<button class="close" onclick="closeImzImage()">×</button><img id="imzLightboxImage" alt="Preview" loading="lazy" decoding="async">';x.onclick=e=>{if(e.target===x)closeImzImage()};document.body.appendChild(x)}
   window.openImzImage=function(src,alt){ensureLightbox();const x=document.getElementById('imzImageLightbox'),im=document.getElementById('imzLightboxImage');im.src=src;im.alt=alt||'Preview';x.classList.remove('hidden')};
   window.closeImzImage=function(){document.getElementById('imzImageLightbox')?.classList.add('hidden')};
   function mobilePolish(){
@@ -3435,12 +3476,12 @@ function ensureHomeStrips(){
  const home=document.querySelector('#home .container');if(!home)return;
  let f=$('imzFeaturedStrip');if(!f){f=document.createElement('div');f.id='imzFeaturedStrip';f.className='imz-featured-strip';home.appendChild(f)}
  const ps=all();const picks=[];['Free Iconic Edition Modz','WWE HCTP Iconic Edition V1','WWE HCTP Iconic Edition V2'].forEach(t=>{const p=ps.find(x=>titleOf(x)===t);if(p)picks.push(p)});
- f.innerHTML='<div class="small">STAFF PICKS</div><h2 style="margin:4px 0">⭐ FEATURED ICONIC PICKS</h2><div class="imz-mini-grid">'+picks.map(p=>miniFeatured(p,'GAME MOD')).join('')+'</div>';
+ const featuredMarkup='<div class="small">STAFF PICKS</div><h2 style="margin:4px 0">⭐ FEATURED ICONIC PICKS</h2><div class="imz-mini-grid">'+picks.map(p=>miniFeatured(p,'GAME MOD')).join('')+'</div>';if(f.dataset.imzMarkup!==featuredMarkup){f.innerHTML=featuredMarkup;f.dataset.imzMarkup=featuredMarkup;}
  let oldRecent=$('imzUpdatedStrip');if(oldRecent)oldRecent.remove();
  let s=$('imzSuggestStrip');if(!s){s=document.createElement('div');s.id='imzSuggestStrip';s.className='imz-suggest-strip';home.appendChild(s)}
  const rv=(()=>{try{return JSON.parse(localStorage.getItem('imzRecentlyViewedV1')||'[]')}catch(e){return[]}})();
  const sug=rv.map(x=>findP(x.key)).filter(Boolean).slice(0,6);
- s.innerHTML='<div class="small">FOR YOU</div><h2 style="margin:4px 0">👀 YOU MAY ALSO LIKE</h2><div class="imz-mini-grid">'+(sug.length?sug.map(p=>mini(p,'BASED ON RECENTLY VIEWED')).join(''):'<div style="color:#777;padding:10px">View a few products and your personalized suggestions will appear here.</div>')+'</div>';
+ const suggestionMarkup='<div class="small">FOR YOU</div><h2 style="margin:4px 0">👀 YOU MAY ALSO LIKE</h2><div class="imz-mini-grid">'+(sug.length?sug.map(p=>mini(p,'BASED ON RECENTLY VIEWED')).join(''):'<div style="color:#777;padding:10px">View a few products and your personalized suggestions will appear here.</div>')+'</div>';if(s.dataset.imzMarkup!==suggestionMarkup){s.innerHTML=suggestionMarkup;s.dataset.imzMarkup=suggestionMarkup;}
 }
 
 /* 2 Search suggestions */
@@ -3509,7 +3550,7 @@ setTimeout(runRequested,500);
 .imz-review-box{width:min(100%,1240px);max-height:min(92vh,1040px);overflow:auto;background:radial-gradient(ellipse at 50% 0%,rgba(229,9,20,.13),transparent 42%),linear-gradient(145deg,#171719,#080809 72%);border:1px solid rgba(255,65,80,.55);border-radius:22px;padding:clamp(18px,3vw,34px);box-shadow:0 28px 100px rgba(0,0,0,.85),0 0 38px rgba(229,9,20,.12);transform:translateY(12px) scale(.985);transition:transform .22s ease}
 .imz-review-overlay.open .imz-review-box{transform:translateY(0) scale(1)}
 .imz-review-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:16px}.imz-review-kicker{font-size:11px;letter-spacing:2px;color:#ff6875;font-weight:800}.imz-review-head h2{margin:5px 0;font-size:clamp(22px,4vw,32px)}.imz-review-muted{color:#aaa;font-size:13px;line-height:1.5}.imz-review-close{border:1px solid #444;background:#222;color:#fff;border-radius:10px;font-size:24px;line-height:1;padding:7px 12px;cursor:pointer}
-.imz-review-counts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.imz-review-pill{border:1px solid #38383d;background:#111;border-radius:999px;padding:8px 12px;font-size:12px;color:#ddd}.imz-review-pill strong{color:#fff}.imz-review-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:14px;margin:20px 0}.imz-review-card{overflow:hidden;border:1px solid #38383d;border-radius:15px;background:linear-gradient(180deg,#171719,#0b0b0c);animation:imzReviewPop .28s both;animation-delay:calc(var(--i,0)*8ms);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.imz-review-card:hover{transform:translateY(-3px);border-color:#e50914;box-shadow:0 10px 28px rgba(0,0,0,.35)}.imz-review-img{width:100%;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 25%,#38383d,#141416 70%);color:#ff6472;font-size:40px;font-weight:900;overflow:hidden;border-bottom:1px solid #29292d}.imz-review-img img{width:100%;height:100%;object-fit:cover;display:block}.imz-review-name{padding:12px 9px 14px;text-align:center;font-size:14px;line-height:1.35;color:#fff;font-weight:800;overflow-wrap:anywhere;min-height:56px;display:flex;align-items:center;justify-content:center}.imz-review-overlay.roster-preview-mode .imz-review-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:15px}.imz-review-overlay.roster-preview-mode .imz-review-card{border-color:#3a292b}.imz-review-overlay.roster-preview-mode .imz-review-img{aspect-ratio:3/4}.imz-review-overlay.roster-preview-mode .imz-review-name{font-size:14px}.imz-roster-showcase-btn{position:relative;isolation:isolate!important;overflow:hidden;border:1px solid #ff626e!important;background:linear-gradient(115deg,#b80713,#f21d2b 48%,#8c0710)!important;color:#fff!important;font-weight:900!important;letter-spacing:.35px;padding:14px 22px!important;border-radius:12px!important;box-shadow:0 8px 26px rgba(229,9,20,.24),inset 0 1px rgba(255,255,255,.2);transition:transform .18s ease,box-shadow .18s ease!important}.imz-roster-showcase-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(229,9,20,.38),inset 0 1px rgba(255,255,255,.25)}.imz-roster-showcase-btn:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 25%,rgba(255,255,255,.18) 48%,transparent 70%);transform:translateX(-120%);transition:transform .5s ease}.imz-roster-showcase-btn:hover:before{transform:translateX(120%)}.imz-review-progress{height:7px;border-radius:999px;background:#2b2b30;overflow:hidden;margin:9px 0 16px}.imz-review-progress span{height:100%;display:block;background:linear-gradient(90deg,#e50914,#ff6974);border-radius:999px;box-shadow:0 0 15px rgba(229,9,20,.35)}.imz-review-empty{padding:28px 12px;text-align:center;border:1px dashed #555;border-radius:12px;color:#aaa;grid-column:1/-1}.imz-review-status{margin:12px 0;padding:12px;border-radius:10px;background:#171719;border:1px solid #333;color:#ddd;font-size:13px;line-height:1.5}.imz-review-status.good{border-color:#247d4c;color:#9cf0b8}.imz-review-actions{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end;border-top:1px solid #2c2c30;padding-top:15px;margin-top:14px}.imz-review-actions button:disabled{opacity:.45;cursor:not-allowed}.imz-confirm-action{white-space:nowrap}
+.imz-review-counts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.imz-review-pill{border:1px solid #38383d;background:#111;border-radius:999px;padding:8px 12px;font-size:12px;color:#ddd}.imz-review-pill strong{color:#fff}.imz-review-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:14px;margin:20px 0}.imz-review-card{overflow:hidden;border:1px solid #38383d;border-radius:15px;background:linear-gradient(180deg,#171719,#0b0b0c);animation:imzReviewPop .28s both;animation-delay:calc(var(--i,0)*8ms);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.imz-review-card:hover{transform:translateY(-3px);border-color:#e50914;box-shadow:0 10px 28px rgba(0,0,0,.35)}.imz-review-img{width:100%;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 25%,#38383d,#141416 70%);color:#ff6472;font-size:40px;font-weight:900;overflow:hidden;border-bottom:1px solid #29292d}.imz-review-img img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;padding:5px;box-sizing:border-box}.imz-review-name{padding:12px 9px 14px;text-align:center;font-size:14px;line-height:1.35;color:#fff;font-weight:800;overflow-wrap:anywhere;min-height:56px;display:flex;align-items:center;justify-content:center}.imz-review-overlay.roster-preview-mode .imz-review-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:15px}.imz-review-overlay.roster-preview-mode .imz-review-card{border-color:#3a292b}.imz-review-overlay.roster-preview-mode .imz-review-img{aspect-ratio:3/4}.imz-review-overlay.roster-preview-mode .imz-review-name{font-size:14px}.imz-roster-showcase-btn{position:relative;isolation:isolate!important;overflow:hidden;border:1px solid #ff626e!important;background:linear-gradient(115deg,#b80713,#f21d2b 48%,#8c0710)!important;color:#fff!important;font-weight:900!important;letter-spacing:.35px;padding:14px 22px!important;border-radius:12px!important;box-shadow:0 8px 26px rgba(229,9,20,.24),inset 0 1px rgba(255,255,255,.2);transition:transform .18s ease,box-shadow .18s ease!important}.imz-roster-showcase-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(229,9,20,.38),inset 0 1px rgba(255,255,255,.25)}.imz-roster-showcase-btn:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 25%,rgba(255,255,255,.18) 48%,transparent 70%);transform:translateX(-120%);transition:transform .5s ease}.imz-roster-showcase-btn:hover:before{transform:translateX(120%)}.imz-review-progress{height:7px;border-radius:999px;background:#2b2b30;overflow:hidden;margin:9px 0 16px}.imz-review-progress span{height:100%;display:block;background:linear-gradient(90deg,#e50914,#ff6974);border-radius:999px;box-shadow:0 0 15px rgba(229,9,20,.35)}.imz-review-empty{padding:28px 12px;text-align:center;border:1px dashed #555;border-radius:12px;color:#aaa;grid-column:1/-1}.imz-review-status{margin:12px 0;padding:12px;border-radius:10px;background:#171719;border:1px solid #333;color:#ddd;font-size:13px;line-height:1.5}.imz-review-status.good{border-color:#247d4c;color:#9cf0b8}.imz-review-actions{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end;border-top:1px solid #2c2c30;padding-top:15px;margin-top:14px}.imz-review-actions button:disabled{opacity:.45;cursor:not-allowed}.imz-confirm-action{white-space:nowrap}
 @keyframes imzReviewPop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:1050px){.imz-review-overlay.roster-preview-mode .imz-review-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}@media(max-width:760px){.imz-review-overlay.roster-preview-mode .imz-review-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.imz-review-grid{grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:10px}}@media(max-width:540px){.imz-review-overlay{padding:8px}.imz-review-box{max-height:94vh;border-radius:14px;padding:14px}.imz-review-grid,.imz-review-overlay.roster-preview-mode .imz-review-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.imz-review-name,.imz-review-overlay.roster-preview-mode .imz-review-name{font-size:11px;min-height:44px;padding:8px 5px}.imz-review-actions button{flex:1 1 100%}.imz-review-head h2{font-size:22px}}@media(max-width:360px){.imz-review-grid,.imz-review-overlay.roster-preview-mode .imz-review-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.imz-review-overlay,.imz-review-box,.imz-review-card{transition:none!important;animation:none!important}}
@@ -3521,12 +3562,12 @@ setTimeout(runRequested,500);
   function ensureReviewModal(){
     let modal=document.getElementById('imzSelectionReview');if(modal)return modal;
     modal=document.createElement('div');modal.id='imzSelectionReview';modal.className='imz-review-overlay';modal.setAttribute('role','dialog');modal.setAttribute('aria-modal','true');modal.setAttribute('aria-label','Review custom mod selections');
-    modal.innerHTML='<div class="imz-review-box"><div class="imz-review-head"><div><div class="imz-review-kicker">ICONIC MODZ • BUILD CONFIRMATION</div><h2 id="imzReviewTitle">Review Selection</h2><div class="imz-review-muted" id="imzReviewSubtitle">Check your selected images before continuing.</div></div><button type="button" class="imz-review-close" aria-label="Close review" onclick="imzCloseSelectionReview()">×</button></div><div class="imz-review-counts" id="imzReviewCounts"></div><div id="imzReviewStatus" class="imz-review-status"></div><div id="imzReviewGrid" class="imz-review-grid"></div><div class="imz-review-actions" id="imzReviewActions"></div></div>';
+    modal.innerHTML='<div class="imz-review-box"><div class="imz-review-head"><div><div class="imz-review-kicker">ICONIC MODZ • SELECTION REVIEW</div><h2 id="imzReviewTitle">Review Selection</h2><div class="imz-review-muted" id="imzReviewSubtitle">Check your selected images before continuing.</div></div><button type="button" class="imz-review-close" aria-label="Close review" onclick="imzCloseSelectionReview()">×</button></div><div class="imz-review-counts" id="imzReviewCounts"></div><div id="imzReviewStatus" class="imz-review-status"></div><div id="imzReviewGrid" class="imz-review-grid"></div><div class="imz-review-actions" id="imzReviewActions"></div></div>';
     modal.addEventListener('click',e=>{if(e.target===modal)window.imzCloseSelectionReview()});document.body.appendChild(modal);return modal;
   }
   function cards(items,kind){
     if(!items.length)return '<div class="imz-review-empty">No '+kind+' selected yet. Close this review and select your '+kind+' first.</div>';
-    return items.map((item,i)=>{const name=escReview(item.name||kind);const src=item.image||'';return `<div class="imz-review-card" style="--i:${Math.min(i,35)}"><div class="imz-review-img">${src?`<img src="${escReview(src)}" alt="${name}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${kind==='wrestler'?'W':'A'}'">`:(kind==='wrestler'?'W':'A')}</div><div class="imz-review-name">${name}</div></div>`}).join('');
+    return items.map((item,i)=>{const name=escReview(item.name||kind);const src=item.image||'';return `<div class="imz-review-card" style="--i:${Math.min(i,35)}"><div class="imz-review-img">${src?`<img src="${escReview(src)}" alt="${name}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${kind==='wrestler'?'W':'A'}'" decoding="async">`:(kind==='wrestler'?'W':'A')}</div><div class="imz-review-name">${name}${kind==='wrestler'?`<small class="imz-review-attire">ATTIRE #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[item.name])||1).padStart(2,'0')}</small>`:''}</div></div>`}).join('');
   }
   function open(kind){
     if(typeof selectedWrestlers==='undefined'||typeof selectedArenas==='undefined')return;
@@ -3534,11 +3575,11 @@ setTimeout(runRequested,500);
     const roster=selectedWrestlers.length,arena=selectedArenas.length,completeRoster=roster===79,completeArena=arena===18,complete=completeRoster&&completeArena;
     counts.innerHTML=`<span class="imz-review-pill">Wrestlers: <strong>${roster}/79</strong></span><span class="imz-review-pill">Arenas: <strong>${arena}/18</strong></span><span class="imz-review-pill">Package: <strong>$85</strong></span>`;
     if(kind==='wrestlers'){
-      title.textContent='Confirm Your Roster';sub.textContent='Review every selected wrestler image and name before locking in your roster.';grid.innerHTML=cards(selectedWrestlers,'wrestler');status.className='imz-review-status '+(completeRoster?'good':'');status.innerHTML=completeRoster?'✓ All 79 wrestler slots are selected. Confirm to continue to arenas.':`Select ${79-roster} more wrestler${79-roster===1?'':'s'} to confirm this roster. You can still edit your choices.`;
-      actions.innerHTML='<button class="btn dark" type="button" onclick="imzCloseSelectionReview();showCustomSection(\'wrestlers\');document.getElementById(\'customRequirements\')?.scrollIntoView({behavior:\'smooth\',block:\'start\'})">✎ Edit Roster</button><button class="btn red" type="button" '+(completeRoster?'':'disabled')+' onclick="imzConfirmRoster()">✓ Confirm Roster &amp; Continue</button>';
+      title.textContent='Roster Selection';sub.textContent='Your selection updates automatically. Use the large Open Roster Showcase button to view the wrestler images.';grid.innerHTML='';status.className='imz-review-status '+(completeRoster?'good':'');status.innerHTML=completeRoster?'✓ All 79 wrestler slots are selected. Your roster is complete; you can move on to arenas.':`Select ${79-roster} more wrestler${79-roster===1?'':'s'} to complete this roster. You can still edit your choices.`;
+      actions.innerHTML='<button class="btn dark" type="button" onclick="imzCloseSelectionReview();showCustomSection(\'wrestlers\');document.getElementById(\'customRequirements\')?.scrollIntoView({behavior:\'smooth\',block:\'start\'})">✎ Edit Roster</button><button class="btn red" type="button" onclick="imzCloseSelectionReview()">✓ Done</button>';
     }else if(kind==='arenas'){
-      title.textContent='Confirm Your Arenas';sub.textContent='Review the arena image grid before confirming your custom package.';grid.innerHTML=cards(selectedArenas,'arena');status.className='imz-review-status '+(completeArena?'good':'');status.innerHTML=completeArena?'✓ All 18 arena slots are selected. Confirm to review the complete build.':`Select ${18-arena} more arena${18-arena===1?'':'s'} to confirm. Your roster choices will stay saved.`;
-      actions.innerHTML='<button class="btn dark" type="button" onclick="imzCloseSelectionReview();showCustomSection(\'arenas\');document.getElementById(\'customRequirements\')?.scrollIntoView({behavior:\'smooth\',block:\'start\'})">✎ Edit Arenas</button><button class="btn red" type="button" '+(completeArena?'':'disabled')+' onclick="imzConfirmArenas()">✓ Confirm Arenas &amp; Review Build</button>';
+      title.textContent='Arena Selection';sub.textContent='Arena selection updates automatically. Your wrestler choices stay saved.';grid.innerHTML='';status.className='imz-review-status '+(completeArena?'good':'');status.innerHTML=completeArena?'✓ All 18 arena slots are selected. Your arena selection is complete; review your package below.':`Select ${18-arena} more arena${18-arena===1?'':'s'} to complete your arena selection. Your roster choices will stay saved.`;
+      actions.innerHTML='<button class="btn dark" type="button" onclick="imzCloseSelectionReview();showCustomSection(\'arenas\');document.getElementById(\'customRequirements\')?.scrollIntoView({behavior:\'smooth\',block:\'start\'})">✎ Edit Arenas</button><button class="btn red" type="button" onclick="imzCloseSelectionReview()">✓ Done</button>';
     }else if(kind==='selectedRoster'){
       title.textContent='Your Selected Wrestler Roster';sub.textContent='ROSTER SHOWCASE • Large image cards for every wrestler you selected. Edit your picks any time.';
       grid.innerHTML=roster?cards(selectedWrestlers,'wrestler'):'<div style="grid-column:1/-1;padding:36px;text-align:center;color:#aaa;border:1px dashed #444;border-radius:14px"><div style="font-size:38px;margin-bottom:10px">👑</div><b style="display:block;color:#fff;margin-bottom:7px">Your roster showcase is waiting</b>Choose wrestlers first, then open this preview.</div>';
@@ -3567,10 +3608,55 @@ setTimeout(runRequested,500);
     const grid=document.getElementById('productGrid');if(!grid)return;
     grid.querySelector('#imzUpcomingMods')?.remove();
     if(currentGame!=='hctp'||currentCategory!=='fullgame')return;
-    const cards=Array.from({length:5},(_,i)=>{const n=String(i+1).padStart(2,'0');return `<div class="imz-upcoming-card"><div class="imz-upcoming-image"><img src="images/mods/upcoming-${n}.jpg" alt="Upcoming Mod ${i+1}" onerror="this.remove();this.parentElement.textContent='UPCOMING ${n}'"></div><b>UPCOMING MOD ${i+1}</b><small>COMING SOON • DETAILS LATER</small></div>`}).join('');
+    const cards=Array.from({length:5},(_,i)=>{const n=String(i+1).padStart(2,'0');return `<div class="imz-upcoming-card"><div class="imz-upcoming-image"><img src="images/mods/upcoming-${n}.webp" data-imz-fallback="images/mods/upcoming-${n}.jpg" alt="Upcoming Mod ${i+1}" onerror="this.remove();this.parentElement.textContent='UPCOMING ${n}'" loading="lazy" decoding="async"></div><b>UPCOMING MOD ${i+1}</b><small>COMING SOON • DETAILS LATER</small></div>`}).join('');
     grid.insertAdjacentHTML('beforeend',`<section id="imzUpcomingMods" class="imz-upcoming-wrap"><div class="small">NEXT IN LINE</div><h2>🚀 UPCOMING MODZ</h2><p style="margin:0;color:#aaa;line-height:1.6">More ICONIC MODZ projects are in development. Names, previews and details will be added here soon.</p><div class="imz-upcoming-grid">${cards}</div></section>`);
   };
 })();
 </script>
+
+
+<style id="imzFinalPolish2026">
+/* Keep every image fully visible; empty padding is preferable to cropping important model, logo or screenshot details. */
+img{object-fit:contain!important;object-position:center center!important;max-width:100%}
+.card-img,.imz-mini-product,.imz-attire-card,.imz-review-img,.imz-home-course-pick,.imz-upcoming-image,.imz-attire-gallery-grid{background:#080808}
+.imz-home-course-pick{min-width:0;overflow:hidden;border:1px solid #292929;border-radius:14px;background:linear-gradient(145deg,#111,#080808);cursor:pointer;transition:border-color .2s,transform .2s}
+.imz-home-course-pick:hover{border-color:#e50914;transform:translateY(-2px)}
+.imz-home-course-pick img{display:block;width:100%;height:clamp(145px,20vw,220px);min-height:0;aspect-ratio:4/3;object-fit:contain!important;object-position:center!important;background:#080808;padding:10px;box-sizing:border-box}
+.imz-home-course-pick b{display:block;padding:12px;min-height:56px;line-height:1.4}
+.imz-attire-card img,.imz-attire-gallery-grid img,.imz-detail-preview,.imz-quick-layout img,.imz-review-img img{object-fit:contain!important;background:#080808}
+.imz-review-grid:empty{display:none!important}.imz-review-attire{display:block;color:#ff7b85;font-size:10px;letter-spacing:.7px;margin-top:6px}
+.imz-custom-attire-current{font-size:10px;font-weight:900;letter-spacing:.45px;color:#ff7b85;margin:8px 0 5px;min-height:14px}
+.imz-custom-attire-button{display:block;width:100%;min-height:39px;padding:9px 10px;border:1px solid rgba(255,74,90,.65);border-radius:9px;background:linear-gradient(115deg,#39080d,#16090a);color:#fff;font:900 11px 'Rajdhani',sans-serif;letter-spacing:.45px;cursor:pointer;transition:transform .18s,border-color .18s,background .18s}
+.imz-custom-attire-button:hover:not(:disabled){transform:translateY(-1px);border-color:#ff6b77;background:linear-gradient(115deg,#7a0b15,#23090c)}
+.imz-custom-attire-button:disabled{opacity:.5;cursor:not-allowed;border-color:#333;background:#111;color:#777}
+.imz-attire-picker-overlay{position:fixed;inset:0;z-index:19000;display:flex;align-items:center;justify-content:center;padding:14px;background:rgba(0,0,0,.86);backdrop-filter:blur(10px)}
+.imz-attire-picker-overlay.hidden{display:none}
+.imz-attire-picker-box{width:min(100%,1040px);max-height:92vh;overflow:auto;border:1px solid rgba(255,65,80,.55);border-radius:20px;padding:clamp(14px,2.5vw,26px);background:radial-gradient(ellipse at top,rgba(229,9,20,.14),transparent 42%),#09090b;box-shadow:0 24px 90px rgba(0,0,0,.8)}
+.imz-attire-picker-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}.imz-attire-picker-head h2{font-size:clamp(21px,4vw,30px);margin:5px 0}.imz-attire-picker-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.imz-attire-picker-card{min-width:0;overflow:hidden;border:1px solid #302326;border-radius:12px;background:#101012;color:#fff;cursor:pointer;text-align:left;transition:transform .18s,border-color .18s,box-shadow .18s}.imz-attire-picker-card:hover,.imz-attire-picker-card.active{transform:translateY(-2px);border-color:#ff4656;box-shadow:0 8px 22px rgba(229,9,20,.16)}.imz-attire-picker-card img{display:block;width:100%;aspect-ratio:3/4;object-fit:contain!important;background:#080808}.imz-attire-picker-card b{display:block;padding:9px;font-size:12px}.imz-attire-picker-card.active b{color:#ff7b85}.imz-attire-picker-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid #282226;color:#aaa;font-size:12px}
+#imzBackToTop{position:fixed;right:18px;bottom:82px;z-index:8995;display:flex;align-items:center;gap:8px;padding:11px 15px;border:1px solid rgba(255,90,105,.65);border-radius:999px;background:linear-gradient(120deg,#a80713,#f31d31 55%,#870610);color:#fff;font:900 12px 'Rajdhani',sans-serif;letter-spacing:.7px;box-shadow:0 8px 28px rgba(0,0,0,.5),0 0 20px rgba(229,9,20,.16);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;cursor:pointer}
+#imzBackToTop.visible{opacity:1;visibility:visible;transform:translateY(0)}#imzBackToTop:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media(max-width:700px){.imz-attire-picker-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.imz-attire-picker-box{max-height:94vh;border-radius:15px;padding:12px}.imz-attire-picker-card b{font-size:11px;padding:8px}#imzBackToTop{right:12px;bottom:76px;padding:10px 12px;font-size:11px}.imz-home-course-pick img{height:145px;padding:7px}}
+@media(prefers-reduced-motion:reduce){.imz-home-course-pick,.imz-custom-attire-button,.imz-attire-picker-card,#imzBackToTop{transition:none!important}}
+</style>
+<script id="imzFinalPolish2026Script">
+(function(){
+'use strict';
+window.imzCustomAttireChoices=window.imzCustomAttireChoices||{};
+const $=id=>document.getElementById(id);
+const esc=s=>typeof imzEscape==='function'?imzEscape(String(s??'')):String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function slug(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function ensureAttirePicker(){let m=$('imzCustomAttirePicker');if(m)return m;m=document.createElement('div');m.id='imzCustomAttirePicker';m.className='imz-attire-picker-overlay hidden';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.innerHTML='<div class="imz-attire-picker-box"><div class="imz-attire-picker-head"><div><div class="small">CUSTOM MOD • ATTIRE SELECTION</div><h2 id="imzCustomAttireTitle">Choose Attire</h2><p style="margin:0;color:#aaa">The main render only represents the wrestler. Choose one of the 10 actual attire files below.</p></div><button type="button" class="imz-review-close" aria-label="Close attire picker" onclick="imzCloseCustomAttirePicker()">×</button></div><div class="imz-attire-picker-grid" id="imzCustomAttireGrid"></div><div class="imz-attire-picker-footer"><span id="imzCustomAttireFooter">Choose one attire for this wrestler.</span><button type="button" class="btn dark" onclick="imzCloseCustomAttirePicker()">Cancel</button></div></div>';m.addEventListener('click',e=>{if(e.target===m)window.imzCloseCustomAttirePicker()});document.body.appendChild(m);return m}
+window.imzOpenCustomAttirePicker=function(index){const w=typeof wrestlers!=='undefined'?wrestlers[index]:null;if(!w)return;if(typeof selectedWrestlers==='undefined'||!selectedWrestlers.some(x=>x.name===w.name)){alert('Select this wrestler in your Custom Mod roster first.');return}const modal=ensureAttirePicker(),grid=$('imzCustomAttireGrid'),chosen=Number(window.imzCustomAttireChoices[w.name]||1),folder='images/wrestlers/'+slug(w.name);$('imzCustomAttireTitle').textContent=w.name+' — Choose Attire';grid.innerHTML=Array.from({length:10},(_,i)=>{const n=i+1,src=folder+'/alternate-'+String(n).padStart(2,'0')+'.webp';return `<button type="button" class="imz-attire-picker-card ${n===chosen?'active':''}" onclick="imzChooseCustomAttire(${index},${n})"><img src="${esc(src)}" alt="${esc(w.name)} Attire ${String(n).padStart(2,'0')}" loading="lazy" decoding="async"><b>${n===chosen?'✓ SELECTED • ':''}ATTIRE #${String(n).padStart(2,'0')}</b></button>`}).join('');$('imzCustomAttireFooter').textContent='Current choice: Attire #'+String(chosen).padStart(2,'0')+' • Included in the $85 Custom Mod';modal.classList.remove('hidden');document.body.style.overflow='hidden'};
+window.imzChooseCustomAttire=function(index,n){const w=typeof wrestlers!=='undefined'?wrestlers[index]:null;if(!w||n<1||n>10)return;window.imzCustomAttireChoices[w.name]=n;window.imzCloseCustomAttirePicker();const search=$('customListSearch')?.value||'';if(typeof window.renderWrestlers==='function')window.renderWrestlers();if(search&&typeof window.filterCustomList==='function')window.filterCustomList(search);if(typeof window.updateBuilderRequirements==='function')window.updateBuilderRequirements();if(typeof window.imzOpenSelectionReview==='function'){/* latest choices will appear next time preview opens */}};
+window.imzCloseCustomAttirePicker=function(){const m=$('imzCustomAttirePicker');if(m)m.classList.add('hidden');document.body.style.overflow=''};
+function ensureBackToTop(){if($('imzBackToTop'))return;const b=document.createElement('button');b.id='imzBackToTop';b.type='button';b.setAttribute('aria-label','Back to top');b.innerHTML='<span aria-hidden="true">↑</span> BACK TO TOP';b.onclick=()=>window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});document.body.appendChild(b);const update=()=>b.classList.toggle('visible',window.scrollY>500);window.addEventListener('scroll',update,{passive:true});update()}
+function setImageBehavior(img){if(!img||img.tagName!=='IMG')return;img.decoding='async';if(!img.loading)img.loading='lazy';try{const r=img.getBoundingClientRect();if(r.top<window.innerHeight*1.15&&r.bottom>0)img.loading='eager'}catch(e){}const raw=img.getAttribute('src');if(!raw||img.dataset.imzWebpTried||!/^images\//i.test(raw)||! /\.(jpe?g|png)$/i.test(raw))return;const webp=raw.replace(/\.(jpe?g|png)$/i,'.webp');if(webp===raw)return;img.dataset.imzOriginalSrc=raw;img.dataset.imzWebpTried='1';img.src=webp}
+document.addEventListener('error',function(e){const img=e.target;if(!img||img.tagName!=='IMG')return;if(img.dataset.imzWebpTried==='1'&&img.dataset.imzOriginalSrc){img.dataset.imzWebpTried='2';img.src=img.dataset.imzOriginalSrc;e.stopImmediatePropagation();return}if(img.dataset.imzFallback){const fallback=img.dataset.imzFallback;delete img.dataset.imzFallback;img.src=fallback;e.stopImmediatePropagation()}},true);
+function scanImages(root){(root||document).querySelectorAll?.('img').forEach(setImageBehavior)}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{scanImages(document);ensureBackToTop()},{once:true});else{scanImages(document);ensureBackToTop()}
+const mo=new MutationObserver(records=>{for(const r of records)for(const node of r.addedNodes)if(node.nodeType===1){if(node.tagName==='IMG')setImageBehavior(node);scanImages(node)}});mo.observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script>
+
 </body>
 </html>
