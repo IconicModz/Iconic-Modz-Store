@@ -709,6 +709,24 @@ img{object-fit:contain!important;object-position:center center!important;}
 .imz-roster-showcase-btn{min-width:min(100%,340px);font-size:16px!important;padding:16px 26px!important}
 
 </style>
+
+<style id="imz-requested-roster-and-youtube-fixes">
+/* Group labels for Custom Mod wrestler selection */
+#wrestlerGrid .imz-roster-group-heading{grid-column:1/-1;padding:15px 18px;margin:10px 0 2px;border:1px solid #3a2022;border-left:4px solid #e50914;border-radius:10px;background:linear-gradient(100deg,#19090b,#101010);font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:900;letter-spacing:1.4px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:12px}
+#wrestlerGrid .imz-roster-group-heading span{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;color:#aaa;white-space:nowrap}
+#wrestlerGrid .imz-female-roster-heading{margin-top:28px}
+/* YouTube video cards: large 16:9 thumbnails like the mobile YouTube feed */
+.youtube-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.youtube-card{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:10px;overflow:hidden}
+.youtube-thumb{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#000;border-radius:9px}
+.youtube-card-title{font-size:16px;line-height:1.4;padding:12px 4px 0}
+.youtube-card-label{padding:0 4px 5px}
+#previewModal .modal-box{max-width:1240px;width:min(98vw,1240px);max-height:94vh;padding:clamp(12px,2vw,28px)}
+#previewModal .preview-video{width:100%;aspect-ratio:16/9;min-height:0}
+#previewModal .preview-video iframe{width:100%;height:100%;min-height:0}
+@media(max-width:700px){.youtube-grid{grid-template-columns:1fr}.youtube-card{padding:8px}.youtube-card-title{font-size:16px}#previewModal .modal-box{width:100%;max-width:none;max-height:96vh;border-radius:12px;padding:10px}#previewModal .preview-video{width:100%;aspect-ratio:16/9}}
+</style>
+
 </head>
 
 <body>
@@ -1625,12 +1643,12 @@ titantrons:[]
 const v1Credits=["Aguila316","80las","ModdingGeneration","Nero619","Riot","ERI619","Erm31","Ps2 Eater","LGIYT","Ryukuuma","a7med7assan5","angrygamershow","L.O.M.","THQ"];
 const v1RosterGroups = [
   {name:"BLOODLINE", members:["Roman Reigns","Solo Sikoa","Jey Uso","Jimmy Uso","Jacob Fatu","Paul Heyman"]},
-  {name:"THE WYATT FAMILY", members:["Luke Harper","Erick Rowan","Bray Wyatt / The Fiend"]},
+  {name:"THE WYATT FAMILY", members:["Luke Harper","Erick Rowan","The Fiend Bray Wyatt"]},
   {name:"THE NEW DAY", members:["Big E","Kofi Kingston","Xavier Woods"]},
-  {name:"THE JUDGEMENT DAY", members:["Finn Balor","Damien Priest","Dominik Mysterio"]},
-  {name:"DIVAS", members:["Lita [Diva]","Sable [Diva]","Stacy Keibler [Diva]","Torrie Wilson [Diva]","Trish Stratus [Diva]"], optional:["Nikkie Bella","Berrie Bella","Paige","Debra"]},
+  {name:"THE JUDGEMENT DAY", members:["Finn Bálor","Damian Priest","Dominik Mysterio"]},
+  {name:"DIVAS", members:["Lita [Diva]","Sable [Diva]","Stacy Keibler [Diva]","Torrie Wilson [Diva]","Trish Stratus [Diva]"], optional:["Nikki Bella","Brie Bella","Paige","Debra"]},
   {name:"STAFF MEMBERS", members:["Earl Hebner [Staff]","Mike Chioda [Staff]","Stephanie McMahon [Staff]","Vince McMahon [Staff]"]},
-  {name:"UPDATED SUPERSTARS", members:["Kurt Angle","AJ Styles","Aleister Black","Angelo Dawkins","Baron Corbin","Batista","Big Show","Bobby Lashley","Braun Strowman","Brock Lesnar","Bron Breakker","Bryan Danielson","Bubba Ray Dudley","Cesaro","Chris Jericho","Christian","CM Punk","Cody Rhodes","Darby Allin","D-Von Dudley","Dolph Ziggler","Drew McIntyre","Edge","Goldberg","Gunther","Hulk Hogan","Jeff Hardy","Jinder Mahal","John Cena","John Morrison","Jon Moxley","Kane","Referee","Kevin Owens","Logan Paul","Mark Henry","Matt Hardy","Matt Riddle","Montez Ford","Omos","Randy Orton","Rey Mysterio","Ricochet","Rob Van Dam","Rusev","Ryback","Sami Zayn","Samoa Joe","Scott Hall","Scott Steiner","Seth Freakin Rollins","Shinsuke Nakamura","Sheamus","Shawn Michaels","Steve Austin","Sting","The Great Khali","The Miz","The Rock [Final Boss]","The Undertaker","Tommaso Ciampa","Triple H","Undertaker","Ultimo Dragon / Kalisto / Sin Cara"]},
+  {name:"UPDATED SUPERSTARS", members:["Kurt Angle","AJ Styles","Aleister Black","Angelo Dawkins","Baron Corbin","Batista","Big Show","Bobby Lashley","Braun Strowman","Brock Lesnar","Bron Breakker","Bryan Danielson","Bubba Ray Dudley","Cesaro","Chris Jericho","Christian","CM Punk","Cody Rhodes","Darby Allin","D-Von Dudley","Dolph Ziggler","Drew McIntyre","Edge","Goldberg","Gunther","Hulk Hogan","Jeff Hardy","Jinder Mahal","John Cena","John Morrison","Jon Moxley","Kane","Referee","Kevin Owens","Logan Paul","Mark Henry","Matt Hardy","Matt Riddle","Montez Ford","Omos","Randy Orton","Rey Mysterio","Ricochet","Rob Van Dam","Rusev","Ryback","Sami Zayn","Samoa Joe","Scott Hall","Scott Steiner","Seth Rollins","Shinsuke Nakamura","Sheamus","Shawn Michaels","Stone Cold Steve Austin","Sting","The Great Khali","The Miz","The Rock [Final Boss]","The Undertaker","Tommaso Ciampa","Triple H","Undertaker","Ultimo Dragon / Kalisto / Sin Cara"]},
   {name:"SPECIAL", members:["Superstar CAWS 32","Special Cheats","HD TEXTURES that you can play 4k quality"]}
 ];
 function imzRosterKey(value){
@@ -1759,7 +1777,6 @@ const wrestlers=[
 {name:"Logan Paul",price:0,image:"images/wrestlers/wrestler026.jpg"},
 {name:"AJ Styles",price:0,image:"images/wrestlers/wrestler027.jpg"},
 {name:"Rey Mysterio",price:0,image:"images/wrestlers/wrestler028.jpg"},
-{name:"Finn B\u00e1lor",price:0,image:"images/wrestlers/wrestler029.jpg"},
 {name:"Damian Priest",price:0,image:"images/wrestlers/wrestler030.jpg"},
 {name:"Shinsuke Nakamura",price:0,image:"images/wrestlers/wrestler031.jpg"},
 {name:"Bobby Lashley",price:0,image:"images/wrestlers/wrestler032.jpg"},
@@ -1841,12 +1858,10 @@ const wrestlers=[
 
 {name:"Luke Harper",price:0,image:"images/wrestlers/wrestler108.jpg"},
 {name:"Erick Rowan",price:0,image:"images/wrestlers/wrestler109.jpg"},
-{name:"Bray Wyatt / The Fiend",price:0,image:"images/wrestlers/wrestler110.jpg"},
 {name:"Big E",price:0,image:"images/wrestlers/wrestler111.jpg"},
 {name:"Kofi Kingston",price:0,image:"images/wrestlers/wrestler112.jpg"},
 {name:"Xavier Woods",price:0,image:"images/wrestlers/wrestler113.jpg"},
 {name:"Finn Balor",price:0,image:"images/wrestlers/wrestler114.jpg"},
-{name:"Damien Priest",price:0,image:"images/wrestlers/wrestler115.jpg"},
 {name:"Aleister Black",price:0,image:"images/wrestlers/wrestler116.jpg"},
 {name:"Braun Strowman",price:0,image:"images/wrestlers/wrestler117.jpg"},
 {name:"Bryan Danielson",price:0,image:"images/wrestlers/wrestler118.jpg"},
@@ -1862,14 +1877,31 @@ const wrestlers=[
 {name:"Ryback",price:0,image:"images/wrestlers/wrestler128.jpg"},
 {name:"Samoa Joe",price:0,image:"images/wrestlers/wrestler129.jpg"},
 {name:"Scott Steiner",price:0,image:"images/wrestlers/wrestler130.jpg"},
-{name:"Seth Freakin Rollins",price:0,image:"images/wrestlers/wrestler131.jpg"},
-{name:"Steve Austin",price:0,image:"images/wrestlers/wrestler132.jpg"},
 {name:"Sting",price:0,image:"images/wrestlers/wrestler133.jpg"},
-{name:"Nikkie Bella",price:0,image:"images/wrestlers/wrestler134.jpg"},
-{name:"Berrie Bella",price:0,image:"images/wrestlers/wrestler135.jpg"},
+{name:"Nikki Bella",price:0,image:"images/wrestlers/wrestler134.jpg"},
+{name:"Brie Bella",price:0,image:"images/wrestlers/wrestler135.jpg"},
 {name:"Paige",price:0,image:"images/wrestlers/wrestler136.jpg"},
-{name:"Debra",price:0,image:"images/wrestlers/wrestler137.jpg"}
-
+{name:"Debra",price:0,image:"images/wrestlers/wrestler137.jpg"},
+{name:"Akam",price:0,image:"images/wrestlers/wrestler138.jpg"},
+{name:"Adam Cole",price:0,image:"images/wrestlers/wrestler139.jpg"},
+{name:"Karl Anderson",price:0,image:"images/wrestlers/wrestler140.jpg"},
+{name:"Sin Cara",price:0,image:"images/wrestlers/wrestler141.jpg"},
+{name:"Kalisto",price:0,image:"images/wrestlers/wrestler142.jpg"},
+{name:"Ultimo Dragon",price:0,image:"images/wrestlers/wrestler143.jpg"},
+{name:"Victoria",price:0,image:"images/wrestlers/wrestler144.jpg"},
+{name:"Jazz",price:0,image:"images/wrestlers/wrestler145.jpg"},
+{name:"Sable",price:0,image:"images/wrestlers/wrestler146.jpg"},
+{name:"Trish Stratus",price:0,image:"images/wrestlers/wrestler147.jpg"},
+{name:"Lita",price:0,image:"images/wrestlers/wrestler148.jpg"},
+{name:"Stacy Keibler",price:0,image:"images/wrestlers/wrestler149.jpg"},
+{name:"Torrie Wilson",price:0,image:"images/wrestlers/wrestler150.jpg"},
+{name:"Stephanie McMahon",price:0,image:"images/wrestlers/wrestler151.jpg"},
+{name:"AJ Lee",price:0,image:"images/wrestlers/wrestler152.jpg"},
+{name:"Rhea Ripley",price:0,image:"images/wrestlers/wrestler153.jpg"},
+{name:"Liv Morgan",price:0,image:"images/wrestlers/wrestler154.jpg"},
+{name:"Tiffany Stratton",price:0,image:"images/wrestlers/wrestler155.jpg"},
+{name:"Nikki Cross",price:0,image:"images/wrestlers/wrestler156.jpg"},
+{name:"Diamond Dallas Page",price:0,image:"images/wrestlers/wrestler157.jpg"},
 ];
 
 
@@ -2674,31 +2706,39 @@ updateBuilderRequirements();
 function renderWrestlers(){
 
 const grid=document.getElementById("wrestlerGrid");
-
-grid.innerHTML=wrestlers.map((w,index)=>{
-
-const selected=selectedWrestlers.some(x=>x.name===w.name);
-
-return `
-<div class="card wrestler ${selected?"selected":""}" onclick="toggleWrestler(${index})">
-<div class="card-img">
-${w.image?`<img src="${w.image}" alt="${w.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" decoding="async">`:''}
-<div class="placeholder" style="${w.image?'display:none':''}">W</div>
-</div>
-<div class="card-body">
-<div class="check">✓</div>
-<h2>${imzEscape(w.name)}</h2>
-<div class="price">Included in $85 Custom Mod</div>
-<p>${selected?"Selected":"Select Model"}</p>
-<div class="imz-custom-attire-current">${selected?`👕 ATTIRE #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[w.name])||1).padStart(2,"0")} SELECTED`:`Choose model to unlock attire selection`}</div>
-<button type="button" class="imz-custom-attire-button" ${selected?"":"disabled"} onclick="event.stopPropagation();imzOpenCustomAttirePicker(${index})">👕 CHOOSE ATTIRE • 10 AVAILABLE</button>
-</div>
-</div>`;
-}).join("");
-
+const femaleRosterNames=[
+"Victoria","Jazz","Sable","Trish Stratus","Lita","Stacy Keibler","Torrie Wilson",
+"Stephanie McMahon","AJ Lee","Paige","Nikki Bella","Brie Bella","Rhea Ripley",
+"Liv Morgan","Tiffany Stratton","Nikki Cross","Debra"
+];
+const isFemaleWrestler=w=>femaleRosterNames.some(n=>imzRosterKey(n)===imzRosterKey(w.name));
+const renderCard=(w)=>{
+  const index=wrestlers.indexOf(w);
+  const selected=selectedWrestlers.some(x=>x.name===w.name);
+  return `
+  <div class="card wrestler ${selected?"selected":""}" onclick="toggleWrestler(${index})">
+    <div class="card-img">
+      ${w.image?`<img src="${w.image}" alt="${imzEscape(w.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" decoding="async">`:''}
+      <div class="placeholder" style="${w.image?'display:none':''}">W</div>
+    </div>
+    <div class="card-body">
+      <div class="check">✓</div>
+      <h2>${imzEscape(w.name)}</h2>
+      <div class="price">Included in $85 Custom Mod</div>
+      <p>${selected?"Selected":"Select Model"}</p>
+      <div class="imz-custom-attire-current">${selected?`👕 ATTIRE #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[w.name])||1).padStart(2,"0")} SELECTED`:`Choose model to unlock attire selection`}</div>
+      <button type="button" class="imz-custom-attire-button" ${selected?"":"disabled"} onclick="event.stopPropagation();imzOpenCustomAttirePicker(${index})">👕 CHOOSE ATTIRE • 10 AVAILABLE</button>
+    </div>
+  </div>`;
+};
+const maleRoster=wrestlers.filter(w=>!isFemaleWrestler(w));
+const femaleRoster=wrestlers.filter(w=>isFemaleWrestler(w));
+grid.innerHTML=`<div class="imz-roster-group-heading">MEN'S ROSTER <span>${maleRoster.length} MODELS</span></div>`+
+  maleRoster.map(renderCard).join("")+
+  `<div class="imz-roster-group-heading imz-female-roster-heading">WOMEN'S ROSTER <span>${femaleRoster.length} MODELS</span></div>`+
+  femaleRoster.map(renderCard).join("");
 updateTotal();
 }
-
 
 function renderCustomItems(type){
 
@@ -3562,7 +3602,7 @@ setTimeout(runRequested,500);
   function ensureReviewModal(){
     let modal=document.getElementById('imzSelectionReview');if(modal)return modal;
     modal=document.createElement('div');modal.id='imzSelectionReview';modal.className='imz-review-overlay';modal.setAttribute('role','dialog');modal.setAttribute('aria-modal','true');modal.setAttribute('aria-label','Review custom mod selections');
-    modal.innerHTML='<div class="imz-review-box"><div class="imz-review-head"><div><div class="imz-review-kicker">ICONIC MODZ • SELECTION REVIEW</div><h2 id="imzReviewTitle">Review Selection</h2><div class="imz-review-muted" id="imzReviewSubtitle">Check your selected images before continuing.</div></div><button type="button" class="imz-review-close" aria-label="Close review" onclick="imzCloseSelectionReview()">×</button></div><div class="imz-review-counts" id="imzReviewCounts"></div><div id="imzReviewStatus" class="imz-review-status"></div><div id="imzReviewGrid" class="imz-review-grid"></div><div class="imz-review-actions" id="imzReviewActions"></div></div>';
+    modal.innerHTML='<div class="imz-review-box"><div class="imz-review-head"><div><div class="imz-review-kicker">ICONIC MODZ • BUILD CONFIRMATION</div><h2 id="imzReviewTitle">Review Selection</h2><div class="imz-review-muted" id="imzReviewSubtitle">Check your selected images before continuing.</div></div><button type="button" class="imz-review-close" aria-label="Close review" onclick="imzCloseSelectionReview()">×</button></div><div class="imz-review-counts" id="imzReviewCounts"></div><div id="imzReviewStatus" class="imz-review-status"></div><div id="imzReviewGrid" class="imz-review-grid"></div><div class="imz-review-actions" id="imzReviewActions"></div></div>';
     modal.addEventListener('click',e=>{if(e.target===modal)window.imzCloseSelectionReview()});document.body.appendChild(modal);return modal;
   }
   function cards(items,kind){
@@ -3575,10 +3615,10 @@ setTimeout(runRequested,500);
     const roster=selectedWrestlers.length,arena=selectedArenas.length,completeRoster=roster===79,completeArena=arena===18,complete=completeRoster&&completeArena;
     counts.innerHTML=`<span class="imz-review-pill">Wrestlers: <strong>${roster}/79</strong></span><span class="imz-review-pill">Arenas: <strong>${arena}/18</strong></span><span class="imz-review-pill">Package: <strong>$85</strong></span>`;
     if(kind==='wrestlers'){
-      title.textContent='Roster Selection';sub.textContent='Your selection updates automatically. Use the large Open Roster Showcase button to view the wrestler images.';grid.innerHTML='';status.className='imz-review-status '+(completeRoster?'good':'');status.innerHTML=completeRoster?'✓ All 79 wrestler slots are selected. Your roster is complete; you can move on to arenas.':`Select ${79-roster} more wrestler${79-roster===1?'':'s'} to complete this roster. You can still edit your choices.`;
+      title.textContent='Roster Selection';sub.textContent='Your selection updates automatically. Use the large Open Roster Showcase button to view the wrestler images.';grid.innerHTML='';status.className='imz-review-status '+(completeRoster?'good':'');status.innerHTML=completeRoster?'✓ All 79 wrestler slots are selected. Confirm to continue to arenas.':`Select ${79-roster} more wrestler${79-roster===1?'':'s'} to confirm this roster. You can still edit your choices.`;
       actions.innerHTML='<button class="btn dark" type="button" onclick="imzCloseSelectionReview();showCustomSection(\'wrestlers\');document.getElementById(\'customRequirements\')?.scrollIntoView({behavior:\'smooth\',block:\'start\'})">✎ Edit Roster</button><button class="btn red" type="button" onclick="imzCloseSelectionReview()">✓ Done</button>';
     }else if(kind==='arenas'){
-      title.textContent='Arena Selection';sub.textContent='Arena selection updates automatically. Your wrestler choices stay saved.';grid.innerHTML='';status.className='imz-review-status '+(completeArena?'good':'');status.innerHTML=completeArena?'✓ All 18 arena slots are selected. Your arena selection is complete; review your package below.':`Select ${18-arena} more arena${18-arena===1?'':'s'} to complete your arena selection. Your roster choices will stay saved.`;
+      title.textContent='Arena Selection';sub.textContent='Arena selection updates automatically. Your wrestler choices stay saved.';grid.innerHTML='';status.className='imz-review-status '+(completeArena?'good':'');status.innerHTML=completeArena?'✓ All 18 arena slots are selected. Confirm to review the complete build.':`Select ${18-arena} more arena${18-arena===1?'':'s'} to confirm. Your roster choices will stay saved.`;
       actions.innerHTML='<button class="btn dark" type="button" onclick="imzCloseSelectionReview();showCustomSection(\'arenas\');document.getElementById(\'customRequirements\')?.scrollIntoView({behavior:\'smooth\',block:\'start\'})">✎ Edit Arenas</button><button class="btn red" type="button" onclick="imzCloseSelectionReview()">✓ Done</button>';
     }else if(kind==='selectedRoster'){
       title.textContent='Your Selected Wrestler Roster';sub.textContent='ROSTER SHOWCASE • Large image cards for every wrestler you selected. Edit your picks any time.';
