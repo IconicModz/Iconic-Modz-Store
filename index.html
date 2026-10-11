@@ -727,6 +727,15 @@ img{object-fit:contain!important;object-position:center center!important;}
 @media(max-width:700px){.youtube-grid{grid-template-columns:1fr}.youtube-card{padding:8px}.youtube-card-title{font-size:16px}#previewModal .modal-box{width:100%;max-width:none;max-height:96vh;border-radius:12px;padding:10px}#previewModal .preview-video{width:100%;aspect-ratio:16/9}}
 </style>
 
+
+<style id="imz-roster-database-style">
+.imz-roster-filters{margin:16px 0 20px;padding:16px;border:1px solid #302326;border-radius:14px;background:linear-gradient(145deg,#151112,#090909)}
+.imz-roster-filter-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;font-family:'Rajdhani',sans-serif;letter-spacing:1.4px}.imz-roster-filter-top strong{font-size:20px}.imz-roster-filter-top span{font:700 12px Arial;color:#aaa;letter-spacing:.3px}
+.imz-roster-filter-controls{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.imz-roster-filter-controls input,.imz-roster-filter-controls select{min-width:0;width:100%;padding:12px 10px;border:1px solid #383838;border-radius:8px;background:#090909;color:#fff;font-size:13px;outline:none}.imz-roster-filter-controls input:focus,.imz-roster-filter-controls select:focus{border-color:#e50914}.imz-roster-filter-help{font-size:12px;color:#999;margin-top:10px;line-height:1.5}.imz-card-tags{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}.imz-card-tag{font-size:10px;font-weight:800;color:#f1c4c7;background:#291114;border:1px solid #4c2025;border-radius:20px;padding:4px 7px}.imz-roster-loadmore-wrap{display:flex;justify-content:center;padding:22px 0}.imz-roster-loadmore-wrap button{min-width:220px}.imz-roster-empty{grid-column:1/-1;text-align:center;color:#aaa;padding:36px 12px;border:1px dashed #444;border-radius:12px}
+@media(max-width:850px){.imz-roster-filter-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.imz-roster-filter-controls input{grid-column:1/-1}}
+@media(max-width:480px){.imz-roster-filters{padding:11px}.imz-roster-filter-top{align-items:flex-start;flex-direction:column}.imz-roster-filter-controls{grid-template-columns:1fr}.imz-roster-filter-controls input{grid-column:auto}.imz-roster-filter-controls input,.imz-roster-filter-controls select{font-size:16px}}
+</style>
+
 </head>
 
 <body>
@@ -1123,7 +1132,19 @@ move sets, arenas and titantrons — all in one place.
 <div class="imz-grid-confirm-row imz-roster-showcase-row">
 <button class="btn red imz-roster-showcase-btn" type="button" onclick="imzOpenSelectionReview('selectedRoster')">👑 OPEN ROSTER SHOWCASE ↗</button>
 </div>
+<div id="imzRosterFilters" class="imz-roster-filters">
+  <div class="imz-roster-filter-top"><strong>ROSTER DATABASE</strong><span id="imzRosterCount">Loading roster…</span></div>
+  <div class="imz-roster-filter-controls">
+    <input id="imzRosterSearch" type="search" placeholder="Search all wrestlers by full or partial name…" aria-label="Search wrestlers" oninput="imzRosterSearchInput(this.value)">
+    <select id="imzRosterEra" aria-label="Filter by era" onchange="imzApplyRosterFilters()"><option value="">All Eras</option><option>Modern Era</option><option>Attitude Era</option><option>Ruthless Aggression</option><option>Golden Era</option><option>WCW / nWo</option><option>Legends / Hall of Fame</option><option>NXT / Rising Stars</option></select>
+    <select id="imzRosterPromotion" aria-label="Filter by promotion" onchange="imzApplyRosterFilters()"><option value="">All Promotions</option><option>WWE</option><option>WCW</option><option>ECW</option><option>AEW / ROH</option><option>TNA / Impact</option><option>NJPW / Japan</option><option>Other / Indies</option></select>
+    <select id="imzRosterFaction" aria-label="Filter by faction" onchange="imzApplyRosterFilters()"><option value="">All Factions</option><option>The Bloodline</option><option>nWo</option><option>D-Generation X</option><option>Evolution</option><option>The Shield</option><option>Judgment Day</option><option>Wyatt Family / Wyatt Sicks</option><option>The New Day</option><option>The Four Horsemen</option><option>The Hardy Boyz</option><option>The Dudley Boyz</option><option>Damage CTRL</option><option>The Bella Twins</option></select>
+    <select id="imzRosterGender" aria-label="Filter by gender" onchange="imzApplyRosterFilters()"><option value="">All Wrestlers</option><option value="Male">Men</option><option value="Female">Women</option></select>
+  </div>
+  <div class="imz-roster-filter-help">Choose any filter. One wrestler can appear in several eras, promotions and factions without duplicate records.</div>
+</div>
 <div id="wrestlerGrid" class="grid"></div>
+<div class="imz-roster-loadmore-wrap"><button id="imzRosterLoadMore" type="button" class="btn dark" onclick="imzLoadMoreRoster()">LOAD MORE WRESTLERS</button></div>
 <div id="arenaGrid" class="grid hidden"></div>
 <div id="titantronGrid" class="grid hidden"></div>
 <div class="totalbar">
@@ -1901,8 +1922,1134 @@ const wrestlers=[
 {name:"Liv Morgan",price:0,image:"images/wrestlers/wrestler154.jpg"},
 {name:"Tiffany Stratton",price:0,image:"images/wrestlers/wrestler155.jpg"},
 {name:"Nikki Cross",price:0,image:"images/wrestlers/wrestler156.jpg"},
-{name:"Diamond Dallas Page",price:0,image:"images/wrestlers/wrestler157.jpg"},
+{name:"Diamond Dallas Page",price:0,image:"images/wrestlers/wrestler157.jpg"},,
+{name:"Abismo Negro Jr.",price:0,image:"images/wrestlers/roster-extra-0001.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Adam Pearce",price:0,image:"images/wrestlers/roster-extra-0002.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Alicia Taylor",price:0,image:"images/wrestlers/roster-extra-0003.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Andrea Bazarte",price:0,image:"images/wrestlers/roster-extra-0004.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Angel",price:0,image:"images/wrestlers/roster-extra-0005.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Arianna Grace",price:0,image:"images/wrestlers/roster-extra-0006.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Asuka",price:0,image:"images/wrestlers/roster-extra-0007.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"B-Fab",price:0,image:"images/wrestlers/roster-extra-0008.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Bayley",price:0,image:"images/wrestlers/roster-extra-0009.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Becky Lynch",price:0,image:"images/wrestlers/roster-extra-0010.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Berto",price:0,image:"images/wrestlers/roster-extra-0011.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Bianca Belair",price:0,image:"images/wrestlers/roster-extra-0012.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Big Cass",price:0,image:"images/wrestlers/roster-extra-0013.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Blake Howard",price:0,image:"images/wrestlers/roster-extra-0014.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Blake Monroe",price:0,image:"images/wrestlers/roster-extra-0015.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Brad Baylor",price:0,image:"images/wrestlers/roster-extra-0016.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Bravo Americano",price:0,image:"images/wrestlers/roster-extra-0017.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Bronco Nima",price:0,image:"images/wrestlers/roster-extra-0018.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Brooks Jensen",price:0,image:"images/wrestlers/roster-extra-0019.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Brutus Creed",price:0,image:"images/wrestlers/roster-extra-0020.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Byron Saxton",price:0,image:"images/wrestlers/roster-extra-0021.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Candice LeRae",price:0,image:"images/wrestlers/roster-extra-0022.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Cathy Kelley",price:0,image:"images/wrestlers/roster-extra-0023.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Channing Stacks Lorenzo",price:0,image:"images/wrestlers/roster-extra-0024.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Charlie Dempsey",price:0,image:"images/wrestlers/roster-extra-0025.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Chelsea Green",price:0,image:"images/wrestlers/roster-extra-0026.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Charlotte Flair",price:0,image:"images/wrestlers/roster-extra-0027.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Cruz Del Toro",price:0,image:"images/wrestlers/roster-extra-0028.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Cruz Montana",price:0,image:"images/wrestlers/roster-extra-0029.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Cutler James",price:0,image:"images/wrestlers/roster-extra-0030.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Danhausen",price:0,image:"images/wrestlers/roster-extra-0031.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Dion Lennox",price:0,image:"images/wrestlers/roster-extra-0032.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Dorian Van Dux",price:0,image:"images/wrestlers/roster-extra-0033.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"EK Prosper",price:0,image:"images/wrestlers/roster-extra-0034.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Elio LeFleur",price:0,image:"images/wrestlers/roster-extra-0035.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Elton Prince",price:0,image:"images/wrestlers/roster-extra-0036.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Emily Agard",price:0,image:"images/wrestlers/roster-extra-0037.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Erik",price:0,image:"images/wrestlers/roster-extra-0038.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Ethan Page",price:0,image:"images/wrestlers/roster-extra-0039.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Fallon Henley",price:0,image:"images/wrestlers/roster-extra-0040.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Funaki",price:0,image:"images/wrestlers/roster-extra-0041.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Giulia",price:0,image:"images/wrestlers/roster-extra-0042.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Haku",price:0,image:"images/wrestlers/roster-extra-0043.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Hank Walker",price:0,image:"images/wrestlers/roster-extra-0044.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Harlem Lewis",price:0,image:"images/wrestlers/roster-extra-0045.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Ivar",price:0,image:"images/wrestlers/roster-extra-0046.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Ivy Nile",price:0,image:"images/wrestlers/roster-extra-0047.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Iyo Sky",price:0,image:"images/wrestlers/roster-extra-0048.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Izzi Dame",price:0,image:"images/wrestlers/roster-extra-0049.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Jackie Redmond",price:0,image:"images/wrestlers/roster-extra-0050.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Jackson Drake",price:0,image:"images/wrestlers/roster-extra-0051.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Jacy Jayne",price:0,image:"images/wrestlers/roster-extra-0052.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Jade Cargill",price:0,image:"images/wrestlers/roster-extra-0053.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Jaida Parker",price:0,image:"images/wrestlers/roster-extra-0054.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Joaquin Wilde",price:0,image:"images/wrestlers/roster-extra-0055.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Joe Tessitore",price:0,image:"images/wrestlers/roster-extra-0056.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"JBL",price:0,image:"images/wrestlers/roster-extra-0057.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Johnny Gargano",price:0,image:"images/wrestlers/roster-extra-0058.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Jordynne Grace",price:0,image:"images/wrestlers/roster-extra-0059.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Josh Briggs",price:0,image:"images/wrestlers/roster-extra-0060.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Julius Creed",price:0,image:"images/wrestlers/roster-extra-0061.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Kale Dixon",price:0,image:"images/wrestlers/roster-extra-0062.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Kali Armstrong",price:0,image:"images/wrestlers/roster-extra-0063.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Kam Hendrix",price:0,image:"images/wrestlers/roster-extra-0064.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Karmen Petrovic",price:0,image:"images/wrestlers/roster-extra-0065.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Kelani Jordan",price:0,image:"images/wrestlers/roster-extra-0066.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Kendal Grey",price:0,image:"images/wrestlers/roster-extra-0067.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Kiana James",price:0,image:"images/wrestlers/roster-extra-0068.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Kit Wilson",price:0,image:"images/wrestlers/roster-extra-0069.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Kyoki",price:0,image:"images/wrestlers/roster-extra-0070.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Lainey Reid",price:0,image:"images/wrestlers/roster-extra-0071.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Lash Legend",price:0,image:"images/wrestlers/roster-extra-0072.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Layla Diggs",price:0,image:"images/wrestlers/roster-extra-0073.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Lexis King",price:0,image:"images/wrestlers/roster-extra-0074.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Lilian Garcia",price:0,image:"images/wrestlers/roster-extra-0075.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Lince Dorado",price:0,image:"images/wrestlers/roster-extra-0076.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Lizzy Rain",price:0,image:"images/wrestlers/roster-extra-0077.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Lola Vice",price:0,image:"images/wrestlers/roster-extra-0078.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Lucien Price",price:0,image:"images/wrestlers/roster-extra-0079.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Lyra Valkyria",price:0,image:"images/wrestlers/roster-extra-0080.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Mark Nash",price:0,image:"images/wrestlers/roster-extra-0081.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Mason Rook",price:0,image:"images/wrestlers/roster-extra-0082.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Matt Cardona",price:0,image:"images/wrestlers/roster-extra-0083.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Maxxine Dupri",price:0,image:"images/wrestlers/roster-extra-0084.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Michael Cole",price:0,image:"images/wrestlers/roster-extra-0085.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Myles Borne",price:0,image:"images/wrestlers/roster-extra-0086.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Myka Lockwood",price:0,image:"images/wrestlers/roster-extra-0087.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Naomi",price:0,image:"images/wrestlers/roster-extra-0088.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Naraku",price:0,image:"images/wrestlers/roster-extra-0089.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Nathan Frazer",price:0,image:"images/wrestlers/roster-extra-0090.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Nattie",price:0,image:"images/wrestlers/roster-extra-0091.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Nia Jax",price:0,image:"images/wrestlers/roster-extra-0092.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Nick Aldis",price:0,image:"images/wrestlers/roster-extra-0093.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Nick Khan",price:0,image:"images/wrestlers/roster-extra-0094.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Niko Vance",price:0,image:"images/wrestlers/roster-extra-0095.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Noam Dar",price:0,image:"images/wrestlers/roster-extra-0096.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Osiris Griffin",price:0,image:"images/wrestlers/roster-extra-0097.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Penta",price:0,image:"images/wrestlers/roster-extra-0098.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Peter Rosenberg",price:0,image:"images/wrestlers/roster-extra-0099.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Piper Niven",price:0,image:"images/wrestlers/roster-extra-0100.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Raquel Rodriguez",price:0,image:"images/wrestlers/roster-extra-0101.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Rayo Americano",price:0,image:"images/wrestlers/roster-extra-0102.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Reina Volcan",price:0,image:"images/wrestlers/roster-extra-0103.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Ricky Saints",price:0,image:"images/wrestlers/roster-extra-0104.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Ricky Smokes",price:0,image:"images/wrestlers/roster-extra-0105.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Robert Stone",price:0,image:"images/wrestlers/roster-extra-0106.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Romeo Moreno",price:0,image:"images/wrestlers/roster-extra-0107.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Roxanne Perez",price:0,image:"images/wrestlers/roster-extra-0108.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Royce Keys",price:0,image:"images/wrestlers/roster-extra-0109.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Sam Roberts",price:0,image:"images/wrestlers/roster-extra-0110.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Saquon Shugars",price:0,image:"images/wrestlers/roster-extra-0111.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Sarah Schreiber",price:0,image:"images/wrestlers/roster-extra-0112.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Sean Legacy",price:0,image:"images/wrestlers/roster-extra-0113.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Shiloh Hill",price:0,image:"images/wrestlers/roster-extra-0114.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Skylar Raye",price:0,image:"images/wrestlers/roster-extra-0115.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Sol Ruca",price:0,image:"images/wrestlers/roster-extra-0116.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Stephanie Vaquer",price:0,image:"images/wrestlers/roster-extra-0117.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Talla Tonga",price:0,image:"images/wrestlers/roster-extra-0118.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Tank Ledger",price:0,image:"images/wrestlers/roster-extra-0119.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Tate Wilder",price:0,image:"images/wrestlers/roster-extra-0120.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Tatum Paxley",price:0,image:"images/wrestlers/roster-extra-0121.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Tavion Heights",price:0,image:"images/wrestlers/roster-extra-0122.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Thea Hail",price:0,image:"images/wrestlers/roster-extra-0123.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Tony DAngelo",price:0,image:"images/wrestlers/roster-extra-0124.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Tristan Angels",price:0,image:"images/wrestlers/roster-extra-0125.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Uriah Connors",price:0,image:"images/wrestlers/roster-extra-0126.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Vic Joseph",price:0,image:"images/wrestlers/roster-extra-0127.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Wren Sinclair",price:0,image:"images/wrestlers/roster-extra-0128.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Zaria",price:0,image:"images/wrestlers/roster-extra-0129.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Zilla Fatu",price:0,image:"images/wrestlers/roster-extra-0130.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+{name:"Arn Anderson",price:0,image:"images/wrestlers/roster-extra-0131.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Bam Bam Bigelow",price:0,image:"images/wrestlers/roster-extra-0132.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Barry Windham",price:0,image:"images/wrestlers/roster-extra-0133.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Big Boss Man",price:0,image:"images/wrestlers/roster-extra-0134.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Big John Studd",price:0,image:"images/wrestlers/roster-extra-0135.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Billy Graham",price:0,image:"images/wrestlers/roster-extra-0136.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Bobby Heenan",price:0,image:"images/wrestlers/roster-extra-0137.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Bret Hart",price:0,image:"images/wrestlers/roster-extra-0138.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"British Bulldog",price:0,image:"images/wrestlers/roster-extra-0139.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Bruno Sammartino",price:0,image:"images/wrestlers/roster-extra-0140.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Bushwhacker Butch",price:0,image:"images/wrestlers/roster-extra-0141.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Bushwhacker Luke",price:0,image:"images/wrestlers/roster-extra-0142.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Captain Lou Albano",price:0,image:"images/wrestlers/roster-extra-0143.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Carlito",price:0,image:"images/wrestlers/roster-extra-0144.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Carmella",price:0,image:"images/wrestlers/roster-extra-0145.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Chavo Guerrero",price:0,image:"images/wrestlers/roster-extra-0146.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Chief Jay Strongbow",price:0,image:"images/wrestlers/roster-extra-0147.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Chris Masters",price:0,image:"images/wrestlers/roster-extra-0148.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Chris Sabin",price:0,image:"images/wrestlers/roster-extra-0149.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Christian Cage",price:0,image:"images/wrestlers/roster-extra-0150.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Chuck Palumbo",price:0,image:"images/wrestlers/roster-extra-0151.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Curt Hennig",price:0,image:"images/wrestlers/roster-extra-0152.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"D-Lo Brown",price:0,image:"images/wrestlers/roster-extra-0153.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Dave Taylor",price:0,image:"images/wrestlers/roster-extra-0154.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Dean Malenko",price:0,image:"images/wrestlers/roster-extra-0155.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Dennis Rodman",price:0,image:"images/wrestlers/roster-extra-0156.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Dino Bravo",price:0,image:"images/wrestlers/roster-extra-0157.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Don Muraco",price:0,image:"images/wrestlers/roster-extra-0158.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Dory Funk Jr.",price:0,image:"images/wrestlers/roster-extra-0159.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Dusty Rhodes",price:0,image:"images/wrestlers/roster-extra-0160.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Earthquake",price:0,image:"images/wrestlers/roster-extra-0161.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Elias",price:0,image:"images/wrestlers/roster-extra-0162.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Ernie Ladd",price:0,image:"images/wrestlers/roster-extra-0163.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Eugene",price:0,image:"images/wrestlers/roster-extra-0164.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Evan Bourne",price:0,image:"images/wrestlers/roster-extra-0165.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Faarooq",price:0,image:"images/wrestlers/roster-extra-0166.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Fit Finlay",price:0,image:"images/wrestlers/roster-extra-0167.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Freddie Blassie",price:0,image:"images/wrestlers/roster-extra-0168.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Gangrel",price:0,image:"images/wrestlers/roster-extra-0169.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"George Steele",price:0,image:"images/wrestlers/roster-extra-0170.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Goldust",price:0,image:"images/wrestlers/roster-extra-0171.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Greg Valentine",price:0,image:"images/wrestlers/roster-extra-0172.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Hacksaw Jim Duggan",price:0,image:"images/wrestlers/roster-extra-0173.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Hardcore Holly",price:0,image:"images/wrestlers/roster-extra-0174.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Harley Race",price:0,image:"images/wrestlers/roster-extra-0175.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Heath Slater",price:0,image:"images/wrestlers/roster-extra-0176.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Honky Tonk Man",price:0,image:"images/wrestlers/roster-extra-0177.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"IRS",price:0,image:"images/wrestlers/roster-extra-0178.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Iron Sheik",price:0,image:"images/wrestlers/roster-extra-0179.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Ivan Putski",price:0,image:"images/wrestlers/roster-extra-0180.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Jake Roberts",price:0,image:"images/wrestlers/roster-extra-0181.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Jacques Rougeau",price:0,image:"images/wrestlers/roster-extra-0182.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Jesse Ventura",price:0,image:"images/wrestlers/roster-extra-0183.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Jim Brunzell",price:0,image:"images/wrestlers/roster-extra-0184.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Jim Neidhart",price:0,image:"images/wrestlers/roster-extra-0185.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Jimmy Garvin",price:0,image:"images/wrestlers/roster-extra-0186.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Jimmy Snuka",price:0,image:"images/wrestlers/roster-extra-0187.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"John Bradshaw Layfield",price:0,image:"images/wrestlers/roster-extra-0188.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Johnny Nitro",price:0,image:"images/wrestlers/roster-extra-0189.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Johnny Saint",price:0,image:"images/wrestlers/roster-extra-0190.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Kamala",price:0,image:"images/wrestlers/roster-extra-0191.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Ken Patera",price:0,image:"images/wrestlers/roster-extra-0192.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Kerry Von Erich",price:0,image:"images/wrestlers/roster-extra-0193.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Kevin Nash",price:0,image:"images/wrestlers/roster-extra-0194.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"King Kong Bundy",price:0,image:"images/wrestlers/roster-extra-0195.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Koko B. Ware",price:0,image:"images/wrestlers/roster-extra-0196.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Lance Storm",price:0,image:"images/wrestlers/roster-extra-0197.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Larry Zbyszko",price:0,image:"images/wrestlers/roster-extra-0198.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Lex Luger",price:0,image:"images/wrestlers/roster-extra-0199.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Lord Alfred Hayes",price:0,image:"images/wrestlers/roster-extra-0200.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Marty Jannetty",price:0,image:"images/wrestlers/roster-extra-0201.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Maryse",price:0,image:"images/wrestlers/roster-extra-0202.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Mick Foley",price:0,image:"images/wrestlers/roster-extra-0203.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Mickie James",price:0,image:"images/wrestlers/roster-extra-0204.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Mike Rotunda",price:0,image:"images/wrestlers/roster-extra-0205.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Mr. Perfect",price:0,image:"images/wrestlers/roster-extra-0206.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Mr. Fuji",price:0,image:"images/wrestlers/roster-extra-0207.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Mr. Kennedy",price:0,image:"images/wrestlers/roster-extra-0208.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Nikolai Volkoff",price:0,image:"images/wrestlers/roster-extra-0209.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Owen Hart",price:0,image:"images/wrestlers/roster-extra-0210.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Pat Patterson",price:0,image:"images/wrestlers/roster-extra-0211.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Paul Bearer",price:0,image:"images/wrestlers/roster-extra-0212.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Paul Orndorff",price:0,image:"images/wrestlers/roster-extra-0213.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Pedro Morales",price:0,image:"images/wrestlers/roster-extra-0214.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Perry Saturn",price:0,image:"images/wrestlers/roster-extra-0215.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Randy Savage",price:0,image:"images/wrestlers/roster-extra-0216.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Randy Rose",price:0,image:"images/wrestlers/roster-extra-0217.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Razor Ramon",price:0,image:"images/wrestlers/roster-extra-0218.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Rick Martel",price:0,image:"images/wrestlers/roster-extra-0219.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Rick Rude",price:0,image:"images/wrestlers/roster-extra-0220.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Rick Steiner",price:0,image:"images/wrestlers/roster-extra-0221.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Ricky Steamboat",price:0,image:"images/wrestlers/roster-extra-0222.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Ricky Morton",price:0,image:"images/wrestlers/roster-extra-0223.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Ricky Ortiz",price:0,image:"images/wrestlers/roster-extra-0224.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Rob Van Dam",price:0,image:"images/wrestlers/roster-extra-0225.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Ron Simmons",price:0,image:"images/wrestlers/roster-extra-0226.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Rosey",price:0,image:"images/wrestlers/roster-extra-0227.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Sabu",price:0,image:"images/wrestlers/roster-extra-0228.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Santino Marella",price:0,image:"images/wrestlers/roster-extra-0229.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Sgt. Slaughter",price:0,image:"images/wrestlers/roster-extra-0230.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Shane McMahon",price:0,image:"images/wrestlers/roster-extra-0231.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Shawn Stasiak",price:0,image:"images/wrestlers/roster-extra-0232.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Sid Vicious",price:0,image:"images/wrestlers/roster-extra-0233.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Sika",price:0,image:"images/wrestlers/roster-extra-0234.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Spike Dudley",price:0,image:"images/wrestlers/roster-extra-0235.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Stan Hansen",price:0,image:"images/wrestlers/roster-extra-0236.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Stevie Richards",price:0,image:"images/wrestlers/roster-extra-0237.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Tajiri",price:0,image:"images/wrestlers/roster-extra-0238.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Tazz",price:0,image:"images/wrestlers/roster-extra-0239.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Ted DiBiase",price:0,image:"images/wrestlers/roster-extra-0240.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Terry Funk",price:0,image:"images/wrestlers/roster-extra-0241.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"The Godfather",price:0,image:"images/wrestlers/roster-extra-0242.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"The Hurricane",price:0,image:"images/wrestlers/roster-extra-0243.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"The Mountie",price:0,image:"images/wrestlers/roster-extra-0244.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Tito Santana",price:0,image:"images/wrestlers/roster-extra-0245.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Tommy Dreamer",price:0,image:"images/wrestlers/roster-extra-0246.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Tommy Rich",price:0,image:"images/wrestlers/roster-extra-0247.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Tully Blanchard",price:0,image:"images/wrestlers/roster-extra-0248.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Typhoon",price:0,image:"images/wrestlers/roster-extra-0249.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Val Venis",price:0,image:"images/wrestlers/roster-extra-0250.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Vader",price:0,image:"images/wrestlers/roster-extra-0251.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Vince McMahon",price:0,image:"images/wrestlers/roster-extra-0252.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Virgil",price:0,image:"images/wrestlers/roster-extra-0253.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Wahoo McDaniel",price:0,image:"images/wrestlers/roster-extra-0254.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Warlord",price:0,image:"images/wrestlers/roster-extra-0255.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Yokozuna",price:0,image:"images/wrestlers/roster-extra-0256.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Zack Ryder",price:0,image:"images/wrestlers/roster-extra-0257.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+{name:"Al Snow",price:0,image:"images/wrestlers/roster-extra-0258.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Albert",price:0,image:"images/wrestlers/roster-extra-0259.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"A-Train",price:0,image:"images/wrestlers/roster-extra-0260.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Bradshaw",price:0,image:"images/wrestlers/roster-extra-0261.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Brian Kendrick",price:0,image:"images/wrestlers/roster-extra-0262.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Brian Knobbs",price:0,image:"images/wrestlers/roster-extra-0263.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Brian Christopher",price:0,image:"images/wrestlers/roster-extra-0264.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Bull Buchanan",price:0,image:"images/wrestlers/roster-extra-0265.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Charlie Haas",price:0,image:"images/wrestlers/roster-extra-0266.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Chyna",price:0,image:"images/wrestlers/roster-extra-0267.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Crash Holly",price:0,image:"images/wrestlers/roster-extra-0268.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Dawn Marie",price:0,image:"images/wrestlers/roster-extra-0269.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Dean Ambrose",price:0,image:"images/wrestlers/roster-extra-0270.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Essa Rios",price:0,image:"images/wrestlers/roster-extra-0271.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Gail Kim",price:0,image:"images/wrestlers/roster-extra-0272.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Ivory",price:0,image:"images/wrestlers/roster-extra-0273.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Jeff Jarrett",price:0,image:"images/wrestlers/roster-extra-0274.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Jerry Lawler",price:0,image:"images/wrestlers/roster-extra-0275.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Jim Ross",price:0,image:"images/wrestlers/roster-extra-0276.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Joey Mercury",price:0,image:"images/wrestlers/roster-extra-0277.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Joey Styles",price:0,image:"images/wrestlers/roster-extra-0278.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Johnny Stamboli",price:0,image:"images/wrestlers/roster-extra-0279.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Justin Credible",price:0,image:"images/wrestlers/roster-extra-0280.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Kanyon",price:0,image:"images/wrestlers/roster-extra-0281.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Kenzo Suzuki",price:0,image:"images/wrestlers/roster-extra-0282.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"K-Kwik",price:0,image:"images/wrestlers/roster-extra-0283.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Lance Cade",price:0,image:"images/wrestlers/roster-extra-0284.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Lance Hoyt",price:0,image:"images/wrestlers/roster-extra-0285.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Mark Jindrak",price:0,image:"images/wrestlers/roster-extra-0286.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Matt Bloom",price:0,image:"images/wrestlers/roster-extra-0287.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Matt Morgan",price:0,image:"images/wrestlers/roster-extra-0288.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Melina",price:0,image:"images/wrestlers/roster-extra-0289.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Michelle McCool",price:0,image:"images/wrestlers/roster-extra-0290.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Molly Holly",price:0,image:"images/wrestlers/roster-extra-0291.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Muhammad Hassan",price:0,image:"images/wrestlers/roster-extra-0292.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Nunzio",price:0,image:"images/wrestlers/roster-extra-0293.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Orlando Jordan",price:0,image:"images/wrestlers/roster-extra-0294.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Paul London",price:0,image:"images/wrestlers/roster-extra-0295.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Raven",price:0,image:"images/wrestlers/roster-extra-0296.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Rhyno",price:0,image:"images/wrestlers/roster-extra-0297.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Rob Conway",price:0,image:"images/wrestlers/roster-extra-0298.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Scotty 2 Hotty",price:0,image:"images/wrestlers/roster-extra-0299.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Shannon Moore",price:0,image:"images/wrestlers/roster-extra-0300.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Shelton Benjamin",price:0,image:"images/wrestlers/roster-extra-0301.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Simon Dean",price:0,image:"images/wrestlers/roster-extra-0302.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Steven Richards",price:0,image:"images/wrestlers/roster-extra-0303.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Viscera",price:0,image:"images/wrestlers/roster-extra-0304.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Yoshihiro Tajiri",price:0,image:"images/wrestlers/roster-extra-0305.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Alicia Fox",price:0,image:"images/wrestlers/roster-extra-0306.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Ashley Massaro",price:0,image:"images/wrestlers/roster-extra-0307.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Candice Michelle",price:0,image:"images/wrestlers/roster-extra-0308.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Cherry",price:0,image:"images/wrestlers/roster-extra-0309.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Deuce",price:0,image:"images/wrestlers/roster-extra-0310.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Domino",price:0,image:"images/wrestlers/roster-extra-0311.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Festus",price:0,image:"images/wrestlers/roster-extra-0312.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Jimmy Wang Yang",price:0,image:"images/wrestlers/roster-extra-0313.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Kenny Dykstra",price:0,image:"images/wrestlers/roster-extra-0314.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Layla",price:0,image:"images/wrestlers/roster-extra-0315.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Lena Yada",price:0,image:"images/wrestlers/roster-extra-0316.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"MVP",price:0,image:"images/wrestlers/roster-extra-0317.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Primo",price:0,image:"images/wrestlers/roster-extra-0318.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Rosa Mendes",price:0,image:"images/wrestlers/roster-extra-0319.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Slam Master J",price:0,image:"images/wrestlers/roster-extra-0320.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Snitsky",price:0,image:"images/wrestlers/roster-extra-0321.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Ted DiBiase Jr.",price:0,image:"images/wrestlers/roster-extra-0322.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"The Boogeyman",price:0,image:"images/wrestlers/roster-extra-0323.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"The Brian Kendrick",price:0,image:"images/wrestlers/roster-extra-0324.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Trevor Murdoch",price:0,image:"images/wrestlers/roster-extra-0325.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Vladimir Kozlov",price:0,image:"images/wrestlers/roster-extra-0326.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Wendy Richter",price:0,image:"images/wrestlers/roster-extra-0327.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Ashley",price:0,image:"images/wrestlers/roster-extra-0328.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Beverly Brothers",price:0,image:"images/wrestlers/roster-extra-0329.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+{name:"Alex Wright",price:0,image:"images/wrestlers/roster-extra-0330.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Animal",price:0,image:"images/wrestlers/roster-extra-0331.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Atsushi Onita",price:0,image:"images/wrestlers/roster-extra-0332.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Bobby Eaton",price:0,image:"images/wrestlers/roster-extra-0333.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Brian Adams",price:0,image:"images/wrestlers/roster-extra-0334.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Brian Pillman",price:0,image:"images/wrestlers/roster-extra-0335.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Buff Bagwell",price:0,image:"images/wrestlers/roster-extra-0336.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Cactus Jack",price:0,image:"images/wrestlers/roster-extra-0337.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Chris Kanyon",price:0,image:"images/wrestlers/roster-extra-0338.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Chris Benoit",price:0,image:"images/wrestlers/roster-extra-0339.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Chavo Guerrero Jr.",price:0,image:"images/wrestlers/roster-extra-0340.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Chavo Classic",price:0,image:"images/wrestlers/roster-extra-0341.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Chronic",price:0,image:"images/wrestlers/roster-extra-0342.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Daffney",price:0,image:"images/wrestlers/roster-extra-0343.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Disco Inferno",price:0,image:"images/wrestlers/roster-extra-0344.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Dustin Rhodes",price:0,image:"images/wrestlers/roster-extra-0345.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Eddie Gilbert",price:0,image:"images/wrestlers/roster-extra-0346.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Elix Skipper",price:0,image:"images/wrestlers/roster-extra-0347.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Ernest Miller",price:0,image:"images/wrestlers/roster-extra-0348.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Glacier",price:0,image:"images/wrestlers/roster-extra-0349.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Great Muta",price:0,image:"images/wrestlers/roster-extra-0350.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Hernandez",price:0,image:"images/wrestlers/roster-extra-0351.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Hugh Morrus",price:0,image:"images/wrestlers/roster-extra-0352.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Jacqueline",price:0,image:"images/wrestlers/roster-extra-0353.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Jamie Noble",price:0,image:"images/wrestlers/roster-extra-0354.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Jeff Farmer",price:0,image:"images/wrestlers/roster-extra-0355.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Jerry Lynn",price:0,image:"images/wrestlers/roster-extra-0356.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Jim Duggan",price:0,image:"images/wrestlers/roster-extra-0357.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Johnny B. Badd",price:0,image:"images/wrestlers/roster-extra-0358.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Juventud Guerrera",price:0,image:"images/wrestlers/roster-extra-0359.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Konnan",price:0,image:"images/wrestlers/roster-extra-0360.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"La Parka",price:0,image:"images/wrestlers/roster-extra-0361.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Lash LeRoux",price:0,image:"images/wrestlers/roster-extra-0362.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Lodi",price:0,image:"images/wrestlers/roster-extra-0363.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Lord Steven Regal",price:0,image:"images/wrestlers/roster-extra-0364.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Madusa",price:0,image:"images/wrestlers/roster-extra-0365.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Malenko",price:0,image:"images/wrestlers/roster-extra-0366.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Meng",price:0,image:"images/wrestlers/roster-extra-0367.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Mike Awesome",price:0,image:"images/wrestlers/roster-extra-0368.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Mike Tenay",price:0,image:"images/wrestlers/roster-extra-0369.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Mikey Whipwreck",price:0,image:"images/wrestlers/roster-extra-0370.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Miss Elizabeth",price:0,image:"images/wrestlers/roster-extra-0371.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Mortis",price:0,image:"images/wrestlers/roster-extra-0372.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Norman Smiley",price:0,image:"images/wrestlers/roster-extra-0373.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Psychosis",price:0,image:"images/wrestlers/roster-extra-0374.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Road Warrior Hawk",price:0,image:"images/wrestlers/roster-extra-0375.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Road Warrior Animal",price:0,image:"images/wrestlers/roster-extra-0376.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Ron Killings",price:0,image:"images/wrestlers/roster-extra-0377.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Scotty Riggs",price:0,image:"images/wrestlers/roster-extra-0378.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Scott Hall",price:0,image:"images/wrestlers/roster-extra-0379.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Scott Norton",price:0,image:"images/wrestlers/roster-extra-0380.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Shane Douglas",price:0,image:"images/wrestlers/roster-extra-0381.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Shane Helms",price:0,image:"images/wrestlers/roster-extra-0382.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Sherri Martel",price:0,image:"images/wrestlers/roster-extra-0383.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Sick Boy",price:0,image:"images/wrestlers/roster-extra-0384.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Silver King",price:0,image:"images/wrestlers/roster-extra-0385.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Sister Sherri",price:0,image:"images/wrestlers/roster-extra-0386.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Stevie Ray",price:0,image:"images/wrestlers/roster-extra-0387.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Super Calo",price:0,image:"images/wrestlers/roster-extra-0388.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Super Crazy",price:0,image:"images/wrestlers/roster-extra-0389.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"The Sandman",price:0,image:"images/wrestlers/roster-extra-0390.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"The Sheik",price:0,image:"images/wrestlers/roster-extra-0391.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Vampiro",price:0,image:"images/wrestlers/roster-extra-0392.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Wrath",price:0,image:"images/wrestlers/roster-extra-0393.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Alex Shelley",price:0,image:"images/wrestlers/roster-extra-0394.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Axl Rotten",price:0,image:"images/wrestlers/roster-extra-0395.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Balls Mahoney",price:0,image:"images/wrestlers/roster-extra-0396.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Blue Meanie",price:0,image:"images/wrestlers/roster-extra-0397.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"C.W. Anderson",price:0,image:"images/wrestlers/roster-extra-0398.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Danny Doring",price:0,image:"images/wrestlers/roster-extra-0399.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Francine",price:0,image:"images/wrestlers/roster-extra-0400.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Little Guido",price:0,image:"images/wrestlers/roster-extra-0401.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Masato Tanaka",price:0,image:"images/wrestlers/roster-extra-0402.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"New Jack",price:0,image:"images/wrestlers/roster-extra-0403.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Rhino",price:0,image:"images/wrestlers/roster-extra-0404.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Roadkill",price:0,image:"images/wrestlers/roster-extra-0405.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Rocco Rock",price:0,image:"images/wrestlers/roster-extra-0406.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Super Nova",price:0,image:"images/wrestlers/roster-extra-0407.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Tommy Cairo",price:0,image:"images/wrestlers/roster-extra-0408.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Tracy Smothers",price:0,image:"images/wrestlers/roster-extra-0409.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"911",price:0,image:"images/wrestlers/roster-extra-0410.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Abdullah the Butcher",price:0,image:"images/wrestlers/roster-extra-0411.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Big Dick Dudley",price:0,image:"images/wrestlers/roster-extra-0412.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Blue World Order Stevie Richards",price:0,image:"images/wrestlers/roster-extra-0413.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Chilly Willy",price:0,image:"images/wrestlers/roster-extra-0414.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Chris Candido",price:0,image:"images/wrestlers/roster-extra-0415.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Crowbar",price:0,image:"images/wrestlers/roster-extra-0416.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"E.Z. Money",price:0,image:"images/wrestlers/roster-extra-0417.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"El Puerto Ricano",price:0,image:"images/wrestlers/roster-extra-0418.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"FBI Little Guido",price:0,image:"images/wrestlers/roster-extra-0419.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Hack Myers",price:0,image:"images/wrestlers/roster-extra-0420.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Lou E. Dangerously",price:0,image:"images/wrestlers/roster-extra-0421.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Mustafa Saed",price:0,image:"images/wrestlers/roster-extra-0422.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Pitbull #1",price:0,image:"images/wrestlers/roster-extra-0423.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Pitbull #2",price:0,image:"images/wrestlers/roster-extra-0424.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Sandman",price:0,image:"images/wrestlers/roster-extra-0425.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Taz",price:0,image:"images/wrestlers/roster-extra-0426.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"The Blue Meanie",price:0,image:"images/wrestlers/roster-extra-0427.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"The Tazmaniac",price:0,image:"images/wrestlers/roster-extra-0428.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Too Cold Scorpio",price:0,image:"images/wrestlers/roster-extra-0429.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+{name:"Abyss",price:0,image:"images/wrestlers/roster-extra-0430.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Ace Austin",price:0,image:"images/wrestlers/roster-extra-0431.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Ace Steel",price:0,image:"images/wrestlers/roster-extra-0432.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Adam Copeland",price:0,image:"images/wrestlers/roster-extra-0433.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Alex Reynolds",price:0,image:"images/wrestlers/roster-extra-0434.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Alex Zayne",price:0,image:"images/wrestlers/roster-extra-0435.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Andrade El Idolo",price:0,image:"images/wrestlers/roster-extra-0436.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Angelico",price:0,image:"images/wrestlers/roster-extra-0437.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Angélico",price:0,image:"images/wrestlers/roster-extra-0438.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Anna Jay",price:0,image:"images/wrestlers/roster-extra-0439.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Anthony Bowens",price:0,image:"images/wrestlers/roster-extra-0440.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Anthony Ogogo",price:0,image:"images/wrestlers/roster-extra-0441.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"AR Fox",price:0,image:"images/wrestlers/roster-extra-0442.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Athena",price:0,image:"images/wrestlers/roster-extra-0443.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Bandido",price:0,image:"images/wrestlers/roster-extra-0444.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Bea Priestley",price:0,image:"images/wrestlers/roster-extra-0445.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Becky Bayless",price:0,image:"images/wrestlers/roster-extra-0446.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Black Taurus",price:0,image:"images/wrestlers/roster-extra-0447.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Bobby Fish",price:0,image:"images/wrestlers/roster-extra-0448.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Brian Cage",price:0,image:"images/wrestlers/roster-extra-0449.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Brian Myers",price:0,image:"images/wrestlers/roster-extra-0450.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Brody King",price:0,image:"images/wrestlers/roster-extra-0451.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Buddy Matthews",price:0,image:"images/wrestlers/roster-extra-0452.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Bull Nakano",price:0,image:"images/wrestlers/roster-extra-0453.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Caleb Konley",price:0,image:"images/wrestlers/roster-extra-0454.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Cameron Grimes",price:0,image:"images/wrestlers/roster-extra-0455.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Cary Silkin",price:0,image:"images/wrestlers/roster-extra-0456.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Cassidy Riley",price:0,image:"images/wrestlers/roster-extra-0457.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Chris Bey",price:0,image:"images/wrestlers/roster-extra-0458.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Chris Hero",price:0,image:"images/wrestlers/roster-extra-0459.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Christopher Daniels",price:0,image:"images/wrestlers/roster-extra-0460.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Chuck Taylor",price:0,image:"images/wrestlers/roster-extra-0461.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Claudio Castagnoli",price:0,image:"images/wrestlers/roster-extra-0462.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Cody Deaner",price:0,image:"images/wrestlers/roster-extra-0463.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Crazzy Steve",price:0,image:"images/wrestlers/roster-extra-0464.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Daga",price:0,image:"images/wrestlers/roster-extra-0465.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Dalton Castle",price:0,image:"images/wrestlers/roster-extra-0466.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Dax Harwood",price:0,image:"images/wrestlers/roster-extra-0467.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Deonna Purrazzo",price:0,image:"images/wrestlers/roster-extra-0468.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Derek Bateman",price:0,image:"images/wrestlers/roster-extra-0469.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Drew Galloway",price:0,image:"images/wrestlers/roster-extra-0470.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Eddie Edwards",price:0,image:"images/wrestlers/roster-extra-0471.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Eddie Kingston",price:0,image:"images/wrestlers/roster-extra-0472.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Effy",price:0,image:"images/wrestlers/roster-extra-0473.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Ethan Carter III",price:0,image:"images/wrestlers/roster-extra-0474.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Fandango",price:0,image:"images/wrestlers/roster-extra-0475.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Frankie Kazarian",price:0,image:"images/wrestlers/roster-extra-0476.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Fred Rosser",price:0,image:"images/wrestlers/roster-extra-0477.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Garrison Creed",price:0,image:"images/wrestlers/roster-extra-0478.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Hailie Ray",price:0,image:"images/wrestlers/roster-extra-0479.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Heath",price:0,image:"images/wrestlers/roster-extra-0480.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Hikaru Shida",price:0,image:"images/wrestlers/roster-extra-0481.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Homicide",price:0,image:"images/wrestlers/roster-extra-0482.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Hook",price:0,image:"images/wrestlers/roster-extra-0483.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"James Storm",price:0,image:"images/wrestlers/roster-extra-0484.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Jay Briscoe",price:0,image:"images/wrestlers/roster-extra-0485.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Jay Lethal",price:0,image:"images/wrestlers/roster-extra-0486.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Jay White",price:0,image:"images/wrestlers/roster-extra-0487.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Josh Alexander",price:0,image:"images/wrestlers/roster-extra-0488.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Josh Barnett",price:0,image:"images/wrestlers/roster-extra-0489.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Jungle Boy",price:0,image:"images/wrestlers/roster-extra-0490.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Kairi Sane",price:0,image:"images/wrestlers/roster-extra-0491.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Kenny King",price:0,image:"images/wrestlers/roster-extra-0492.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Kenny Omega",price:0,image:"images/wrestlers/roster-extra-0493.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Kiera Hogan",price:0,image:"images/wrestlers/roster-extra-0494.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Killer Kelly",price:0,image:"images/wrestlers/roster-extra-0495.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Kip Sabian",price:0,image:"images/wrestlers/roster-extra-0496.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Kris Statlander",price:0,image:"images/wrestlers/roster-extra-0497.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Kyle Fletcher",price:0,image:"images/wrestlers/roster-extra-0498.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Kyle O'Reilly",price:0,image:"images/wrestlers/roster-extra-0499.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Lance Archer",price:0,image:"images/wrestlers/roster-extra-0500.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Lee Moriarty",price:0,image:"images/wrestlers/roster-extra-0501.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Lio Rush",price:0,image:"images/wrestlers/roster-extra-0502.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Mark Briscoe",price:0,image:"images/wrestlers/roster-extra-0503.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Mark Davis",price:0,image:"images/wrestlers/roster-extra-0504.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Mark Haskins",price:0,image:"images/wrestlers/roster-extra-0505.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Matt Jackson",price:0,image:"images/wrestlers/roster-extra-0506.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Matt Sydal",price:0,image:"images/wrestlers/roster-extra-0507.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Mercedes Martinez",price:0,image:"images/wrestlers/roster-extra-0508.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Mercedes Moné",price:0,image:"images/wrestlers/roster-extra-0509.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Mike Bailey",price:0,image:"images/wrestlers/roster-extra-0510.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Mike Bennett",price:0,image:"images/wrestlers/roster-extra-0511.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Mike Santana",price:0,image:"images/wrestlers/roster-extra-0512.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Moose",price:0,image:"images/wrestlers/roster-extra-0513.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Mustafa Ali",price:0,image:"images/wrestlers/roster-extra-0514.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Nick Jackson",price:0,image:"images/wrestlers/roster-extra-0515.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Nikki Roxx",price:0,image:"images/wrestlers/roster-extra-0516.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Orange Cassidy",price:0,image:"images/wrestlers/roster-extra-0517.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Ortiz",price:0,image:"images/wrestlers/roster-extra-0518.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Pac",price:0,image:"images/wrestlers/roster-extra-0519.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Pentagon Jr.",price:0,image:"images/wrestlers/roster-extra-0520.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Peter Avalon",price:0,image:"images/wrestlers/roster-extra-0521.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Powerhouse Hobbs",price:0,image:"images/wrestlers/roster-extra-0522.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"QT Marshall",price:0,image:"images/wrestlers/roster-extra-0523.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Rachael Ellering",price:0,image:"images/wrestlers/roster-extra-0524.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Rebel",price:0,image:"images/wrestlers/roster-extra-0525.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Red Velvet",price:0,image:"images/wrestlers/roster-extra-0526.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Rich Swann",price:0,image:"images/wrestlers/roster-extra-0527.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Ricky Starks",price:0,image:"images/wrestlers/roster-extra-0528.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Rocky Romero",price:0,image:"images/wrestlers/roster-extra-0529.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Rosemary",price:0,image:"images/wrestlers/roster-extra-0530.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Rush",price:0,image:"images/wrestlers/roster-extra-0531.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Santana",price:0,image:"images/wrestlers/roster-extra-0532.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Saraya",price:0,image:"images/wrestlers/roster-extra-0533.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Scorpio Sky",price:0,image:"images/wrestlers/roster-extra-0534.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Serena Deeb",price:0,image:"images/wrestlers/roster-extra-0535.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Shane Haste",price:0,image:"images/wrestlers/roster-extra-0536.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Shark Boy",price:0,image:"images/wrestlers/roster-extra-0537.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Shelley Martinez",price:0,image:"images/wrestlers/roster-extra-0538.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Sonjay Dutt",price:0,image:"images/wrestlers/roster-extra-0539.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Sonny Kiss",price:0,image:"images/wrestlers/roster-extra-0540.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Stokely Hathaway",price:0,image:"images/wrestlers/roster-extra-0541.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Su Yung",price:0,image:"images/wrestlers/roster-extra-0542.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Taya Valkyrie",price:0,image:"images/wrestlers/roster-extra-0543.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Tegan Nox",price:0,image:"images/wrestlers/roster-extra-0544.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Tessa Blanchard",price:0,image:"images/wrestlers/roster-extra-0545.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Thunder Rosa",price:0,image:"images/wrestlers/roster-extra-0546.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Tom Lawlor",price:0,image:"images/wrestlers/roster-extra-0547.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Tommaso Ciampa",price:0,image:"images/wrestlers/roster-extra-0548.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Trent Beretta",price:0,image:"images/wrestlers/roster-extra-0549.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Trey Miguel",price:0,image:"images/wrestlers/roster-extra-0550.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Tye Dillinger",price:0,image:"images/wrestlers/roster-extra-0551.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Tyler Breeze",price:0,image:"images/wrestlers/roster-extra-0552.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Will Ospreay",price:0,image:"images/wrestlers/roster-extra-0553.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Willie Mack",price:0,image:"images/wrestlers/roster-extra-0554.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Yuka Sakazaki",price:0,image:"images/wrestlers/roster-extra-0555.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Zack Sabre Jr.",price:0,image:"images/wrestlers/roster-extra-0556.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Zelina Vega",price:0,image:"images/wrestlers/roster-extra-0557.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Zicky Dice",price:0,image:"images/wrestlers/roster-extra-0558.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Zack Gibson",price:0,image:"images/wrestlers/roster-extra-0559.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Adam Page",price:0,image:"images/wrestlers/roster-extra-0560.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Alex Abrahantes",price:0,image:"images/wrestlers/roster-extra-0561.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Allie",price:0,image:"images/wrestlers/roster-extra-0562.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Angelina Love",price:0,image:"images/wrestlers/roster-extra-0563.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Ariane Andrew",price:0,image:"images/wrestlers/roster-extra-0564.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Ash by Elegance",price:0,image:"images/wrestlers/roster-extra-0565.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Austin Aries",price:0,image:"images/wrestlers/roster-extra-0566.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Baron Dax",price:0,image:"images/wrestlers/roster-extra-0567.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Bobby Roode",price:0,image:"images/wrestlers/roster-extra-0568.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Brian Milonas",price:0,image:"images/wrestlers/roster-extra-0569.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Brooke Tessmacher",price:0,image:"images/wrestlers/roster-extra-0570.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Chris Adonis",price:0,image:"images/wrestlers/roster-extra-0571.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Chris Harris",price:0,image:"images/wrestlers/roster-extra-0572.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Curry Man",price:0,image:"images/wrestlers/roster-extra-0573.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Dixie Carter",price:0,image:"images/wrestlers/roster-extra-0574.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Don Callis",price:0,image:"images/wrestlers/roster-extra-0575.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"El Hijo del Vikingo",price:0,image:"images/wrestlers/roster-extra-0576.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Eric Young",price:0,image:"images/wrestlers/roster-extra-0577.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Gunner",price:0,image:"images/wrestlers/roster-extra-0578.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"James Mitchell",price:0,image:"images/wrestlers/roster-extra-0579.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Jay Bradley",price:0,image:"images/wrestlers/roster-extra-0580.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Jesse Sorensen",price:0,image:"images/wrestlers/roster-extra-0581.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Johnny Devine",price:0,image:"images/wrestlers/roster-extra-0582.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Johnny Swinger",price:0,image:"images/wrestlers/roster-extra-0583.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Katarina Waters",price:0,image:"images/wrestlers/roster-extra-0584.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Kong",price:0,image:"images/wrestlers/roster-extra-0585.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Lacey Von Erich",price:0,image:"images/wrestlers/roster-extra-0586.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Madison Rayne",price:0,image:"images/wrestlers/roster-extra-0587.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Monty Brown",price:0,image:"images/wrestlers/roster-extra-0588.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Mr. Anderson",price:0,image:"images/wrestlers/roster-extra-0589.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"ODB",price:0,image:"images/wrestlers/roster-extra-0590.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Petey Williams",price:0,image:"images/wrestlers/roster-extra-0591.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Rob Terry",price:0,image:"images/wrestlers/roster-extra-0592.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Roxxi Laveaux",price:0,image:"images/wrestlers/roster-extra-0593.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Sanjay Dutt",price:0,image:"images/wrestlers/roster-extra-0594.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Shelly Martinez",price:0,image:"images/wrestlers/roster-extra-0595.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Sonny Siaki",price:0,image:"images/wrestlers/roster-extra-0596.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Taryn Terrell",price:0,image:"images/wrestlers/roster-extra-0597.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Taylor Wilde",price:0,image:"images/wrestlers/roster-extra-0598.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"The Amazing Red",price:0,image:"images/wrestlers/roster-extra-0599.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Tomko",price:0,image:"images/wrestlers/roster-extra-0600.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Traci Brooks",price:0,image:"images/wrestlers/roster-extra-0601.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Velvet Sky",price:0,image:"images/wrestlers/roster-extra-0602.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Wes Brisco",price:0,image:"images/wrestlers/roster-extra-0603.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Zema Ion",price:0,image:"images/wrestlers/roster-extra-0604.jpg",gender:"Male",sourceGroup:"AEW / ROH / TNA / Impact"},
+{name:"Aja Kong",price:0,image:"images/wrestlers/roster-extra-0605.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Akira Hokuto",price:0,image:"images/wrestlers/roster-extra-0606.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Alex Coughlin",price:0,image:"images/wrestlers/roster-extra-0607.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Antonio Inoki",price:0,image:"images/wrestlers/roster-extra-0608.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Ayako Hamada",price:0,image:"images/wrestlers/roster-extra-0609.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Bad Luck Fale",price:0,image:"images/wrestlers/roster-extra-0610.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Bushi",price:0,image:"images/wrestlers/roster-extra-0611.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"CIMA",price:0,image:"images/wrestlers/roster-extra-0612.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Chigusa Nagayo",price:0,image:"images/wrestlers/roster-extra-0613.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Chris Brookes",price:0,image:"images/wrestlers/roster-extra-0614.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Chris Charlton",price:0,image:"images/wrestlers/roster-extra-0615.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Clark Connors",price:0,image:"images/wrestlers/roster-extra-0616.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Daisuke Sekimoto",price:0,image:"images/wrestlers/roster-extra-0617.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Dragon Kid",price:0,image:"images/wrestlers/roster-extra-0618.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"El Desperado",price:0,image:"images/wrestlers/roster-extra-0619.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"El Phantasmo",price:0,image:"images/wrestlers/roster-extra-0620.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"EVIL",price:0,image:"images/wrestlers/roster-extra-0621.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Go Shiozaki",price:0,image:"images/wrestlers/roster-extra-0622.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Great Sasuke",price:0,image:"images/wrestlers/roster-extra-0623.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Hirooki Goto",price:0,image:"images/wrestlers/roster-extra-0624.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Hiroshi Tanahashi",price:0,image:"images/wrestlers/roster-extra-0625.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Hiromu Takahashi",price:0,image:"images/wrestlers/roster-extra-0626.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Hiroyoshi Tenzan",price:0,image:"images/wrestlers/roster-extra-0627.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Hulk Hogan",price:0,image:"images/wrestlers/roster-extra-0628.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Ibushi Kota",price:0,image:"images/wrestlers/roster-extra-0629.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Ikuto Hidaka",price:0,image:"images/wrestlers/roster-extra-0630.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Jado",price:0,image:"images/wrestlers/roster-extra-0631.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Jyushin Thunder Liger",price:0,image:"images/wrestlers/roster-extra-0632.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Kairi Hojo",price:0,image:"images/wrestlers/roster-extra-0633.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Katsuyori Shibata",price:0,image:"images/wrestlers/roster-extra-0634.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Kazuchika Okada",price:0,image:"images/wrestlers/roster-extra-0635.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Kenta Kobashi",price:0,image:"images/wrestlers/roster-extra-0636.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"KENTA",price:0,image:"images/wrestlers/roster-extra-0637.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Kensuke Sasaki",price:0,image:"images/wrestlers/roster-extra-0638.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Killer Khan",price:0,image:"images/wrestlers/roster-extra-0639.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Kiyoshi Tamura",price:0,image:"images/wrestlers/roster-extra-0640.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Kota Ibushi",price:0,image:"images/wrestlers/roster-extra-0641.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Kris Wolf",price:0,image:"images/wrestlers/roster-extra-0642.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Kushida",price:0,image:"images/wrestlers/roster-extra-0643.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Manabu Nakanishi",price:0,image:"images/wrestlers/roster-extra-0644.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Masahiro Chono",price:0,image:"images/wrestlers/roster-extra-0645.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Mayu Iwatani",price:0,image:"images/wrestlers/roster-extra-0646.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Meiko Satomura",price:0,image:"images/wrestlers/roster-extra-0647.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Minoru Suzuki",price:0,image:"images/wrestlers/roster-extra-0648.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Mitsuharu Misawa",price:0,image:"images/wrestlers/roster-extra-0649.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Mitsuo Momota",price:0,image:"images/wrestlers/roster-extra-0650.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Momo Watanabe",price:0,image:"images/wrestlers/roster-extra-0651.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Naomichi Marufuji",price:0,image:"images/wrestlers/roster-extra-0652.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Natsuko Tora",price:0,image:"images/wrestlers/roster-extra-0653.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Natsumi Maki",price:0,image:"images/wrestlers/roster-extra-0654.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Naito Tetsuya",price:0,image:"images/wrestlers/roster-extra-0655.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Nanae Takahashi",price:0,image:"images/wrestlers/roster-extra-0656.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Nobuhiko Takada",price:0,image:"images/wrestlers/roster-extra-0657.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Nobuo Yoshihashi",price:0,image:"images/wrestlers/roster-extra-0658.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Okada Kazuchika",price:0,image:"images/wrestlers/roster-extra-0659.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Osamu Nishimura",price:0,image:"images/wrestlers/roster-extra-0660.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Prince Devitt",price:0,image:"images/wrestlers/roster-extra-0661.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Riki Choshu",price:0,image:"images/wrestlers/roster-extra-0662.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Rikidozan",price:0,image:"images/wrestlers/roster-extra-0663.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Risa Sera",price:0,image:"images/wrestlers/roster-extra-0664.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"SANADA",price:0,image:"images/wrestlers/roster-extra-0665.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Satoshi Kojima",price:0,image:"images/wrestlers/roster-extra-0666.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Shingo Takagi",price:0,image:"images/wrestlers/roster-extra-0667.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Shota Umino",price:0,image:"images/wrestlers/roster-extra-0668.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Shuji Ishikawa",price:0,image:"images/wrestlers/roster-extra-0669.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Starlight Kid",price:0,image:"images/wrestlers/roster-extra-0670.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Super Delfin",price:0,image:"images/wrestlers/roster-extra-0671.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Taka Michinoku",price:0,image:"images/wrestlers/roster-extra-0672.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Tatsumi Fujinami",price:0,image:"images/wrestlers/roster-extra-0673.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Taichi",price:0,image:"images/wrestlers/roster-extra-0674.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Tetsuya Naito",price:0,image:"images/wrestlers/roster-extra-0675.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Togi Makabe",price:0,image:"images/wrestlers/roster-extra-0676.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Tomohiro Ishii",price:0,image:"images/wrestlers/roster-extra-0677.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Toru Yano",price:0,image:"images/wrestlers/roster-extra-0678.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Toshiaki Kawada",price:0,image:"images/wrestlers/roster-extra-0679.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Utami Hayashishita",price:0,image:"images/wrestlers/roster-extra-0680.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Yoshihiro Takayama",price:0,image:"images/wrestlers/roster-extra-0681.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Yoshiaki Fujiwara",price:0,image:"images/wrestlers/roster-extra-0682.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Yoshi-Hashi",price:0,image:"images/wrestlers/roster-extra-0683.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Yuki Arai",price:0,image:"images/wrestlers/roster-extra-0684.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Yuki Ishikawa",price:0,image:"images/wrestlers/roster-extra-0685.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Yuko Miyamoto",price:0,image:"images/wrestlers/roster-extra-0686.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Yuma Aoyagi",price:0,image:"images/wrestlers/roster-extra-0687.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Yuma Anzai",price:0,image:"images/wrestlers/roster-extra-0688.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Yuna Manase",price:0,image:"images/wrestlers/roster-extra-0689.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Jun Akiyama",price:0,image:"images/wrestlers/roster-extra-0690.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Jun Kasai",price:0,image:"images/wrestlers/roster-extra-0691.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Katsuhiko Nakajima",price:0,image:"images/wrestlers/roster-extra-0692.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Kaz Hayashi",price:0,image:"images/wrestlers/roster-extra-0693.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Kendo Kashin",price:0,image:"images/wrestlers/roster-extra-0694.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Kiyomiya Kaito",price:0,image:"images/wrestlers/roster-extra-0695.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Koji Kanemoto",price:0,image:"images/wrestlers/roster-extra-0696.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Masakatsu Funaki",price:0,image:"images/wrestlers/roster-extra-0697.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Masato Yoshino",price:0,image:"images/wrestlers/roster-extra-0698.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Naruki Doi",price:0,image:"images/wrestlers/roster-extra-0699.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Natsuki Taiyo",price:0,image:"images/wrestlers/roster-extra-0700.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Ryuji Ito",price:0,image:"images/wrestlers/roster-extra-0701.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Shuji Kondo",price:0,image:"images/wrestlers/roster-extra-0702.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Takashi Sugiura",price:0,image:"images/wrestlers/roster-extra-0703.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Takuya Nomura",price:0,image:"images/wrestlers/roster-extra-0704.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Takeshi Morishima",price:0,image:"images/wrestlers/roster-extra-0705.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Tatsuhito Takaiwa",price:0,image:"images/wrestlers/roster-extra-0706.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"YAMATO",price:0,image:"images/wrestlers/roster-extra-0707.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Yoshinari Ogawa",price:0,image:"images/wrestlers/roster-extra-0708.jpg",gender:"Male",sourceGroup:"NJPW / Japan / International"},
+{name:"Aero Star",price:0,image:"images/wrestlers/roster-extra-0709.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Alberto Del Rio",price:0,image:"images/wrestlers/roster-extra-0710.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Alberto El Patron",price:0,image:"images/wrestlers/roster-extra-0711.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Alebrije",price:0,image:"images/wrestlers/roster-extra-0712.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Andrade Cien Almas",price:0,image:"images/wrestlers/roster-extra-0713.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Angel de Oro",price:0,image:"images/wrestlers/roster-extra-0714.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Atlantis",price:0,image:"images/wrestlers/roster-extra-0715.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Averno",price:0,image:"images/wrestlers/roster-extra-0716.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Blue Demon",price:0,image:"images/wrestlers/roster-extra-0717.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Blue Demon Jr.",price:0,image:"images/wrestlers/roster-extra-0718.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Canek",price:0,image:"images/wrestlers/roster-extra-0719.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Cibernetico",price:0,image:"images/wrestlers/roster-extra-0720.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Cien Caras",price:0,image:"images/wrestlers/roster-extra-0721.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Cinta de Oro",price:0,image:"images/wrestlers/roster-extra-0722.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"CMLL Hechicero",price:0,image:"images/wrestlers/roster-extra-0723.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Crazy Boy",price:0,image:"images/wrestlers/roster-extra-0724.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Cuatrero",price:0,image:"images/wrestlers/roster-extra-0725.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Dr. Wagner Jr.",price:0,image:"images/wrestlers/roster-extra-0726.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Canek",price:0,image:"images/wrestlers/roster-extra-0727.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Dandy",price:0,image:"images/wrestlers/roster-extra-0728.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Hijo del Fantasma",price:0,image:"images/wrestlers/roster-extra-0729.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Hijo de Blue Demon",price:0,image:"images/wrestlers/roster-extra-0730.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Hijo del Santo",price:0,image:"images/wrestlers/roster-extra-0731.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Mesias",price:0,image:"images/wrestlers/roster-extra-0732.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Texano Jr.",price:0,image:"images/wrestlers/roster-extra-0733.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Faby Apache",price:0,image:"images/wrestlers/roster-extra-0734.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Fenix",price:0,image:"images/wrestlers/roster-extra-0735.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Fuerza Guerrera",price:0,image:"images/wrestlers/roster-extra-0736.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Garza Jr.",price:0,image:"images/wrestlers/roster-extra-0737.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Gran Apache",price:0,image:"images/wrestlers/roster-extra-0738.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Gran Guerrero",price:0,image:"images/wrestlers/roster-extra-0739.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Hector Garza",price:0,image:"images/wrestlers/roster-extra-0740.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Hijo de Dr. Wagner Jr.",price:0,image:"images/wrestlers/roster-extra-0741.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Hijo del Solitario",price:0,image:"images/wrestlers/roster-extra-0742.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Hijo del Vikingo",price:0,image:"images/wrestlers/roster-extra-0743.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Hijo del Santo",price:0,image:"images/wrestlers/roster-extra-0744.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Hijo de LA Park",price:0,image:"images/wrestlers/roster-extra-0745.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Hijo de Pirata Morgan",price:0,image:"images/wrestlers/roster-extra-0746.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Hijo de Rey Misterio",price:0,image:"images/wrestlers/roster-extra-0747.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Hijo de Villano III",price:0,image:"images/wrestlers/roster-extra-0748.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Hijo del Signo",price:0,image:"images/wrestlers/roster-extra-0749.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Hijo del Tirantes",price:0,image:"images/wrestlers/roster-extra-0750.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Huracan Ramirez",price:0,image:"images/wrestlers/roster-extra-0751.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Ivelisse",price:0,image:"images/wrestlers/roster-extra-0752.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Joaquin Roldan",price:0,image:"images/wrestlers/roster-extra-0753.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Johnny Mundo",price:0,image:"images/wrestlers/roster-extra-0754.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"La Hiedra",price:0,image:"images/wrestlers/roster-extra-0755.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Lady Apache",price:0,image:"images/wrestlers/roster-extra-0756.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Lady Shani",price:0,image:"images/wrestlers/roster-extra-0757.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Laredo Kid",price:0,image:"images/wrestlers/roster-extra-0758.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Latin Lover",price:0,image:"images/wrestlers/roster-extra-0759.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Lizmark",price:0,image:"images/wrestlers/roster-extra-0760.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Los Villanos",price:0,image:"images/wrestlers/roster-extra-0761.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Lucha Brothers",price:0,image:"images/wrestlers/roster-extra-0762.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Mascara Dorada",price:0,image:"images/wrestlers/roster-extra-0763.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Mascara Sagrada",price:0,image:"images/wrestlers/roster-extra-0764.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Mascarita Dorada",price:0,image:"images/wrestlers/roster-extra-0765.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Mephisto",price:0,image:"images/wrestlers/roster-extra-0766.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Mil Mascaras",price:0,image:"images/wrestlers/roster-extra-0767.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Mr. Iguana",price:0,image:"images/wrestlers/roster-extra-0768.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Negro Casas",price:0,image:"images/wrestlers/roster-extra-0769.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Octagon",price:0,image:"images/wrestlers/roster-extra-0770.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Pagano",price:0,image:"images/wrestlers/roster-extra-0771.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Pimpinela Escarlata",price:0,image:"images/wrestlers/roster-extra-0772.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Pirata Morgan",price:0,image:"images/wrestlers/roster-extra-0773.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Psycho Clown",price:0,image:"images/wrestlers/roster-extra-0774.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Psicosis",price:0,image:"images/wrestlers/roster-extra-0775.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Rey Mysterio Jr.",price:0,image:"images/wrestlers/roster-extra-0776.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Sangre Chicana",price:0,image:"images/wrestlers/roster-extra-0777.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Santo",price:0,image:"images/wrestlers/roster-extra-0778.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Sexy Star",price:0,image:"images/wrestlers/roster-extra-0779.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Super Muñeco",price:0,image:"images/wrestlers/roster-extra-0780.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Taurus",price:0,image:"images/wrestlers/roster-extra-0781.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Texano Jr.",price:0,image:"images/wrestlers/roster-extra-0782.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Tigre Uno",price:0,image:"images/wrestlers/roster-extra-0783.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Ultimo Guerrero",price:0,image:"images/wrestlers/roster-extra-0784.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Vampiro Canadiense",price:0,image:"images/wrestlers/roster-extra-0785.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Volador Jr.",price:0,image:"images/wrestlers/roster-extra-0786.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Volcano",price:0,image:"images/wrestlers/roster-extra-0787.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Zeuxis",price:0,image:"images/wrestlers/roster-extra-0788.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Zorro",price:0,image:"images/wrestlers/roster-extra-0789.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Blue Panther",price:0,image:"images/wrestlers/roster-extra-0790.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Cavernario",price:0,image:"images/wrestlers/roster-extra-0791.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Dark Angel",price:0,image:"images/wrestlers/roster-extra-0792.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Drago",price:0,image:"images/wrestlers/roster-extra-0793.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Brazo",price:0,image:"images/wrestlers/roster-extra-0794.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Elegido",price:0,image:"images/wrestlers/roster-extra-0795.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Felino",price:0,image:"images/wrestlers/roster-extra-0796.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Hijo de LA Park",price:0,image:"images/wrestlers/roster-extra-0797.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Oriental",price:0,image:"images/wrestlers/roster-extra-0798.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Pantera",price:0,image:"images/wrestlers/roster-extra-0799.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"El Zorro",price:0,image:"images/wrestlers/roster-extra-0800.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Flamita",price:0,image:"images/wrestlers/roster-extra-0801.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Heavy Metal",price:0,image:"images/wrestlers/roster-extra-0802.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Histeria",price:0,image:"images/wrestlers/roster-extra-0803.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Joe Lider",price:0,image:"images/wrestlers/roster-extra-0804.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Kahoz",price:0,image:"images/wrestlers/roster-extra-0805.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Karis La Momia",price:0,image:"images/wrestlers/roster-extra-0806.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"La Mascara",price:0,image:"images/wrestlers/roster-extra-0807.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"La Sombra",price:0,image:"images/wrestlers/roster-extra-0808.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Lady Maravilla",price:0,image:"images/wrestlers/roster-extra-0809.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Ludark Shaitan",price:0,image:"images/wrestlers/roster-extra-0810.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Mano Negra",price:0,image:"images/wrestlers/roster-extra-0811.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Maravilla",price:0,image:"images/wrestlers/roster-extra-0812.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Maximo",price:0,image:"images/wrestlers/roster-extra-0813.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Misterioso Jr.",price:0,image:"images/wrestlers/roster-extra-0814.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Mr. Aguila",price:0,image:"images/wrestlers/roster-extra-0815.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Parka Negra",price:0,image:"images/wrestlers/roster-extra-0816.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Princesa Sugehit",price:0,image:"images/wrestlers/roster-extra-0817.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Rey Bucanero",price:0,image:"images/wrestlers/roster-extra-0818.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Rey Cometa",price:0,image:"images/wrestlers/roster-extra-0819.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Ricky Marvin",price:0,image:"images/wrestlers/roster-extra-0820.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Sagrada",price:0,image:"images/wrestlers/roster-extra-0821.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Samantha Heights",price:0,image:"images/wrestlers/roster-extra-0822.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Sugehit",price:0,image:"images/wrestlers/roster-extra-0823.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Super Porky",price:0,image:"images/wrestlers/roster-extra-0824.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Tarzan Boy",price:0,image:"images/wrestlers/roster-extra-0825.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Taya",price:0,image:"images/wrestlers/roster-extra-0826.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Teddy Hart",price:0,image:"images/wrestlers/roster-extra-0827.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Tinieblas",price:0,image:"images/wrestlers/roster-extra-0828.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Triton",price:0,image:"images/wrestlers/roster-extra-0829.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Vikingo",price:0,image:"images/wrestlers/roster-extra-0830.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Villano IV",price:0,image:"images/wrestlers/roster-extra-0831.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Villano V",price:0,image:"images/wrestlers/roster-extra-0832.jpg",gender:"Male",sourceGroup:"Lucha / Mexico / International"},
+{name:"Abadon",price:0,image:"images/wrestlers/roster-extra-0833.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Aksana",price:0,image:"images/wrestlers/roster-extra-0834.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Alba Fyre",price:0,image:"images/wrestlers/roster-extra-0835.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Alexa Bliss",price:0,image:"images/wrestlers/roster-extra-0836.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Allison Danger",price:0,image:"images/wrestlers/roster-extra-0837.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Allysin Kay",price:0,image:"images/wrestlers/roster-extra-0838.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Amazing Kong",price:0,image:"images/wrestlers/roster-extra-0839.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Awesome Kong",price:0,image:"images/wrestlers/roster-extra-0840.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Beth Phoenix",price:0,image:"images/wrestlers/roster-extra-0841.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Billie Kay",price:0,image:"images/wrestlers/roster-extra-0842.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Blair Davenport",price:0,image:"images/wrestlers/roster-extra-0843.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Brandi Rhodes",price:0,image:"images/wrestlers/roster-extra-0844.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Brooke Adams",price:0,image:"images/wrestlers/roster-extra-0845.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Dakota Kai",price:0,image:"images/wrestlers/roster-extra-0846.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Dana Brooke",price:0,image:"images/wrestlers/roster-extra-0847.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Doudrop",price:0,image:"images/wrestlers/roster-extra-0848.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Elektra Lopez",price:0,image:"images/wrestlers/roster-extra-0849.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Ember Moon",price:0,image:"images/wrestlers/roster-extra-0850.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Emma",price:0,image:"images/wrestlers/roster-extra-0851.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Eva Marie",price:0,image:"images/wrestlers/roster-extra-0852.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Eve Torres",price:0,image:"images/wrestlers/roster-extra-0853.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Hana Kimura",price:0,image:"images/wrestlers/roster-extra-0854.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Indi Hartwell",price:0,image:"images/wrestlers/roster-extra-0855.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Jessicka Havok",price:0,image:"images/wrestlers/roster-extra-0856.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Jillian Hall",price:0,image:"images/wrestlers/roster-extra-0857.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Kaitlyn",price:0,image:"images/wrestlers/roster-extra-0858.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Kamille",price:0,image:"images/wrestlers/roster-extra-0859.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Katana Chance",price:0,image:"images/wrestlers/roster-extra-0860.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Kayden Carter",price:0,image:"images/wrestlers/roster-extra-0861.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Kelly Kelly",price:0,image:"images/wrestlers/roster-extra-0862.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Kimber Lee",price:0,image:"images/wrestlers/roster-extra-0863.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Lacey Evans",price:0,image:"images/wrestlers/roster-extra-0864.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Mandy Rose",price:0,image:"images/wrestlers/roster-extra-0865.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Maria Kanellis",price:0,image:"images/wrestlers/roster-extra-0866.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Mia Yim",price:0,image:"images/wrestlers/roster-extra-0867.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Natalya",price:0,image:"images/wrestlers/roster-extra-0868.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Priscilla Kelly",price:0,image:"images/wrestlers/roster-extra-0869.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Ruby Soho",price:0,image:"images/wrestlers/roster-extra-0870.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Scarlett Bordeaux",price:0,image:"images/wrestlers/roster-extra-0871.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Shayna Baszler",price:0,image:"images/wrestlers/roster-extra-0872.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Shotzi",price:0,image:"images/wrestlers/roster-extra-0873.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Sonya Deville",price:0,image:"images/wrestlers/roster-extra-0874.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Summer Rae",price:0,image:"images/wrestlers/roster-extra-0875.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Toni Storm",price:0,image:"images/wrestlers/roster-extra-0876.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Wendy Choo",price:0,image:"images/wrestlers/roster-extra-0877.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Xia Li",price:0,image:"images/wrestlers/roster-extra-0878.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Zoey Stark",price:0,image:"images/wrestlers/roster-extra-0879.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Arisa Hoshiki",price:0,image:"images/wrestlers/roster-extra-0880.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Chihiro Hashimoto",price:0,image:"images/wrestlers/roster-extra-0881.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Io Shirai",price:0,image:"images/wrestlers/roster-extra-0882.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Kaori Yoneyama",price:0,image:"images/wrestlers/roster-extra-0883.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Kana",price:0,image:"images/wrestlers/roster-extra-0884.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Manami Toyota",price:0,image:"images/wrestlers/roster-extra-0885.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Mio Momono",price:0,image:"images/wrestlers/roster-extra-0886.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Miyu Yamashita",price:0,image:"images/wrestlers/roster-extra-0887.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Rina Yamashita",price:0,image:"images/wrestlers/roster-extra-0888.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Sareee",price:0,image:"images/wrestlers/roster-extra-0889.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Syuri",price:0,image:"images/wrestlers/roster-extra-0890.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Takumi Iroha",price:0,image:"images/wrestlers/roster-extra-0891.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Yuki Kamifuku",price:0,image:"images/wrestlers/roster-extra-0892.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Yuzuki Aikawa",price:0,image:"images/wrestlers/roster-extra-0893.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"Zoe Lucas",price:0,image:"images/wrestlers/roster-extra-0894.jpg",gender:"Female",sourceGroup:"Women / Divas / Joshi"},
+{name:"A-Kid",price:0,image:"images/wrestlers/roster-extra-0895.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Aaron Solo",price:0,image:"images/wrestlers/roster-extra-0896.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Ace Romero",price:0,image:"images/wrestlers/roster-extra-0897.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Action Andretti",price:0,image:"images/wrestlers/roster-extra-0898.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Adam Brooks",price:0,image:"images/wrestlers/roster-extra-0899.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Aiden English",price:0,image:"images/wrestlers/roster-extra-0900.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Aiden O'Shea",price:0,image:"images/wrestlers/roster-extra-0901.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Alex Colon",price:0,image:"images/wrestlers/roster-extra-0902.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Alex Hammerstone",price:0,image:"images/wrestlers/roster-extra-0903.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Alex Kane",price:0,image:"images/wrestlers/roster-extra-0904.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Alex Koslov",price:0,image:"images/wrestlers/roster-extra-0905.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Alex Riley",price:0,image:"images/wrestlers/roster-extra-0906.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Alex Taylor",price:0,image:"images/wrestlers/roster-extra-0907.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Allie Katch",price:0,image:"images/wrestlers/roster-extra-0908.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Amazing Red",price:0,image:"images/wrestlers/roster-extra-0909.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Amir Jordan",price:0,image:"images/wrestlers/roster-extra-0910.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Anderson",price:0,image:"images/wrestlers/roster-extra-0911.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Andrew Everett",price:0,image:"images/wrestlers/roster-extra-0912.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Anthony Greene",price:0,image:"images/wrestlers/roster-extra-0913.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Anthony Henry",price:0,image:"images/wrestlers/roster-extra-0914.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Ariya Daivari",price:0,image:"images/wrestlers/roster-extra-0915.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Aron Stevens",price:0,image:"images/wrestlers/roster-extra-0916.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Ashante Adonis",price:0,image:"images/wrestlers/roster-extra-0917.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Austin Gunn",price:0,image:"images/wrestlers/roster-extra-0918.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Axel Tischer",price:0,image:"images/wrestlers/roster-extra-0919.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Bear Bronson",price:0,image:"images/wrestlers/roster-extra-0920.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Beau James",price:0,image:"images/wrestlers/roster-extra-0921.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Beefcake",price:0,image:"images/wrestlers/roster-extra-0922.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Ben Carter",price:0,image:"images/wrestlers/roster-extra-0923.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Big Damo",price:0,image:"images/wrestlers/roster-extra-0924.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Big Daddy V",price:0,image:"images/wrestlers/roster-extra-0925.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Big E Langston",price:0,image:"images/wrestlers/roster-extra-0926.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Big Ryck",price:0,image:"images/wrestlers/roster-extra-0927.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Billy Kidman",price:0,image:"images/wrestlers/roster-extra-0928.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Billy Robinson",price:0,image:"images/wrestlers/roster-extra-0929.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Bobby Fulton",price:0,image:"images/wrestlers/roster-extra-0930.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Bobby Orlando",price:0,image:"images/wrestlers/roster-extra-0931.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Bobby Wayward",price:0,image:"images/wrestlers/roster-extra-0932.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Boomer Hatfield",price:0,image:"images/wrestlers/roster-extra-0933.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Brian Johnson",price:0,image:"images/wrestlers/roster-extra-0934.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Brian Pillman Jr.",price:0,image:"images/wrestlers/roster-extra-0935.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Brian Zane",price:0,image:"images/wrestlers/roster-extra-0936.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Brody Lee",price:0,image:"images/wrestlers/roster-extra-0937.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Bronson",price:0,image:"images/wrestlers/roster-extra-0938.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Bryan Keith",price:0,image:"images/wrestlers/roster-extra-0939.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Buddy Landel",price:0,image:"images/wrestlers/roster-extra-0940.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Bull James",price:0,image:"images/wrestlers/roster-extra-0941.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Calvin Tankman",price:0,image:"images/wrestlers/roster-extra-0942.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Carlito Caribbean Cool",price:0,image:"images/wrestlers/roster-extra-0943.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Carson Drake",price:0,image:"images/wrestlers/roster-extra-0944.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Casey Jones",price:0,image:"images/wrestlers/roster-extra-0945.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Chad Fortune",price:0,image:"images/wrestlers/roster-extra-0946.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Channing Decker",price:0,image:"images/wrestlers/roster-extra-0947.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Chase Owens",price:0,image:"images/wrestlers/roster-extra-0948.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Cheeseburger",price:0,image:"images/wrestlers/roster-extra-0949.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Chris Dickinson",price:0,image:"images/wrestlers/roster-extra-0950.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Chris Ridgeway",price:0,image:"images/wrestlers/roster-extra-0951.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Chris Silvio",price:0,image:"images/wrestlers/roster-extra-0952.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Chris Van Vliet",price:0,image:"images/wrestlers/roster-extra-0953.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Christian York",price:0,image:"images/wrestlers/roster-extra-0954.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Colt Cabana",price:0,image:"images/wrestlers/roster-extra-0955.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Damo",price:0,image:"images/wrestlers/roster-extra-0956.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Danny Limelight",price:0,image:"images/wrestlers/roster-extra-0957.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Danny Maff",price:0,image:"images/wrestlers/roster-extra-0958.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Danny Burch",price:0,image:"images/wrestlers/roster-extra-0959.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Dante Martin",price:0,image:"images/wrestlers/roster-extra-0960.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Darius Martin",price:0,image:"images/wrestlers/roster-extra-0961.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Davey Boy Smith Jr.",price:0,image:"images/wrestlers/roster-extra-0962.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"David Finlay",price:0,image:"images/wrestlers/roster-extra-0963.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"David Starr",price:0,image:"images/wrestlers/roster-extra-0964.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Delirious",price:0,image:"images/wrestlers/roster-extra-0965.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Derrick Bateman",price:0,image:"images/wrestlers/roster-extra-0966.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Devin Driscoll",price:0,image:"images/wrestlers/roster-extra-0967.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Dijak",price:0,image:"images/wrestlers/roster-extra-0968.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Dillon D'Marco",price:0,image:"images/wrestlers/roster-extra-0969.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Donovan Dijak",price:0,image:"images/wrestlers/roster-extra-0970.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Drew Gulak",price:0,image:"images/wrestlers/roster-extra-0971.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Drew Parker",price:0,image:"images/wrestlers/roster-extra-0972.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"El Generico",price:0,image:"images/wrestlers/roster-extra-0973.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Eli Drake",price:0,image:"images/wrestlers/roster-extra-0974.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Eli Isom",price:0,image:"images/wrestlers/roster-extra-0975.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Elijah",price:0,image:"images/wrestlers/roster-extra-0976.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Eric Bischoff",price:0,image:"images/wrestlers/roster-extra-0977.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Erick Redbeard",price:0,image:"images/wrestlers/roster-extra-0978.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Evil Uno",price:0,image:"images/wrestlers/roster-extra-0979.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Fergal Devitt",price:0,image:"images/wrestlers/roster-extra-0980.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Flip Gordon",price:0,image:"images/wrestlers/roster-extra-0981.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Fred Yehi",price:0,image:"images/wrestlers/roster-extra-0982.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Garrett Bischoff",price:0,image:"images/wrestlers/roster-extra-0983.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Gedo",price:0,image:"images/wrestlers/roster-extra-0984.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Grado",price:0,image:"images/wrestlers/roster-extra-0985.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Gran Metalik",price:0,image:"images/wrestlers/roster-extra-0986.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Gregory Iron",price:0,image:"images/wrestlers/roster-extra-0987.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Griff Garrison",price:0,image:"images/wrestlers/roster-extra-0988.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Hanson",price:0,image:"images/wrestlers/roster-extra-0989.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Hechicero",price:0,image:"images/wrestlers/roster-extra-0990.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Hurricane Helms",price:0,image:"images/wrestlers/roster-extra-0991.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Isiah Kassidy",price:0,image:"images/wrestlers/roster-extra-0992.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Ivan Koloff",price:0,image:"images/wrestlers/roster-extra-0993.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Jake Atlas",price:0,image:"images/wrestlers/roster-extra-0994.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Jake Crist",price:0,image:"images/wrestlers/roster-extra-0995.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Jake Hager",price:0,image:"images/wrestlers/roster-extra-0996.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Jake Something",price:0,image:"images/wrestlers/roster-extra-0997.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"James Drake",price:0,image:"images/wrestlers/roster-extra-0998.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Jason Jordan",price:0,image:"images/wrestlers/roster-extra-0999.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Jeff Cobb",price:0,image:"images/wrestlers/roster-extra-1000.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Jimmy Havoc",price:0,image:"images/wrestlers/roster-extra-1001.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Jimmy Jacobs",price:0,image:"images/wrestlers/roster-extra-1002.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Jimmy Rave",price:0,image:"images/wrestlers/roster-extra-1003.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Joey Janela",price:0,image:"images/wrestlers/roster-extra-1004.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Joey Ryan",price:0,image:"images/wrestlers/roster-extra-1005.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Jonathan Gresham",price:0,image:"images/wrestlers/roster-extra-1006.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Josh Woods",price:0,image:"images/wrestlers/roster-extra-1007.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"JTG",price:0,image:"images/wrestlers/roster-extra-1008.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Judas Mesias",price:0,image:"images/wrestlers/roster-extra-1009.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Justin Gabriel",price:0,image:"images/wrestlers/roster-extra-1010.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Kerry Morton",price:0,image:"images/wrestlers/roster-extra-1011.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Kevin Blackwood",price:0,image:"images/wrestlers/roster-extra-1012.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Kevin Knight",price:0,image:"images/wrestlers/roster-extra-1013.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Kevin Steen",price:0,image:"images/wrestlers/roster-extra-1014.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Killer Kross",price:0,image:"images/wrestlers/roster-extra-1015.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Konosuke Takeshita",price:0,image:"images/wrestlers/roster-extra-1016.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Lee Johnson",price:0,image:"images/wrestlers/roster-extra-1017.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Leon Ruff",price:0,image:"images/wrestlers/roster-extra-1018.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Low Ki",price:0,image:"images/wrestlers/roster-extra-1019.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Lucky Cannon",price:0,image:"images/wrestlers/roster-extra-1020.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Madman Fulton",price:0,image:"images/wrestlers/roster-extra-1021.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Mance Warner",price:0,image:"images/wrestlers/roster-extra-1022.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Mark Andrews",price:0,image:"images/wrestlers/roster-extra-1023.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Mark Coffey",price:0,image:"images/wrestlers/roster-extra-1024.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Mark Sterling",price:0,image:"images/wrestlers/roster-extra-1025.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Martin Stone",price:0,image:"images/wrestlers/roster-extra-1026.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Marty Scurll",price:0,image:"images/wrestlers/roster-extra-1027.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Matt Cross",price:0,image:"images/wrestlers/roster-extra-1028.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Matt Taven",price:0,image:"images/wrestlers/roster-extra-1029.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Michael Elgin",price:0,image:"images/wrestlers/roster-extra-1030.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Mike Kanellis",price:0,image:"images/wrestlers/roster-extra-1031.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Mike Knox",price:0,image:"images/wrestlers/roster-extra-1032.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Mike Quackenbush",price:0,image:"images/wrestlers/roster-extra-1033.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Mike Verna",price:0,image:"images/wrestlers/roster-extra-1034.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Miro",price:0,image:"images/wrestlers/roster-extra-1035.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Nathan Cruz",price:0,image:"images/wrestlers/roster-extra-1036.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Nick Gage",price:0,image:"images/wrestlers/roster-extra-1037.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Nick Wayne",price:0,image:"images/wrestlers/roster-extra-1038.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Nikita Koloff",price:0,image:"images/wrestlers/roster-extra-1039.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"No Way Jose",price:0,image:"images/wrestlers/roster-extra-1040.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Oliver Carter",price:0,image:"images/wrestlers/roster-extra-1041.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Oney Lorcan",price:0,image:"images/wrestlers/roster-extra-1042.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Paul Wight",price:0,image:"images/wrestlers/roster-extra-1043.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"PJ Black",price:0,image:"images/wrestlers/roster-extra-1044.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"PJ Braun",price:0,image:"images/wrestlers/roster-extra-1045.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"P.J. Polaco",price:0,image:"images/wrestlers/roster-extra-1046.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Preston Vance",price:0,image:"images/wrestlers/roster-extra-1047.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Rey Horus",price:0,image:"images/wrestlers/roster-extra-1048.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Ridge Holland",price:0,image:"images/wrestlers/roster-extra-1049.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Roderick Strong",price:0,image:"images/wrestlers/roster-extra-1050.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Rory Gulak",price:0,image:"images/wrestlers/roster-extra-1051.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Ryan Nemeth",price:0,image:"images/wrestlers/roster-extra-1052.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Sami Callihan",price:0,image:"images/wrestlers/roster-extra-1053.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Sammy Guevara",price:0,image:"images/wrestlers/roster-extra-1054.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Scott D'Amore",price:0,image:"images/wrestlers/roster-extra-1055.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Scott Lost",price:0,image:"images/wrestlers/roster-extra-1056.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Sean Waltman",price:0,image:"images/wrestlers/roster-extra-1057.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Serpentico",price:0,image:"images/wrestlers/roster-extra-1058.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Shane Taylor",price:0,image:"images/wrestlers/roster-extra-1059.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Shawn Dean",price:0,image:"images/wrestlers/roster-extra-1060.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Shawn Spears",price:0,image:"images/wrestlers/roster-extra-1061.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Silas Young",price:0,image:"images/wrestlers/roster-extra-1062.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Simon Gotch",price:0,image:"images/wrestlers/roster-extra-1063.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Sledge",price:0,image:"images/wrestlers/roster-extra-1064.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Speedball Mike Bailey",price:0,image:"images/wrestlers/roster-extra-1065.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Stu Grayson",price:0,image:"images/wrestlers/roster-extra-1066.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Super Dragon",price:0,image:"images/wrestlers/roster-extra-1067.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Thea Trinidad",price:0,image:"images/wrestlers/roster-extra-1068.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Thomas Latimer",price:0,image:"images/wrestlers/roster-extra-1069.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Timothy Thatcher",price:0,image:"images/wrestlers/roster-extra-1070.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Tommy End",price:0,image:"images/wrestlers/roster-extra-1071.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Tony Nese",price:0,image:"images/wrestlers/roster-extra-1072.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Trevor Lee",price:0,image:"images/wrestlers/roster-extra-1073.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Tyler Rust",price:0,image:"images/wrestlers/roster-extra-1074.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Tyler Reks",price:0,image:"images/wrestlers/roster-extra-1075.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Uhaa Nation",price:0,image:"images/wrestlers/roster-extra-1076.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Wes Lee",price:0,image:"images/wrestlers/roster-extra-1077.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Wolfgang",price:0,image:"images/wrestlers/roster-extra-1078.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Yoshi Tatsu",price:0,image:"images/wrestlers/roster-extra-1079.jpg",gender:"Male",sourceGroup:"Indies / Tag teams / Other"},
+{name:"Nikkita Lyons",price:0,image:"images/wrestlers/roster-extra-1080.jpg",gender:"Female",sourceGroup:"Current WWE / NXT / Evolve"},
 ];
+
+
+// Safety cleanup: remove sparse/empty roster slots before products, filters and previews are built.
+// These empty slots can otherwise throw on View Model clicks and interrupt page navigation.
+for (let imzCleanIndex = wrestlers.length - 1; imzCleanIndex >= 0; imzCleanIndex--) {
+  if (!wrestlers[imzCleanIndex] || !wrestlers[imzCleanIndex].name) wrestlers.splice(imzCleanIndex, 1);
+}
+
+// ICONIC MODZ roster taxonomy: a single master entry may appear in multiple eras, promotions and factions.
+const imzEraGroups={
+  "Modern Era":`Roman Reigns|Cody Rhodes|Seth Rollins|CM Punk|Randy Orton|Drew McIntyre|Gunther|Kevin Owens|LA Knight|Logan Paul|Goldberg|Dominik Mysterio|Finn Balor|Damian Priest|Rhea Ripley|Liv Morgan|Tiffany Stratton|Jade Cargill|Bianca Belair|Becky Lynch|Iyo Sky|Asuka|Sami Zayn|Rey Mysterio|Rey Fenix|Penta|Bron Breakker|Bronson Reed|Oba Femi|Trick Williams|Stephanie Vaquer|Sol Ruca|Giulia|Joe Hendry|Jacob Fatu|Solo Sikoa|Tama Tonga|Tonga Loa|Jey Uso|Jimmy Uso|Seth Rollins|AJ Styles|Cody Rhodes|Roxanne Perez|Lyra Valkyria|Chelsea Green|Naomi|Nia Jax|Alexa Bliss|Charlotte Flair|Bayley|Gunther|LA Knight|Carmelo Hayes|Dragon Lee|Axiom|Je'Von Evans|Kelani Jordan|Jacy Jayne|Tatum Paxley|Zaria|Lola Vice|Thea Hail`.split('|'),
+  "Attitude Era":`Stone Cold Steve Austin|The Rock|Triple H|Mankind|Kane|Chyna|D-Generation X|X-Pac|Road Dogg|Billy Gunn|The Undertaker|Kurt Angle|Kane|Big Show|Edge|Christian Cage|Hardcore Holly|Al Snow|The Godfather|Val Venis|D-Lo Brown|Mark Henry|Jeff Hardy|Matt Hardy|Lita|Trish Stratus|Victoria|Jazz|Sable|Torrie Wilson|Stacy Keibler|The Dudley Boyz|The Hardy Boyz|The APA|The New Age Outlaws|Tazz|Raven|Rob Van Dam|Sabu|Tommy Dreamer|Rhyno|The Sandman|Tajiri|Chris Jericho|Eddie Guerrero|Benoit|Rikishi|Too Cool|The Big Boss Man|Ken Shamrock|Owen Hart|British Bulldog`.split('|'),
+  "Ruthless Aggression":`John Cena|Batista|Randy Orton|Rey Mysterio|Eddie Guerrero|Kurt Angle|Brock Lesnar|Edge|Christian Cage|Chris Jericho|Booker T|Rob Van Dam|Shelton Benjamin|Carlito|MVP|Mr. Kennedy|Umaga|JBL|The Undertaker|Kane|Big Show|Trish Stratus|Lita|Mickie James|Michelle McCool|Melina|Beth Phoenix|Candice Michelle|Ashley Massaro|The Miz|John Morrison|CM Punk|Jeff Hardy|Matt Hardy|Shawn Michaels|Triple H|Ric Flair|Batista|Chavo Guerrero|Finlay|William Regal|Hardcore Holly|Eugene|Bobby Lashley|The Great Khali|Mark Henry|Boogeyman|Paul London|Brian Kendrick|London and Kendrick|Cryme Tyme|Deuce|Domino`.split('|'),
+  "Golden Era":`Hulk Hogan|Randy Savage|Ultimate Warrior|Andre the Giant|Bret Hart|Shawn Michaels|Roddy Piper|Jake Roberts|Ted DiBiase|Mr. Perfect|Ricky Steamboat|The Iron Sheik|Nikolai Volkoff|Big Boss Man|British Bulldog|Demolition Ax|Demolition Smash|Hacksaw Jim Duggan|Honky Tonk Man|Rick Rude|Razor Ramon|Diesel|Yokozuna|Owen Hart|Jim Neidhart|Tito Santana|Junkyard Dog|Koko B. Ware|Brutus Beefcake|Haku|Earthquake|Typhoon|The Mountie|IRS|Tatanka|Lex Luger|Sting|Ric Flair|Arn Anderson|Tully Blanchard|Dusty Rhodes|Kerry Von Erich`.split('|'),
+  "Ruthless Aggression":`John Cena|Batista|Randy Orton|Rey Mysterio|Eddie Guerrero|Kurt Angle|Brock Lesnar|Edge|Christian Cage|Chris Jericho|Booker T|Rob Van Dam|Shelton Benjamin|Carlito|MVP|Mr. Kennedy|Umaga|JBL|The Undertaker|Kane|Big Show|Trish Stratus|Lita|Mickie James|Michelle McCool|Melina|Beth Phoenix|Candice Michelle|Ashley Massaro|The Miz|John Morrison|CM Punk|Jeff Hardy|Matt Hardy|Shawn Michaels|Triple H|Ric Flair|Chavo Guerrero|Finlay|William Regal|Hardcore Holly|Eugene|Bobby Lashley|The Great Khali|Mark Henry|Boogeyman|Paul London|Brian Kendrick|Cryme Tyme|Deuce|Domino`.split('|'),
+  "WCW / nWo":`Goldberg|Hollywood Hulk Hogan|Scott Hall|Kevin Nash|Sting|Diamond Dallas Page|Ric Flair|Booker T|Stevie Ray|Lex Luger|Randy Savage|Roddy Piper|Scott Steiner|Buff Bagwell|Curt Hennig|Syxx|Eric Bischoff|The Giant|Konnan|Dennis Rodman|Bret Hart|Chris Jericho|Eddie Guerrero|Rey Mysterio|Juventud Guerrera|Psychosis|Ultimo Dragon|Dean Malenko|Chris Benoit|Perry Saturn|Raven|La Parka|Disco Inferno|Alex Wright|Norman Smiley|Fit Finlay|Vampiro|Sid Vicious|Harlem Heat|The Outsiders|nWo Wolfpac|nWo Hollywood|Four Horsemen`.split('|'),
+  "Legends / Hall of Fame":`The Undertaker|Stone Cold Steve Austin|The Rock|Hulk Hogan|Shawn Michaels|Triple H|Ric Flair|Bret Hart|Andre the Giant|Randy Savage|Ultimate Warrior|Kane|Mick Foley|Booker T|Trish Stratus|Lita|Chyna|Beth Phoenix|Edge|Rey Mysterio|Kurt Angle|Eddie Guerrero|Brock Lesnar|Goldberg|Diamond Dallas Page|Sting|Jake Roberts|Roddy Piper|Mr. Perfect|Ricky Steamboat|Terry Funk|Dusty Rhodes|Harley Race|Bruno Sammartino|Rikishi|JBL|The Godfather|Victoria|Jazz|Sable|Molly Holly|Jacqueline|Torrie Wilson|Stacy Keibler|Michelle McCool|Mickie James`.split('|'),
+  "NXT / Rising Stars":`Oba Femi|Trick Williams|Je'Von Evans|Axiom|Nathan Frazer|Lola Vice|Sol Ruca|Kelani Jordan|Jacy Jayne|Tatum Paxley|Thea Hail|Zaria|Giulia|Stephanie Vaquer|Roxanne Perez|Carmelo Hayes|Bron Breakker|Ilja Dragunov|Tyler Bate|Pete Dunne|Dragon Lee|Wes Lee|Cora Jade|Tiffany Stratton|Lyra Valkyria|Fallon Henley|Lash Legend|Kendal Grey|Kali Armstrong|Ethan Page|Joe Hendry|Arianna Grace|Charlie Dempsey|Lexis King|Dion Lennox|Hank Walker|Tank Ledger|Myles Borne|Kale Dixon`.split('|')
+};
+const imzPromotionGroups={
+ "WWE":`Akira Tozawa|Adam Pearce|AJ Lee|Alexa Bliss|Roman Reigns|Cody Rhodes|Seth Rollins|CM Punk|Randy Orton|Drew McIntyre|Gunther|Kevin Owens|LA Knight|Logan Paul|Goldberg|Rhea Ripley|Liv Morgan|Tiffany Stratton|John Cena|The Rock|The Undertaker|Stone Cold Steve Austin|Triple H|Shawn Michaels|Hulk Hogan|Becky Lynch|Charlotte Flair|Bianca Belair|Jade Cargill|Iyo Sky|Asuka|Sami Zayn|Rey Mysterio|Bron Breakker|Oba Femi|Trick Williams|Stephanie Vaquer|Giulia`.split('|'),
+ "WCW":`Goldberg|Sting|Ric Flair|Diamond Dallas Page|Booker T|Kevin Nash|Scott Hall|Hollywood Hulk Hogan|Lex Luger|Randy Savage|Scott Steiner|Buff Bagwell|Curt Hennig|The Giant|Konnan|Juventud Guerrera|Psychosis|Ultimo Dragon|Dean Malenko|Chris Benoit|Perry Saturn|Raven|La Parka|Disco Inferno|Alex Wright|Norman Smiley|Vampiro`.split('|'),
+ "ECW":`Rob Van Dam|Sabu|Tommy Dreamer|The Sandman|Taz|Tajiri|Rhyno|Raven|Shane Douglas|Justin Credible|Lance Storm|Mike Awesome|Balls Mahoney|Axl Rotten|New Jack|Francine|Super Crazy|Jerry Lynn|Mikey Whipwreck|Little Guido|The Dudley Boyz`.split('|'),
+ "AEW / ROH":`Kenny Omega|Jon Moxley|Bryan Danielson|Hangman Adam Page|MJF|Swerve Strickland|Will Ospreay|Orange Cassidy|Darby Allin|Chris Jericho|Samoa Joe|Adam Cole|Jay White|Toni Storm|Mercedes Moné|Hikaru Shida|Athena|Thunder Rosa|Kris Statlander|The Young Bucks|FTR|The Acclaimed|Eddie Kingston|Claudio Castagnoli|Konosuke Takeshita|Kyle O'Reilly|Adam Copeland|Christian Cage|Mark Briscoe|Bandido|ROH|ROH World Champion`.split('|'),
+ "TNA / Impact":`AJ Styles|Samoa Joe|Abyss|James Storm|Bobby Roode|Eric Young|Moose|Jordynne Grace|Gail Kim|Mickie James|Alicia Edwards|Eddie Edwards|Josh Alexander|Chris Sabin|Alex Shelley|Petey Williams|The Amazing Red|Kurt Angle|Christian Cage|Jeff Hardy|Matt Hardy|Tessa Blanchard|Deonna Purrazzo|Mike Bailey|Ace Austin|Chris Bey|Rosemary|Su Yung|Killer Kelly`.split('|'),
+ "NJPW / Japan":`Kazuchika Okada|Hiroshi Tanahashi|Tetsuya Naito|Kenny Omega|Jay White|Shinsuke Nakamura|Will Ospreay|Minoru Suzuki|KENTA|Kota Ibushi|Hirooki Goto|Shingo Takagi|Hiromu Takahashi|SANADA|Zack Sabre Jr.|Toru Yano|Togi Makabe|Tomohiro Ishii|Yoshi-Hashi|Great Muta|Jyushin Thunder Liger|Meiko Satomura|Mayu Iwatani|Utami Hayashishita|Giulia|Asuka|Kairi Sane`.split('|')
+};
+const imzFactionGroups={
+ "The Bloodline":`Roman Reigns|Solo Sikoa|Jey Uso|Jimmy Uso|Jacob Fatu|Tama Tonga|Tonga Loa|Rikishi|The Rock|Paul Heyman|Zilla Fatu`.split('|'),
+ "nWo":`Goldberg|Hollywood Hulk Hogan|Scott Hall|Kevin Nash|Syxx|Buff Bagwell|Scott Norton|Brian Adams|Horace Hogan|Eric Bischoff|The Giant|Sting|Booker T|Stevie Ray|Konnan|Curt Hennig|Dennis Rodman`.split('|'),
+ "D-Generation X":`Triple H|Shawn Michaels|Chyna|X-Pac|Road Dogg|Billy Gunn|Rick Rude|Tori`.split('|'),
+ "Evolution":`Triple H|Ric Flair|Batista|Randy Orton`.split('|'),
+ "The Shield":`Roman Reigns|Seth Rollins|Dean Ambrose|Jon Moxley`.split('|'),
+ "Judgment Day":`Finn Balor|Damian Priest|Rhea Ripley|Dominik Mysterio|Liv Morgan|JD McDonagh|Carlito`.split('|'),
+ "Wyatt Family / Wyatt Sicks":`Bray Wyatt|The Fiend Bray Wyatt|Luke Harper|Erick Rowan|Braun Strowman|Bo Dallas|Uncle Howdy|Nikki Cross|Dexter Lumis|Joe Gacy|Erick Rowan`.split('|'),
+ "The New Day":`Kofi Kingston|Xavier Woods|Big E`.split('|'),
+ "The Four Horsemen":`Ric Flair|Arn Anderson|Tully Blanchard|Ole Anderson|Barry Windham|Lex Luger|Chris Benoit|Dean Malenko`.split('|'),
+ "The Hardy Boyz":`Jeff Hardy|Matt Hardy`.split('|'),
+ "The Dudley Boyz":`Bubba Ray Dudley|D-Von Dudley|Spike Dudley`.split('|'),
+ "Damage CTRL":`Bayley|Iyo Sky|Dakota Kai|Asuka|Kairi Sane`.split('|'),
+ "The Bella Twins":`Nikki Bella|Brie Bella`.split('|')
+};
+const imzTagKey=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+function imzTagsFor(w,groupMap){const k=imzTagKey(w.name);return Object.entries(groupMap).filter(([label,names])=>names.some(n=>imzTagKey(n)===k)).map(([label])=>label)}
+function imzPrepareRosterMetadata(){wrestlers.forEach(w=>{w.gender=w.gender||(['Victoria','Jazz','Sable','Trish Stratus','Lita','Stacy Keibler','Torrie Wilson','Stephanie McMahon','AJ Lee','Paige','Nikki Bella','Brie Bella','Rhea Ripley','Liv Morgan','Tiffany Stratton','Nikki Cross','Debra','Asuka','Bayley','Becky Lynch','Bianca Belair','Charlotte Flair','Chelsea Green','Jade Cargill','Iyo Sky','Giulia','Stephanie Vaquer','Lola Vice','Sol Ruca','Nia Jax','Alexa Bliss','Naomi','Tatum Paxley','Thea Hail','Roxanne Perez','Lyra Valkyria','Mickie James','Michelle McCool','Molly Holly','Gail Kim','Beth Phoenix','Jazz','Victoria','Melina','Candice LeRae','Kairi Sane','Dakota Kai','Natalya','Trish Stratus','Torrie Wilson','Stacy Keibler','Lita','Sable','Chyna','Jacqueline','Ivory','Alicia Fox','Mia Yim','Piper Niven','Raquel Rodriguez','Tegan Nox','Zelina Vega','Zoey Stark','Toni Storm','Saraya','Athena','Mercedes Moné','Thunder Rosa','Hikaru Shida','Kris Statlander','Deonna Purrazzo','Jordynne Grace','Rosemary','Su Yung','Mayu Iwatani','Utami Hayashishita','Aja Kong','Meiko Satomura'].some(n=>imzTagKey(n)===imzTagKey(w.name))?'Female':'Male');w.eras=imzTagsFor(w,imzEraGroups);w.promotions=imzTagsFor(w,imzPromotionGroups);w.factions=imzTagsFor(w,imzFactionGroups);if(w.sourceGroup&&!w.promotions.length){w.promotions=w.sourceGroup.includes('WCW')?['WCW']:w.sourceGroup.includes('TNA')?['TNA / Impact']:w.sourceGroup.includes('AEW')?['AEW / ROH']:w.sourceGroup.includes('NJPW')?['NJPW / Japan']:w.sourceGroup.includes('Indies')?['Other / Indies']:['WWE'];}if(!w.eras.length){w.eras=w.sourceGroup&&w.sourceGroup.includes('Attitude')?['Attitude Era']:w.sourceGroup&&w.sourceGroup.includes('WCW')?['WCW / nWo']:w.sourceGroup&&w.sourceGroup.includes('NJPW')?['NJPW / Japan']:w.sourceGroup&&w.sourceGroup.includes('Current')?['Modern Era']:['Legends / Hall of Fame'];}})}
+imzPrepareRosterMetadata();
 
 
 // Individual Wrestler Models — separate from the 79-wrestler Custom Mod builder.
@@ -1953,8 +3100,7 @@ const customArenas=[
 { name:"OLD \u2022 Bad Blood",price:0,image:"images/arenas/arena42.jpg" },
 { name:"OLD \u2022 InsurreXtion",price:0,image:"images/arenas/arena43.jpg" },
 { name:"OLD \u2022 Rebellion",price:0,image:"images/arenas/arena44.jpg" },
-{ name:"OLD \u2022 No Way Out",price:0,image:"images/arenas/arena45.jpg" },
-
+{ name:"OLD \u2022 No Way Out",price:0,image:"images/arenas/arena45.jpg" }
 ];
 
 const customTitantrons=[
@@ -2092,6 +3238,7 @@ function alphabetButtons(targetId,current,onPick){
   el.innerHTML=IMZ_ALPHABET.map(l=>`<button type="button" class="${l===current?'active ':''}${l==='ALL'?'all':''}" onclick="${onPick}('${l}')">${l}</button>`).join('');
 }
 function setProductAlphabet(letter){
+  imzProductVisibleLimit=60;
   productAlphabetLetter=letter;
   alphabetButtons('productAlphabet',productAlphabetLetter,'setProductAlphabet');
   renderProducts();
@@ -2099,12 +3246,20 @@ function setProductAlphabet(letter){
 function setCustomAlphabet(letter){
   customAlphabetLetter=letter;
   alphabetButtons('customAlphabet',customAlphabetLetter,'setCustomAlphabet');
-  filterCustomList(document.getElementById('customListSearch')?.value||'');
+  // Alphabet buttons are an explicit filter; don't route through the text-search handler.
+  const search=document.getElementById('imzRosterSearch');
+  if(search) search.value='';
+  const listSearch=document.getElementById('customListSearch');
+  if(listSearch) listSearch.value='';
+  imzApplyRosterFilters();
 }
 
+let imzProductVisibleLimit=60;
+function imzLoadMoreProducts(){imzProductVisibleLimit+=60;renderProducts();}
 function renderProducts(){
 
 const grid=document.getElementById("productGrid");
+if(currentCategory!=="wrestlers") imzProductVisibleLimit=60;
 
 let list=products[currentCategory]||[];
 // SVR is a separate mod universe. Keep HCTP V1/V2 out of SVR Full Game Mods until SVR products are added.
@@ -2140,7 +3295,8 @@ return;
 }
 
 
-grid.innerHTML=list.map((product,index)=>`
+const displayList=currentCategory==="wrestlers"?list.slice(0,imzProductVisibleLimit):list;
+grid.innerHTML=displayList.map((product,index)=>`
 
 <div class="card">
 
@@ -2184,6 +3340,9 @@ onclick='event.stopPropagation();addToCart(${JSON.stringify(product)})'>
 </div>
 
 `).join("");
+if(currentCategory==="wrestlers" && list.length>displayList.length){
+  grid.insertAdjacentHTML("beforeend",`<div class="imz-product-load-more" style="grid-column:1/-1;display:flex;justify-content:center;padding:20px"><button class="btn dark" type="button" onclick="imzLoadMoreProducts()">LOAD MORE WRESTLERS (${Math.min(60,list.length-displayList.length)} OF ${list.length-displayList.length} REMAINING)</button></div>`);
+}
 
 }
 
@@ -2703,42 +3862,45 @@ updateBuilderRequirements();
 }
 
 
-function renderWrestlers(){
-
-const grid=document.getElementById("wrestlerGrid");
-const femaleRosterNames=[
-"Victoria","Jazz","Sable","Trish Stratus","Lita","Stacy Keibler","Torrie Wilson",
-"Stephanie McMahon","AJ Lee","Paige","Nikki Bella","Brie Bella","Rhea Ripley",
-"Liv Morgan","Tiffany Stratton","Nikki Cross","Debra"
-];
-const isFemaleWrestler=w=>femaleRosterNames.some(n=>imzRosterKey(n)===imzRosterKey(w.name));
-const renderCard=(w)=>{
-  const index=wrestlers.indexOf(w);
-  const selected=selectedWrestlers.some(x=>x.name===w.name);
-  return `
-  <div class="card wrestler ${selected?"selected":""}" onclick="toggleWrestler(${index})">
-    <div class="card-img">
-      ${w.image?`<img src="${w.image}" alt="${imzEscape(w.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" decoding="async">`:''}
-      <div class="placeholder" style="${w.image?'display:none':''}">W</div>
-    </div>
-    <div class="card-body">
-      <div class="check">✓</div>
-      <h2>${imzEscape(w.name)}</h2>
-      <div class="price">Included in $85 Custom Mod</div>
-      <p>${selected?"Selected":"Select Model"}</p>
-      <div class="imz-custom-attire-current">${selected?`👕 ATTIRE #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[w.name])||1).padStart(2,"0")} SELECTED`:`Choose model to unlock attire selection`}</div>
-      <button type="button" class="imz-custom-attire-button" ${selected?"":"disabled"} onclick="event.stopPropagation();imzOpenCustomAttirePicker(${index})">👕 CHOOSE ATTIRE • 10 AVAILABLE</button>
-    </div>
-  </div>`;
-};
-const maleRoster=wrestlers.filter(w=>!isFemaleWrestler(w));
-const femaleRoster=wrestlers.filter(w=>isFemaleWrestler(w));
-grid.innerHTML=`<div class="imz-roster-group-heading">MEN'S ROSTER <span>${maleRoster.length} MODELS</span></div>`+
-  maleRoster.map(renderCard).join("")+
-  `<div class="imz-roster-group-heading imz-female-roster-heading">WOMEN'S ROSTER <span>${femaleRoster.length} MODELS</span></div>`+
-  femaleRoster.map(renderCard).join("");
-updateTotal();
+let imzRosterVisibleLimit=60;
+function renderWrestlers(){imzApplyRosterFilters();updateTotal();}
+function imzRosterSearchInput(query){customAlphabetLetter='ALL';const listSearch=document.getElementById('customListSearch');if(listSearch)listSearch.value=query||'';alphabetButtons('customAlphabet',customAlphabetLetter,'setCustomAlphabet');imzApplyRosterFilters();}
+function imzApplyRosterFilters(reset=true){
+  if(reset!==false) imzRosterVisibleLimit=60;
+  const grid=document.getElementById('wrestlerGrid');if(!grid)return;
+  const q=(document.getElementById('imzRosterSearch')?.value||'').trim().toLowerCase();
+  const era=document.getElementById('imzRosterEra')?.value||'';
+  const promotion=document.getElementById('imzRosterPromotion')?.value||'';
+  const faction=document.getElementById('imzRosterFaction')?.value||'';
+  const gender=document.getElementById('imzRosterGender')?.value||'';
+  const normalizeSearch=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  const normalizedQuery=normalizeSearch(q);
+  const filtered=wrestlers.map((w,index)=>({w,index})).filter(({w})=>{
+    const hay=normalizeSearch([w.name,...(w.eras||[]),...(w.promotions||[]),...(w.factions||[])].join(' '));
+    const matchesLetter=typeof customAlphabetLetter==='undefined'||!customAlphabetLetter||customAlphabetLetter==='ALL'||firstLetter(w.name)===customAlphabetLetter;
+    return matchesLetter&&(!normalizedQuery||hay.includes(normalizedQuery))&&(!era||(w.eras||[]).includes(era))&&(!promotion||(w.promotions||[]).includes(promotion))&&(!faction||(w.factions||[]).includes(faction))&&(!gender||w.gender===gender);
+  }).sort((a,b)=>String(a.w.name||'').localeCompare(String(b.w.name||''),undefined,{sensitivity:'base'}));
+  const count=document.getElementById('imzRosterCount');if(count)count.textContent=filtered.length.toLocaleString()+' wrestlers found · '+wrestlers.length.toLocaleString()+' total';
+  const male=filtered.filter(x=>x.w.gender!=='Female'),female=filtered.filter(x=>x.w.gender==='Female');
+  const renderCard=({w,index})=>{
+    const selected=selectedWrestlers.some(x=>x.name===w.name);
+    const tags=[...(w.eras||[]).slice(0,2),...(w.promotions||[]).slice(0,1),...(w.factions||[]).slice(0,1)].filter((v,i,a)=>a.indexOf(v)===i).slice(0,3);
+    return `<div class="card wrestler ${selected?'selected':''}" onclick="toggleWrestler(${index})">
+      <div class="card-img">${w.image?`<img src="${w.image}" alt="${imzEscape(w.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" decoding="async">`:''}<div class="placeholder" style="${w.image?'display:none':''}">${w.gender==='Female'?'F':'W'}</div></div>
+      <div class="card-body"><div class="check">✓</div><h2>${imzEscape(w.name)}</h2>
+      <div class="imz-card-tags">${tags.map(t=>`<span class="imz-card-tag">${imzEscape(t)}</span>`).join('')}</div>
+      <div class="price">Included in $85 Custom Mod</div><p>${selected?'Selected':'Select Model'}</p>
+      <div class="imz-custom-attire-current">${selected?`👕 ATTIRE #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[w.name])||1).padStart(2,'0')} SELECTED`:'Choose model to unlock attire selection'}</div>
+      <button type="button" class="imz-custom-attire-button" ${selected?'':'disabled'} onclick="event.stopPropagation();imzOpenCustomAttirePicker(${index})">👕 CHOOSE ATTIRE • 10 SLOTS</button></div></div>`;
+  };
+  const shown=filtered.slice(0,imzRosterVisibleLimit);
+  // Keep the full roster searchable but render in pages for performance.
+  grid.innerHTML=shown.map(renderCard).join('')||'<div class="imz-roster-empty">No wrestlers match these filters. Try clearing one filter.</div>';
+  const load=document.getElementById('imzRosterLoadMore');if(load){load.style.display=filtered.length>shown.length?'inline-flex':'none';load.textContent=`LOAD MORE (${Math.min(filtered.length-shown.length,60)} OF ${filtered.length-shown.length} REMAINING)`;}
+  // Alphabet control stays available; it is applied only when no category filter is selected.
+  if(typeof alphabetButtons==='function') alphabetButtons('customAlphabet',customAlphabetLetter,'setCustomAlphabet');
 }
+function imzLoadMoreRoster(){imzRosterVisibleLimit+=60;imzApplyRosterFilters(false);}
 
 function renderCustomItems(type){
 
@@ -3016,57 +4178,65 @@ function imzGlobalSearch(query){
   wrestlers.forEach((w,i)=>pool.push({name:w.name,type:'WRESTLER',action:`openSearchProduct('wrestlers',${i})`}));
   customArenas.forEach((a,i)=>pool.push({name:a.name,type:'ARENA',action:`openSearchProduct('arenas',${i})`}));
   pool.push({name:'Basic Modding — $60',type:'ACADEMY',action:"academyInfo('basic')"},{name:'Advanced Modding — $100',type:'ACADEMY',action:"academyInfo('advanced')"},{name:'Mobile Modding — $50',type:'ACADEMY',action:"academyInfo('mobile')"});
-  const found=pool.filter(x=>x.name.toLowerCase().includes(q)).slice(0,14);
+  const normalizeSearch=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  const normalizedQuery=normalizeSearch(q);
+  const found=pool.filter(x=>normalizeSearch(x.name).includes(normalizedQuery)).sort((a,b)=>{
+    const ap=normalizeSearch(a.name).startsWith(normalizedQuery)?0:1;
+    const bp=normalizeSearch(b.name).startsWith(normalizedQuery)?0:1;
+    return ap-bp || a.name.localeCompare(b.name,undefined,{sensitivity:'base'});
+  }).slice(0,14);
   box.classList.remove('hidden');
-  box.innerHTML=found.length?found.map(x=>`<div class="imz-search-result" onclick="${x.action};document.getElementById('imzSearchResults').classList.add('hidden')"><div><b>${imzEscape(x.name)}</b><br><span>Open ${x.type.toLowerCase()}</span></div><small>${x.type}</small></div>`).join(''):'<div class="imz-search-empty">No matching mod, wrestler, arena or tutorial found.</div>';
+  box.innerHTML=found.length?found.map(x=>`<div class="imz-search-result" onclick="${x.action};document.getElementById('imzSearchResults').classList.add('hidden')"><div><b>${imzEscape(x.name)}</b><br><span>${x.type==='WRESTLER'?'Open wrestler model':`Open ${x.type.toLowerCase()}`}</span></div><small>${x.type}</small></div>`).join(''):'<div class="imz-search-empty">No matching mod, wrestler, arena or tutorial found.</div>';
 }
 function openSearchProduct(type,index){
   const item=type==='wrestlers'?wrestlers[index]:customArenas[index];
   if(!item)return;
-  const list=type==='wrestlers'?products.wrestlers:products.arenas;
   const targetName=type==='wrestlers'?`Wrestler Model — ${item.name}`:`Arena — ${item.name}`;
   currentCategory=type;
   productAlphabetLetter=type==='wrestlers'?firstLetter(item.name):'ALL';
+  if(type==='wrestlers'){
+    // Ensure the selected model is rendered even when it is beyond the first page of A-Z results.
+    const sorted=(products.wrestlers||[]).slice().sort((a,b)=>String(a.wrestlerName||a.title||'').localeCompare(String(b.wrestlerName||b.title||''),undefined,{sensitivity:'base'}));
+    const letterList=productAlphabetLetter==='ALL'?sorted:sorted.filter(p=>firstLetter(p.wrestlerName||p.title)===productAlphabetLetter);
+    const targetIndex=letterList.findIndex(p=>String(p.title||'').trim()===targetName);
+    imzProductVisibleLimit=Math.max(60,targetIndex+1);
+  }
   showPage('products');
   renderProducts();
   setTimeout(()=>{
     const cards=[...document.querySelectorAll('#productGrid .card')];
     const card=cards.find(c=>c.querySelector('h2')?.textContent.trim()===targetName);
     if(card){card.scrollIntoView({behavior:'smooth',block:'center'});card.classList.add('imz-search-focus');setTimeout(()=>card.classList.remove('imz-search-focus'),1800);}
-  },80);
+  },120);
 }
 function openSearchCustom(type,index){showPage('custom');showCustomSection(type);setTimeout(()=>{const input=document.getElementById('customListSearch');if(input){const item=type==='wrestlers'?wrestlers[index]:customArenas[index];input.value=item?.name||'';}if(type==='wrestlers')customAlphabetLetter='ALL';filterCustomList(input?.value||'');},80);}
 function filterCustomList(query){
-  const q=(query||'').trim().toLowerCase();
   const section=currentCustomSection;
-  const rawList=section==='wrestlers'?wrestlers:section==='arenas'?customArenas:customTitantrons;
-  const list=section==='wrestlers'?[...rawList].sort((a,b)=>a.name.localeCompare(b.name,undefined,{sensitivity:'base'})):rawList;
-  const filtered=list.map((item,index)=>({item,index})).filter(x=>{
-    const matchesText=!q||x.item.name.toLowerCase().includes(q);
-    const matchesLetter=section!=='wrestlers'||customAlphabetLetter==='ALL'||firstLetter(x.item.name)===customAlphabetLetter;
-    return matchesText&&matchesLetter;
-  });
-  if(section==='wrestlers') alphabetButtons('customAlphabet',customAlphabetLetter,'setCustomAlphabet');
-  else {const alpha=document.getElementById('customAlphabet');if(alpha)alpha.innerHTML='';}
-  const grid=document.getElementById(section==='wrestlers'?'wrestlerGrid':section==='arenas'?'arenaGrid':'titantronGrid');
-  if(!grid)return;
-  const selected=section==='wrestlers'?selectedWrestlers:section==='arenas'?selectedArenas:selectedTitantrons;
+  if(section==='wrestlers'){
+    // Typing a query should search every wrestler, not remain trapped in a previously selected A-Z letter.
+    customAlphabetLetter='ALL';
+    const search=document.getElementById('imzRosterSearch');if(search)search.value=query||'';
+    alphabetButtons('customAlphabet',customAlphabetLetter,'setCustomAlphabet');
+    imzApplyRosterFilters();
+    return;
+  }
+  const q=(query||'').trim().toLowerCase();
+  const rawList=section==='arenas'?customArenas:customTitantrons;
+  const list=rawList;
+  const filtered=list.map((item,index)=>({item,index})).filter(x=>!q||x.item.name.toLowerCase().includes(q));
+  const alpha=document.getElementById('customAlphabet');if(alpha)alpha.innerHTML='';
+  const grid=document.getElementById(section==='arenas'?'arenaGrid':'titantronGrid');if(!grid)return;
+  const selected=section==='arenas'?selectedArenas:selectedTitantrons;
   grid.innerHTML=filtered.map(({item,index})=>{
     const isSelected=selected.some(x=>x.name===item.name);
-    const typeLabel=section==='wrestlers'?'Select Model':section==='arenas'?'Select Arena':'Select Titantron';
-    const icon=section==='wrestlers'?'W':section==='arenas'?'A':'T';
-    const click=section==='wrestlers'?`toggleWrestler(${index})`:`toggleCustomItem('${section}',${index})`;
-    const buy=section==='wrestlers'?`<span class="imz-limit-note">Included in $85 Custom Mod</span>`:section==='arenas'?`<button type="button" class="imz-buy-model" onclick="event.stopPropagation();buyArena(${index})">💳 Buy Arena — $6.50</button><button type="button" class="imz-cart-model" onclick="event.stopPropagation();addArenaToCart(${index})">🛒 Add to Cart</button>`:'';
-    return `<div class="card wrestler ${isSelected?'selected':''}" onclick="${click}"><div class="card-img">${item.image?`<img src="${item.image}" alt="${imzEscape(item.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" decoding="async">`:''}<div class="placeholder" style="${item.image?'display:none':''}">${icon}</div></div><div class="card-body"><div class="check">✓</div><h2>${imzEscape(item.name)}</h2><div class="price">${section==='wrestlers'?'Included in $85 Custom Mod':item.price>0?'₹'+item.price:'PRICE'}</div><p>${isSelected?'Selected':typeLabel}</p>${buy}</div></div>`;
-  }).join('') || '<div class="card" style="padding:30px;text-align:center;grid-column:1/-1"><h2>No matches</h2><p>Try another name.</p></div>';
-  const c=document.getElementById('customResultCount');if(c)c.textContent=`${filtered.length} of ${list.length}`;
-  updateTotal();
+    const typeLabel=section==='arenas'?'Select Arena':'Select Titantron';
+    const icon=section==='arenas'?'A':'T';
+    const buy=section==='arenas'?`<button type="button" class="imz-buy-model" onclick="event.stopPropagation();buyArena(${index})">💳 Buy Arena — $6.50</button><button type="button" class="imz-cart-model" onclick="event.stopPropagation();addArenaToCart(${index})">🛒 Add to Cart</button>`:'';
+    return `<div class="card wrestler ${isSelected?'selected':''}" onclick="toggleCustomItem('${section}',${index})"><div class="card-img">${item.image?`<img src="${item.image}" alt="${imzEscape(item.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" decoding="async">`:''}<div class="placeholder" style="${item.image?'display:none':''}">${icon}</div></div><div class="card-body"><div class="check">✓</div><h2>${imzEscape(item.name)}</h2><div class="price">${item.price>0?'₹'+item.price:'PRICE'}</div><p>${isSelected?'Selected':typeLabel}</p>${buy}</div></div>`;
+  }).join('');
+  const count=document.getElementById('customResultCount');if(count)count.textContent=filtered.length+' items';
 }
 
-
-/* =========================================
-   PROFESSIONAL ADD-ONS — additive only
-========================================= */
 function imzModelImage(path,fallback){
   return path || fallback || '';
 }
@@ -3152,7 +4322,7 @@ renderProducts=function(){
     [...grid.querySelectorAll('.card')].forEach((card,cardIndex)=>{
       if(cardIndex<10){ const img=card.querySelector('.card-img'); if(img && !img.querySelector('.imz-product-badge.new')){ const b=document.createElement('div'); b.className='imz-product-badges'; b.innerHTML='<span class="imz-product-badge new">✦ NEW</span>'; img.style.position='relative'; img.appendChild(b); } }
       if(card.querySelector('.imz-view-model'))return;
-      const title=card.querySelector('h2')?.textContent||'';const name=title.replace(/^Wrestler Model —\s*/,'');const idx=wrestlers.findIndex(w=>w.name===name);
+      const title=card.querySelector('h2')?.textContent||'';const name=title.replace(/^Wrestler Model —\s*/,'');const idx=wrestlers.findIndex(w=>w && w.name===name);
       if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 View Model';b.onclick=e=>{e.stopPropagation();openWrestlerDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}
     });
   }else if(currentCategory==='arenas'){
@@ -3169,7 +4339,7 @@ const _imzOriginalFilterCustomList=filterCustomList;
 filterCustomList=function(query){
   _imzOriginalFilterCustomList(query);
   const section=currentCustomSection,grid=document.getElementById(section==='wrestlers'?'wrestlerGrid':section==='arenas'?'arenaGrid':'titantronGrid');if(!grid)return;
-  if(section==='wrestlers') [...grid.querySelectorAll('.card')].forEach(card=>{if(card.querySelector('.imz-view-model'))return;const name=card.querySelector('h2')?.textContent||'';const idx=wrestlers.findIndex(w=>w.name===name);if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 Preview Model';b.onclick=e=>{e.stopPropagation();openWrestlerDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}});
+  if(section==='wrestlers') [...grid.querySelectorAll('.card')].forEach(card=>{if(card.querySelector('.imz-view-model'))return;const name=card.querySelector('h2')?.textContent||'';const idx=wrestlers.findIndex(w=>w && w.name===name);if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 Preview Model';b.onclick=e=>{e.stopPropagation();openWrestlerDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}});
   if(section==='arenas') [...grid.querySelectorAll('.card')].forEach(card=>{if(card.querySelector('.imz-view-model'))return;const name=card.querySelector('h2')?.textContent||'';const idx=customArenas.findIndex(a=>a.name===name);if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 Preview Arena';b.onclick=e=>{e.stopPropagation();openArenaDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}});
 };
 
@@ -3294,7 +4464,7 @@ imzUpdateProfessionalBuilder();
     host.innerHTML='<div class="imz-section-head"><div><div class="small">YOUR ACTIVITY</div><h2>Recently Viewed</h2></div><button class="btn dark" onclick="imzClearRecent()">Clear</button></div><div class="imz-recent-grid">'+recent.map((r,i)=>`<div class="imz-recent-item" onclick="imzOpenRecent(${i})"><b>${esc(r.key)}</b><small>${esc(r.type)}</small></div>`).join('')+'</div>';
   }
   window.imzClearRecent=function(){recent=[];write(RKEY,recent);renderRecent()};
-  window.imzOpenRecent=function(i){const r=recent[i];if(!r)return;const p=findProductByKey(r.key);if(p&&p.productType==='wrestler'){const wi=wrestlers.findIndex(w=>w.name===p.wrestlerName);if(wi>=0){showPage('products');currentCategory='wrestlers';renderProducts();setTimeout(()=>openWrestlerDetail(wi),50);return}}if(p){previewProduct(p)}};
+  window.imzOpenRecent=function(i){const r=recent[i];if(!r)return;const p=findProductByKey(r.key);if(p&&p.productType==='wrestler'){const wi=wrestlers.findIndex(w=>w && w.name===p.wrestlerName);if(wi>=0){showPage('products');currentCategory='wrestlers';renderProducts();setTimeout(()=>openWrestlerDetail(wi),50);return}}if(p){previewProduct(p)}};
   function ensurePanels(){
     const grid=document.getElementById('productGrid');if(!grid)return;
     let t=document.getElementById('imzTrendingPanel');if(!t){t=document.createElement('div');t.id='imzTrendingPanel';t.className='imz-upgrade-trending';grid.parentElement.insertBefore(t,grid)}
@@ -3309,7 +4479,7 @@ imzUpdateProfessionalBuilder();
     picks=picks.concat(wrestlers.slice(0,6).map(w=>products.wrestlers.find(p=>p.wrestlerName===w.name)).filter(Boolean));
     host.innerHTML='<div class="imz-upgrade-trending-head"><div><div class="small">HOT PICKS</div><h3>🔥 TRENDING NOW</h3></div><span style="color:#777;font-size:12px">Popular & newly added</span></div><div class="imz-trending-grid">'+picks.slice(0,8).map(p=>`<div class="imz-trend-item" onclick="imzOpenTrending('${esc(productKey(p)).replace(/'/g,"\\'")}')"><b>${esc(productKey(p))}</b><small>${p.productType==='wrestler'?'WRESTLER':'MOD'}</small></div>`).join('')+'</div>';
   }
-  window.imzOpenTrending=function(key){const p=findProductByKey(key);if(!p)return;if(p.productType==='wrestler'){const i=wrestlers.findIndex(w=>w.name===p.wrestlerName);if(i>=0){showPage('products');currentCategory='wrestlers';renderProducts();setTimeout(()=>openWrestlerDetail(i),50);}}else previewProduct(p)};
+  window.imzOpenTrending=function(key){const p=findProductByKey(key);if(!p)return;if(p.productType==='wrestler'){const i=wrestlers.findIndex(w=>w && w.name===p.wrestlerName);if(i>=0){showPage('products');currentCategory='wrestlers';renderProducts();setTimeout(()=>openWrestlerDetail(i),50);}}else previewProduct(p)};
   function enhanceProductCards(){
     const grid=document.getElementById('productGrid');if(!grid)return;
     [...grid.querySelectorAll('.card')].forEach(card=>{
@@ -3348,7 +4518,7 @@ imzUpdateProfessionalBuilder();
   const oldOpenPayment=window.openPayment;
   if(typeof oldOpenPayment==='function')window.openPayment=function(p){oldOpenPayment(p);refreshCheckoutSummary()};
   function addQuickAttires(){
-    const body=document.getElementById('imzModelBody');if(!body||document.getElementById('imzQuickAttires'))return;const title=document.getElementById('imzModelTitle')?.textContent||'';const i=wrestlers.findIndex(w=>w.name===title);if(i<0)return;const q=document.createElement('div');q.id='imzQuickAttires';q.className='imz-quick-attires';q.innerHTML=Array.from({length:10},(_,n)=>`<button onclick="imzSelectAttire(document.querySelector('#imzModelBody .imz-attire-card[data-attire=\\'${n+1}\\']'),'images/wrestlers/${wrestlers[i].name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}/alternate-${String(n+1).padStart(2,'0')}.webp','','Alternate Attire ${n+1}',${n+1})">A${String(n+1).padStart(2,'0')}</button>`).join('');body.insertBefore(q,body.querySelector('.imz-attire-grid'));
+    const body=document.getElementById('imzModelBody');if(!body||document.getElementById('imzQuickAttires'))return;const title=document.getElementById('imzModelTitle')?.textContent||'';const i=wrestlers.findIndex(w=>w && w.name===title);if(i<0)return;const q=document.createElement('div');q.id='imzQuickAttires';q.className='imz-quick-attires';q.innerHTML=Array.from({length:10},(_,n)=>`<button onclick="imzSelectAttire(document.querySelector('#imzModelBody .imz-attire-card[data-attire=\\'${n+1}\\']'),'images/wrestlers/${wrestlers[i].name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}/alternate-${String(n+1).padStart(2,'0')}.webp','','Alternate Attire ${n+1}',${n+1})">A${String(n+1).padStart(2,'0')}</button>`).join('');body.insertBefore(q,body.querySelector('.imz-attire-grid'));
   }
   const mo=new MutationObserver(()=>{ensurePanels();enhanceProductCards();mobilePolish();ensureCheckoutSummary();addQuickAttires()});
   mo.observe(document.body,{childList:true,subtree:true});
@@ -3435,7 +4605,7 @@ function ensureWish(){
 function updateWish(){const {b,panel}=ensureWish();b.innerHTML='❤️ Wishlist <span class="cart-badge">'+wish.length+'</span>';panel.innerHTML='<div class="imz-wishlist-head"><div><div class="small">SAVED ITEMS</div><h3 style="margin:2px 0">❤️ My Wishlist</h3></div><button class="btn dark" onclick="document.getElementById(\'imzWishlistPanel\').classList.add(\'hidden\')">×</button></div>'+(wish.length?wish.map((k,i)=>`<div class="imz-wish-row"><div style="flex:1"><b>${esc(k)}</b><small>${esc(find(k)?.productType||'PRODUCT')}</small></div><button class="btn dark" onclick="imzWishOpen(${i})">View</button><button class="btn dark" onclick="imzWishRemove(${i})">Remove</button></div>`).join(''):'<div style="padding:22px;color:#777;text-align:center">Wishlist empty hai.<br>Product card par ❤️ Wishlist dabao.</div>')}
 window.imzWishRemove=function(i){wish.splice(i,1);saveWish();};
 document.addEventListener('click',function(e){const panel=$('imzWishlistPanel'),button=$('imzWishlistHeader');if(!panel||panel.classList.contains('hidden'))return;if(!panel.contains(e.target)&&!button?.contains(e.target))panel.classList.add('hidden')});
-window.imzWishOpen=function(i){const p=find(wish[i]);if(!p)return;if(p.productType==='wrestler'){const wi=wrestlers.findIndex(w=>w.name===p.wrestlerName);if(wi>=0){$('imzWishlistPanel')?.classList.add('hidden');showPage('products');currentCategory='wrestlers';renderProducts();setTimeout(()=>openWrestlerDetail(wi),60);return}} $('imzWishlistPanel')?.classList.add('hidden');previewProduct(p)};
+window.imzWishOpen=function(i){const p=find(wish[i]);if(!p)return;if(p.productType==='wrestler'){const wi=wrestlers.findIndex(w=>w && w.name===p.wrestlerName);if(wi>=0){$('imzWishlistPanel')?.classList.add('hidden');showPage('products');currentCategory='wrestlers';renderProducts();setTimeout(()=>openWrestlerDetail(wi),60);return}} $('imzWishlistPanel')?.classList.add('hidden');previewProduct(p)};
 updateWish(); // Render the empty/populated wishlist once on startup.
 
 /* 2) Visible advanced search/filter toolbar */
@@ -3509,7 +4679,7 @@ const money=p=>p?.usdPrice||parseFloat(String(p?.price||'').replace(/[^0-9.]/g,'
 
 /* 1 Featured / Staff Picks + 11 Recently Updated + suggestions */
 function mini(p,label){if(!p)return '';const img=p.image||'';return `<div class="imz-mini-product" onclick="imzRequestedOpen(${JSON.stringify(titleOf(p))})"><img src="${esc(img)}" alt="${esc(titleOf(p))}" loading="lazy" decoding="async"><b>${esc(titleOf(p))}</b><small>${esc(label||p.productType||'PRODUCT')} ${money(p)?'• $'+money(p).toFixed(2):''}</small></div>`}
-window.imzRequestedOpen=function(t){const p=findP(t);if(!p)return;if(p.productType==='wrestler'&&typeof wrestlers!=='undefined'){const i=wrestlers.findIndex(w=>w.name===p.wrestlerName);if(i>=0){showPage('products');currentCategory='wrestlers';renderProducts();setTimeout(()=>openWrestlerDetail(i),80);return}}if(typeof openImzQuick==='function')openImzQuick(p)};
+window.imzRequestedOpen=function(t){const p=findP(t);if(!p)return;if(p.productType==='wrestler'&&typeof wrestlers!=='undefined'){const i=wrestlers.findIndex(w=>w && w.name===p.wrestlerName);if(i>=0){showPage('products');currentCategory='wrestlers';renderProducts();setTimeout(()=>openWrestlerDetail(i),80);return}}if(typeof openImzQuick==='function')openImzQuick(p)};
 function miniFeatured(p,label){if(!p)return '';const img=p.image||'';return `<div class='imz-mini-product' role='link' tabindex='0' onclick='imzOpenFeaturedMod(${JSON.stringify(titleOf(p))})' onkeydown='if(event.key==="Enter"||event.key===" ")imzOpenFeaturedMod(${JSON.stringify(titleOf(p))})'><img src='${esc(img)}' alt='${esc(titleOf(p))}' loading='lazy' decoding='async'><b>${esc(titleOf(p))}</b><small>${esc(label||'GAME MOD')} ${money(p)?'• $'+money(p).toFixed(2):'• FREE'}</small></div>`}
 window.imzOpenFeaturedMod=function(t){const p=findP(t);if(!p)return;if(String(p.title||'').includes('Iconic Edition V1')&&typeof openV1Showcase==='function'){openV1Showcase();return;}if(typeof openModShowcase==='function'){openModShowcase(p);return;}if(typeof previewProduct==='function')previewProduct(p)};
 function ensureHomeStrips(){
