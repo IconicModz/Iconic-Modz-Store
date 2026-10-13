@@ -1681,9 +1681,13 @@ function imzRosterKey(value){
 }
 function imzV1MemberCard(member,compact=false){
   const clean=String(member).replace(/\s*\[(?:Diva|Staff)\]/ig,"").trim();
-  const aliases=clean.split(/\s*\/\s*/).map(x=>x.trim());
-  const found=(typeof wrestlers!=='undefined'?wrestlers:[]).find(w=>aliases.some(a=>imzRosterKey(w.name)===imzRosterKey(a)))
-    || (typeof wrestlers!=='undefined'?wrestlers:[]).find(w=>aliases.some(a=>imzRosterKey(w.name).includes(imzRosterKey(a))||imzRosterKey(a).includes(imzRosterKey(w.name))));
+  // V1 roster display labels can contain attire/persona text, while the master
+  // wrestler database uses the canonical wrestler name and render path.
+  const canonical=clean.replace(/\s*\[(?:Final Boss|Hollywood|The Fiend)\]/ig,"").replace(/\s*\((?:Final Boss|Hollywood|The Fiend)\)/ig,"").trim();
+  const aliases=[...new Set([clean,canonical,...canonical.split(/\s*\/\s*/).map(x=>x.trim())])];
+  const roster=(typeof wrestlers!=='undefined'?wrestlers:[]);
+  const found=roster.find(w=>aliases.some(a=>imzRosterKey(w.name)===imzRosterKey(a)))
+    || roster.find(w=>aliases.some(a=>imzRosterKey(w.name).includes(imzRosterKey(a))||imzRosterKey(a).includes(imzRosterKey(w.name))));
   const image=found&&found.image?`<img src="${found.image}" alt="${clean.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${clean.slice(0,2).replace(/'/g,'')}';" decoding="async">`:'';
   const initials=clean.split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()||'W';
   const tag=/\[Diva\]/i.test(member)?'<span class="v1-member-tag">DIVA</span>':/\[Staff\]/i.test(member)?'<span class="v1-member-tag">STAFF</span>':'';
