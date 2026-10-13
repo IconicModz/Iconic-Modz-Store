@@ -742,7 +742,7 @@ img{object-fit:contain!important;object-position:center center!important;}
 
 <header>
 <div class="nav">
-<div class="logo brand-wrap"><img class="brand-logo" src="images/logo/iconic-modz.png" alt="ICONIC MODZ" onerror="this.style.display='none'" loading="lazy" decoding="async"> <span class="brand-name">ICONIC MODZ</span></div>
+<div class="logo brand-wrap" role="link" tabindex="0" aria-label="Go to Iconic Modz home" title="Go to Home" style="cursor:pointer" onclick="showPage('home')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPage('home')}"><img class="brand-logo" src="images/logo/iconic-modz.png" alt="ICONIC MODZ" onerror="this.style.display='none'" loading="lazy" decoding="async"> <span class="brand-name">ICONIC MODZ</span></div>
 
 <div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
 <button class="btn dark" onclick="openCart()">🛒 Cart <span id="cartCount" class="cart-badge">0</span></button>
@@ -1866,7 +1866,7 @@ const wrestlers=[
 {name:"Eddie Guerrero",price:0,image:"images/wrestlers/wrestler084.jpg"},
 {name:"Booker T",price:0,image:"images/wrestlers/wrestler085.jpg"},
 {name:"Bret \"The Hitman\" Hart",price:0,image:"images/wrestlers/wrestler086.jpg"},
-{name:"\"Macho Man\" Randy Savage",price:0,image:"images/wrestlers/wrestler087.jpg"},
+{name:"Macho Man Randy Savage",price:0,image:"images/wrestlers/wrestler087.jpg"},
 {name:"Ultimate Warrior",price:0,image:"images/wrestlers/wrestler088.jpg"},
 {name:"Andre The Giant",price:0,image:"images/wrestlers/wrestler089.jpg"},
 {name:"JBL",price:0,image:"images/wrestlers/wrestler090.jpg"},
@@ -2130,7 +2130,6 @@ const wrestlers=[
 {name:"Paul Orndorff",price:0,image:"images/wrestlers/roster-extra-0213.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Pedro Morales",price:0,image:"images/wrestlers/roster-extra-0214.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Perry Saturn",price:0,image:"images/wrestlers/roster-extra-0215.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"Randy Savage",price:0,image:"images/wrestlers/roster-extra-0216.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Randy Rose",price:0,image:"images/wrestlers/roster-extra-0217.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Razor Ramon",price:0,image:"images/wrestlers/roster-extra-0218.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Rick Martel",price:0,image:"images/wrestlers/roster-extra-0219.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
@@ -2139,7 +2138,6 @@ const wrestlers=[
 {name:"Ricky Steamboat",price:0,image:"images/wrestlers/roster-extra-0222.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Ricky Morton",price:0,image:"images/wrestlers/roster-extra-0223.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Ricky Ortiz",price:0,image:"images/wrestlers/roster-extra-0224.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"Rob Van Dam",price:0,image:"images/wrestlers/roster-extra-0225.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Ron Simmons",price:0,image:"images/wrestlers/roster-extra-0226.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Rosey",price:0,image:"images/wrestlers/roster-extra-0227.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Sabu",price:0,image:"images/wrestlers/roster-extra-0228.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
@@ -2323,9 +2321,17 @@ const wrestlers=[
 for (let imzCleanIndex = wrestlers.length - 1; imzCleanIndex >= 0; imzCleanIndex--) {
   if (!wrestlers[imzCleanIndex] || !wrestlers[imzCleanIndex].name) wrestlers.splice(imzCleanIndex, 1);
 }
-// Keep the master Wrestler Models array in A–Z order as well as sorting filtered search results.
-// Sorting the objects preserves each wrestler's attached render/image path.
-wrestlers.sort((a, b) => String(a.name || '').localeCompare(String(b.name || ''), undefined, { sensitivity: 'base', numeric: true }));
+// Sort by the visible wrestler name, ignoring leading quotes/punctuation.
+// Sorting whole objects preserves every wrestler's existing render/image path.
+function imzRosterSortKey(value){
+  return String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/^[^a-z0-9]+/i,'').replace(/[^a-z0-9]+/gi,' ').trim().toLowerCase();
+}
+function imzRosterCompare(a,b){
+  return imzRosterSortKey(a && (a.name||a.wrestlerName||a.title)).localeCompare(
+    imzRosterSortKey(b && (b.name||b.wrestlerName||b.title)), undefined, {numeric:true, sensitivity:'base'}
+  );
+}
+wrestlers.sort(imzRosterCompare);
 
 // ICONIC MODZ roster taxonomy: a single master entry may appear in multiple eras, promotions and factions.
 const imzEraGroups={
@@ -2593,7 +2599,7 @@ if(currentCategory!=='wrestlers' && wrestlerSearchInput && wrestlerSearchInput.v
 // SVR is a separate mod universe. Keep HCTP V1/V2 out of SVR Full Game Mods until SVR products are added.
 if(currentGame==='svr' && currentCategory==='fullgame') list=[];
 if(currentCategory==='wrestlers'){
-  list=[...list].sort((a,b)=>String(a.wrestlerName||a.title||'').localeCompare(String(b.wrestlerName||b.title||''),undefined,{sensitivity:'base'}));
+  list=[...list].sort((a,b)=>imzRosterSortKey(a.wrestlerName||a.title).localeCompare(imzRosterSortKey(b.wrestlerName||b.title),undefined,{numeric:true,sensitivity:'base'}));
   const normalizeProductSearch=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const searchQuery=normalizeProductSearch(imzProductWrestlerSearchQuery);
   if(searchQuery){
@@ -3217,7 +3223,7 @@ function imzApplyRosterFilters(reset=true){
     const hay=normalizeSearch([w.name,...(w.eras||[]),...(w.promotions||[]),...(w.factions||[])].join(' '));
     const matchesLetter=typeof customAlphabetLetter==='undefined'||!customAlphabetLetter||customAlphabetLetter==='ALL'||firstLetter(w.name)===customAlphabetLetter;
     return matchesLetter&&(!normalizedQuery||hay.includes(normalizedQuery))&&(!era||(w.eras||[]).includes(era))&&(!promotion||(w.promotions||[]).includes(promotion))&&(!faction||(w.factions||[]).includes(faction))&&(!gender||w.gender===gender);
-  }).sort((a,b)=>String(a.w.name||'').localeCompare(String(b.w.name||''),undefined,{sensitivity:'base'}));
+  }).sort((a,b)=>imzRosterCompare(a.w,b.w));
   const count=document.getElementById('imzRosterCount');if(count)count.textContent=filtered.length.toLocaleString()+' wrestlers found · '+wrestlers.length.toLocaleString()+' total';
   const male=filtered.filter(x=>x.w.gender!=='Female'),female=filtered.filter(x=>x.w.gender==='Female');
   const renderCard=({w,index})=>{
@@ -3534,7 +3540,7 @@ function openSearchProduct(type,index){
   productAlphabetLetter=type==='wrestlers'?firstLetter(item.name):'ALL';
   if(type==='wrestlers'){
     // Ensure the selected model is rendered even when it is beyond the first page of A-Z results.
-    const sorted=(products.wrestlers||[]).slice().sort((a,b)=>String(a.wrestlerName||a.title||'').localeCompare(String(b.wrestlerName||b.title||''),undefined,{sensitivity:'base'}));
+    const sorted=(products.wrestlers||[]).slice().sort((a,b)=>imzRosterSortKey(a.wrestlerName||a.title).localeCompare(imzRosterSortKey(b.wrestlerName||b.title),undefined,{numeric:true,sensitivity:'base'}));
     const letterList=productAlphabetLetter==='ALL'?sorted:sorted.filter(p=>firstLetter(p.wrestlerName||p.title)===productAlphabetLetter);
     const targetIndex=letterList.findIndex(p=>String(p.title||'').trim()===targetName);
     imzProductVisibleLimit=Math.max(60,targetIndex+1);
