@@ -4120,7 +4120,37 @@ function ensureAttirePicker(){let m=$('imzCustomAttirePicker');if(m)return m;m=d
 window.imzOpenCustomAttirePicker=function(index){const w=typeof wrestlers!=='undefined'?wrestlers[index]:null;if(!w)return;if(typeof selectedWrestlers==='undefined'||!selectedWrestlers.some(x=>x.name===w.name)){alert('Select this wrestler in your Custom Mod roster first.');return}const modal=ensureAttirePicker(),grid=$('imzCustomAttireGrid'),chosen=Number(window.imzCustomAttireChoices[w.name]||1),folder='images/wrestlers/'+slug(w.name);$('imzCustomAttireTitle').textContent=w.name+' — Choose Attire';grid.innerHTML=Array.from({length:10},(_,i)=>{const n=i+1,src=folder+'/alternate-'+String(n).padStart(2,'0')+'.webp';return `<button type="button" class="imz-attire-picker-card ${n===chosen?'active':''}" onclick="imzChooseCustomAttire(${index},${n})"><img src="${esc(src)}" alt="${esc(w.name)} Attire ${String(n).padStart(2,'0')}" loading="lazy" decoding="async"><b>${n===chosen?'✓ SELECTED • ':''}ATTIRE #${String(n).padStart(2,'0')}</b></button>`}).join('');$('imzCustomAttireFooter').textContent='Current choice: Attire #'+String(chosen).padStart(2,'0')+' • Included in the $85 Custom Mod';modal.classList.remove('hidden');document.body.style.overflow='hidden'};
 window.imzChooseCustomAttire=function(index,n){const w=typeof wrestlers!=='undefined'?wrestlers[index]:null;if(!w||n<1||n>10)return;window.imzCustomAttireChoices[w.name]=n;window.imzCloseCustomAttirePicker();const search=$('customListSearch')?.value||'';if(typeof window.renderWrestlers==='function')window.renderWrestlers();if(search&&typeof window.filterCustomList==='function')window.filterCustomList(search);if(typeof window.updateBuilderRequirements==='function')window.updateBuilderRequirements();if(typeof window.imzOpenSelectionReview==='function'){/* latest choices will appear next time preview opens */}};
 window.imzCloseCustomAttirePicker=function(){const m=$('imzCustomAttirePicker');if(m)m.classList.add('hidden');document.body.style.overflow=''};
-function ensureBackToTop(){if($('imzBackToTop'))return;const b=document.createElement('button');b.id='imzBackToTop';b.type='button';b.setAttribute('aria-label','Back to top');b.innerHTML='<span aria-hidden="true">↑</span> BACK TO TOP';b.onclick=(e)=>{e.preventDefault();document.documentElement.style.scrollBehavior='auto';document.body.style.scrollBehavior='auto';window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0;requestAnimationFrame(()=>{document.documentElement.style.scrollBehavior='';document.body.style.scrollBehavior='';});};document.body.appendChild(b);const update=()=>b.classList.toggle('visible',window.scrollY>500);window.addEventListener('scroll',update,{passive:true});update()}
+function ensureBackToTop(){
+ let b=$('imzBackToTop');
+ if(!b){b=document.createElement('button');b.id='imzBackToTop';b.type='button';b.setAttribute('aria-label','Back to top');b.innerHTML='<span aria-hidden="true">↑</span> BACK TO TOP';document.body.appendChild(b);}
+ let jumping=false;
+ const jumpNow=(e)=>{
+   if(e){e.preventDefault();e.stopPropagation();}
+   jumping=true;
+   const root=document.documentElement, body=document.body, scroller=document.scrollingElement||root;
+   root.style.setProperty('scroll-behavior','auto','important');
+   body.style.setProperty('scroll-behavior','auto','important');
+   root.style.setProperty('scroll-snap-type','none','important');
+   body.style.setProperty('scroll-snap-type','none','important');
+   try{window.scrollTo({left:0,top:0,behavior:'instant'});}catch(_){window.scrollTo(0,0);}
+   root.scrollTop=0;body.scrollTop=0;scroller.scrollTop=0;
+   // Reassert for a few frames so an in-progress smooth-scroll/scroll handler cannot swallow the first click.
+   let frames=0;
+   const forceTop=()=>{
+     try{window.scrollTo({left:0,top:0,behavior:'instant'});}catch(_){window.scrollTo(0,0);}
+     root.scrollTop=0;body.scrollTop=0;scroller.scrollTop=0;
+     frames++;
+     if(frames<8)requestAnimationFrame(forceTop);
+     else setTimeout(()=>{root.style.removeProperty('scroll-behavior');body.style.removeProperty('scroll-behavior');root.style.removeProperty('scroll-snap-type');body.style.removeProperty('scroll-snap-type');jumping=false;},120);
+   };
+   requestAnimationFrame(forceTop);
+ };
+ // pointerdown handles the very first press even while wheel/touch momentum is still active.
+ b.addEventListener('pointerdown',jumpNow,{capture:true,passive:false});
+ b.addEventListener('click',jumpNow,{capture:true});
+ const update=()=>{if(!jumping)b.classList.toggle('visible',window.scrollY>500);};
+ window.addEventListener('scroll',update,{passive:true});update();
+}
 function setImageBehavior(img){if(!img||img.tagName!=='IMG')return;img.decoding='async';if(!img.loading)img.loading='lazy';try{const r=img.getBoundingClientRect();if(r.top<window.innerHeight*1.15&&r.bottom>0)img.loading='eager'}catch(e){}const raw=img.getAttribute('src');if(!raw||img.dataset.imzWebpTried||!/^images\//i.test(raw)||! /\.(jpe?g|png)$/i.test(raw))return;const webp=raw.replace(/\.(jpe?g|png)$/i,'.webp');if(webp===raw)return;img.dataset.imzOriginalSrc=raw;img.dataset.imzWebpTried='1';img.src=webp}
 document.addEventListener('error',function(e){const img=e.target;if(!img||img.tagName!=='IMG')return;if(img.dataset.imzWebpTried==='1'&&img.dataset.imzOriginalSrc){img.dataset.imzWebpTried='2';img.src=img.dataset.imzOriginalSrc;e.stopImmediatePropagation();return}if(img.dataset.imzFallback){const fallback=img.dataset.imzFallback;delete img.dataset.imzFallback;img.src=fallback;e.stopImmediatePropagation()}},true);
 function scanImages(root){(root||document).querySelectorAll?.('img').forEach(setImageBehavior)}
