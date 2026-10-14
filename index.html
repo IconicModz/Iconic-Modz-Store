@@ -1681,6 +1681,16 @@ function imzRosterKey(value){
 }
 function imzV1MemberCard(member,compact=false){
   const clean=String(member).replace(/\s*\[(?:Diva|Staff)\]/ig,"").trim();
+  // Dedicated image cards for V1 extras: upload files to these exact GitHub paths.
+  const specialImages={
+    "superstar caws 32":{title:"32 CAWS",path:"images/V1/32-caws.webp",code:"V1-32-CAWS"},
+    "special cheats":{title:"CHEATS",path:"images/V1/cheats.webp",code:"V1-CHEATS"},
+    "hd textures that you can play 4k quality":{title:"4K TEXTURES",path:"images/V1/4k.webp",code:"V1-4K-TEXTURES"}
+  };
+  const special=specialImages[clean.toLowerCase()];
+  if(special){
+    return `<div class="v1-member-card v1-extra-image-card"><div class="v1-member-photo"><img src="${special.path}" alt="${special.title}" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.textContent='UPLOAD IMAGE';"></div><div class="v1-member-name">${special.title}</div><div class="v1-member-tag">RENDER: ${special.code}</div></div>`;
+  }
   // V1 roster display labels can contain attire/persona text, while the master
   // wrestler database uses the canonical wrestler name and render path.
   const canonical=clean.replace(/\s*\[(?:Final Boss|Hollywood|The Fiend)\]/ig,"").replace(/\s*\((?:Final Boss|Hollywood|The Fiend)\)/ig,"").trim();
