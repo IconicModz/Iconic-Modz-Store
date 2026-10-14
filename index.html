@@ -2833,7 +2833,7 @@ function makeOrderId(){
 function openPayment(product){
   currentProduct=product;
   checkoutItems=[product];
-  currentCustomOrderDetails=product.customOrderDetails|null;
+  currentCustomOrderDetails=product.customOrderDetails||null;
   if(product.price==="FREE"){
     alert("Ye item FREE hai. Free download link baad me yahan add kiya ja sakta hai."); return;
   }
@@ -3681,7 +3681,7 @@ imzUpdateProfessionalBuilder();
   }
   function findProductByKey(k){
     const all=[...(products.fullgame|[]),...(products.wrestlers|[]),...(products.arenas|[]),...(products.titantrons|[]),...(products.movesets|[])];
-    return all.find(x=>productKey(x)===k)|null;
+    return all.find(x=>productKey(x)===k)||null;
   }
   function renderRecent(){
     const host=document.getElementById('imzRecentViewed');if(!host)return;
@@ -3806,7 +3806,7 @@ const $=id=>document.getElementById(id);
 const esc=v=>typeof imzEscape==='function'?imzEscape(v):String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function allProducts(){return [...(products.fullgame|[]),...(products.wrestlers|[]),...(products.arenas|[]),...(products.titantrons|[]),...(products.movesets|[])];}
 function key(p){return String(p?.title|p?.name|'').trim();}
-function find(keyv){return allProducts().find(p=>key(p)===keyv)|null;}
+function find(keyv){return allProducts().find(p=>key(p)===keyv)||null;}
 
 /* 1) Real visible wishlist panel + buttons */
 const W='imzWishlistV2';
@@ -3899,7 +3899,7 @@ const $=id=>document.getElementById(id);
 const esc=v=>typeof imzEscape==='function'?imzEscape(v):String(v??'').replace(/[&<>\"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 const all=()=>{const ps=(typeof products!=='undefined'&&products)?products:{};return [...(ps.fullgame|[]),...(ps.wrestlers|[]),...(ps.arenas|[]),...(ps.movesets|[]),...(ps.titantrons|[])];};
 const titleOf=p=>String(p?.title|p?.name|'').trim();
-const findP=t=>all().find(p=>titleOf(p)===t)|null;
+const findP=t=>all().find(p=>titleOf(p)===t)||null;
 const money=p=>p?.usdPrice|parseFloat(String(p?.price|'').replace(/[^0-9.]/g,''))|0;
 
 /* 1 Featured / Staff Picks + 11 Recently Updated + suggestions */
@@ -4082,7 +4082,7 @@ const esc=s=>typeof imzEscape==='function'?imzEscape(String(s??'')):String(s??''
 function slug(s){return String(s|'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 function ensureAttirePicker(){let m=$('imzCustomAttirePicker');if(m)return m;m=document.createElement('div');m.id='imzCustomAttirePicker';m.className='imz-attire-picker-overlay hidden';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.innerHTML='<div class="imz-attire-picker-box"><div class="imz-attire-picker-head"><div><div class="small">CUSTOM MOD • ATTIRE SELECTION</div><h2 id="imzCustomAttireTitle">Choose Attire</h2><p style="margin:0;color:#aaa">The main render only represents the wrestler. Choose one of the 10 actual attire files below.</p></div><button type="button" class="imz-review-close" aria-label="Close attire picker" onclick="imzCloseCustomAttirePicker()">×</button></div><div class="imz-attire-picker-grid" id="imzCustomAttireGrid"></div><div class="imz-attire-picker-footer"><span id="imzCustomAttireFooter">Choose one attire for this wrestler.</span><button type="button" class="btn dark" onclick="imzCloseCustomAttirePicker()">Cancel</button></div></div>';m.addEventListener('click',e=>{if(e.target===m)window.imzCloseCustomAttirePicker()});document.body.appendChild(m);return m}
 window.imzOpenCustomAttirePicker=function(index){const w=typeof wrestlers!=='undefined'?wrestlers[index]:null;if(!w)return;if(typeof selectedWrestlers==='undefined'|!selectedWrestlers.some(x=>x.name===w.name)){alert('Select this wrestler in your Custom Mod roster first.');return}const modal=ensureAttirePicker(),grid=$('imzCustomAttireGrid'),chosen=Number(window.imzCustomAttireChoices[w.name]|1),folder='images/wrestlers/'+slug(w.name);$('imzCustomAttireTitle').textContent=w.name+' — Choose Attire';grid.innerHTML=Array.from({length:10},(_,i)=>{const n=i+1,src=folder+'/alternate-'+String(n).padStart(2,'0')+'.webp';return `<button type="button" class="imz-attire-picker-card ${n===chosen?'active':''}" onclick="imzChooseCustomAttire(${index},${n})"><img src="${esc(src)}" alt="${esc(w.name)} Attire ${String(n).padStart(2,'0')}" loading="lazy" decoding="async"><b>${n===chosen?'✓ SELECTED • ':''}ATTIRE #${String(n).padStart(2,'0')}</b></button>`}).join('');$('imzCustomAttireFooter').textContent='Current choice: Attire #'+String(chosen).padStart(2,'0')+' • Included in the $85 Custom Mod';modal.classList.remove('hidden');document.body.style.overflow='hidden'};
-window.imzChooseCustomAttire=function(index,n){const w=typeof wrestlers!=='undefined'?wrestlers[index]:null;if(!w|n<1|n>10)return;window.imzCustomAttireChoices[w.name]=n;window.imzCloseCustomAttirePicker();const search=$('customListSearch')?.value|'';if(typeof window.renderWrestlers==='function')window.renderWrestlers();if(search&&typeof window.filterCustomList==='function')window.filterCustomList(search);if(typeof window.updateBuilderRequirements==='function')window.updateBuilderRequirements();if(typeof window.imzOpenSelectionReview==='function'){/* latest choices will appear next time preview opens */}};
+window.imzChooseCustomAttire=function(index,n){const w=typeof wrestlers!=='undefined'?wrestlers[index]:null;if(!w|n<1|n>10)return;window.imzCustomAttireChoices[w.name]=n;window.imzCloseCustomAttirePicker();const search=$('customListSearch')?.value||'';if(typeof window.renderWrestlers==='function')window.renderWrestlers();if(search&&typeof window.filterCustomList==='function')window.filterCustomList(search);if(typeof window.updateBuilderRequirements==='function')window.updateBuilderRequirements();if(typeof window.imzOpenSelectionReview==='function'){/* latest choices will appear next time preview opens */}};
 window.imzCloseCustomAttirePicker=function(){const m=$('imzCustomAttirePicker');if(m)m.classList.add('hidden');document.body.style.overflow=''};
 function ensureBackToTop(){
  let b=$('imzBackToTop');
