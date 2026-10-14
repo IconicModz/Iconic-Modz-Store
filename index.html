@@ -742,7 +742,7 @@ img{object-fit:contain!important;object-position:center center!important;}
 
 <header>
 <div class="nav">
-<div class="logo brand-wrap" role="link" tabindex="0" aria-label="Go to Iconic Modz home" title="Go to Home" style="cursor:pointer" onclick="showPage('home')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPage('home')}"><img class="brand-logo" src="images/logo/iconic-modz.png" alt="ICONIC MODZ" onerror="this.style.display='none'" loading="lazy" decoding="async"> <span class="brand-name">ICONIC MODZ</span></div>
+<div class="logo brand-wrap" role="link" tabindex="0" aria-label="Go to Iconic Modz home" title="Go to Home" style="cursor:pointer" onclick="showPage('home')" onkeydown="if(event.key==='Enter'|event.key===' '){event.preventDefault();showPage('home')}"><img class="brand-logo" src="images/logo/iconic-modz.png" alt="ICONIC MODZ" onerror="this.style.display='none'" loading="lazy" decoding="async"> <span class="brand-name">ICONIC MODZ</span></div>
 
 <div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
 <button class="btn dark" onclick="openCart()">🛒 Cart <span id="cartCount" class="cart-badge">0</span></button>
@@ -1022,19 +1022,19 @@ move sets, arenas and titantrons — all in one place.
 <section class="imz-academy" style="margin-top:20px">
   <div class="imz-academy-grid">
     <div class="imz-course">
-      <div class="imz-course-img"><img src="images/academy/basic-course.jpg" alt="Basic Modding Course" role="button" tabindex="0" title="Open course details" onclick="academyInfo('basic')" onkeydown="if(event.key==='Enter'||event.key===' ')academyInfo('basic')" onerror="this.style.display='none'" loading="lazy" decoding="async"></div>
+      <div class="imz-course-img"><img src="images/academy/basic-course.jpg" alt="Basic Modding Course" role="button" tabindex="0" title="Open course details" onclick="academyInfo('basic')" onkeydown="if(event.key==='Enter'|event.key===' ')academyInfo('basic')" onerror="this.style.display='none'" loading="lazy" decoding="async"></div>
       <div class="badge">BEGINNER</div><h3>Basic Modding</h3><div class="imz-course-price">$60</div>
       <ul><li>Game files &amp; folder structure</li><li>Backup &amp; restore</li><li>Texture editing basics</li><li>Basic wrestler model replacement</li><li>YOBJ basics &amp; attire editing</li><li>Moveset / entrance workflow</li><li>Arena &amp; titantron workflow</li><li>Emulator testing &amp; beginner troubleshooting</li></ul>
       <div class="buttons"><button class="btn dark" onclick="academyInfo('basic')">Course Info</button><button class="btn red" onclick="buyAcademy('basic')">🛒 Buy Course</button></div>
     </div>
     <div class="imz-course">
-      <div class="imz-course-img"><img src="images/academy/advanced-course.jpg" alt="Advanced Modding Course" role="button" tabindex="0" title="Open course details" onclick="academyInfo('advanced')" onkeydown="if(event.key==='Enter'||event.key===' ')academyInfo('advanced')" onerror="this.style.display='none'" loading="lazy" decoding="async"></div>
+      <div class="imz-course-img"><img src="images/academy/advanced-course.jpg" alt="Advanced Modding Course" role="button" tabindex="0" title="Open course details" onclick="academyInfo('advanced')" onkeydown="if(event.key==='Enter'|event.key===' ')academyInfo('advanced')" onerror="this.style.display='none'" loading="lazy" decoding="async"></div>
       <div class="badge">ADVANCED</div><h3>Advanced Modding</h3><div class="imz-course-price">$100</div>
       <ul><li>Everything in Basic</li><li>Advanced YOBJ workflow</li><li>Model conversion</li><li>UV / texture troubleshooting</li><li>Advanced wrestler modifications</li><li>Advanced moveset work</li><li>Arena / stage modifications</li><li>Titantron &amp; audio workflow</li><li>Hex / file-structure concepts</li><li>Crash &amp; real PS2 testing concepts</li></ul>
       <div class="buttons"><button class="btn dark" onclick="academyInfo('advanced')">Course Info</button><button class="btn red" onclick="buyAcademy('advanced')">🛒 Buy Course</button></div>
     </div>
     <div class="imz-course">
-      <div class="imz-course-img"><img src="images/academy/mobile-01.jpg" alt="Mobile Modding Tutorial" role="button" tabindex="0" title="Open course details" onclick="academyInfo('mobile')" onkeydown="if(event.key==='Enter'||event.key===' ')academyInfo('mobile')" onerror="this.style.display='none'" loading="lazy" decoding="async"></div>
+      <div class="imz-course-img"><img src="images/academy/mobile-01.jpg" alt="Mobile Modding Tutorial" role="button" tabindex="0" title="Open course details" onclick="academyInfo('mobile')" onkeydown="if(event.key==='Enter'|event.key===' ')academyInfo('mobile')" onerror="this.style.display='none'" loading="lazy" decoding="async"></div>
       <div class="badge">MOBILE COURSE</div><h3>Mobile Modding</h3><div class="imz-course-price">$50</div>
       <ul><li>Mobile setup</li><li>Mobile texture workflow</li><li>Mobile testing</li><li>Practical file handling on Android</li><li>Standalone mobile course</li></ul>
       <div class="buttons"><button class="btn dark" onclick="academyInfo('mobile')">Course Info</button><button class="btn red" onclick="buyAcademy('mobile')">🛒 Buy for $50</button></div>
@@ -1677,7 +1677,7 @@ const v1RosterGroups = [
   {name:"SPECIAL", members:["Superstar CAWS 32","Special Cheats","HD TEXTURES that you can play 4k quality"]}
 ];
 function imzRosterKey(value){
-  return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s*\[(?:Diva|Staff)\]/ig,"").replace(/\s*\([^)]*\)/g,"").replace(/[^a-z0-9]/gi,"").toLowerCase();
+  return String(value|"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s*\[(?:Diva|Staff)\]/ig,"").replace(/\s*\([^)]*\)/g,"").replace(/[^a-z0-9]/gi,"").toLowerCase();
 }
 function imzV1MemberCard(member,compact=false){
   const clean=String(member).replace(/\s*\[(?:Diva|Staff)\]/ig,"").trim();
@@ -1698,16 +1698,16 @@ function imzV1MemberCard(member,compact=false){
   const roster=(typeof wrestlers!=='undefined'?wrestlers:[]);
   // The V1 entry labelled "Referee" should use the user's Mike Chioda render.
   const found=/^referee$/i.test(canonical)
-    ? (roster.find(w=>imzRosterKey(w.name)==='mikechioda') || roster.find(w=>String(w.image||'').includes('roster-extra-1083.jpg')))
+    ? (roster.find(w=>imzRosterKey(w.name)==='mikechioda') | roster.find(w=>String(w.image|'').includes('roster-extra-1083.jpg')))
     : (roster.find(w=>aliases.some(a=>imzRosterKey(w.name)===imzRosterKey(a)))
-      || roster.find(w=>aliases.some(a=>imzRosterKey(w.name).includes(imzRosterKey(a))||imzRosterKey(a).includes(imzRosterKey(w.name)))));
+      | roster.find(w=>aliases.some(a=>imzRosterKey(w.name).includes(imzRosterKey(a))|imzRosterKey(a).includes(imzRosterKey(w.name)))));
   const image=found&&found.image?`<img src="${found.image}" alt="${clean.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${clean.slice(0,2).replace(/'/g,'')}';" decoding="async">`:'';
-  const initials=clean.split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()||'W';
+  const initials=clean.split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()|'W';
   const tag=/\[Diva\]/i.test(member)?'<span class="v1-member-tag">DIVA</span>':/\[Staff\]/i.test(member)?'<span class="v1-member-tag">STAFF</span>':'';
-  return `<div class="v1-member-card"><div class="v1-member-photo">${image||initials}</div><div class="v1-member-name">${clean.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}${tag}</div></div>`;
+  return `<div class="v1-member-card"><div class="v1-member-photo">${image|initials}</div><div class="v1-member-name">${clean.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}${tag}</div></div>`;
 }
 function imzV1RosterGroupsHTML(groups,compact=false){
-  return groups.map(g=>`<div class="${compact?'ms-roster-group':'v1-roster-group'}"><h3>${g.name}</h3><div class="${compact?'ms-member-image-grid':'v1-member-image-grid'}">${g.members.map(m=>imzV1MemberCard(m,compact)).join('')}${(g.optional||[]).map(m=>imzV1MemberCard(m,compact)).join('')}</div></div>`).join('');
+  return groups.map(g=>`<div class="${compact?'ms-roster-group':'v1-roster-group'}"><h3>${g.name}</h3><div class="${compact?'ms-member-image-grid':'v1-member-image-grid'}">${g.members.map(m=>imzV1MemberCard(m,compact)).join('')}${(g.optional|[]).map(m=>imzV1MemberCard(m,compact)).join('')}</div></div>`).join('');
 }
 
 const v1Arenas=["AEW Dynamite","ECW Old","Elimination Chamber 2025","Fast Lane","Hell in a Cell","Judgement Day","Night Of Champion","Payback","Raw latest 2025","Raw old","Royal Rumble 2025","SmackDown latest 2025","Smackdown old","Summer Slam","Survivor Series","TLC","Unforgiven","WrestleMania 9","WrestleMania XL","WM Backlash"];
@@ -1739,7 +1739,7 @@ const v1Features=[
 ];
 products.fullgame[1].description="WWE SmackDown! Here Comes The Pain — ICONIC EDITION V1. Full V1 showcase with roster, arenas, 10 screenshot slots, YouTube trailer/showcase links and Exclusive Next Level Patch features.";
 products.fullgame[1].features=v1PatchFeatures;
-products.fullgame[1].youtubeVideos=v1Videos.concat(products.fullgame[1].youtubeVideos||[]).filter((v,i,a)=>a.findIndex(x=>x.title===v.title)===i);
+products.fullgame[1].youtubeVideos=v1Videos.concat(products.fullgame[1].youtubeVideos|[]).filter((v,i,a)=>a.findIndex(x=>x.title===v.title)===i);
 
 function openV1Showcase(){
   const el=document.getElementById('v1Showcase');
@@ -1839,7 +1839,7 @@ const wrestlers=[
 {name:"Bronson Reed",price:0,image:"images/wrestlers/wrestler047.jpg"},
 {name:"Andrade",price:0,image:"images/wrestlers/wrestler048.jpg"},
 {name:"",price:0,image:"images/wrestlers/wrestler049.jpg"},
-{name:"Tyler Bate",price:0,image:"images/wrestlers/wrestler050.jpg"},
+
 {name:"Santos Escobar",price:0,image:"images/wrestlers/wrestler051.jpg"},
 {name:"Ludwig Kaiser",price:0,image:"images/wrestlers/wrestler053.jpg"},
 {name:"Giovanni Vinci",price:0,image:"images/wrestlers/wrestler054.jpg"},
@@ -1987,22 +1987,22 @@ const wrestlers=[
 {name:"Romeo Moreno",price:0,image:"images/wrestlers/roster-extra-0107.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
 {name:"Roxanne Perez",price:0,image:"images/wrestlers/roster-extra-0108.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
 {name:"Royce Keys",price:0,image:"images/wrestlers/roster-extra-0109.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
-{name:"Saquon Shugars",price:0,image:"images/wrestlers/roster-extra-0111.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
-{name:"Sean Legacy",price:0,image:"images/wrestlers/roster-extra-0113.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
-{name:"Shiloh Hill",price:0,image:"images/wrestlers/roster-extra-0114.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+
+
+
 {name:"Skylar Raye",price:0,image:"images/wrestlers/roster-extra-0115.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
 {name:"Sol Ruca",price:0,image:"images/wrestlers/roster-extra-0116.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
 {name:"Stephanie Vaquer",price:0,image:"images/wrestlers/roster-extra-0117.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
 {name:"Talla Tonga",price:0,image:"images/wrestlers/roster-extra-0118.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
-{name:"Tank Ledger",price:0,image:"images/wrestlers/roster-extra-0119.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
-{name:"Tate Wilder",price:0,image:"images/wrestlers/roster-extra-0120.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
-{name:"Tatum Paxley",price:0,image:"images/wrestlers/roster-extra-0121.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
-{name:"Tavion Heights",price:0,image:"images/wrestlers/roster-extra-0122.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
-{name:"Thea Hail",price:0,image:"images/wrestlers/roster-extra-0123.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
-{name:"Tony DAngelo",price:0,image:"images/wrestlers/roster-extra-0124.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
-{name:"Tristan Angels",price:0,image:"images/wrestlers/roster-extra-0125.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
-{name:"Uriah Connors",price:0,image:"images/wrestlers/roster-extra-0126.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
-{name:"Wren Sinclair",price:0,image:"images/wrestlers/roster-extra-0128.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
+
+
+
+
+
+
+
+
+
 {name:"Zaria",price:0,image:"images/wrestlers/roster-extra-0129.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
 {name:"Zilla Fatu",price:0,image:"images/wrestlers/roster-extra-0130.jpg",gender:"Male",sourceGroup:"Current WWE / NXT / Evolve"},
 {name:"Bam Bam Bigelow",price:0,image:"images/wrestlers/roster-extra-0132.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
@@ -2062,8 +2062,8 @@ const wrestlers=[
 {name:"Santino Marella",price:0,image:"images/wrestlers/roster-extra-0229.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Sgt. Slaughter",price:0,image:"images/wrestlers/roster-extra-0230.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Shane McMahon",price:0,image:"images/wrestlers/roster-extra-0231.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"Shawn Stasiak",price:0,image:"images/wrestlers/roster-extra-0232.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"Sid Vicious",price:0,image:"images/wrestlers/roster-extra-0233.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+
+
 {name:"Sika",price:0,image:"images/wrestlers/roster-extra-0234.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Spike Dudley",price:0,image:"images/wrestlers/roster-extra-0235.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Stan Hansen",price:0,image:"images/wrestlers/roster-extra-0236.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
@@ -2071,20 +2071,20 @@ const wrestlers=[
 {name:"Tajiri",price:0,image:"images/wrestlers/roster-extra-0238.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Tazz",price:0,image:"images/wrestlers/roster-extra-0239.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Ted DiBiase",price:0,image:"images/wrestlers/roster-extra-0240.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"Terry Funk",price:0,image:"images/wrestlers/roster-extra-0241.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"The Godfather",price:0,image:"images/wrestlers/roster-extra-0242.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"The Mountie",price:0,image:"images/wrestlers/roster-extra-0244.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"Tito Santana",price:0,image:"images/wrestlers/roster-extra-0245.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+
+
+
+
 {name:"Tommy Dreamer",price:0,image:"images/wrestlers/roster-extra-0246.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"Tommy Rich",price:0,image:"images/wrestlers/roster-extra-0247.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"Tully Blanchard",price:0,image:"images/wrestlers/roster-extra-0248.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"Typhoon",price:0,image:"images/wrestlers/roster-extra-0249.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+
+
+
 {name:"Val Venis",price:0,image:"images/wrestlers/roster-extra-0250.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Vader",price:0,image:"images/wrestlers/roster-extra-0251.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Vince McMahon",price:0,image:"images/wrestlers/roster-extra-0252.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"Virgil",price:0,image:"images/wrestlers/roster-extra-0253.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"Wahoo McDaniel",price:0,image:"images/wrestlers/roster-extra-0254.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
-{name:"Warlord",price:0,image:"images/wrestlers/roster-extra-0255.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
+
+
+
 {name:"Yokozuna",price:0,image:"images/wrestlers/roster-extra-0256.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Zack Ryder",price:0,image:"images/wrestlers/roster-extra-0257.jpg",gender:"Male",sourceGroup:"WWE Legends / Golden Era"},
 {name:"Al Snow",price:0,image:"images/wrestlers/roster-extra-0258.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
@@ -2113,12 +2113,12 @@ const wrestlers=[
 {name:"Rhyno",price:0,image:"images/wrestlers/roster-extra-0297.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
 {name:"Rob Conway",price:0,image:"images/wrestlers/roster-extra-0298.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
 {name:"Scotty 2 Hotty",price:0,image:"images/wrestlers/roster-extra-0299.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
-{name:"Shannon Moore",price:0,image:"images/wrestlers/roster-extra-0300.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+
 {name:"Shelton Benjamin",price:0,image:"images/wrestlers/roster-extra-0301.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
 {name:"Simon Dean",price:0,image:"images/wrestlers/roster-extra-0302.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
 {name:"Steven Richards",price:0,image:"images/wrestlers/roster-extra-0303.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
-{name:"Viscera",price:0,image:"images/wrestlers/roster-extra-0304.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
-{name:"Yoshihiro Tajiri",price:0,image:"images/wrestlers/roster-extra-0305.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+
+
 {name:"Alicia Fox",price:0,image:"images/wrestlers/roster-extra-0306.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
 {name:"",price:0,image:"images/wrestlers/roster-extra-0314.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
 {name:"",price:0,image:"images/wrestlers/roster-extra-0315.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
@@ -2128,12 +2128,12 @@ const wrestlers=[
 {name:"Rosa Mendes",price:0,image:"images/wrestlers/roster-extra-0319.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
 {name:"Slam Master J",price:0,image:"images/wrestlers/roster-extra-0320.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
 {name:"Snitsky",price:0,image:"images/wrestlers/roster-extra-0321.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
-{name:"Ted DiBiase Jr.",price:0,image:"images/wrestlers/roster-extra-0322.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+
 {name:"The Boogeyman",price:0,image:"images/wrestlers/roster-extra-0323.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
-{name:"The Brian Kendrick",price:0,image:"images/wrestlers/roster-extra-0324.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
-{name:"Trevor Murdoch",price:0,image:"images/wrestlers/roster-extra-0325.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
-{name:"Vladimir Kozlov",price:0,image:"images/wrestlers/roster-extra-0326.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
-{name:"Wendy Richter",price:0,image:"images/wrestlers/roster-extra-0327.jpg",gender:"Male",sourceGroup:"Attitude / Ruthless Aggression"},
+
+
+
+
 {name:"Animal",price:0,image:"images/wrestlers/roster-extra-0331.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
 {name:"Chris Benoit",price:0,image:"images/wrestlers/roster-extra-0339.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
 {name:"Dustin Rhodes",price:0,image:"images/wrestlers/roster-extra-0345.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
@@ -2151,12 +2151,12 @@ const wrestlers=[
 {name:"Road Warrior Animal",price:0,image:"images/wrestlers/roster-extra-0376.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
 {name:"Ron Killings",price:0,image:"images/wrestlers/roster-extra-0377.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
 {name:"Scott Hall",price:0,image:"images/wrestlers/roster-extra-0379.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
-{name:"Shane Douglas",price:0,image:"images/wrestlers/roster-extra-0381.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
-{name:"Shane Helms",price:0,image:"images/wrestlers/roster-extra-0382.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
-{name:"Sherri Martel",price:0,image:"images/wrestlers/roster-extra-0383.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+
+
+
 {name:"Silver King",price:0,image:"images/wrestlers/roster-extra-0385.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
 {name:"Super Crazy",price:0,image:"images/wrestlers/roster-extra-0389.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
-{name:"The Sandman",price:0,image:"images/wrestlers/roster-extra-0390.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
+
 {name:"Alex Shelley",price:0,image:"images/wrestlers/roster-extra-0394.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
 {name:"",price:0,image:"images/wrestlers/roster-extra-0401.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
 {name:"New Jack",price:0,image:"images/wrestlers/roster-extra-0403.jpg",gender:"Male",sourceGroup:"WCW / nWo / ECW"},
@@ -2189,36 +2189,36 @@ const wrestlers=[
 // Safety cleanup: remove sparse/empty roster slots before products, filters and previews are built.
 // These empty slots can otherwise throw on View Model clicks and interrupt page navigation.
 for (let imzCleanIndex = wrestlers.length - 1; imzCleanIndex >= 0; imzCleanIndex--) {
-  if (!wrestlers[imzCleanIndex] || !wrestlers[imzCleanIndex].name) wrestlers.splice(imzCleanIndex, 1);
+  if (!wrestlers[imzCleanIndex] | !wrestlers[imzCleanIndex].name) wrestlers.splice(imzCleanIndex, 1);
 }
 // Sort by the visible wrestler name, ignoring leading quotes/punctuation.
 // Sorting whole objects preserves every wrestler's existing render/image path.
 function imzRosterSortKey(value){
-  return String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/^[^a-z0-9]+/i,'').replace(/[^a-z0-9]+/gi,' ').trim().toLowerCase();
+  return String(value|'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/^[^a-z0-9]+/i,'').replace(/[^a-z0-9]+/gi,' ').trim().toLowerCase();
 }
 function imzRosterCompare(a,b){
-  return imzRosterSortKey(a && (a.name||a.wrestlerName||a.title)).localeCompare(
-    imzRosterSortKey(b && (b.name||b.wrestlerName||b.title)), undefined, {numeric:true, sensitivity:'base'}
+  return imzRosterSortKey(a && (a.name|a.wrestlerName|a.title)).localeCompare(
+    imzRosterSortKey(b && (b.name|b.wrestlerName|b.title)), undefined, {numeric:true, sensitivity:'base'}
   );
 }
 wrestlers.sort(imzRosterCompare);
 
 // ICONIC MODZ roster taxonomy: a single master entry may appear in multiple eras, promotions and factions.
 const imzEraGroups={
-  "WWE 2K26":`Roman Reigns|Cody Rhodes|Seth Rollins|CM Punk|Randy Orton|Drew McIntyre|Gunther|Kevin Owens|LA Knight|Logan Paul|AJ Styles|Rey Mysterio|Finn Balor|Damian Priest|Shinsuke Nakamura|Bobby Lashley|Montez Ford|Angelo Dawkins|Chad Gable|Otis|The Miz|R-Truth|Austin Theory|Grayson Waller|Carmelo Hayes|Bron Breakker|Ilja Dragunov|Dragon Lee|Ricochet|Karrion Kross|Bronson Reed|Andrade|Pete Dunne|Tyler Bate|Santos Escobar|JD McDonagh|Ludwig Kaiser|Giovanni Vinci|Akira Tozawa|Cedric Alexander|Baron Corbin|Apollo Crews|Dexter Lumis|Trick Williams|Oba Femi|Joe Hendry|Rey Fenix|Penta El Zero Miedo|Je'Von Evans|Axiom|Rhea Ripley|Liv Morgan|Tiffany Stratton|AJ Lee|Bianca Belair|Becky Lynch|Charlotte Flair|Bayley|Asuka|Jade Cargill|Iyo Sky|Giulia|Stephanie Vaquer|Lola Vice|Sol Ruca|Nia Jax|Alexa Bliss|Naomi|Tatum Paxley|Thea Hail|Roxanne Perez|Lyra Valkyria|Chelsea Green|Kairi Sane|Nikki Bella|Brie Bella|Paige|La Parka|JC Mateo|Jacob Fatu|Solo Sikoa|Jey Uso|Jimmy Uso|Tama Tonga|Tonga Loa|Akam|Karl Anderson|Adam Cole|Wes Lee|Ethan Page|Jon Moxley|Bryan Danielson|Darby Allin|Samoa Joe|Chris Jericho|Sting|Jordynne Grace`.split('|'),
-  "Modern Era":`Roman Reigns|Cody Rhodes|Seth Rollins|CM Punk|Randy Orton|Drew McIntyre|Gunther|Kevin Owens|LA Knight|Logan Paul|Goldberg|Dominik Mysterio|Finn Balor|Damian Priest|Rhea Ripley|Liv Morgan|Tiffany Stratton|Jade Cargill|Bianca Belair|Becky Lynch|Iyo Sky|Asuka|Sami Zayn|Rey Mysterio|Rey Fenix|Penta|Bron Breakker|Bronson Reed|Oba Femi|Trick Williams|Stephanie Vaquer|Sol Ruca|Giulia|Joe Hendry|Jacob Fatu|Solo Sikoa|Tama Tonga|Tonga Loa|Jey Uso|Jimmy Uso|Seth Rollins|AJ Styles|Cody Rhodes|Roxanne Perez|Lyra Valkyria|Chelsea Green|Naomi|Nia Jax|Alexa Bliss|Charlotte Flair|Bayley|Gunther|LA Knight|Carmelo Hayes|Dragon Lee|Axiom|Je'Von Evans|Kelani Jordan|Jacy Jayne|Tatum Paxley|Zaria|Lola Vice|Thea Hail`.split('|'),
-  "Attitude Era":`Stone Cold Steve Austin|The Rock|Triple H|Kane|Chyna|X-Pac|Road Dogg|Billy Gunn|The Undertaker|Kurt Angle|Kane|Big Show|Edge|Christian Cage|Hardcore Holly|Al Snow|The Godfather|Val Venis|D-Lo Brown|Mark Henry|Jeff Hardy|Matt Hardy|Lita|Trish Stratus|Victoria|Jazz|Sable|Torrie Wilson|Stacy Keibler|Tazz|Raven|Rob Van Dam|Sabu|Tommy Dreamer|Rhyno|Sandman|Tajiri|Chris Jericho|Eddie Guerrero|Rikishi|Ken Shamrock|Owen Hart|British Bulldog`.split('|'),
+  "WWE 2K26":`Roman Reigns|Cody Rhodes|Seth Rollins|CM Punk|Randy Orton|Drew McIntyre|Gunther|Kevin Owens|LA Knight|Logan Paul|AJ Styles|Rey Mysterio|Finn Balor|Damian Priest|Shinsuke Nakamura|Bobby Lashley|Montez Ford|Angelo Dawkins|Chad Gable|Otis|The Miz|R-Truth|Austin Theory|Grayson Waller|Carmelo Hayes|Bron Breakker|Ilja Dragunov|Dragon Lee|Ricochet|Karrion Kross|Bronson Reed|Andrade|Pete Dunne|Santos Escobar|JD McDonagh|Ludwig Kaiser|Giovanni Vinci|Akira Tozawa|Cedric Alexander|Baron Corbin|Apollo Crews|Dexter Lumis|Trick Williams|Oba Femi|Joe Hendry|Rey Fenix|Penta El Zero Miedo|Je'Von Evans|Axiom|Rhea Ripley|Liv Morgan|Tiffany Stratton|AJ Lee|Bianca Belair|Becky Lynch|Charlotte Flair|Bayley|Asuka|Jade Cargill|Iyo Sky|Giulia|Stephanie Vaquer|Lola Vice|Sol Ruca|Nia Jax|Alexa Bliss|Naomi|Roxanne Perez|Lyra Valkyria|Chelsea Green|Kairi Sane|Nikki Bella|Brie Bella|Paige|La Parka|JC Mateo|Jacob Fatu|Solo Sikoa|Jey Uso|Jimmy Uso|Tama Tonga|Tonga Loa|Akam|Karl Anderson|Adam Cole|Wes Lee|Ethan Page|Jon Moxley|Bryan Danielson|Darby Allin|Samoa Joe|Chris Jericho|Sting|Jordynne Grace`.split('|'),
+  "Modern Era":`Roman Reigns|Cody Rhodes|Seth Rollins|CM Punk|Randy Orton|Drew McIntyre|Gunther|Kevin Owens|LA Knight|Logan Paul|Goldberg|Dominik Mysterio|Finn Balor|Damian Priest|Rhea Ripley|Liv Morgan|Tiffany Stratton|Jade Cargill|Bianca Belair|Becky Lynch|Iyo Sky|Asuka|Sami Zayn|Rey Mysterio|Rey Fenix|Penta|Bron Breakker|Bronson Reed|Oba Femi|Trick Williams|Stephanie Vaquer|Sol Ruca|Giulia|Joe Hendry|Jacob Fatu|Solo Sikoa|Tama Tonga|Tonga Loa|Jey Uso|Jimmy Uso|Seth Rollins|AJ Styles|Cody Rhodes|Roxanne Perez|Lyra Valkyria|Chelsea Green|Naomi|Nia Jax|Alexa Bliss|Charlotte Flair|Bayley|Gunther|LA Knight|Carmelo Hayes|Dragon Lee|Axiom|Je'Von Evans|Kelani Jordan|Jacy Jayne|Zaria|Lola Vice`.split('|'),
+  "Attitude Era":`Stone Cold Steve Austin|The Rock|Triple H|Kane|Chyna|X-Pac|Road Dogg|Billy Gunn|The Undertaker|Kurt Angle|Kane|Big Show|Edge|Christian Cage|Hardcore Holly|Al Snow|Val Venis|D-Lo Brown|Mark Henry|Jeff Hardy|Matt Hardy|Lita|Trish Stratus|Victoria|Jazz|Sable|Torrie Wilson|Stacy Keibler|Tazz|Raven|Rob Van Dam|Sabu|Tommy Dreamer|Rhyno|Sandman|Tajiri|Chris Jericho|Eddie Guerrero|Rikishi|Ken Shamrock|Owen Hart|British Bulldog`.split('|'),
   "Ruthless Aggression":`John Cena|Batista|Randy Orton|Rey Mysterio|Eddie Guerrero|Kurt Angle|Brock Lesnar|Edge|Christian Cage|Chris Jericho|Booker T|Rob Van Dam|Shelton Benjamin|Carlito|MVP|Mr. Kennedy|Umaga|JBL|The Undertaker|Kane|Big Show|Trish Stratus|Lita|Mickie James|Michelle McCool|Melina|Beth Phoenix|Candice Michelle|Ashley Massaro|The Miz|John Morrison|CM Punk|Jeff Hardy|Matt Hardy|Shawn Michaels|Triple H|Ric Flair|Batista|Chavo Guerrero|William Regal|Hardcore Holly|Eugene|Bobby Lashley|The Great Khali|Mark Henry|Paul London|Brian Kendrick|Deuce|Domino`.split('|'),
-  "Golden Era":`Randy Savage|Ultimate Warrior|Andre the Giant|Bret Hart|Shawn Michaels|Roddy Piper|Jake Roberts|Ted DiBiase|Mr. Perfect|Ricky Steamboat|Nikolai Volkoff|Big Boss Man|British Bulldog|Hacksaw Jim Duggan|Honky Tonk Man|Rick Rude|Razor Ramon|Yokozuna|Owen Hart|Jim Neidhart|Tito Santana|Koko B. Ware|Haku|Earthquake|Typhoon|The Mountie|IRS|Lex Luger|Sting|Ric Flair|Arn Anderson|Tully Blanchard|Dusty Rhodes|Kerry Von Erich`.split('|'),
+  "Golden Era":`Randy Savage|Ultimate Warrior|Andre the Giant|Bret Hart|Shawn Michaels|Roddy Piper|Jake Roberts|Ted DiBiase|Mr. Perfect|Ricky Steamboat|Nikolai Volkoff|Big Boss Man|British Bulldog|Hacksaw Jim Duggan|Honky Tonk Man|Rick Rude|Razor Ramon|Yokozuna|Owen Hart|Jim Neidhart|Koko B. Ware|Haku|Earthquake|IRS|Lex Luger|Sting|Ric Flair|Arn Anderson|Dusty Rhodes|Kerry Von Erich`.split('|'),
   "Ruthless Aggression":`John Cena|Batista|Randy Orton|Rey Mysterio|Eddie Guerrero|Kurt Angle|Brock Lesnar|Edge|Christian Cage|Chris Jericho|Booker T|Rob Van Dam|Shelton Benjamin|Carlito|MVP|Mr. Kennedy|Umaga|JBL|The Undertaker|Kane|Big Show|Trish Stratus|Lita|Mickie James|Michelle McCool|Melina|Beth Phoenix|Candice Michelle|Ashley Massaro|The Miz|John Morrison|CM Punk|Jeff Hardy|Matt Hardy|Shawn Michaels|Triple H|Ric Flair|Chavo Guerrero|William Regal|Hardcore Holly|Eugene|Bobby Lashley|The Great Khali|Mark Henry|Paul London|Brian Kendrick|Deuce|Domino`.split('|'),
-  "WCW / nWo":`Goldberg|Scott Hall|Kevin Nash|Sting|Diamond Dallas Page|Ric Flair|Booker T|Lex Luger|Randy Savage|Roddy Piper|Scott Steiner|Curt Hennig|Eric Bischoff|Konnan|Dennis Rodman|Bret Hart|Chris Jericho|Eddie Guerrero|Rey Mysterio|Juventud Guerrera|Psychosis|Ultimo Dragon|Dean Malenko|Chris Benoit|Perry Saturn|Raven|La Parka|Fit Finlay|Sid Vicious`.split('|'),
-  "Legends / Hall of Fame":`The Undertaker|Stone Cold Steve Austin|The Rock|Shawn Michaels|Triple H|Ric Flair|Bret Hart|Andre the Giant|Randy Savage|Ultimate Warrior|Kane|Mick Foley|Booker T|Trish Stratus|Lita|Chyna|Beth Phoenix|Edge|Rey Mysterio|Kurt Angle|Eddie Guerrero|Brock Lesnar|Goldberg|Diamond Dallas Page|Sting|Jake Roberts|Roddy Piper|Mr. Perfect|Ricky Steamboat|Terry Funk|Dusty Rhodes|Harley Race|Bruno Sammartino|Rikishi|JBL|The Godfather|Victoria|Jazz|Sable|Molly Holly|Jacqueline|Torrie Wilson|Stacy Keibler|Michelle McCool|Mickie James`.split('|'),
-  "NXT / Rising Stars":`Oba Femi|Trick Williams|Je'Von Evans|Axiom|Nathan Frazer|Lola Vice|Sol Ruca|Kelani Jordan|Jacy Jayne|Tatum Paxley|Thea Hail|Zaria|Giulia|Stephanie Vaquer|Roxanne Perez|Carmelo Hayes|Bron Breakker|Ilja Dragunov|Tyler Bate|Pete Dunne|Dragon Lee|Wes Lee|Tiffany Stratton|Lyra Valkyria|Fallon Henley|Lash Legend|Kendal Grey|Kali Armstrong|Ethan Page|Joe Hendry|Arianna Grace|Charlie Dempsey|Lexis King|Dion Lennox|Hank Walker|Tank Ledger|Myles Borne|Kale Dixon`.split('|')
+  "WCW / nWo":`Goldberg|Scott Hall|Kevin Nash|Sting|Diamond Dallas Page|Ric Flair|Booker T|Lex Luger|Randy Savage|Roddy Piper|Scott Steiner|Curt Hennig|Eric Bischoff|Konnan|Dennis Rodman|Bret Hart|Chris Jericho|Eddie Guerrero|Rey Mysterio|Juventud Guerrera|Psychosis|Ultimo Dragon|Dean Malenko|Chris Benoit|Perry Saturn|Raven|La Parka|Fit Finlay`.split('|'),
+  "Legends / Hall of Fame":`The Undertaker|Stone Cold Steve Austin|The Rock|Shawn Michaels|Triple H|Ric Flair|Bret Hart|Andre the Giant|Randy Savage|Ultimate Warrior|Kane|Mick Foley|Booker T|Trish Stratus|Lita|Chyna|Beth Phoenix|Edge|Rey Mysterio|Kurt Angle|Eddie Guerrero|Brock Lesnar|Goldberg|Diamond Dallas Page|Sting|Jake Roberts|Roddy Piper|Mr. Perfect|Ricky Steamboat|Dusty Rhodes|Harley Race|Bruno Sammartino|Rikishi|JBL|Victoria|Jazz|Sable|Molly Holly|Jacqueline|Torrie Wilson|Stacy Keibler|Michelle McCool|Mickie James`.split('|'),
+  "NXT / Rising Stars":`Oba Femi|Trick Williams|Je'Von Evans|Axiom|Nathan Frazer|Lola Vice|Sol Ruca|Kelani Jordan|Jacy Jayne|Zaria|Giulia|Stephanie Vaquer|Roxanne Perez|Carmelo Hayes|Bron Breakker|Ilja Dragunov|Pete Dunne|Dragon Lee|Wes Lee|Tiffany Stratton|Lyra Valkyria|Fallon Henley|Lash Legend|Kendal Grey|Kali Armstrong|Ethan Page|Joe Hendry|Arianna Grace|Charlie Dempsey|Lexis King|Dion Lennox|Hank Walker|Myles Borne|Kale Dixon`.split('|')
 };
 const imzPromotionGroups={
  "WWE":`Akira Tozawa|AJ Lee|Alexa Bliss|Roman Reigns|Cody Rhodes|Seth Rollins|CM Punk|Randy Orton|Drew McIntyre|Gunther|Kevin Owens|LA Knight|Logan Paul|Goldberg|Rhea Ripley|Liv Morgan|Tiffany Stratton|John Cena|The Rock|The Undertaker|Stone Cold Steve Austin|Triple H|Shawn Michaels|Becky Lynch|Charlotte Flair|Bianca Belair|Jade Cargill|Iyo Sky|Asuka|Sami Zayn|Rey Mysterio|Bron Breakker|Oba Femi|Trick Williams|Stephanie Vaquer|Giulia`.split('|'),
  "WCW":`Goldberg|Sting|Ric Flair|Diamond Dallas Page|Booker T|Kevin Nash|Scott Hall|Lex Luger|Randy Savage|Scott Steiner|Curt Hennig|Konnan|Juventud Guerrera|Psychosis|Ultimo Dragon|Dean Malenko|Chris Benoit|Perry Saturn|Raven|La Parka`.split('|'),
- "ECW":`Rob Van Dam|Sabu|Tommy Dreamer|Sandman|Taz|Tajiri|Rhyno|Raven|Shane Douglas|Justin Credible|Lance Storm|Mike Awesome|Balls Mahoney|Axl Rotten|New Jack|Super Crazy|Mikey Whipwreck|Little Guido`.split('|'),
+ "ECW":`Rob Van Dam|Sabu|Tommy Dreamer|Sandman|Taz|Tajiri|Rhyno|Raven|Justin Credible|Lance Storm|Mike Awesome|Balls Mahoney|Axl Rotten|New Jack|Super Crazy|Mikey Whipwreck|Little Guido`.split('|'),
  "AEW / ROH":`Jon Moxley|Bryan Danielson|Darby Allin|Chris Jericho|Samoa Joe|Adam Cole|Adam Copeland|Christian Cage`.split('|'),
  "TNA / Impact":`AJ Styles|Samoa Joe|Abyss|Jordynne Grace|Gail Kim|Mickie James|Chris Sabin|Alex Shelley|Kurt Angle|Christian Cage|Jeff Hardy|Matt Hardy|Tessa Blanchard`.split('|'),
  "NJPW / Japan":`Shinsuke Nakamura|KENTA|Great Muta|Meiko Satomura|Giulia|Asuka|Kairi Sane`.split('|')
@@ -2232,15 +2232,15 @@ const imzFactionGroups={
  "Judgment Day":`Finn Balor|Damian Priest|Rhea Ripley|Dominik Mysterio|Liv Morgan|JD McDonagh|Carlito`.split('|'),
  "Wyatt Family / Wyatt Sicks":`Bray Wyatt|The Fiend Bray Wyatt|Luke Harper|Erick Rowan|Braun Strowman|Bo Dallas|Uncle Howdy|Nikki Cross|Dexter Lumis|Joe Gacy|Erick Rowan`.split('|'),
  "The New Day":`Kofi Kingston|Xavier Woods|Big E`.split('|'),
- "The Four Horsemen":`Ric Flair|Arn Anderson|Tully Blanchard|Ole Anderson|Barry Windham|Lex Luger|Chris Benoit|Dean Malenko`.split('|'),
+ "The Four Horsemen":`Ric Flair|Arn Anderson|Ole Anderson|Barry Windham|Lex Luger|Chris Benoit|Dean Malenko`.split('|'),
  "The Hardy Boyz":`Jeff Hardy|Matt Hardy`.split('|'),
  "The Dudley Boyz":`Bubba Ray Dudley|D-Von Dudley|Spike Dudley`.split('|'),
  "Damage CTRL":`Bayley|Iyo Sky|Dakota Kai|Asuka|Kairi Sane`.split('|'),
  "The Bella Twins":`Nikki Bella|Brie Bella`.split('|')
 };
-const imzTagKey=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+const imzTagKey=s=>String(s|'').toLowerCase().replace(/[^a-z0-9]/g,'');
 function imzTagsFor(w,groupMap){const k=imzTagKey(w.name);return Object.entries(groupMap).filter(([label,names])=>names.some(n=>imzTagKey(n)===k)).map(([label])=>label)}
-function imzPrepareRosterMetadata(){wrestlers.forEach(w=>{w.gender=w.gender||(['Victoria','Jazz','Sable','Trish Stratus','Lita','Stacy Keibler','Torrie Wilson','Stephanie McMahon','AJ Lee','Paige','Nikki Bella','Brie Bella','Rhea Ripley','Liv Morgan','Tiffany Stratton','Nikki Cross','Debra','Asuka','Bayley','Becky Lynch','Bianca Belair','Charlotte Flair','Chelsea Green','Jade Cargill','Iyo Sky','Giulia','Stephanie Vaquer','Sol Ruca','Nia Jax','Alexa Bliss','Tatum Paxley','Thea Hail','Roxanne Perez','Lyra Valkyria','Mickie James','Molly Holly','Gail Kim','Beth Phoenix','Jazz','Victoria','Candice LeRae','Kairi Sane','Dakota Kai','Natalya','Trish Stratus','Torrie Wilson','Stacy Keibler','Lita','Sable','Chyna','Jacqueline','Ivory','Alicia Fox','Raquel Rodriguez','Tegan Nox','Zelina Vega','Zoey Stark','Toni Storm','Saraya','Athena','Mercedes Moné','Thunder Rosa','Hikaru Shida','Kris Statlander','Deonna Purrazzo','Jordynne Grace','Rosemary','Su Yung','Mayu Iwatani','Utami Hayashishita','Aja Kong','Meiko Satomura'].some(n=>imzTagKey(n)===imzTagKey(w.name))?'Female':'Male');w.eras=imzTagsFor(w,imzEraGroups);w.promotions=imzTagsFor(w,imzPromotionGroups);w.factions=imzTagsFor(w,imzFactionGroups);if(w.sourceGroup&&!w.promotions.length){w.promotions=w.sourceGroup.includes('WCW')?['WCW']:w.sourceGroup.includes('TNA')?['TNA / Impact']:w.sourceGroup.includes('AEW')?['AEW / ROH']:w.sourceGroup.includes('NJPW')?['NJPW / Japan']:w.sourceGroup.includes('Indies')?['Other / Indies']:['WWE'];}if(!w.eras.length){w.eras=w.sourceGroup&&w.sourceGroup.includes('Attitude')?['Attitude Era']:w.sourceGroup&&w.sourceGroup.includes('WCW')?['WCW / nWo']:w.sourceGroup&&w.sourceGroup.includes('NJPW')?['NJPW / Japan']:w.sourceGroup&&w.sourceGroup.includes('Current')?['Modern Era']:['Legends / Hall of Fame'];}})}
+function imzPrepareRosterMetadata(){wrestlers.forEach(w=>{w.gender=w.gender|(['Victoria','Jazz','Sable','Trish Stratus','Lita','Stacy Keibler','Torrie Wilson','Stephanie McMahon','AJ Lee','Paige','Nikki Bella','Brie Bella','Rhea Ripley','Liv Morgan','Tiffany Stratton','Nikki Cross','Debra','Asuka','Bayley','Becky Lynch','Bianca Belair','Charlotte Flair','Chelsea Green','Jade Cargill','Iyo Sky','Giulia','Stephanie Vaquer','Sol Ruca','Nia Jax','Alexa Bliss','Tatum Paxley','Thea Hail','Roxanne Perez','Lyra Valkyria','Mickie James','Molly Holly','Gail Kim','Beth Phoenix','Jazz','Victoria','Candice LeRae','Kairi Sane','Dakota Kai','Natalya','Trish Stratus','Torrie Wilson','Stacy Keibler','Lita','Sable','Chyna','Jacqueline','Ivory','Alicia Fox','Raquel Rodriguez','Tegan Nox','Zelina Vega','Zoey Stark','Toni Storm','Saraya','Athena','Mercedes Moné','Thunder Rosa','Hikaru Shida','Kris Statlander','Deonna Purrazzo','Jordynne Grace','Rosemary','Su Yung','Mayu Iwatani','Utami Hayashishita','Aja Kong','Meiko Satomura'].some(n=>imzTagKey(n)===imzTagKey(w.name))?'Female':'Male');w.eras=imzTagsFor(w,imzEraGroups);w.promotions=imzTagsFor(w,imzPromotionGroups);w.factions=imzTagsFor(w,imzFactionGroups);if(w.sourceGroup&&!w.promotions.length){w.promotions=w.sourceGroup.includes('WCW')?['WCW']:w.sourceGroup.includes('TNA')?['TNA / Impact']:w.sourceGroup.includes('AEW')?['AEW / ROH']:w.sourceGroup.includes('NJPW')?['NJPW / Japan']:w.sourceGroup.includes('Indies')?['Other / Indies']:['WWE'];}if(!w.eras.length){w.eras=w.sourceGroup&&w.sourceGroup.includes('Attitude')?['Attitude Era']:w.sourceGroup&&w.sourceGroup.includes('WCW')?['WCW / nWo']:w.sourceGroup&&w.sourceGroup.includes('NJPW')?['NJPW / Japan']:w.sourceGroup&&w.sourceGroup.includes('Current')?['Modern Era']:['Legends / Hall of Fame'];}})}
 imzPrepareRosterMetadata();
 
 
@@ -2325,7 +2325,7 @@ let currentProduct=null;
 let checkoutItems=[];
 let cartItems=[];
 const PROMO_CODE="ICONIC10";
-try{cartItems=JSON.parse(localStorage.getItem("iconicModzCart")||"[]");}catch(e){cartItems=[];}
+try{cartItems=JSON.parse(localStorage.getItem("iconicModzCart")|"[]");}catch(e){cartItems=[];}
 
 
 /* =========================================
@@ -2345,7 +2345,7 @@ function showPage(page, fromHistory=false){
   window.scrollTo({top:0,behavior:"smooth"});
 }
 window.addEventListener('popstate',function(e){
-  const page=(e.state&&e.state.imzPage)||((location.hash||'').slice(1));
+  const page=(e.state&&e.state.imzPage)|((location.hash|'').slice(1));
   const modalIds=['imzModelModal','previewModal','paymentModal','cartModal','promoPopup','batchPopup','modShowcase'];
   let closed=false;
   modalIds.forEach(id=>{const el=document.getElementById(id);if(el&&!el.classList.contains('hidden')){el.classList.add('hidden');closed=true;}});
@@ -2354,7 +2354,7 @@ window.addEventListener('popstate',function(e){
   else showPage('home',true);
 });
 window.addEventListener('load',function(){
-  const hash=(location.hash||'').slice(1);
+  const hash=(location.hash|'').slice(1);
   if(hash && document.getElementById(hash)?.classList.contains('page')){history.replaceState({imzPage:hash},location.pathname+location.search+"#"+hash);showPage(hash,true);}
   else {try{history.replaceState({imzPage:'home'},location.pathname+location.search+"#home");}catch(e){}}
 });
@@ -2398,7 +2398,7 @@ document.getElementById("categoryTitle").innerText=
 names[category];
 const categoryOffer=document.getElementById("categoryOfferBox");
 if(categoryOffer){
-  const showOffer=category==="wrestlers" || category==="arenas";
+  const showOffer=category==="wrestlers" | category==="arenas";
   categoryOffer.classList.toggle("hidden",!showOffer);
   if(showOffer){
     const label=category==="arenas"?"ARENA MODEL OFFER":"WRESTLER MODEL OFFER";
@@ -2422,7 +2422,7 @@ const IMZ_ALPHABET=['ALL',...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
 let productAlphabetLetter='ALL';
 let customAlphabetLetter='ALL';
 function firstLetter(name){
-  const m=String(name||'').trim().match(/[A-Za-z]/);
+  const m=String(name|'').trim().match(/[A-Za-z]/);
   return m?m[0].toUpperCase():'#';
 }
 function alphabetButtons(targetId,current,onPick){
@@ -2451,7 +2451,7 @@ function setCustomAlphabet(letter){
 let imzProductVisibleLimit=60;
 let imzProductWrestlerSearchQuery='';
 function imzProductWrestlerSearchInput(value){
-  imzProductWrestlerSearchQuery=String(value||'').trim().toLowerCase();
+  imzProductWrestlerSearchQuery=String(value|'').trim().toLowerCase();
   imzProductVisibleLimit=60;
   renderProducts();
 }
@@ -2461,7 +2461,7 @@ function renderProducts(){
 const grid=document.getElementById("productGrid");
 if(currentCategory!=="wrestlers") imzProductVisibleLimit=60;
 
-let list=products[currentCategory]||[];
+let list=products[currentCategory]|[];
 const wrestlerSearchWrap=document.getElementById('imzProductWrestlerSearchWrap');
 if(wrestlerSearchWrap) wrestlerSearchWrap.style.display=currentCategory==='wrestlers'?'block':'none';
 const wrestlerSearchInput=document.getElementById('imzProductWrestlerSearch');
@@ -2469,15 +2469,15 @@ if(currentCategory!=='wrestlers' && wrestlerSearchInput && wrestlerSearchInput.v
 // SVR is a separate mod universe. Keep HCTP V1/V2 out of SVR Full Game Mods until SVR products are added.
 if(currentGame==='svr' && currentCategory==='fullgame') list=[];
 if(currentCategory==='wrestlers'){
-  list=[...list].sort((a,b)=>imzRosterSortKey(a.wrestlerName||a.title).localeCompare(imzRosterSortKey(b.wrestlerName||b.title),undefined,{numeric:true,sensitivity:'base'}));
-  const normalizeProductSearch=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  list=[...list].sort((a,b)=>imzRosterSortKey(a.wrestlerName|a.title).localeCompare(imzRosterSortKey(b.wrestlerName|b.title),undefined,{numeric:true,sensitivity:'base'}));
+  const normalizeProductSearch=value=>String(value|'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const searchQuery=normalizeProductSearch(imzProductWrestlerSearchQuery);
   if(searchQuery){
     list=list.filter(p=>normalizeProductSearch([p.wrestlerName,p.title].filter(Boolean).join(' ')).includes(searchQuery));
     productAlphabetLetter='ALL';
     alphabetButtons('productAlphabet',productAlphabetLetter,'setProductAlphabet');
   } else {
-    if(productAlphabetLetter!=='ALL') list=list.filter(p=>firstLetter(p.wrestlerName||p.title)===productAlphabetLetter);
+    if(productAlphabetLetter!=='ALL') list=list.filter(p=>firstLetter(p.wrestlerName|p.title)===productAlphabetLetter);
     alphabetButtons('productAlphabet',productAlphabetLetter,'setProductAlphabet');
   }
   const searchCount=document.getElementById('imzProductWrestlerSearchCount');
@@ -2517,7 +2517,7 @@ grid.innerHTML=displayList.map((product,index)=>`
 ${product.rating ? `<div class="product-rating"><span class="stars">${"★".repeat(product.rating)}</span><span class="stars empty-star">${"★".repeat(5-product.rating)}</span><small>${product.rating}.0/5</small></div>` : ""}
 
 <div class="card-img" style="position:relative">
-${(product.title||'').includes('Iconic Edition V2')?'<div class="imz-product-badges"><span class="imz-product-badge best">★ BEST SELLER</span></div>':(product.title||'').includes('Iconic Edition V1')?'<div class="imz-product-badges"><span class="imz-product-badge">POPULAR</span></div>':''}
+${(product.title|'').includes('Iconic Edition V2')?'<div class="imz-product-badges"><span class="imz-product-badge best">★ BEST SELLER</span></div>':(product.title|'').includes('Iconic Edition V1')?'<div class="imz-product-badges"><span class="imz-product-badge">POPULAR</span></div>':''}
 ${product.image?`<img src="${product.image}" alt="" loading="lazy" decoding="async">`:`<div class="placeholder">MOD</div>`}
 </div>
 
@@ -2587,7 +2587,7 @@ currentProduct=product;
 document.getElementById("previewTitle").innerText=product.title;
 document.getElementById("previewDescription").innerText=product.description;
 document.getElementById("previewPrice").innerText=product.price;
-document.getElementById("previewList").innerHTML=(product.features||[]).map(x=>`<li>${x}</li>`).join("");
+document.getElementById("previewList").innerHTML=(product.features|[]).map(x=>`<li>${x}</li>`).join("");
 
 const productImage=document.getElementById("previewProductImage");
 const productPlaceholder=document.getElementById("previewImagePlaceholder");
@@ -2604,7 +2604,7 @@ setupScreenshotSlider(product);
 
 const youtubeList=document.getElementById("youtubeVideoList");
 youtubeList.innerHTML="";
-(product.youtubeVideos||[]).forEach((video,index)=>{
+(product.youtubeVideos|[]).forEach((video,index)=>{
   if(!video.url) return;
   const id=getYouTubeId(video.url);
   if(!id) return;
@@ -2627,7 +2627,7 @@ let sliderExtIndex=0;
 
 function setupScreenshotSlider(product){
   const box=document.getElementById("screenshotSlider");
-  sliderImages=product.screenshots||[]; sliderIndex=0; sliderExtIndex=0;
+  sliderImages=product.screenshots|[]; sliderIndex=0; sliderExtIndex=0;
   if(!sliderImages.length){box.classList.add("hidden");return;}
   box.classList.remove("hidden");
   const dots=document.getElementById("sliderDots");
@@ -2658,7 +2658,7 @@ function changeScreenshot(step){
 }
 
 function goToScreenshot(index){
-  if(index<0||index>=sliderImages.length)return;
+  if(index<0|index>=sliderImages.length)return;
   sliderIndex=index; loadScreenshot();
 }
 
@@ -2694,23 +2694,23 @@ function popupDailyKey(prefix){
 }
 function popupDailyCount(prefix){
   const key=popupDailyKey(prefix);
-  return Number(localStorage.getItem(key)||0);
+  return Number(localStorage.getItem(key)|0);
 }
 function popupDailyMark(prefix){
   const key=popupDailyKey(prefix);
   localStorage.setItem(key,String(popupDailyCount(prefix)+1));
 }
 function copyPromoCode(){
-  const code=document.getElementById("promoCode")?.innerText||"ICONIC10";
+  const code=document.getElementById("promoCode")?.innerText|"ICONIC10";
   navigator.clipboard?.writeText(code).catch(()=>{});
   alert("ICONIC10 copied. It applies only to V1 and V2.");
 }
 function promoBuy(version){
-  const product=(products.fullgame||[]).find(p=>p.title.includes(`V${version}`));
+  const product=(products.fullgame|[]).find(p=>p.title.includes(`V${version}`));
   if(product){closePromoPopup();buyProduct(product);}
 }
 function promoPreview(version){
-  const product=(products.fullgame||[]).find(p=>p.title.includes(`V${version}`));
+  const product=(products.fullgame|[]).find(p=>p.title.includes(`V${version}`));
   if(product){closePromoPopup();if(version===1){openV1Showcase();}else{openModShowcase(product);}}
 }
 function startPromoCountdown(){
@@ -2747,7 +2747,7 @@ function isArenaProduct(product){
   return !!product && product.productType==="arena";
 }
 function isBulkProduct(product){
-  return isWrestlerProduct(product) || isArenaProduct(product);
+  return isWrestlerProduct(product) | isArenaProduct(product);
 }
 function bulkUnitPrice(count){
   if(count>=10) return 5.5;
@@ -2767,40 +2767,40 @@ function bulkOfferSelect(count){
   },120);
 }
 function getProductUnitPrice(product, bulkCount){
-  if(!product || product.price==="FREE" || product.productType==="custom") return 0;
-  if(isBulkProduct(product)) return bulkUnitPrice(bulkCount||1);
+  if(!product | product.price==="FREE" | product.productType==="custom") return 0;
+  if(isBulkProduct(product)) return bulkUnitPrice(bulkCount|1);
   if(Number.isFinite(Number(product.usdPrice))) return Number(product.usdPrice);
   return 62;
 }
 function getProductINRPrice(product, bulkCount){
-  if(!product || product.price==="FREE" || product.productType==="custom") return 0;
+  if(!product | product.price==="FREE" | product.productType==="custom") return 0;
   if(isBulkProduct(product)){
-    const usd=bulkUnitPrice(bulkCount||1);
+    const usd=bulkUnitPrice(bulkCount|1);
     return Math.round(usd*96.15);
   }
   if(Number.isFinite(Number(product.inrPrice))) return Number(product.inrPrice);
   return 5962;
 }
 function promoEligibleProduct(product){
-  return !!product && product.productType==="mod" && (product.title.includes("Iconic Edition V1") || product.title.includes("Iconic Edition V2"));
+  return !!product && product.productType==="mod" && (product.title.includes("Iconic Edition V1") | product.title.includes("Iconic Edition V2"));
 }
 function getCheckoutTotals(){
-  const count=checkoutItems.reduce((n,p)=>n+(p.qty||1),0);
-  const wrestlerCount=checkoutItems.reduce((n,p)=>n+(isWrestlerProduct(p)?(p.qty||1):0),0);
-  const arenaCount=checkoutItems.reduce((n,p)=>n+(isArenaProduct(p)?(p.qty||1):0),0);
+  const count=checkoutItems.reduce((n,p)=>n+(p.qty|1),0);
+  const wrestlerCount=checkoutItems.reduce((n,p)=>n+(isWrestlerProduct(p)?(p.qty|1):0),0);
+  const arenaCount=checkoutItems.reduce((n,p)=>n+(isArenaProduct(p)?(p.qty|1):0),0);
   const bulkCountByType={wrestler:wrestlerCount,arena:arenaCount};
   const regularUSD=checkoutItems.reduce((n,p)=>{
     const bulkCount=isWrestlerProduct(p)?wrestlerCount:isArenaProduct(p)?arenaCount:1;
-    return n+getProductUnitPrice(p,bulkCount)*(p.qty||1);
+    return n+getProductUnitPrice(p,bulkCount)*(p.qty|1);
   },0);
   const regularINR=checkoutItems.reduce((n,p)=>{
     const bulkCount=isWrestlerProduct(p)?wrestlerCount:isArenaProduct(p)?arenaCount:1;
-    return n+getProductINRPrice(p,bulkCount)*(p.qty||1);
+    return n+getProductINRPrice(p,bulkCount)*(p.qty|1);
   },0);
-  const code=(document.getElementById("paymentPromoInput")?.value||"").trim().toUpperCase();
+  const code=(document.getElementById("paymentPromoInput")?.value|"").trim().toUpperCase();
   const promoEligible=checkoutItems.every(p=>promoEligibleProduct(p));
-  const bulkEligible6=(wrestlerCount>=6 && wrestlerCount===count) || (arenaCount>=6 && arenaCount===count);
-  const bulkEligible10=(wrestlerCount>=10 && wrestlerCount===count) || (arenaCount>=10 && arenaCount===count);
+  const bulkEligible6=(wrestlerCount>=6 && wrestlerCount===count) | (arenaCount>=6 && arenaCount===count);
+  const bulkEligible10=(wrestlerCount>=10 && wrestlerCount===count) | (arenaCount>=10 && arenaCount===count);
   let discountUSD=0,discountINR=0;
   if(code===PROMO_CODE && promoEligible && regularUSD>0){discountUSD=2;discountINR=192;}
   else if(code==="MODEL6" && bulkEligible6){discountUSD=3;discountINR=Math.round(3*96.15);}
@@ -2811,17 +2811,17 @@ function getCheckoutTotals(){
 function makeOrderId(){
   let main;
   if(currentCustomOrderDetails){
-    const firstW=orderSlug((selectedWrestlers[0]&&selectedWrestlers[0].name)||"ROSTER");
-    const firstA=orderSlug((selectedArenas[0]&&selectedArenas[0].name)||"ARENA");
+    const firstW=orderSlug((selectedWrestlers[0]&&selectedWrestlers[0].name)|"ROSTER");
+    const firstA=orderSlug((selectedArenas[0]&&selectedArenas[0].name)|"ARENA");
     main=`CUSTOM-${firstW}-${firstA}`;
-  }else if(checkoutItems.some(x=>isWrestlerProduct(x) && (x.attireNumber||0))){
+  }else if(checkoutItems.some(x=>isWrestlerProduct(x) && (x.attireNumber|0))){
     const parts=checkoutItems.filter(isWrestlerProduct).map(x=>{
-      const name=orderSlug(x.wrestlerName||x.title).split('-')[0];
-      return `${name}-A${String(x.attireNumber||0).padStart(2,'0')}`;
+      const name=orderSlug(x.wrestlerName|x.title).split('-')[0];
+      return `${name}-A${String(x.attireNumber|0).padStart(2,'0')}`;
     });
     main=`WRESTLER-${parts.join('-')}`;
   }else{
-    const names=checkoutItems.length?checkoutItems.map(x=>x.title||x.name).join(' '):'ORDER';
+    const names=checkoutItems.length?checkoutItems.map(x=>x.title|x.name).join(' '):'ORDER';
     main=orderSlug(names).split('-').slice(0,3).join('-');
   }
   const date=new Date();const stamp=date.getFullYear().toString()+String(date.getMonth()+1).padStart(2,'0')+String(date.getDate()).padStart(2,'0');
@@ -2833,13 +2833,13 @@ function makeOrderId(){
 function openPayment(product){
   currentProduct=product;
   checkoutItems=[product];
-  currentCustomOrderDetails=product.customOrderDetails||null;
+  currentCustomOrderDetails=product.customOrderDetails|null;
   if(product.price==="FREE"){
     alert("Ye item FREE hai. Free download link baad me yahan add kiya ja sakta hai."); return;
   }
   document.getElementById("paymentTitle").innerText=product.title;
   document.getElementById("paymentPromoInput").value="";
-  const eligiblePromo=promoEligibleProduct(product)||isBulkProduct(product);
+  const eligiblePromo=promoEligibleProduct(product)|isBulkProduct(product);
   document.getElementById("paymentPromoStatus").innerText=isBulkProduct(product)?"Bulk offer applies automatically. MODEL6 = $3 off 6+ models • MODEL10 = $5 off 10+ models.":(product.productType==="custom"?"Custom Mod is a fixed $85 package — no coupon discount.":(eligiblePromo?"Use ICONIC10 to get $2 off this V1/V2 mod.":"Available codes: ICONIC10 for V1/V2 or model bulk coupons when eligible."));
   document.getElementById("paymentPromoStatus").style.color="#777";
   document.getElementById("paymentPromoBox").classList.toggle("hidden",!eligiblePromo);
@@ -2868,7 +2868,7 @@ function openCartCheckout(){
   checkoutItems=cartItems.map(x=>({...x}));
   document.getElementById("paymentTitle").innerText="ICONIC MODZ — Cart Checkout";
   document.getElementById("paymentPromoInput").value="";
-  const cartPromoEligible=checkoutItems.length>0 && (checkoutItems.every(promoEligibleProduct) || checkoutItems.every(isBulkProduct));
+  const cartPromoEligible=checkoutItems.length>0 && (checkoutItems.every(promoEligibleProduct) | checkoutItems.every(isBulkProduct));
   document.getElementById("paymentPromoStatus").innerText=cartPromoEligible?"ICONIC10: $2 off V1/V2 • MODEL6: $3 off 6+ models • MODEL10: $5 off 10+ models.":"Available codes: ICONIC10 for V1/V2, MODEL6 for 6+ same-type models, MODEL10 for 10+ same-type models.";
   document.getElementById("paymentPromoStatus").style.color="#777";
   document.getElementById("paymentPromoBox").classList.toggle("hidden",!cartPromoEligible);
@@ -2876,7 +2876,7 @@ function openCartCheckout(){
   const offer=document.getElementById("wrestlerOfferBox");
   if(offer) offer.classList.toggle("hidden",!checkoutItems.some(isWrestlerProduct));
   document.getElementById("proofOrderId").value=makeOrderId();
-  document.getElementById("proofModName").value=checkoutItems.map(x=>`${isWrestlerProduct(x)&&x.attireNumber?imzAttireOrderLabel(x):(x.title||x.name)} x${x.qty||1}`).join(", ");
+  document.getElementById("proofModName").value=checkoutItems.map(x=>`${isWrestlerProduct(x)&&x.attireNumber?imzAttireOrderLabel(x):(x.title|x.name)} x${x.qty|1}`).join(", ");
   updatePaymentTotals();
   closeCart();
   document.getElementById("paymentModal").classList.remove("hidden");
@@ -2907,13 +2907,13 @@ function updatePaymentTotals(){
 function applyPaymentPromo(){
   const input=document.getElementById("paymentPromoInput");
   const status=document.getElementById("paymentPromoStatus");
-  const code=(input.value||"").trim().toUpperCase();
+  const code=(input.value|"").trim().toUpperCase();
   const t=getCheckoutTotals();
   if(code===PROMO_CODE && checkoutItems.length && checkoutItems.every(promoEligibleProduct)){
     status.innerText="✓ ICONIC10 applied — you save $2.00."; status.style.color="#63d471";
-  }else if(code==="MODEL6" && t.wrestlerCount>=6 && t.wrestlerCount===t.count || code==="MODEL6" && t.arenaCount>=6 && t.arenaCount===t.count){
+  }else if(code==="MODEL6" && t.wrestlerCount>=6 && t.wrestlerCount===t.count | code==="MODEL6" && t.arenaCount>=6 && t.arenaCount===t.count){
     status.innerText="✓ MODEL6 applied — you save $3.00."; status.style.color="#63d471";
-  }else if(code==="MODEL10" && t.wrestlerCount>=10 && t.wrestlerCount===t.count || code==="MODEL10" && t.arenaCount>=10 && t.arenaCount===t.count){
+  }else if(code==="MODEL10" && t.wrestlerCount>=10 && t.wrestlerCount===t.count | code==="MODEL10" && t.arenaCount>=10 && t.arenaCount===t.count){
     status.innerText="✓ MODEL10 applied — you save $5.00."; status.style.color="#63d471";
   }else{
     status.innerText="Code not eligible for the current order."; status.style.color="#ff6b6b";
@@ -2943,17 +2943,17 @@ function saveCart(){
 }
 
 function updateCartCount(){
-  const count=cartItems.reduce((n,x)=>n+(x.qty||1),0);
+  const count=cartItems.reduce((n,x)=>n+(x.qty|1),0);
   [document.getElementById("cartCount"),document.getElementById("cartFloatCount")].forEach(el=>{if(el)el.textContent=count;});
 }
 
 function addToCart(product){
-  if(!product || product.price==="FREE"){
+  if(!product | product.price==="FREE"){
     alert("Ye item FREE hai. Isko direct free download ke liye use karein."); return;
   }
-  const key=product.title||product.name;
-  const existing=cartItems.find(x=>(x.title||x.name)===key);
-  if(existing) existing.qty=(existing.qty||1)+1;
+  const key=product.title|product.name;
+  const existing=cartItems.find(x=>(x.title|x.name)===key);
+  if(existing) existing.qty=(existing.qty|1)+1;
   else cartItems.push({...product,qty:1});
   saveCart();
   renderCart();
@@ -2963,28 +2963,28 @@ function addToCart(product){
 function removeFromCart(index){cartItems.splice(index,1);saveCart();renderCart();}
 function changeCartQty(index,delta){
   if(!cartItems[index])return;
-  cartItems[index].qty=Math.max(1,(cartItems[index].qty||1)+delta);
+  cartItems[index].qty=Math.max(1,(cartItems[index].qty|1)+delta);
   saveCart();renderCart();
 }
 function openCart(){renderCart();document.getElementById("cartModal").classList.remove("hidden");}
 function closeCart(){document.getElementById("cartModal").classList.add("hidden");}
 function renderCart(){
   const box=document.getElementById("cartItems"), summary=document.getElementById("cartSummary");
-  if(!box||!summary)return;
+  if(!box|!summary)return;
   if(!cartItems.length){box.innerHTML='<div class="cart-empty">Your cart is empty.<br>Add V1, V2, wrestler models or arenas with <b>🛒 Add to Cart</b>.</div>';summary.innerHTML='<b>Total: $0 • ₹0</b>';updateCartCount();return;}
-  const wrestlerCount=cartItems.reduce((n,x)=>n+(isWrestlerProduct(x)?(x.qty||1):0),0);
-  const arenaCount=cartItems.reduce((n,x)=>n+(isArenaProduct(x)?(x.qty||1):0),0);
+  const wrestlerCount=cartItems.reduce((n,x)=>n+(isWrestlerProduct(x)?(x.qty|1):0),0);
+  const arenaCount=cartItems.reduce((n,x)=>n+(isArenaProduct(x)?(x.qty|1):0),0);
   box.innerHTML=cartItems.map((item,i)=>{
     const bulkCount=isWrestlerProduct(item)?wrestlerCount:isArenaProduct(item)?arenaCount:1;
     const unit=isBulkProduct(item)?bulkUnitPrice(bulkCount):getProductUnitPrice(item,0);
     const inr=isBulkProduct(item)?Math.round(unit*96.15):getProductINRPrice(item,0);
-    return `<div class="cart-item"><div><div class="cart-item-title">${item.title||item.name}</div><div style="color:#777;font-size:11px">$${unit.toFixed(2)} • ₹${inr.toLocaleString("en-IN")} each</div></div><div class="cart-qty"><button onclick="changeCartQty(${i},-1)">−</button><b>${item.qty||1}</b><button onclick="changeCartQty(${i},1)">+</button></div><button class="btn dark" onclick="removeFromCart(${i})">Remove</button></div>`;
+    return `<div class="cart-item"><div><div class="cart-item-title">${item.title|item.name}</div><div style="color:#777;font-size:11px">$${unit.toFixed(2)} • ₹${inr.toLocaleString("en-IN")} each</div></div><div class="cart-qty"><button onclick="changeCartQty(${i},-1)">−</button><b>${item.qty|1}</b><button onclick="changeCartQty(${i},1)">+</button></div><button class="btn dark" onclick="removeFromCart(${i})">Remove</button></div>`;
   }).join('');
-  const selectedAttires=cartItems.filter(x=>isWrestlerProduct(x)&&x.attireNumber).map((x,i)=>`${i+1}. ${imzAttireOrderLabel(x)}${(x.qty||1)>1?` ×${x.qty}`:''}`).join('');
-  const selectedAttireBlock=selectedAttires?`<div class="imz-selected-order-list"><h4>--- MY SELECTED WRESTLERS &amp; ATTIRES ---</h4>${cartItems.filter(x=>isWrestlerProduct(x)&&x.attireNumber).map((x,i)=>`<div>${i+1}. ${imzAttireOrderLabel(x)}${(x.qty||1)>1?` ×${x.qty}`:''}</div>`).join('')}<div style="color:#777;margin-top:7px">Order ID will include these attire numbers.</div></div>`:'';
-  const totals=cartItems.reduce((n,x)=>{const bulkCount=isWrestlerProduct(x)?wrestlerCount:isArenaProduct(x)?arenaCount:1;const unit=isBulkProduct(x)?bulkUnitPrice(bulkCount):getProductUnitPrice(x,0);return n+unit*(x.qty||1)},0);
-  const inr=cartItems.reduce((n,x)=>{const bulkCount=isWrestlerProduct(x)?wrestlerCount:isArenaProduct(x)?arenaCount:1;const unit=isBulkProduct(x)?Math.round(bulkUnitPrice(bulkCount)*96.15):getProductINRPrice(x,0);return n+unit*(x.qty||1)},0);
-  const count=cartItems.reduce((n,x)=>n+(x.qty||1),0);
+  const selectedAttires=cartItems.filter(x=>isWrestlerProduct(x)&&x.attireNumber).map((x,i)=>`${i+1}. ${imzAttireOrderLabel(x)}${(x.qty|1)>1?` ×${x.qty}`:''}`).join('');
+  const selectedAttireBlock=selectedAttires?`<div class="imz-selected-order-list"><h4>--- MY SELECTED WRESTLERS &amp; ATTIRES ---</h4>${cartItems.filter(x=>isWrestlerProduct(x)&&x.attireNumber).map((x,i)=>`<div>${i+1}. ${imzAttireOrderLabel(x)}${(x.qty|1)>1?` ×${x.qty}`:''}</div>`).join('')}<div style="color:#777;margin-top:7px">Order ID will include these attire numbers.</div></div>`:'';
+  const totals=cartItems.reduce((n,x)=>{const bulkCount=isWrestlerProduct(x)?wrestlerCount:isArenaProduct(x)?arenaCount:1;const unit=isBulkProduct(x)?bulkUnitPrice(bulkCount):getProductUnitPrice(x,0);return n+unit*(x.qty|1)},0);
+  const inr=cartItems.reduce((n,x)=>{const bulkCount=isWrestlerProduct(x)?wrestlerCount:isArenaProduct(x)?arenaCount:1;const unit=isBulkProduct(x)?Math.round(bulkUnitPrice(bulkCount)*96.15):getProductINRPrice(x,0);return n+unit*(x.qty|1)},0);
+  const count=cartItems.reduce((n,x)=>n+(x.qty|1),0);
   summary.innerHTML=`<div style="display:flex;justify-content:space-between"><span>Items</span><b>${count}</b></div><div style="display:flex;justify-content:space-between;margin-top:7px"><span>Regular total</span><b>$${totals.toFixed(2)} • ₹${inr.toLocaleString("en-IN")}</b></div>${wrestlerCount?`<div style="margin-top:9px;color:#63d471;font-size:12px">${wrestlerCount} wrestler model${wrestlerCount===1?"":"s"} → $${bulkUnitPrice(wrestlerCount).toFixed(2)} each bulk rate.</div>`:""}${arenaCount?`<div style="margin-top:9px;color:#63d471;font-size:12px">${arenaCount} arena${arenaCount===1?"":"s"} → $${bulkUnitPrice(arenaCount).toFixed(2)} each bulk rate.</div>`:""}${selectedAttireBlock}`;
   updateCartCount();
 }
@@ -2997,19 +2997,19 @@ function msAddToCart(){if(msProduct)addToCart(msProduct);}
    PAYMENT PROOF EMAIL
 ========================================= */
 function openPaymentEmail(){
-  const name=(document.getElementById("proofName").value||"").trim();
-  const buyerEmail=(document.getElementById("proofEmail").value||"").trim();
-  const orderId=(document.getElementById("proofOrderId").value||"").trim()||makeOrderId();
-  const modName=(document.getElementById("proofModName").value||"").trim();
+  const name=(document.getElementById("proofName").value|"").trim();
+  const buyerEmail=(document.getElementById("proofEmail").value|"").trim();
+  const orderId=(document.getElementById("proofOrderId").value|"").trim()|makeOrderId();
+  const modName=(document.getElementById("proofModName").value|"").trim();
   const file=document.getElementById("proofScreenshot").files?.[0];
-  if(!name || !buyerEmail || !modName){alert("Please fill Your Name, Your Email and Mod / Order Details first.");return;}
+  if(!name | !buyerEmail | !modName){alert("Please fill Your Name, Your Email and Mod / Order Details first.");return;}
   const t=getCheckoutTotals();
   const amountText=currentCustomOrderDetails?"$85.00 USD / ₹8,173":`$${t.finalUSD.toFixed(2)} USD / ₹${t.finalINR}`;
   let customDetails="";
-  const attireDetails=checkoutItems.filter(x=>isWrestlerProduct(x)&&x.attireNumber).map((x,i)=>`${i+1}. ${imzAttireOrderLabel(x)}${(x.qty||1)>1?` x${x.qty}`:''}`).join("\n");
+  const attireDetails=checkoutItems.filter(x=>isWrestlerProduct(x)&&x.attireNumber).map((x,i)=>`${i+1}. ${imzAttireOrderLabel(x)}${(x.qty|1)>1?` x${x.qty}`:''}`).join("\n");
   if(attireDetails){ customDetails+=`%0D%0ASELECTED WRESTLERS & ATTIRES:%0D%0A${encodeURIComponent(attireDetails).replace(/%0A/g,'%0D%0A')}`; }
   if(currentCustomOrderDetails){
-    customDetails=`%0D%0ACUSTOM MOD REQUIREMENTS:%0D%0ARoster: ${encodeURIComponent(currentCustomOrderDetails.requiredRoster)}%0D%0AWrestlers: ${encodeURIComponent(currentCustomOrderDetails.wrestlers)}%0D%0AWrestler Attires: ${encodeURIComponent(currentCustomOrderDetails.wrestlerAttires||'Attire 01 default for each selected wrestler')}%0D%0AArenas: ${encodeURIComponent(currentCustomOrderDetails.arenas)}%0D%0ATitantrons: ${encodeURIComponent(currentCustomOrderDetails.titantrons)}%0D%0ABonus Package: ${encodeURIComponent(currentCustomOrderDetails.packageNotes)}`;
+    customDetails=`%0D%0ACUSTOM MOD REQUIREMENTS:%0D%0ARoster: ${encodeURIComponent(currentCustomOrderDetails.requiredRoster)}%0D%0AWrestlers: ${encodeURIComponent(currentCustomOrderDetails.wrestlers)}%0D%0AWrestler Attires: ${encodeURIComponent(currentCustomOrderDetails.wrestlerAttires|'Attire 01 default for each selected wrestler')}%0D%0AArenas: ${encodeURIComponent(currentCustomOrderDetails.arenas)}%0D%0ATitantrons: ${encodeURIComponent(currentCustomOrderDetails.titantrons)}%0D%0ABonus Package: ${encodeURIComponent(currentCustomOrderDetails.packageNotes)}`;
   }
   const body=`Hello ICONIC MODZ Team,%0D%0A%0D%0APayment proof for my order:%0D%0AOrder ID: ${encodeURIComponent(orderId)}%0D%0AName: ${encodeURIComponent(name)}%0D%0ABuyer Email: ${encodeURIComponent(buyerEmail)}%0D%0AMod / Order: ${encodeURIComponent(modName)}%0D%0AAmount Paid: ${encodeURIComponent(amountText)}${customDetails}%0D%0A%0D%0AI have completed the payment. I am attaching the successful transaction screenshot.%0D%0A%0D%0AThank you.`;
   const subject=encodeURIComponent(`ICONIC MODZ Payment Proof - ${orderId}`);
@@ -3038,7 +3038,7 @@ function closeV1Showcase(){
   document.body.style.overflow='';
 }
 function v1Buy(){
-  const product=(products.fullgame||[]).find(p=>p.title.includes('Iconic Edition V1'));
+  const product=(products.fullgame|[]).find(p=>p.title.includes('Iconic Edition V1'));
   if(product){ closeV1Showcase(); buyProduct(product); }
 }
 
@@ -3078,38 +3078,38 @@ updateBuilderRequirements();
 
 let imzRosterVisibleLimit=60;
 function renderWrestlers(){imzApplyRosterFilters();updateTotal();}
-function imzRosterSearchInput(query){customAlphabetLetter='ALL';const listSearch=document.getElementById('customListSearch');if(listSearch)listSearch.value=query||'';alphabetButtons('customAlphabet',customAlphabetLetter,'setCustomAlphabet');imzApplyRosterFilters();}
+function imzRosterSearchInput(query){customAlphabetLetter='ALL';const listSearch=document.getElementById('customListSearch');if(listSearch)listSearch.value=query|'';alphabetButtons('customAlphabet',customAlphabetLetter,'setCustomAlphabet');imzApplyRosterFilters();}
 function imzApplyRosterFilters(reset=true){
   if(reset!==false) imzRosterVisibleLimit=60;
   const grid=document.getElementById('wrestlerGrid');if(!grid)return;
-  const q=(document.getElementById('imzRosterSearch')?.value||document.getElementById('customListSearch')?.value||'').trim().toLowerCase();
-  const era=document.getElementById('imzRosterEra')?.value||'';
-  const promotion=document.getElementById('imzRosterPromotion')?.value||'';
-  const faction=document.getElementById('imzRosterFaction')?.value||'';
-  const gender=document.getElementById('imzRosterGender')?.value||'';
-  const normalizeSearch=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  const q=(document.getElementById('imzRosterSearch')?.value|document.getElementById('customListSearch')?.value|'').trim().toLowerCase();
+  const era=document.getElementById('imzRosterEra')?.value|'';
+  const promotion=document.getElementById('imzRosterPromotion')?.value|'';
+  const faction=document.getElementById('imzRosterFaction')?.value|'';
+  const gender=document.getElementById('imzRosterGender')?.value|'';
+  const normalizeSearch=value=>String(value|'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const normalizedQuery=normalizeSearch(q);
   const filtered=wrestlers.map((w,index)=>({w,index})).filter(({w})=>{
-    const hay=normalizeSearch([w.name,...(w.eras||[]),...(w.promotions||[]),...(w.factions||[])].join(' '));
-    const matchesLetter=typeof customAlphabetLetter==='undefined'||!customAlphabetLetter||customAlphabetLetter==='ALL'||firstLetter(w.name)===customAlphabetLetter;
-    return matchesLetter&&(!normalizedQuery||hay.includes(normalizedQuery))&&(!era||(w.eras||[]).includes(era))&&(!promotion||(w.promotions||[]).includes(promotion))&&(!faction||(w.factions||[]).includes(faction))&&(!gender||w.gender===gender);
+    const hay=normalizeSearch([w.name,...(w.eras|[]),...(w.promotions|[]),...(w.factions|[])].join(' '));
+    const matchesLetter=typeof customAlphabetLetter==='undefined'|!customAlphabetLetter|customAlphabetLetter==='ALL'|firstLetter(w.name)===customAlphabetLetter;
+    return matchesLetter&&(!normalizedQuery|hay.includes(normalizedQuery))&&(!era|(w.eras|[]).includes(era))&&(!promotion|(w.promotions|[]).includes(promotion))&&(!faction|(w.factions|[]).includes(faction))&&(!gender|w.gender===gender);
   }).sort((a,b)=>imzRosterCompare(a.w,b.w));
   const count=document.getElementById('imzRosterCount');if(count)count.textContent=filtered.length.toLocaleString()+' wrestlers found · '+wrestlers.length.toLocaleString()+' total';
   const male=filtered.filter(x=>x.w.gender!=='Female'),female=filtered.filter(x=>x.w.gender==='Female');
   const renderCard=({w,index})=>{
     const selected=selectedWrestlers.some(x=>x.name===w.name);
-    const tags=[...(w.eras||[]).slice(0,2),...(w.promotions||[]).slice(0,1),...(w.factions||[]).slice(0,1)].filter((v,i,a)=>a.indexOf(v)===i).slice(0,3);
+    const tags=[...(w.eras|[]).slice(0,2),...(w.promotions|[]).slice(0,1),...(w.factions|[]).slice(0,1)].filter((v,i,a)=>a.indexOf(v)===i).slice(0,3);
     return `<div class="card wrestler ${selected?'selected':''}" onclick="toggleWrestler(${index})">
       <div class="card-img">${w.image?`<img src="${w.image}" alt="${imzEscape(w.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" decoding="async">`:''}<div class="placeholder" style="${w.image?'display:none':''}">${w.gender==='Female'?'F':'W'}</div></div>
       <div class="card-body"><div class="check">✓</div><h2>${imzEscape(w.name)}</h2>
       <div class="imz-card-tags">${tags.map(t=>`<span class="imz-card-tag">${imzEscape(t)}</span>`).join('')}</div>
       <div class="price">Included in $85 Custom Mod</div><p>${selected?'Selected':'Select Model'}</p>
-      <div class="imz-custom-attire-current">${selected?`👕 ATTIRE #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[w.name])||1).padStart(2,'0')} SELECTED`:'Choose model to unlock attire selection'}</div>
+      <div class="imz-custom-attire-current">${selected?`👕 ATTIRE #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[w.name])|1).padStart(2,'0')} SELECTED`:'Choose model to unlock attire selection'}</div>
       <button type="button" class="imz-custom-attire-button" ${selected?'':'disabled'} onclick="event.stopPropagation();imzOpenCustomAttirePicker(${index})">👕 CHOOSE ATTIRE • 10 SLOTS</button></div></div>`;
   };
-  const shown=(normalizedQuery || q) ? filtered : filtered.slice(0,imzRosterVisibleLimit);
+  const shown=(normalizedQuery | q) ? filtered : filtered.slice(0,imzRosterVisibleLimit);
   // Search displays every matching wrestler immediately; pagination is only used when the search box is empty.
-  grid.innerHTML=shown.map(renderCard).join('')||'<div class="imz-roster-empty">No wrestlers match these filters. Try clearing one filter.</div>';
+  grid.innerHTML=shown.map(renderCard).join('')|'<div class="imz-roster-empty">No wrestlers match these filters. Try clearing one filter.</div>';
   const load=document.getElementById('imzRosterLoadMore');if(load){load.style.display=(!normalizedQuery && !q && filtered.length>shown.length)?'inline-flex':'none';load.textContent=`LOAD MORE (${Math.min(filtered.length-shown.length,60)} OF ${filtered.length-shown.length} REMAINING)`;}
   // Alphabet control stays available; it is applied only when no category filter is selected.
   if(typeof alphabetButtons==='function') alphabetButtons('customAlphabet',customAlphabetLetter,'setCustomAlphabet');
@@ -3281,7 +3281,7 @@ function updateBuilderRequirements(){
 
 function updateTotal(){
 const all=[...selectedWrestlers,...selectedArenas,...selectedTitantrons];
-const total=all.reduce((sum,x)=>sum+Number(x.price||0),0);
+const total=all.reduce((sum,x)=>sum+Number(x.price|0),0);
 const selectedEl=document.getElementById("selectedCount");
 if(selectedEl)selectedEl.innerText=`${selectedWrestlers.length} Wrestlers + ${selectedArenas.length} Arenas${selectedTitantrons.length?` + ${selectedTitantrons.length} Titantrons`:""}`;
 const totalEl=document.getElementById("totalPrice");
@@ -3292,12 +3292,12 @@ if(totalEl){
 
 
 function buyWrestler(index,attireNo){
-  const product=imzWrestlerProduct(index,attireNo||0);
+  const product=imzWrestlerProduct(index,attireNo|0);
   if(product)openPayment(product);
 }
 
 function addWrestlerToCart(index,attireNo){
-  const product=imzWrestlerProduct(index,attireNo||0);
+  const product=imzWrestlerProduct(index,attireNo|0);
   if(product)addToCart(product);
 }
 
@@ -3323,9 +3323,9 @@ function addArenaToCart(index){
 }
 
 function getCustomSelectionText(){
-  const wrestlersText=selectedWrestlers.map((x,i)=>`${i+1}. ${x.name} — Attire #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[x.name])||1).padStart(2,"0")}`).join("\n")||"None";
-  const arenasText=selectedArenas.map((x,i)=>`${i+1}. ${x.name}`).join("\n")||"None";
-  const titanText=selectedTitantrons.map((x,i)=>`${i+1}. ${x.name}`).join("\n")||"None";
+  const wrestlersText=selectedWrestlers.map((x,i)=>`${i+1}. ${x.name} — Attire #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[x.name])|1).padStart(2,"0")}`).join("\n")|"None";
+  const arenasText=selectedArenas.map((x,i)=>`${i+1}. ${x.name}`).join("\n")|"None";
+  const titanText=selectedTitantrons.map((x,i)=>`${i+1}. ${x.name}`).join("\n")|"None";
   return `ICONIC MODZ — MY CUSTOM MOD SELECTION\n\nWRESTLERS (${selectedWrestlers.length}/79)\n${wrestlersText}\n\nARENAS (${selectedArenas.length}/18)\n${arenasText}\n\nOPTIONAL TITANTRONS (${selectedTitantrons.length})\n${titanText}`;
 }
 
@@ -3351,7 +3351,7 @@ function customPayment(){
 
 updateBuilderRequirements();
 
-if(selectedWrestlers.length!==79 || selectedArenas.length!==18){
+if(selectedWrestlers.length!==79 | selectedArenas.length!==18){
   alert(`Custom Mod is not complete yet. Required: 79 wrestlers + 18 arenas. Current: ${selectedWrestlers.length}/79 wrestlers + ${selectedArenas.length}/18 arenas.`);
   return;
 }
@@ -3364,10 +3364,10 @@ const all=[
 
 const names=all.map(x=>x.name).join(", ");
 const rosterNames=selectedWrestlers.map(x=>x.name).join(", ");
-const rosterAttires=selectedWrestlers.map(x=>`${x.name} — Attire #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[x.name])||1).padStart(2,"0")}`).join(", ");
+const rosterAttires=selectedWrestlers.map(x=>`${x.name} — Attire #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[x.name])|1).padStart(2,"0")}`).join(", ");
 const arenaNames=selectedArenas.map(x=>x.name).join(", ");
 const titantronNames=selectedTitantrons.map(x=>x.name).join(", ");
-const total=all.reduce((sum,x)=>sum+Number(x.price||0),0);
+const total=all.reduce((sum,x)=>sum+Number(x.price|0),0);
 
 openPayment({
   title:"Custom Mod Order — 79 Wrestlers + 18 Arenas",
@@ -3381,7 +3381,7 @@ openPayment({
     wrestlers:rosterNames,
     wrestlerAttires:rosterAttires,
     arenas:arenaNames,
-    titantrons:titantronNames||"None selected",
+    titantrons:titantronNames|"None selected",
     packageNotes:"Free bonus: referees, commentators, staff, backstage zones, parking lots, training rooms, Times Square and secret experimental arenas included automatically. Package also includes supported 4K texture assets, save memory-card file and cheat codes. Original game/ISO is not supplied; customer must own a legal copy."
   }
 });
@@ -3393,22 +3393,22 @@ openPayment({
 /* =========================================
    SEARCH + CUSTOM LIST FILTER
 ========================================= */
-function imzEscape(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function imzEscape(v){return String(v|'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function imzGlobalSearch(query){
   const box=document.getElementById('imzSearchResults'); if(!box)return;
-  const q=(query||'').trim().toLowerCase();
+  const q=(query|'').trim().toLowerCase();
   if(!q){box.classList.add('hidden');box.innerHTML='';return;}
   const pool=[];
-  (products.fullgame||[]).forEach((p,i)=>pool.push({name:p.title,type:'MOD',action:`openModShowcase(products.fullgame[${i}])`}));
+  (products.fullgame|[]).forEach((p,i)=>pool.push({name:p.title,type:'MOD',action:`openModShowcase(products.fullgame[${i}])`}));
   wrestlers.forEach((w,i)=>pool.push({name:w.name,type:'WRESTLER',action:`openSearchProduct('wrestlers',${i})`}));
   customArenas.forEach((a,i)=>pool.push({name:a.name,type:'ARENA',action:`openSearchProduct('arenas',${i})`}));
   pool.push({name:'Basic Modding — $60',type:'ACADEMY',action:"academyInfo('basic')"},{name:'Advanced Modding — $100',type:'ACADEMY',action:"academyInfo('advanced')"},{name:'Mobile Modding — $50',type:'ACADEMY',action:"academyInfo('mobile')"});
-  const normalizeSearch=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  const normalizeSearch=value=>String(value|'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const normalizedQuery=normalizeSearch(q);
   const found=pool.filter(x=>normalizeSearch(x.name).includes(normalizedQuery)).sort((a,b)=>{
     const ap=normalizeSearch(a.name).startsWith(normalizedQuery)?0:1;
     const bp=normalizeSearch(b.name).startsWith(normalizedQuery)?0:1;
-    return ap-bp || a.name.localeCompare(b.name,undefined,{sensitivity:'base'});
+    return ap-bp | a.name.localeCompare(b.name,undefined,{sensitivity:'base'});
   }).slice(0,14);
   box.classList.remove('hidden');
   box.innerHTML=found.length?found.map(x=>`<div class="imz-search-result" onclick="${x.action};document.getElementById('imzSearchResults').classList.add('hidden')"><div><b>${imzEscape(x.name)}</b><br><span>${x.type==='WRESTLER'?'Open wrestler model':`Open ${x.type.toLowerCase()}`}</span></div><small>${x.type}</small></div>`).join(''):'<div class="imz-search-empty">No matching mod, wrestler, arena or tutorial found.</div>';
@@ -3421,9 +3421,9 @@ function openSearchProduct(type,index){
   productAlphabetLetter=type==='wrestlers'?firstLetter(item.name):'ALL';
   if(type==='wrestlers'){
     // Ensure the selected model is rendered even when it is beyond the first page of A-Z results.
-    const sorted=(products.wrestlers||[]).slice().sort((a,b)=>imzRosterSortKey(a.wrestlerName||a.title).localeCompare(imzRosterSortKey(b.wrestlerName||b.title),undefined,{numeric:true,sensitivity:'base'}));
-    const letterList=productAlphabetLetter==='ALL'?sorted:sorted.filter(p=>firstLetter(p.wrestlerName||p.title)===productAlphabetLetter);
-    const targetIndex=letterList.findIndex(p=>String(p.title||'').trim()===targetName);
+    const sorted=(products.wrestlers|[]).slice().sort((a,b)=>imzRosterSortKey(a.wrestlerName|a.title).localeCompare(imzRosterSortKey(b.wrestlerName|b.title),undefined,{numeric:true,sensitivity:'base'}));
+    const letterList=productAlphabetLetter==='ALL'?sorted:sorted.filter(p=>firstLetter(p.wrestlerName|p.title)===productAlphabetLetter);
+    const targetIndex=letterList.findIndex(p=>String(p.title|'').trim()===targetName);
     imzProductVisibleLimit=Math.max(60,targetIndex+1);
   }
   showPage('products');
@@ -3434,21 +3434,21 @@ function openSearchProduct(type,index){
     if(card){card.scrollIntoView({behavior:'smooth',block:'center'});card.classList.add('imz-search-focus');setTimeout(()=>card.classList.remove('imz-search-focus'),1800);}
   },120);
 }
-function openSearchCustom(type,index){showPage('custom');showCustomSection(type);setTimeout(()=>{const input=document.getElementById('customListSearch');if(input){const item=type==='wrestlers'?wrestlers[index]:customArenas[index];input.value=item?.name||'';}if(type==='wrestlers')customAlphabetLetter='ALL';filterCustomList(input?.value||'');},80);}
+function openSearchCustom(type,index){showPage('custom');showCustomSection(type);setTimeout(()=>{const input=document.getElementById('customListSearch');if(input){const item=type==='wrestlers'?wrestlers[index]:customArenas[index];input.value=item?.name|'';}if(type==='wrestlers')customAlphabetLetter='ALL';filterCustomList(input?.value|'');},80);}
 function filterCustomList(query){
   const section=currentCustomSection;
   if(section==='wrestlers'){
     // Typing a query should search every wrestler, not remain trapped in a previously selected A-Z letter.
     customAlphabetLetter='ALL';
-    const search=document.getElementById('imzRosterSearch');if(search)search.value=query||'';
+    const search=document.getElementById('imzRosterSearch');if(search)search.value=query|'';
     alphabetButtons('customAlphabet',customAlphabetLetter,'setCustomAlphabet');
     imzApplyRosterFilters();
     return;
   }
-  const q=(query||'').trim().toLowerCase();
+  const q=(query|'').trim().toLowerCase();
   const rawList=section==='arenas'?customArenas:customTitantrons;
   const list=rawList;
-  const filtered=list.map((item,index)=>({item,index})).filter(x=>!q||x.item.name.toLowerCase().includes(q));
+  const filtered=list.map((item,index)=>({item,index})).filter(x=>!q|x.item.name.toLowerCase().includes(q));
   const alpha=document.getElementById('customAlphabet');if(alpha)alpha.innerHTML='';
   const grid=document.getElementById(section==='arenas'?'arenaGrid':'titantronGrid');if(!grid)return;
   const selected=section==='arenas'?selectedArenas:selectedTitantrons;
@@ -3463,21 +3463,21 @@ function filterCustomList(query){
 }
 
 function imzModelImage(path,fallback){
-  return path || fallback || '';
+  return path | fallback | '';
 }
 let imzSelectedAttire={name:'Main Model',image:'',youtube:''};
 function imzWrestlerProduct(index,attireNo){
   const w=wrestlers[index]; if(!w)return null;
   const folder='images/wrestlers/'+w.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-  const no=Number(attireNo||0);
+  const no=Number(attireNo|0);
   const attireName=no?`Alternate Attire ${no}`:'Main Model';
   const image=no?`${folder}/alternate-${String(no).padStart(2,'0')}.webp`:w.image;
   return {title:`Wrestler Model — ${w.name}${no?` — ${attireName}`:''}`,price:'$6.50',usdPrice:6.5,inrPrice:625,productType:'wrestler',wrestlerName:w.name,attireNumber:no,attireName,image,description:`Individual wrestler model: ${w.name}${no?` — ${attireName}`:''}`};
 }
 function imzAttireOrderLabel(item){
   if(!item)return '';
-  const n=item.attireNumber||0;
-  return `${item.wrestlerName||item.title}${n?` (Attire #${String(n).padStart(2,'0')})`:''}`;
+  const n=item.attireNumber|0;
+  return `${item.wrestlerName|item.title}${n?` (Attire #${String(n).padStart(2,'0')})`:''}`;
 }
 function imzAddSelectedAttire(index,no){
   const product=imzWrestlerProduct(index,no); if(product)addToCart(product);
@@ -3511,7 +3511,7 @@ function openWrestlerDetail(index){
 function imzSelectAttire(card,image,youtube,name,number){
   document.querySelectorAll('#imzModelBody .imz-attire-card').forEach(x=>x.classList.remove('active'));card.classList.add('active');
   const img=document.getElementById('imzModelMainImage');if(img){img.src=image;img.style.opacity='1';}
-  imzSelectedAttire={name,image,youtube,number:Number(number)||0};
+  imzSelectedAttire={name,image,youtube,number:Number(number)|0};
   const meta=document.querySelector('#imzModelBody .imz-detail-meta');if(meta)meta.textContent=name+' • $6.50 • '+(youtube?'YouTube preview available':'YouTube preview can be added later');
   const selected=document.getElementById('imzSelectedAttire');if(selected)selected.innerHTML=`Selected: <b>${imzEscape(name)}</b>`;
 }
@@ -3519,7 +3519,7 @@ function openArenaDetail(index){
   const a=customArenas[index];if(!a)return;
   const modal=document.getElementById('imzModelModal'),body=document.getElementById('imzModelBody');
   document.getElementById('imzModelType').textContent='ARENA MODEL • INDIVIDUAL PREVIEW';document.getElementById('imzModelTitle').textContent=a.name;
-  body.innerHTML=`<div class="imz-detail-meta">Individual arena • $6.50 • Preview image</div><img class="imz-detail-preview" src="${imzEscape(a.image||'')}" alt="${imzEscape(a.name)}" loading="lazy" decoding="async"><div class="imz-detail-price">$6.50 <span style="font-size:12px;color:#777">per arena</span></div><div class="imz-detail-actions"><button class="btn red" onclick="buyArena(${index})">💳 Buy Arena — $6.50</button><button class="btn dark" onclick="addArenaToCart(${index})">🛒 Add to Cart</button></div>`;
+  body.innerHTML=`<div class="imz-detail-meta">Individual arena • $6.50 • Preview image</div><img class="imz-detail-preview" src="${imzEscape(a.image|'')}" alt="${imzEscape(a.name)}" loading="lazy" decoding="async"><div class="imz-detail-price">$6.50 <span style="font-size:12px;color:#777">per arena</span></div><div class="imz-detail-actions"><button class="btn red" onclick="buyArena(${index})">💳 Buy Arena — $6.50</button><button class="btn dark" onclick="addArenaToCart(${index})">🛒 Add to Cart</button></div>`;
   modal.classList.remove('hidden');
 }
 function closeModelDetail(){document.getElementById('imzModelModal')?.classList.add('hidden');}
@@ -3547,13 +3547,13 @@ renderProducts=function(){
     [...grid.querySelectorAll('.card')].forEach((card,cardIndex)=>{
       if(cardIndex<10){ const img=card.querySelector('.card-img'); if(img && !img.querySelector('.imz-product-badge.new')){ const b=document.createElement('div'); b.className='imz-product-badges'; b.innerHTML='<span class="imz-product-badge new">✦ NEW</span>'; img.style.position='relative'; img.appendChild(b); } }
       if(card.querySelector('.imz-view-model'))return;
-      const title=card.querySelector('h2')?.textContent||'';const name=title.replace(/^Wrestler Model —\s*/,'');const idx=wrestlers.findIndex(w=>w && w.name===name);
+      const title=card.querySelector('h2')?.textContent|'';const name=title.replace(/^Wrestler Model —\s*/,'');const idx=wrestlers.findIndex(w=>w && w.name===name);
       if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 View Model';b.onclick=e=>{e.stopPropagation();openWrestlerDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}
     });
   }else if(currentCategory==='arenas'){
     [...grid.querySelectorAll('.card')].forEach((card)=>{
       if(card.querySelector('.imz-view-model'))return;
-      const title=card.querySelector('h2')?.textContent||'';const name=title.replace(/^Arena —\s*/,'');const idx=customArenas.findIndex(a=>a.name===name);
+      const title=card.querySelector('h2')?.textContent|'';const name=title.replace(/^Arena —\s*/,'');const idx=customArenas.findIndex(a=>a.name===name);
       if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 View Arena';b.onclick=e=>{e.stopPropagation();openArenaDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}
     });
   }
@@ -3564,8 +3564,8 @@ const _imzOriginalFilterCustomList=filterCustomList;
 filterCustomList=function(query){
   _imzOriginalFilterCustomList(query);
   const section=currentCustomSection,grid=document.getElementById(section==='wrestlers'?'wrestlerGrid':section==='arenas'?'arenaGrid':'titantronGrid');if(!grid)return;
-  if(section==='wrestlers') [...grid.querySelectorAll('.card')].forEach(card=>{if(card.querySelector('.imz-view-model'))return;const name=card.querySelector('h2')?.textContent||'';const idx=wrestlers.findIndex(w=>w && w.name===name);if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 Preview Model';b.onclick=e=>{e.stopPropagation();openWrestlerDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}});
-  if(section==='arenas') [...grid.querySelectorAll('.card')].forEach(card=>{if(card.querySelector('.imz-view-model'))return;const name=card.querySelector('h2')?.textContent||'';const idx=customArenas.findIndex(a=>a.name===name);if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 Preview Arena';b.onclick=e=>{e.stopPropagation();openArenaDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}});
+  if(section==='wrestlers') [...grid.querySelectorAll('.card')].forEach(card=>{if(card.querySelector('.imz-view-model'))return;const name=card.querySelector('h2')?.textContent|'';const idx=wrestlers.findIndex(w=>w && w.name===name);if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 Preview Model';b.onclick=e=>{e.stopPropagation();openWrestlerDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}});
+  if(section==='arenas') [...grid.querySelectorAll('.card')].forEach(card=>{if(card.querySelector('.imz-view-model'))return;const name=card.querySelector('h2')?.textContent|'';const idx=customArenas.findIndex(a=>a.name===name);if(idx>=0){const b=document.createElement('button');b.type='button';b.className='btn dark imz-view-model';b.textContent='👁 Preview Arena';b.onclick=e=>{e.stopPropagation();openArenaDetail(idx)};card.querySelector('.card-body')?.appendChild(b);}});
 };
 
 /* =========================================
@@ -3576,13 +3576,13 @@ const ACADEMY_COURSES={
  advanced:{title:'ICONIC MODZ Modding Academy — Advanced',price:'$100',usdPrice:100,inrPrice:9615,productType:'academy',description:'Advanced workflow for experienced modders, including model conversion and deeper troubleshooting concepts.',features:['Everything in Basic','Advanced YOBJ workflow','Model conversion','UV / texture troubleshooting','Advanced wrestler modifications','Advanced moveset work','Arena / stage modifications','Titantron & audio workflow','Hex / file-structure concepts','Crash & real PS2 testing concepts','Complete project workflow'],image:'images/academy/advanced-course.jpg'},
  mobile:{title:'ICONIC MODZ Modding Academy — Mobile Modding',price:'$50',usdPrice:50,inrPrice:4808,productType:'academy',description:'A standalone mobile-focused course for setup, textures, file handling and testing on Android.',features:['Mobile setup and file handling','Mobile texture workflow','Testing and troubleshooting','Android workflow tips','Standalone course — not included with other courses'],image:'images/academy/mobile-01.jpg'}
 };
-function academyInfo(key){const c=ACADEMY_COURSES[key];if(!c)return;let modal=document.getElementById('imzAcademyDetail');if(!modal){modal=document.createElement('div');modal.id='imzAcademyDetail';modal.className='imz-academy-detail hidden';modal.setAttribute('role','dialog');modal.setAttribute('aria-modal','true');document.body.appendChild(modal)}modal.innerHTML=`<div class="imz-academy-detail-box"><button class="btn dark" style="float:right" onclick="closeAcademyInfo()">✕ Close</button><div class="small">ICONIC MODZ ACADEMY</div><h2 style="margin:6px 0">${imzEscape(c.title)}</h2><img src="${imzEscape(c.image||'')}" alt="${imzEscape(c.title)}" onerror="this.style.display='none'" loading="lazy" decoding="async"><p style="color:#bbb;line-height:1.6">${imzEscape(c.description||'Course details')}</p><div class="price">${imzEscape(c.price)}</div><ul>${(c.features||[]).map(x=>`<li>${imzEscape(x)}</li>`).join('')}</ul><div class="imz-academy-detail-actions"><button class="btn dark" onclick="closeAcademyInfo()">Back</button><button class="btn red" onclick="closeAcademyInfo();buyAcademy('${key}')">🛒 Buy Course — ${imzEscape(c.price)}</button></div></div>`;modal.classList.remove('hidden');modal.onclick=e=>{if(e.target===modal)closeAcademyInfo()};}window.closeAcademyInfo=function(){document.getElementById('imzAcademyDetail')?.classList.add('hidden')};
+function academyInfo(key){const c=ACADEMY_COURSES[key];if(!c)return;let modal=document.getElementById('imzAcademyDetail');if(!modal){modal=document.createElement('div');modal.id='imzAcademyDetail';modal.className='imz-academy-detail hidden';modal.setAttribute('role','dialog');modal.setAttribute('aria-modal','true');document.body.appendChild(modal)}modal.innerHTML=`<div class="imz-academy-detail-box"><button class="btn dark" style="float:right" onclick="closeAcademyInfo()">✕ Close</button><div class="small">ICONIC MODZ ACADEMY</div><h2 style="margin:6px 0">${imzEscape(c.title)}</h2><img src="${imzEscape(c.image|'')}" alt="${imzEscape(c.title)}" onerror="this.style.display='none'" loading="lazy" decoding="async"><p style="color:#bbb;line-height:1.6">${imzEscape(c.description|'Course details')}</p><div class="price">${imzEscape(c.price)}</div><ul>${(c.features|[]).map(x=>`<li>${imzEscape(x)}</li>`).join('')}</ul><div class="imz-academy-detail-actions"><button class="btn dark" onclick="closeAcademyInfo()">Back</button><button class="btn red" onclick="closeAcademyInfo();buyAcademy('${key}')">🛒 Buy Course — ${imzEscape(c.price)}</button></div></div>`;modal.classList.remove('hidden');modal.onclick=e=>{if(e.target===modal)closeAcademyInfo()};}window.closeAcademyInfo=function(){document.getElementById('imzAcademyDetail')?.classList.add('hidden')};
 function buyAcademy(key){const c=ACADEMY_COURSES[key];if(!c)return;buyProduct(c);}
 
 /* =========================================
    ORDER ID — READABLE + AUTO GENERATED
 ========================================= */
-function orderSlug(text){return String(text||'ITEM').toUpperCase().replace(/&/g,'AND').replace(/[^A-Z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,22)||'ITEM';}
+function orderSlug(text){return String(text|'ITEM').toUpperCase().replace(/&/g,'AND').replace(/[^A-Z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,22)|'ITEM';}
 function refreshOrderId(){const el=document.getElementById('proofOrderId');if(el)el.value=makeOrderId();}
 
 
@@ -3621,13 +3621,13 @@ function openModShowcase(product){
   msProduct=product; msIndex=0;
   const el=document.getElementById('modShowcase');
   const inner=document.getElementById('modShowcaseInner');
-  if(!el||!inner)return;
-  const safe=(product.title||'').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  const isV1=(product.title||'').includes('V1');
-  const videos=(product.youtubeVideos||[]).filter(v=>v.url);
+  if(!el|!inner)return;
+  const safe=(product.title|'').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const isV1=(product.title|'').includes('V1');
+  const videos=(product.youtubeVideos|[]).filter(v=>v.url);
   const menuExtra=isV1?`<button onclick="msScroll('msRoster')">👥 Roster</button><button onclick="msScroll('msArenas')">🏟️ Arenas</button><button onclick="msScroll('msPatch')">⚡ Patch</button>`:'';
   const v1Extra=isV1?`<section id="msRoster" class="ms-section"><div class="small">V1 ROSTER</div><h2>Roster & Character Line-up</h2><div class="ms-roster-grid">${imzV1RosterGroupsHTML(v1RosterGroups,true)}</div></section><section id="msArenas" class="ms-section"><div class="small">V1 ARENAS</div><h2>20 Included Arenas</h2><div class="ms-arena-grid">${v1Arenas.map((a,i)=>`<div class="ms-arena"><b>${String(i+1).padStart(2,'0')}</b>${a}</div>`).join('')}</div><div class="ms-hidden-arenas"><strong>CHEAT / HIDDEN ARENAS:</strong> ${v1HiddenArenas.join(' • ')}</div></section><section id="msPatch" class="ms-section"><div class="small">EXCLUSIVE NEXT LEVEL PATCH</div><h2>What's New in V1</h2><div class="ms-patch-grid">${v1PatchFeatures.map(x=>`<div class="ms-patch"><span>✓</span>${x}</div>`).join('')}</div></section>`:'';
-  inner.innerHTML=`<section class="ms-hero"><div class="ms-bg" style="background-image:url('${product.image||''}')"></div><div class="ms-content"><div class="small">FEATURED MOD • ${safe}</div><h1>${safe}</h1><p>${product.description||'Complete ICONIC MODZ showcase.'}</p><div class="ms-actions"><button class="btn red" onclick="msScroll('msVideos')">🎬 Watch Gameplay</button><button class="btn dark" onclick="msScroll('msPreview')">👀 View Preview</button><button class="btn red" onclick="msGet()">🛒 Get Mod</button><button class="btn dark" onclick="msAddToCart()">🛒 Add to Cart</button></div></div></section><div class="ms-body"><div class="ms-menu"><button onclick="msScroll('msAbout')">📖 About Modz</button><button onclick="msScroll('msFeatures')">🔥 New Features</button>${menuExtra}<button onclick="msScroll('msVideos')">🎬 YouTube</button><button onclick="msScroll('msPreview')">📸 Screenshots</button><button onclick="msGet()">🛒 Get Mod</button></div><section id="msAbout" class="ms-section"><div class="small">ABOUT MODZ</div><h2>${safe}</h2><p>${product.description||''}</p></section><section id="msFeatures" class="ms-section"><div class="small">WHAT'S NEW</div><h2>New Features</h2><div class="ms-features">${(product.features||[]).map((x,i)=>`<div class="ms-feature" style="animation-delay:${i*30}ms">✓ ${x}</div>`).join('')}</div></section><section id="msPreview" class="ms-section"><div class="small">VISUAL PREVIEW</div><h2>10 Screenshots</h2><div id="msSlider"></div></section>${v1Extra}<section id="msVideos" class="ms-section"><div class="small">GAMEPLAY • YOUTUBE</div><h2>Trailer • Roster • Gameplay</h2><div class="ms-videos">${videos.length?videos.map(v=>{const id=getYouTubeId(v.url);return id?`<a class="ms-video" href="${v.url}" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${v.title}" loading="lazy" decoding="async"><div class="ms-video-info"><div class="ms-video-title">${v.title}</div><div class="ms-video-meta">▶ Watch on YouTube</div></div></a>`:''}).join(''):'<p>Add your YouTube links in the product settings.</p>'}</div></section></div>`;
+  inner.innerHTML=`<section class="ms-hero"><div class="ms-bg" style="background-image:url('${product.image|''}')"></div><div class="ms-content"><div class="small">FEATURED MOD • ${safe}</div><h1>${safe}</h1><p>${product.description|'Complete ICONIC MODZ showcase.'}</p><div class="ms-actions"><button class="btn red" onclick="msScroll('msVideos')">🎬 Watch Gameplay</button><button class="btn dark" onclick="msScroll('msPreview')">👀 View Preview</button><button class="btn red" onclick="msGet()">🛒 Get Mod</button><button class="btn dark" onclick="msAddToCart()">🛒 Add to Cart</button></div></div></section><div class="ms-body"><div class="ms-menu"><button onclick="msScroll('msAbout')">📖 About Modz</button><button onclick="msScroll('msFeatures')">🔥 New Features</button>${menuExtra}<button onclick="msScroll('msVideos')">🎬 YouTube</button><button onclick="msScroll('msPreview')">📸 Screenshots</button><button onclick="msGet()">🛒 Get Mod</button></div><section id="msAbout" class="ms-section"><div class="small">ABOUT MODZ</div><h2>${safe}</h2><p>${product.description|''}</p></section><section id="msFeatures" class="ms-section"><div class="small">WHAT'S NEW</div><h2>New Features</h2><div class="ms-features">${(product.features|[]).map((x,i)=>`<div class="ms-feature" style="animation-delay:${i*30}ms">✓ ${x}</div>`).join('')}</div></section><section id="msPreview" class="ms-section"><div class="small">VISUAL PREVIEW</div><h2>10 Screenshots</h2><div id="msSlider"></div></section>${v1Extra}<section id="msVideos" class="ms-section"><div class="small">GAMEPLAY • YOUTUBE</div><h2>Trailer • Roster • Gameplay</h2><div class="ms-videos">${videos.length?videos.map(v=>{const id=getYouTubeId(v.url);return id?`<a class="ms-video" href="${v.url}" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${v.title}" loading="lazy" decoding="async"><div class="ms-video-info"><div class="ms-video-title">${v.title}</div><div class="ms-video-meta">▶ Watch on YouTube</div></div></a>`:''}).join(''):'<p>Add your YouTube links in the product settings.</p>'}</div></section></div>`;
   el.classList.remove('hidden');
   document.body.style.overflow='hidden';
   msBuildSlider();
@@ -3635,11 +3635,11 @@ function openModShowcase(product){
 function closeModShowcase(){document.getElementById('modShowcase')?.classList.add('hidden');document.body.style.overflow='';}
 function msScroll(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
 function msGet(){closeModShowcase();if(msProduct)buyProduct(msProduct);}
-function msBuildSlider(){const box=document.getElementById('msSlider');if(!box)return;const arr=(msProduct.screenshots&&msProduct.screenshots.length?msProduct.screenshots:Array.from({length:10},(_,i)=>`images/previews/${(msProduct.title||'').includes('V2')?'v2':'free'}/screenshot${String(i+1).padStart(2,'0')}`));msProduct.__showcaseScreenshots=arr;box.innerHTML=`<div class="ms-slider"><div class="slider-head"><span>10 SCREENSHOTS</span><span id="msCounter">1 / ${arr.length}</span></div><div class="ms-stage"><button class="ms-arrow left" onclick="msShot(-1)">‹</button><img id="msImage" src="" alt="Screenshot" loading="lazy" decoding="async"><button class="ms-arrow right" onclick="msShot(1)">›</button></div><div id="msDots" class="ms-dots"></div></div>`;msIndex=0;msLoadShot();}
-function msLoadShot(){const img=document.getElementById('msImage');if(!img)return;const arr=msProduct.__showcaseScreenshots||msProduct.screenshots||Array.from({length:10},(_,i)=>`images/previews/${(msProduct.title||'').includes('V2')?'v2':'free'}/screenshot${String(i+1).padStart(2,'0')}`);const base=arr[msIndex]||arr[0];msExt=0;img.dataset.base=base;img.src=base+'.jpg';img.onerror=function(){const e=['.png','.jpeg','.webp'];if(msExt<e.length)this.src=this.dataset.base+e[msExt++];else{this.onerror=null;this.alt='Add screenshot image';}};document.getElementById('msCounter').textContent=`${msIndex+1} / ${arr.length}`;document.getElementById('msDots').innerHTML=arr.map((_,i)=>`<button class="${i===msIndex?'active':''}" onclick="msGoShot(${i})"></button>`).join('');}
-function msShot(step){const n=(msProduct.__showcaseScreenshots||msProduct.screenshots||[]).length||10;msIndex=(msIndex+step+n)%n;msLoadShot();}
+function msBuildSlider(){const box=document.getElementById('msSlider');if(!box)return;const arr=(msProduct.screenshots&&msProduct.screenshots.length?msProduct.screenshots:Array.from({length:10},(_,i)=>`images/previews/${(msProduct.title|'').includes('V2')?'v2':'free'}/screenshot${String(i+1).padStart(2,'0')}`));msProduct.__showcaseScreenshots=arr;box.innerHTML=`<div class="ms-slider"><div class="slider-head"><span>10 SCREENSHOTS</span><span id="msCounter">1 / ${arr.length}</span></div><div class="ms-stage"><button class="ms-arrow left" onclick="msShot(-1)">‹</button><img id="msImage" src="" alt="Screenshot" loading="lazy" decoding="async"><button class="ms-arrow right" onclick="msShot(1)">›</button></div><div id="msDots" class="ms-dots"></div></div>`;msIndex=0;msLoadShot();}
+function msLoadShot(){const img=document.getElementById('msImage');if(!img)return;const arr=msProduct.__showcaseScreenshots|msProduct.screenshots|Array.from({length:10},(_,i)=>`images/previews/${(msProduct.title|'').includes('V2')?'v2':'free'}/screenshot${String(i+1).padStart(2,'0')}`);const base=arr[msIndex]|arr[0];msExt=0;img.dataset.base=base;img.src=base+'.jpg';img.onerror=function(){const e=['.png','.jpeg','.webp'];if(msExt<e.length)this.src=this.dataset.base+e[msExt++];else{this.onerror=null;this.alt='Add screenshot image';}};document.getElementById('msCounter').textContent=`${msIndex+1} / ${arr.length}`;document.getElementById('msDots').innerHTML=arr.map((_,i)=>`<button class="${i===msIndex?'active':''}" onclick="msGoShot(${i})"></button>`).join('');}
+function msShot(step){const n=(msProduct.__showcaseScreenshots|msProduct.screenshots|[]).length|10;msIndex=(msIndex+step+n)%n;msLoadShot();}
 function msGoShot(i){msIndex=i;msLoadShot();}
-function renderLatestYoutube(){const g=document.getElementById('latestYoutubeGrid');if(!g)return;const videos=(products.fullgame||[]).flatMap(p=>(p.youtubeVideos||[]).map(v=>({...v,mod:p.title}))).filter(v=>v.url).slice(0,6);g.innerHTML=videos.length?videos.map(v=>{const id=getYouTubeId(v.url);return id?`<a class="latest-yt-card" href="${v.url}" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" loading="lazy" decoding="async"><div>▶ ${v.title}<small style="display:block;color:#888;margin-top:5px">${v.mod}</small></div></a>`:''}).join(''):'<p>Add your YouTube links to show latest gameplay here.</p>';}
+function renderLatestYoutube(){const g=document.getElementById('latestYoutubeGrid');if(!g)return;const videos=(products.fullgame|[]).flatMap(p=>(p.youtubeVideos|[]).map(v=>({...v,mod:p.title}))).filter(v=>v.url).slice(0,6);g.innerHTML=videos.length?videos.map(v=>{const id=getYouTubeId(v.url);return id?`<a class="latest-yt-card" href="${v.url}" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" loading="lazy" decoding="async"><div>▶ ${v.title}<small style="display:block;color:#888;margin-top:5px">${v.mod}</small></div></a>`:''}).join(''):'<p>Add your YouTube links to show latest gameplay here.</p>';}
 renderLatestYoutube();
 
 updateCartCount();
@@ -3654,11 +3654,11 @@ imzUpdateProfessionalBuilder();
 ========================================================= */
 (function initTenStoreFeatures(){
   const WKEY='imzWishlistV1', RKEY='imzRecentlyViewedV1';
-  const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(d))}catch(e){return d}};
+  const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k)|JSON.stringify(d))}catch(e){return d}};
   const write=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
   let wishlist=read(WKEY,[]), recent=read(RKEY,[]);
-  const esc=v=>typeof imzEscape==='function'?imzEscape(v):String(v||'').replace(/[&<>\"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
-  function productKey(p){return String(p?.title||p?.name||'').trim();}
+  const esc=v=>typeof imzEscape==='function'?imzEscape(v):String(v|'').replace(/[&<>\"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+  function productKey(p){return String(p?.title|p?.name|'').trim();}
   function saveWishlist(){write(WKEY,wishlist);updateWishlistUI();enhanceProductCards();}
   function isWish(p){return typeof window.imzIsWish==='function'?window.imzIsWish(p):wishlist.includes(productKey(p));}
   // Legacy card buttons delegate to the single, visible wishlist system below.
@@ -3677,11 +3677,11 @@ imzUpdateProfessionalBuilder();
     alert('Wishlist is loading. Please try again in a moment.');
   };
   function addRecent(p,type){
-    const k=productKey(p);if(!k)return;recent=recent.filter(x=>x.key!==k);recent.unshift({key:k,type:type||p.productType||'PRODUCT'});recent=recent.slice(0,12);write(RKEY,recent);renderRecent();
+    const k=productKey(p);if(!k)return;recent=recent.filter(x=>x.key!==k);recent.unshift({key:k,type:type|p.productType|'PRODUCT'});recent=recent.slice(0,12);write(RKEY,recent);renderRecent();
   }
   function findProductByKey(k){
-    const all=[...(products.fullgame||[]),...(products.wrestlers||[]),...(products.arenas||[]),...(products.titantrons||[]),...(products.movesets||[])];
-    return all.find(x=>productKey(x)===k)||null;
+    const all=[...(products.fullgame|[]),...(products.wrestlers|[]),...(products.arenas|[]),...(products.titantrons|[]),...(products.movesets|[])];
+    return all.find(x=>productKey(x)===k)|null;
   }
   function renderRecent(){
     const host=document.getElementById('imzRecentViewed');if(!host)return;
@@ -3699,8 +3699,8 @@ imzUpdateProfessionalBuilder();
   function renderTrending(){
     const host=document.getElementById('imzTrendingPanel');if(!host)return;
     let picks=[];
-    const v2=(products.fullgame||[]).find(p=>String(p.title).includes('Iconic Edition V2'));if(v2)picks.push(v2);
-    const v1=(products.fullgame||[]).find(p=>String(p.title).includes('Iconic Edition V1'));if(v1)picks.push(v1);
+    const v2=(products.fullgame|[]).find(p=>String(p.title).includes('Iconic Edition V2'));if(v2)picks.push(v2);
+    const v1=(products.fullgame|[]).find(p=>String(p.title).includes('Iconic Edition V1'));if(v1)picks.push(v1);
     picks=picks.concat(wrestlers.slice(0,6).map(w=>products.wrestlers.find(p=>p.wrestlerName===w.name)).filter(Boolean));
     host.innerHTML='<div class="imz-upgrade-trending-head"><div><div class="small">HOT PICKS</div><h3>🔥 TRENDING NOW</h3></div><span style="color:#777;font-size:12px">Popular & newly added</span></div><div class="imz-trending-grid">'+picks.slice(0,8).map(p=>`<div class="imz-trend-item" onclick="imzOpenTrending('${esc(productKey(p)).replace(/'/g,"\\'")}')"><b>${esc(productKey(p))}</b><small>${p.productType==='wrestler'?'WRESTLER':'MOD'}</small></div>`).join('')+'</div>';
   }
@@ -3721,47 +3721,47 @@ imzUpdateProfessionalBuilder();
   }
   document.addEventListener('click',e=>{
     const card=e.target.closest?.('#productGrid .card');
-    if(card){const title=card.querySelector('h2')?.textContent.trim();const p=findProductByKey(title);if(p)addRecent(p,p.productType||'PRODUCT');}
+    if(card){const title=card.querySelector('h2')?.textContent.trim();const p=findProductByKey(title);if(p)addRecent(p,p.productType|'PRODUCT');}
   },true);
   document.addEventListener('error',e=>{const img=e.target;if(img?.tagName==='IMG'){img.loading='lazy';img.decoding='async'}},true);
   function ensureLightbox(){if(document.getElementById('imzImageLightbox'))return;const x=document.createElement('div');x.id='imzImageLightbox';x.className='imz-image-lightbox hidden';x.innerHTML='<button class="close" onclick="closeImzImage()">×</button><img id="imzLightboxImage" alt="Preview" loading="lazy" decoding="async">';x.onclick=e=>{if(e.target===x)closeImzImage()};document.body.appendChild(x)}
-  window.openImzImage=function(src,alt){ensureLightbox();const x=document.getElementById('imzImageLightbox'),im=document.getElementById('imzLightboxImage');im.src=src;im.alt=alt||'Preview';x.classList.remove('hidden')};
+  window.openImzImage=function(src,alt){ensureLightbox();const x=document.getElementById('imzImageLightbox'),im=document.getElementById('imzLightboxImage');im.src=src;im.alt=alt|'Preview';x.classList.remove('hidden')};
   window.closeImzImage=function(){document.getElementById('imzImageLightbox')?.classList.add('hidden')};
   function mobilePolish(){
     document.querySelectorAll('img').forEach(img=>{img.loading='lazy';img.decoding='async'});
   }
   function ensureCheckoutSummary(){
-    const price=document.getElementById('paymentPriceBox');if(!price||document.getElementById('imzCheckoutSummary'))return;
+    const price=document.getElementById('paymentPriceBox');if(!price|document.getElementById('imzCheckoutSummary'))return;
     const d=document.createElement('div');d.id='imzCheckoutSummary';d.className='imz-checkout-summary';price.parentNode.insertBefore(d,price.nextSibling);
   }
   function refreshCheckoutSummary(){
     ensureCheckoutSummary();const d=document.getElementById('imzCheckoutSummary');if(!d)return;
-    const items=checkoutItems||[];const lines=items.map((x,i)=>`<div class="imz-checkout-summary-row"><b>${i+1}. ${esc(isWrestlerProduct(x)&&x.attireNumber?imzAttireOrderLabel(x):(x.title||x.name))}</b> ×${x.qty||1}</div>`).join('');d.innerHTML='<h4>--- ORDER SUMMARY ---</h4>'+(lines||'<div class="imz-checkout-summary-row">No items selected</div>')+`<div class="imz-checkout-order-id"><b>ORDER ID:</b> ${esc(makeOrderId())}</div>`;
+    const items=checkoutItems|[];const lines=items.map((x,i)=>`<div class="imz-checkout-summary-row"><b>${i+1}. ${esc(isWrestlerProduct(x)&&x.attireNumber?imzAttireOrderLabel(x):(x.title|x.name))}</b> ×${x.qty|1}</div>`).join('');d.innerHTML='<h4>--- ORDER SUMMARY ---</h4>'+(lines|'<div class="imz-checkout-summary-row">No items selected</div>')+`<div class="imz-checkout-order-id"><b>ORDER ID:</b> ${esc(makeOrderId())}</div>`;
   }
   const oldOpenCart=window.openCartCheckout;
   if(typeof oldOpenCart==='function')window.openCartCheckout=function(){oldOpenCart();refreshCheckoutSummary()};
   const oldOpenPayment=window.openPayment;
   if(typeof oldOpenPayment==='function')window.openPayment=function(p){oldOpenPayment(p);refreshCheckoutSummary()};
   function addQuickAttires(){
-    const body=document.getElementById('imzModelBody');if(!body||document.getElementById('imzQuickAttires'))return;const title=document.getElementById('imzModelTitle')?.textContent||'';const i=wrestlers.findIndex(w=>w && w.name===title);if(i<0)return;const q=document.createElement('div');q.id='imzQuickAttires';q.className='imz-quick-attires';q.innerHTML=Array.from({length:10},(_,n)=>`<button onclick="imzSelectAttire(document.querySelector('#imzModelBody .imz-attire-card[data-attire=\\'${n+1}\\']'),'images/wrestlers/${wrestlers[i].name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}/alternate-${String(n+1).padStart(2,'0')}.webp','','Alternate Attire ${n+1}',${n+1})">A${String(n+1).padStart(2,'0')}</button>`).join('');body.insertBefore(q,body.querySelector('.imz-attire-grid'));
+    const body=document.getElementById('imzModelBody');if(!body|document.getElementById('imzQuickAttires'))return;const title=document.getElementById('imzModelTitle')?.textContent|'';const i=wrestlers.findIndex(w=>w && w.name===title);if(i<0)return;const q=document.createElement('div');q.id='imzQuickAttires';q.className='imz-quick-attires';q.innerHTML=Array.from({length:10},(_,n)=>`<button onclick="imzSelectAttire(document.querySelector('#imzModelBody .imz-attire-card[data-attire=\\'${n+1}\\']'),'images/wrestlers/${wrestlers[i].name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}/alternate-${String(n+1).padStart(2,'0')}.webp','','Alternate Attire ${n+1}',${n+1})">A${String(n+1).padStart(2,'0')}</button>`).join('');body.insertBefore(q,body.querySelector('.imz-attire-grid'));
   }
   const mo=new MutationObserver(()=>{ensurePanels();enhanceProductCards();mobilePolish();ensureCheckoutSummary();addQuickAttires()});
   mo.observe(document.body,{childList:true,subtree:true});
   /* Better preview: click the large wrestler/arena image to open fullscreen. */
-  document.addEventListener('click',e=>{const img=e.target.closest?.('.imz-detail-preview');if(img&&img.src)openImzImage(img.src,img.alt||'Preview')});
+  document.addEventListener('click',e=>{const img=e.target.closest?.('.imz-detail-preview');if(img&&img.src)openImzImage(img.src,img.alt|'Preview')});
 
   /* Advanced search: keep the existing search and add attire-aware matches. */
   const baseSearch=window.imzGlobalSearch;
   if(typeof baseSearch==='function'){
     window.imzGlobalSearch=function(query){
       baseSearch(query);
-      const q=String(query||'').trim().toLowerCase(); if(!q)return;
+      const q=String(query|'').trim().toLowerCase(); if(!q)return;
       const box=document.getElementById('imzSearchResults'); if(!box)return;
       const matches=[];
       wrestlers.forEach((w,i)=>{
         for(let n=1;n<=10;n++){
           const label=`${w.name} Attire #${String(n).padStart(2,'0')}`;
-          if(label.toLowerCase().includes(q)||w.name.toLowerCase().includes(q)&&/attire|a0?\d/.test(q)) matches.push({label,i,n});
+          if(label.toLowerCase().includes(q)|w.name.toLowerCase().includes(q)&&/attire|a0?\d/.test(q)) matches.push({label,i,n});
         }
       });
       if(matches.length){
@@ -3804,13 +3804,13 @@ imzUpdateProfessionalBuilder();
 'use strict';
 const $=id=>document.getElementById(id);
 const esc=v=>typeof imzEscape==='function'?imzEscape(v):String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-function allProducts(){return [...(products.fullgame||[]),...(products.wrestlers||[]),...(products.arenas||[]),...(products.titantrons||[]),...(products.movesets||[])];}
-function key(p){return String(p?.title||p?.name||'').trim();}
-function find(keyv){return allProducts().find(p=>key(p)===keyv)||null;}
+function allProducts(){return [...(products.fullgame|[]),...(products.wrestlers|[]),...(products.arenas|[]),...(products.titantrons|[]),...(products.movesets|[])];}
+function key(p){return String(p?.title|p?.name|'').trim();}
+function find(keyv){return allProducts().find(p=>key(p)===keyv)|null;}
 
 /* 1) Real visible wishlist panel + buttons */
 const W='imzWishlistV2';
-let wish=[];try{wish=JSON.parse(localStorage.getItem(W)||'[]')}catch(e){wish=[]}
+let wish=[];try{wish=JSON.parse(localStorage.getItem(W)|'[]')}catch(e){wish=[]}
 function saveWish(){try{localStorage.setItem(W,JSON.stringify(wish))}catch(e){} updateWish();}
 function isWish(p){return wish.includes(key(p));}
 window.imzIsWish=isWish;
@@ -3827,9 +3827,9 @@ function ensureWish(){
  let panel=$('imzWishlistPanel');if(!panel){panel=document.createElement('div');panel.id='imzWishlistPanel';panel.className='imz-wishlist-panel hidden';panel.setAttribute('role','dialog');panel.setAttribute('aria-label','My Wishlist');document.body.appendChild(panel)}
  return {b,panel};
 }
-function updateWish(){const {b,panel}=ensureWish();b.innerHTML='❤️ Wishlist <span class="cart-badge">'+wish.length+'</span>';panel.innerHTML='<div class="imz-wishlist-head"><div><div class="small">SAVED ITEMS</div><h3 style="margin:2px 0">❤️ My Wishlist</h3></div><button class="btn dark" onclick="document.getElementById(\'imzWishlistPanel\').classList.add(\'hidden\')">×</button></div>'+(wish.length?wish.map((k,i)=>`<div class="imz-wish-row"><div style="flex:1"><b>${esc(k)}</b><small>${esc(find(k)?.productType||'PRODUCT')}</small></div><button class="btn dark" onclick="imzWishOpen(${i})">View</button><button class="btn dark" onclick="imzWishRemove(${i})">Remove</button></div>`).join(''):'<div style="padding:22px;color:#777;text-align:center">Wishlist empty hai.<br>Product card par ❤️ Wishlist dabao.</div>')}
+function updateWish(){const {b,panel}=ensureWish();b.innerHTML='❤️ Wishlist <span class="cart-badge">'+wish.length+'</span>';panel.innerHTML='<div class="imz-wishlist-head"><div><div class="small">SAVED ITEMS</div><h3 style="margin:2px 0">❤️ My Wishlist</h3></div><button class="btn dark" onclick="document.getElementById(\'imzWishlistPanel\').classList.add(\'hidden\')">×</button></div>'+(wish.length?wish.map((k,i)=>`<div class="imz-wish-row"><div style="flex:1"><b>${esc(k)}</b><small>${esc(find(k)?.productType|'PRODUCT')}</small></div><button class="btn dark" onclick="imzWishOpen(${i})">View</button><button class="btn dark" onclick="imzWishRemove(${i})">Remove</button></div>`).join(''):'<div style="padding:22px;color:#777;text-align:center">Wishlist empty hai.<br>Product card par ❤️ Wishlist dabao.</div>')}
 window.imzWishRemove=function(i){wish.splice(i,1);saveWish();};
-document.addEventListener('click',function(e){const panel=$('imzWishlistPanel'),button=$('imzWishlistHeader');if(!panel||panel.classList.contains('hidden'))return;if(!panel.contains(e.target)&&!button?.contains(e.target))panel.classList.add('hidden')});
+document.addEventListener('click',function(e){const panel=$('imzWishlistPanel'),button=$('imzWishlistHeader');if(!panel|panel.classList.contains('hidden'))return;if(!panel.contains(e.target)&&!button?.contains(e.target))panel.classList.add('hidden')});
 window.imzWishOpen=function(i){const p=find(wish[i]);if(!p)return;if(p.productType==='wrestler'){const wi=wrestlers.findIndex(w=>w && w.name===p.wrestlerName);if(wi>=0){$('imzWishlistPanel')?.classList.add('hidden');showPage('products');currentCategory='wrestlers';renderProducts();setTimeout(()=>openWrestlerDetail(wi),60);return}} $('imzWishlistPanel')?.classList.add('hidden');previewProduct(p)};
 updateWish(); // Render the empty/populated wishlist once on startup.
 
@@ -3848,10 +3848,10 @@ function ensureToolbar(){
 }
 function applyFeatureFilter(){
  const grid=$('productGrid');if(!grid)return;const cards=[...grid.querySelectorAll(':scope > .card')];let shown=0;
- cards.forEach(card=>{const h=card.querySelector('h2');const title=(h?.textContent||'').toLowerCase();const p=allProducts().find(x=>key(x).toLowerCase()===title);let ok=true;
+ cards.forEach(card=>{const h=card.querySelector('h2');const title=(h?.textContent|'').toLowerCase();const p=allProducts().find(x=>key(x).toLowerCase()===title);let ok=true;
   if(featureQuery && !title.includes(featureQuery))ok=false;
-  if(featureType!=='ALL'){const pt=String(p?.productType||'').toUpperCase();const map={MOD:'MOD',WRESTLER:'WRESTLER',ARENA:'ARENA',MOVESET:'MOVESET',TITANTRON:'TITANTRON'};if(pt!==map[featureType])ok=false}
-  if(featureAttire!=='ALL' && String(p?.productType||'')!=='wrestler')ok=false;
+  if(featureType!=='ALL'){const pt=String(p?.productType|'').toUpperCase();const map={MOD:'MOD',WRESTLER:'WRESTLER',ARENA:'ARENA',MOVESET:'MOVESET',TITANTRON:'TITANTRON'};if(pt!==map[featureType])ok=false}
+  if(featureAttire!=='ALL' && String(p?.productType|'')!=='wrestler')ok=false;
   card.style.display=ok?'':'none';if(ok)shown++;
  });
  const c=$('imzFeatureCount');if(c)c.textContent=shown+' result'+(shown===1?'':'s');
@@ -3873,12 +3873,12 @@ function refreshProductEnhancements(){
 function ensureCartExtras(){
  const items=$('cartItems');if(items&&!$('imzClearCart')){const b=document.createElement('button');b.id='imzClearCart';b.className='btn dark';b.type='button';b.textContent='🗑 Clear Cart';b.style='width:100%;margin:10px 0';b.onclick=()=>{if(!cartItems.length)return;if(confirm('Clear complete cart?')){cartItems=[];saveCart();renderCart()}};items.parentElement.insertBefore(b,items)}
  let m=$('imzMobileCart');if(!m){m=document.createElement('div');m.id='imzMobileCart';m.className='imz-mobile-cart';m.innerHTML='<button class="btn red" onclick="openCart()">🛒 Cart <span class="cart-badge" id="imzMobileCartCount">0</span> • Open Cart</button>';document.body.appendChild(m)}
- m.classList.add('show');const c=$('imzMobileCartCount');if(c)c.textContent=typeof cartItems!=='undefined'?cartItems.reduce((n,x)=>n+(x.qty||1),0):0;
+ m.classList.add('show');const c=$('imzMobileCartCount');if(c)c.textContent=typeof cartItems!=='undefined'?cartItems.reduce((n,x)=>n+(x.qty|1),0):0;
 }
 const oldRenderCart=window.renderCart;if(typeof oldRenderCart==='function'&&!window.__imzCartWrapped){window.__imzCartWrapped=true;window.renderCart=function(){oldRenderCart();ensureCartExtras();refreshCheckoutSummary();ensureCartExtras()}};
 
 /* 5) Checkout order summary refresh */
-function refreshCheckoutSummary(){const d=$('imzCheckoutSummary');if(!d)return;const items=typeof checkoutItems!=='undefined'?checkoutItems:[];d.innerHTML='<h4>--- ORDER SUMMARY ---</h4>'+(items.length?items.map((x,i)=>`<div class="imz-checkout-summary-row"><b>${i+1}. ${esc((typeof isWrestlerProduct==='function'&&isWrestlerProduct(x)&&x.attireNumber&&typeof imzAttireOrderLabel==='function')?imzAttireOrderLabel(x):(x.title||x.name))}</b> ×${x.qty||1}</div>`).join(''):'<div class="imz-checkout-summary-row">No items selected</div>')+`<div class="imz-checkout-order-id"><b>ORDER ID:</b> ${esc(typeof makeOrderId==='function'?makeOrderId():'')}</div>`}
+function refreshCheckoutSummary(){const d=$('imzCheckoutSummary');if(!d)return;const items=typeof checkoutItems!=='undefined'?checkoutItems:[];d.innerHTML='<h4>--- ORDER SUMMARY ---</h4>'+(items.length?items.map((x,i)=>`<div class="imz-checkout-summary-row"><b>${i+1}. ${esc((typeof isWrestlerProduct==='function'&&isWrestlerProduct(x)&&x.attireNumber&&typeof imzAttireOrderLabel==='function')?imzAttireOrderLabel(x):(x.title|x.name))}</b> ×${x.qty|1}</div>`).join(''):'<div class="imz-checkout-summary-row">No items selected</div>')+`<div class="imz-checkout-order-id"><b>ORDER ID:</b> ${esc(typeof makeOrderId==='function'?makeOrderId():'')}</div>`}
 
 /* 6) Fullscreen preview for every detail preview + ESC */
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('imzWishlistPanel')?.classList.add('hidden');$('imzImageLightbox')?.classList.add('hidden')}});
@@ -3897,16 +3897,16 @@ window.addEventListener('load',rerun);
 'use strict';
 const $=id=>document.getElementById(id);
 const esc=v=>typeof imzEscape==='function'?imzEscape(v):String(v??'').replace(/[&<>\"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
-const all=()=>{const ps=(typeof products!=='undefined'&&products)?products:{};return [...(ps.fullgame||[]),...(ps.wrestlers||[]),...(ps.arenas||[]),...(ps.movesets||[]),...(ps.titantrons||[])];};
-const titleOf=p=>String(p?.title||p?.name||'').trim();
-const findP=t=>all().find(p=>titleOf(p)===t)||null;
-const money=p=>p?.usdPrice||parseFloat(String(p?.price||'').replace(/[^0-9.]/g,''))||0;
+const all=()=>{const ps=(typeof products!=='undefined'&&products)?products:{};return [...(ps.fullgame|[]),...(ps.wrestlers|[]),...(ps.arenas|[]),...(ps.movesets|[]),...(ps.titantrons|[])];};
+const titleOf=p=>String(p?.title|p?.name|'').trim();
+const findP=t=>all().find(p=>titleOf(p)===t)|null;
+const money=p=>p?.usdPrice|parseFloat(String(p?.price|'').replace(/[^0-9.]/g,''))|0;
 
 /* 1 Featured / Staff Picks + 11 Recently Updated + suggestions */
-function mini(p,label){if(!p)return '';const img=p.image||'';return `<div class="imz-mini-product" onclick="imzRequestedOpen(${JSON.stringify(titleOf(p))})"><img src="${esc(img)}" alt="${esc(titleOf(p))}" loading="lazy" decoding="async"><b>${esc(titleOf(p))}</b><small>${esc(label||p.productType||'PRODUCT')} ${money(p)?'• $'+money(p).toFixed(2):''}</small></div>`}
+function mini(p,label){if(!p)return '';const img=p.image|'';return `<div class="imz-mini-product" onclick="imzRequestedOpen(${JSON.stringify(titleOf(p))})"><img src="${esc(img)}" alt="${esc(titleOf(p))}" loading="lazy" decoding="async"><b>${esc(titleOf(p))}</b><small>${esc(label|p.productType|'PRODUCT')} ${money(p)?'• $'+money(p).toFixed(2):''}</small></div>`}
 window.imzRequestedOpen=function(t){const p=findP(t);if(!p)return;if(p.productType==='wrestler'&&typeof wrestlers!=='undefined'){const i=wrestlers.findIndex(w=>w && w.name===p.wrestlerName);if(i>=0){showPage('products');currentCategory='wrestlers';renderProducts();setTimeout(()=>openWrestlerDetail(i),80);return}}if(typeof openImzQuick==='function')openImzQuick(p)};
-function miniFeatured(p,label){if(!p)return '';const img=p.image||'';return `<div class='imz-mini-product' role='link' tabindex='0' onclick='imzOpenFeaturedMod(${JSON.stringify(titleOf(p))})' onkeydown='if(event.key==="Enter"||event.key===" ")imzOpenFeaturedMod(${JSON.stringify(titleOf(p))})'><img src='${esc(img)}' alt='${esc(titleOf(p))}' loading='lazy' decoding='async'><b>${esc(titleOf(p))}</b><small>${esc(label||'GAME MOD')} ${money(p)?'• $'+money(p).toFixed(2):'• FREE'}</small></div>`}
-window.imzOpenFeaturedMod=function(t){const p=findP(t);if(!p)return;if(String(p.title||'').includes('Iconic Edition V1')&&typeof openV1Showcase==='function'){openV1Showcase();return;}if(typeof openModShowcase==='function'){openModShowcase(p);return;}if(typeof previewProduct==='function')previewProduct(p)};
+function miniFeatured(p,label){if(!p)return '';const img=p.image|'';return `<div class='imz-mini-product' role='link' tabindex='0' onclick='imzOpenFeaturedMod(${JSON.stringify(titleOf(p))})' onkeydown='if(event.key==="Enter"|event.key===" ")imzOpenFeaturedMod(${JSON.stringify(titleOf(p))})'><img src='${esc(img)}' alt='${esc(titleOf(p))}' loading='lazy' decoding='async'><b>${esc(titleOf(p))}</b><small>${esc(label|'GAME MOD')} ${money(p)?'• $'+money(p).toFixed(2):'• FREE'}</small></div>`}
+window.imzOpenFeaturedMod=function(t){const p=findP(t);if(!p)return;if(String(p.title|'').includes('Iconic Edition V1')&&typeof openV1Showcase==='function'){openV1Showcase();return;}if(typeof openModShowcase==='function'){openModShowcase(p);return;}if(typeof previewProduct==='function')previewProduct(p)};
 function ensureHomeStrips(){
  const home=document.querySelector('#home .container');if(!home)return;
  let f=$('imzFeaturedStrip');if(!f){f=document.createElement('div');f.id='imzFeaturedStrip';f.className='imz-featured-strip';home.appendChild(f)}
@@ -3914,31 +3914,31 @@ function ensureHomeStrips(){
  const featuredMarkup='<div class="small">STAFF PICKS</div><h2 style="margin:4px 0">⭐ FEATURED ICONIC PICKS</h2><div class="imz-mini-grid">'+picks.map(p=>miniFeatured(p,'GAME MOD')).join('')+'</div>';if(f.dataset.imzMarkup!==featuredMarkup){f.innerHTML=featuredMarkup;f.dataset.imzMarkup=featuredMarkup;}
  let oldRecent=$('imzUpdatedStrip');if(oldRecent)oldRecent.remove();
  let s=$('imzSuggestStrip');if(!s){s=document.createElement('div');s.id='imzSuggestStrip';s.className='imz-suggest-strip';home.appendChild(s)}
- const rv=(()=>{try{return JSON.parse(localStorage.getItem('imzRecentlyViewedV1')||'[]')}catch(e){return[]}})();
+ const rv=(()=>{try{return JSON.parse(localStorage.getItem('imzRecentlyViewedV1')|'[]')}catch(e){return[]}})();
  const sug=rv.map(x=>findP(x.key)).filter(Boolean).slice(0,6);
  const suggestionMarkup='<div class="small">FOR YOU</div><h2 style="margin:4px 0">👀 YOU MAY ALSO LIKE</h2><div class="imz-mini-grid">'+(sug.length?sug.map(p=>mini(p,'BASED ON RECENTLY VIEWED')).join(''):'<div style="color:#777;padding:10px">View a few products and your personalized suggestions will appear here.</div>')+'</div>';if(s.dataset.imzMarkup!==suggestionMarkup){s.innerHTML=suggestionMarkup;s.dataset.imzMarkup=suggestionMarkup;}
 }
 
 /* 2 Search suggestions */
-function enhanceSearchSuggestions(){const input=$('imzFeatureSearch');if(!input||input.dataset.suggested)return;input.dataset.suggested='1';let dl=$('imzSearchSuggestions');if(!dl){dl=document.createElement('datalist');dl.id='imzSearchSuggestions';document.body.appendChild(dl)}input.setAttribute('list','imzSearchSuggestions');dl.innerHTML=all().slice(0,160).map(p=>`<option value="${esc(titleOf(p))}"></option>`).join('');}
+function enhanceSearchSuggestions(){const input=$('imzFeatureSearch');if(!input|input.dataset.suggested)return;input.dataset.suggested='1';let dl=$('imzSearchSuggestions');if(!dl){dl=document.createElement('datalist');dl.id='imzSearchSuggestions';document.body.appendChild(dl)}input.setAttribute('list','imzSearchSuggestions');dl.innerHTML=all().slice(0,160).map(p=>`<option value="${esc(titleOf(p))}"></option>`).join('');}
 
 /* 3/4 Attire gallery + video preview links are already present; add gallery to quick view where available. */
-function attireGallery(p){if(p?.productType!=='wrestler'||!p.wrestlerName||typeof wrestlers==='undefined')return '';const slug=p.wrestlerName.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');return '<div class="imz-attire-gallery"><div class="small">ATTIRE GALLERY</div><div class="imz-attire-gallery-grid">'+Array.from({length:10},(_,i)=>{const n=String(i+1).padStart(2,'0');const src=`images/wrestlers/${slug}/alternate-${n}.webp`;return `<img src="${src}" alt="${esc(p.wrestlerName)} Attire #${i+1}" loading="lazy" decoding="async" onclick="openImzImage(this.src,this.alt)" onerror="this.style.opacity='.35'">`}).join('')+'</div></div>'}
+function attireGallery(p){if(p?.productType!=='wrestler'|!p.wrestlerName|typeof wrestlers==='undefined')return '';const slug=p.wrestlerName.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');return '<div class="imz-attire-gallery"><div class="small">ATTIRE GALLERY</div><div class="imz-attire-gallery-grid">'+Array.from({length:10},(_,i)=>{const n=String(i+1).padStart(2,'0');const src=`images/wrestlers/${slug}/alternate-${n}.webp`;return `<img src="${src}" alt="${esc(p.wrestlerName)} Attire #${i+1}" loading="lazy" decoding="async" onclick="openImzImage(this.src,this.alt)" onerror="this.style.opacity='.35'">`}).join('')+'</div></div>'}
 
 /* 5 Product details + 12 Product FAQ + quick view */
 window.openImzQuick=function(p){if(!p)return;let m=$('imzQuickModal');if(!m){m=document.createElement('div');m.id='imzQuickModal';m.className='imz-quick-modal hidden';document.body.appendChild(m)}
  const features=Array.isArray(p.features)?p.features.slice(0,8):[];const videos=Array.isArray(p.youtubeVideos)?p.youtubeVideos.filter(v=>v&&v.url).slice(0,3):[];
- const img=p.image||'';const type=p.productType||'PRODUCT';
- m.innerHTML=`<div class="imz-quick-box"><button class="close" onclick="$('imzQuickModal').classList.add('hidden')">×</button><div class="small">QUICK PREVIEW • ${esc(type)}</div><h2 style="margin:5px 0 14px">${esc(titleOf(p))}</h2><div class="imz-quick-layout"><div><img src="${esc(img)}" alt="${esc(titleOf(p))}" loading="lazy" decoding="async" onclick="openImzImage(this.src,this.alt)"><div class="imz-share-row"><button class="btn dark" onclick="openImzImage('${esc(img)}','${esc(titleOf(p))}')">🔍 Zoom Image</button><button class="btn dark" onclick="imzShareProduct('${esc(titleOf(p))}')">🔗 Share</button></div></div><div><div class="imz-quick-meta"><div class="imz-meta-chip"><small>TYPE</small><b>${esc(type)}</b></div><div class="imz-meta-chip"><small>PRICE</small><b>${money(p)?'$'+money(p).toFixed(2):esc(p.price||'Contact')}</b></div><div class="imz-meta-chip"><small>VERSION</small><b>${/V2/i.test(titleOf(p))?'V2':/V1/i.test(titleOf(p))?'V1':'Current'}</b></div><div class="imz-meta-chip"><small>INSTALL</small><b>${type==='wrestler'?'Easy':'Standard'}</b></div></div><div class="small">PRODUCT DETAILS</div><p style="color:#aaa;line-height:1.55">${esc(p.description||'ICONIC MODZ product preview.')}</p>${features.length?'<ul class="imz-product-details-list">'+features.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':''}<div class="imz-quick-actions"><button class="btn red" onclick="imzQuickBuy('${esc(titleOf(p))}')">💳 Buy Now</button><button class="btn dark" onclick="addToCart(findP && findP('${esc(titleOf(p))}'))">🛒 Add to Cart</button></div>${videos.length?'<div style="margin-top:15px"><div class="small">VIDEO PREVIEW</div>'+videos.map(v=>`<a class="btn dark" style="display:block;margin-top:6px" href="${esc(v.url)}" target="_blank" rel="noopener">▶ ${esc(v.title||'Watch Preview')}</a>`).join('')+'</div>':''}<div class="imz-faq"><details><summary>What is included?</summary><p>${esc(features.length?features.join(' • '):'The product details shown above.')}</p></details><details><summary>How do I get the product?</summary><p>Complete the existing checkout/payment process. Original game software or ISO is not supplied.</p></details><details><summary>Do I need the original game?</summary><p>Yes. This store provides fan-made modification files/assets only; keep a legal original copy.</p></details></div></div></div>${attireGallery(p)}</div>`;m.classList.remove('hidden');m.onclick=e=>{if(e.target===m)m.classList.add('hidden')}}
+ const img=p.image|'';const type=p.productType|'PRODUCT';
+ m.innerHTML=`<div class="imz-quick-box"><button class="close" onclick="$('imzQuickModal').classList.add('hidden')">×</button><div class="small">QUICK PREVIEW • ${esc(type)}</div><h2 style="margin:5px 0 14px">${esc(titleOf(p))}</h2><div class="imz-quick-layout"><div><img src="${esc(img)}" alt="${esc(titleOf(p))}" loading="lazy" decoding="async" onclick="openImzImage(this.src,this.alt)"><div class="imz-share-row"><button class="btn dark" onclick="openImzImage('${esc(img)}','${esc(titleOf(p))}')">🔍 Zoom Image</button><button class="btn dark" onclick="imzShareProduct('${esc(titleOf(p))}')">🔗 Share</button></div></div><div><div class="imz-quick-meta"><div class="imz-meta-chip"><small>TYPE</small><b>${esc(type)}</b></div><div class="imz-meta-chip"><small>PRICE</small><b>${money(p)?'$'+money(p).toFixed(2):esc(p.price|'Contact')}</b></div><div class="imz-meta-chip"><small>VERSION</small><b>${/V2/i.test(titleOf(p))?'V2':/V1/i.test(titleOf(p))?'V1':'Current'}</b></div><div class="imz-meta-chip"><small>INSTALL</small><b>${type==='wrestler'?'Easy':'Standard'}</b></div></div><div class="small">PRODUCT DETAILS</div><p style="color:#aaa;line-height:1.55">${esc(p.description|'ICONIC MODZ product preview.')}</p>${features.length?'<ul class="imz-product-details-list">'+features.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':''}<div class="imz-quick-actions"><button class="btn red" onclick="imzQuickBuy('${esc(titleOf(p))}')">💳 Buy Now</button><button class="btn dark" onclick="addToCart(findP && findP('${esc(titleOf(p))}'))">🛒 Add to Cart</button></div>${videos.length?'<div style="margin-top:15px"><div class="small">VIDEO PREVIEW</div>'+videos.map(v=>`<a class="btn dark" style="display:block;margin-top:6px" href="${esc(v.url)}" target="_blank" rel="noopener">▶ ${esc(v.title|'Watch Preview')}</a>`).join('')+'</div>':''}<div class="imz-faq"><details><summary>What is included?</summary><p>${esc(features.length?features.join(' • '):'The product details shown above.')}</p></details><details><summary>How do I get the product?</summary><p>Complete the existing checkout/payment process. Original game software or ISO is not supplied.</p></details><details><summary>Do I need the original game?</summary><p>Yes. This store provides fan-made modification files/assets only; keep a legal original copy.</p></details></div></div></div>${attireGallery(p)}</div>`;m.classList.remove('hidden');m.onclick=e=>{if(e.target===m)m.classList.add('hidden')}}
 window.imzQuickBuy=function(t){const p=findP(t);if(p&&typeof openPayment==='function'){ $('imzQuickModal')?.classList.add('hidden');openPayment(p)}};
 
 /* 6 badges: preserve existing badges and add useful context without replacing them. */
 
 /* 7 Wishlist -> Add All to Cart */
-function enhanceWishlistActions(){const panel=$('imzWishlistPanel');if(!panel||panel.dataset.addall)return;panel.dataset.addall='1';const head=panel.querySelector('.imz-wishlist-head');if(head){const b=document.createElement('button');b.className='btn red';b.textContent='🛒 Add All';b.onclick=()=>{wish.forEach(k=>{const p=findP(k);if(p&&typeof addToCart==='function')addToCart(p)});alert('Wishlist items cart me add kar diye gaye.');};head.appendChild(b)}}
+function enhanceWishlistActions(){const panel=$('imzWishlistPanel');if(!panel|panel.dataset.addall)return;panel.dataset.addall='1';const head=panel.querySelector('.imz-wishlist-head');if(head){const b=document.createElement('button');b.className='btn red';b.textContent='🛒 Add All';b.onclick=()=>{wish.forEach(k=>{const p=findP(k);if(p&&typeof addToCart==='function')addToCart(p)});alert('Wishlist items cart me add kar diye gaye.');};head.appendChild(b)}}
 
 /* 8 Better checkout: existing order summary stays; add copy-order button when summary exists. */
-function enhanceCheckout(){const box=$('imzCheckoutSummary');if(!box||box.dataset.copy)return;box.dataset.copy='1';const b=document.createElement('button');b.className='btn dark';b.style='margin-top:9px;width:100%';b.textContent='📋 Copy Order Details';b.onclick=()=>{const txt=box.innerText||'';navigator.clipboard?.writeText(txt).then(()=>alert('Order details copied.')).catch(()=>alert(txt))};box.appendChild(b)}
+function enhanceCheckout(){const box=$('imzCheckoutSummary');if(!box|box.dataset.copy)return;box.dataset.copy='1';const b=document.createElement('button');b.className='btn dark';b.style='margin-top:9px;width:100%';b.textContent='📋 Copy Order Details';b.onclick=()=>{const txt=box.innerText|'';navigator.clipboard?.writeText(txt).then(()=>alert('Order details copied.')).catch(()=>alert(txt))};box.appendChild(b)}
 
 /* 9 Share Product */
 window.imzShareProduct=async function(t){const p=findP(t);if(!p)return;const text=`ICONIC MODZ — ${titleOf(p)}
@@ -3951,13 +3951,13 @@ ${location.href}`;try{if(navigator.share)await navigator.share({title:titleOf(p)
 /* 12 Product-specific FAQ is inside Quick Preview. */
 
 /* Quick View buttons on cards */
-function enhanceQuickButtons(){const grid=$('productGrid');if(!grid)return;grid.querySelectorAll('.card').forEach(card=>{const h=card.querySelector('h2');const p=h&&findP(h.textContent.trim());if(!p)return;const body=card.querySelector('.card-body');if(!body||body.querySelector('.imz-quick-btn'))return;const b=document.createElement('button');b.className='btn dark imz-quick-btn';b.style='width:100%;margin-top:7px';b.textContent='👀 Quick Preview';b.onclick=e=>{e.stopPropagation();openImzQuick(p)};body.appendChild(b)})}
+function enhanceQuickButtons(){const grid=$('productGrid');if(!grid)return;grid.querySelectorAll('.card').forEach(card=>{const h=card.querySelector('h2');const p=h&&findP(h.textContent.trim());if(!p)return;const body=card.querySelector('.card-body');if(!body|body.querySelector('.imz-quick-btn'))return;const b=document.createElement('button');b.className='btn dark imz-quick-btn';b.style='width:100%;margin-top:7px';b.textContent='👀 Quick Preview';b.onclick=e=>{e.stopPropagation();openImzQuick(p)};body.appendChild(b)})}
 
 /* Currency converter — site-local, no external dependency. */
 const fxRates={USD:1,INR:83.6,EUR:.92,GBP:.79,AUD:1.52,CAD:1.36};
 function ensureCurrency(){if($('imzCurrencyBtn'))return;const b=document.createElement('button');b.id='imzCurrencyBtn';b.className='btn dark imz-currency-btn';b.textContent='💱 Currency';b.onclick=()=>openCurrency();document.body.appendChild(b);}
 window.openCurrency=function(){let m=$('imzCurrencyModal');if(!m){m=document.createElement('div');m.id='imzCurrencyModal';m.className='imz-currency-modal hidden';m.innerHTML='<div class="imz-currency-box"><button class="close" onclick="$(\'imzCurrencyModal\').classList.add(\'hidden\')">×</button><div class="small">PRICE CONVERTER</div><h2 style="margin:4px 0">💱 Currency Converter</h2><div class="imz-currency-row"><input id="imzFxAmount" type="number" min="0" value="1"><select id="imzFxFrom"><option>USD</option><option>INR</option><option>EUR</option><option>GBP</option><option>AUD</option><option>CAD</option></select></div><div class="imz-currency-row"><select id="imzFxTo"><option>INR</option><option>USD</option><option>EUR</option><option>GBP</option><option>AUD</option><option>CAD</option></select><button class="btn red" onclick="convertFx()">Convert</button></div><div id="imzFxResult" class="imz-currency-result">Enter an amount</div><p style="color:#777;font-size:11px;margin-top:10px">Indicative converter for browsing prices. Final checkout prices remain the store prices.</p></div>';document.body.appendChild(m);m.onclick=e=>{if(e.target===m)m.classList.add('hidden')}}m.classList.remove('hidden');convertFx()}
-window.convertFx=function(){const a=parseFloat($('imzFxAmount')?.value)||0;const f=$('imzFxFrom')?.value||'USD',t=$('imzFxTo')?.value||'INR';const out=a*(fxRates[t]/fxRates[f]);$('imzFxResult').textContent=`${a.toFixed(2)} ${f} ≈ ${out.toFixed(2)} ${t}`};
+window.convertFx=function(){const a=parseFloat($('imzFxAmount')?.value)|0;const f=$('imzFxFrom')?.value|'USD',t=$('imzFxTo')?.value|'INR';const out=a*(fxRates[t]/fxRates[f]);$('imzFxResult').textContent=`${a.toFixed(2)} ${f} ≈ ${out.toFixed(2)} ${t}`};
 
 /* Flash Sale: 4 rotating offers, shown as a popup. */
 const flash=[
@@ -3968,7 +3968,7 @@ const flash=[
 ];
 let flashIndex=0;
 function showFlash(i){flashIndex=(i+flash.length)%flash.length;let o=$('imzFlashOverlay');if(!o){o=document.createElement('div');o.id='imzFlashOverlay';o.className='imz-flash-overlay hidden';document.body.appendChild(o)}const x=flash[flashIndex];o.innerHTML=`<div class="imz-flash-box"><button class="imz-flash-close" onclick="closeFlashSale()">×</button><div class="imz-flash-kicker">🔥 FLASH SALE • ${flashIndex+1}/${flash.length}</div><h2>${esc(x.title)}</h2><p><b style="color:#fff">${esc(x.text)}</b><br>${esc(x.detail)}</p><div class="imz-flash-grid"><div class="imz-flash-card"><b>COUPON</b><span>Use this code at checkout</span><strong style="display:block;margin-top:7px;color:#ff5b69;letter-spacing:2px">${esc(x.code)}</strong></div><div class="imz-flash-card"><b>LIMITED OFFER</b><span>Check the store cart for the applicable offer.</span><button class="btn red" style="margin-top:9px" onclick="(${x.action.toString()})();closeFlashSale()">Shop Offer</button></div></div><div class="imz-flash-code"><span>Promo code</span><strong>${esc(x.code)}</strong><button class="btn dark" onclick="navigator.clipboard?.writeText('${esc(x.code)}');this.textContent='Copied!'">Copy</button></div><div class="imz-flash-dots">${flash.map((_,j)=>`<button class="btn dark" style="padding:4px 8px;margin:2px" onclick="showFlashSale(${j})">${j+1}</button>`).join('')}</div></div>`;o.classList.remove('hidden')}
-window.showFlashSale=i=>showFlash(i||0);window.closeFlashSale=()=>{$('imzFlashOverlay')?.classList.add('hidden')};
+window.showFlashSale=i=>showFlash(i|0);window.closeFlashSale=()=>{$('imzFlashOverlay')?.classList.add('hidden')};
 function scheduleFlash(){setTimeout(()=>showFlash(0),2600);setInterval(()=>{if($('imzFlashOverlay')?.classList.contains('hidden'))showFlash(flashIndex+1)},90000)}
 
 /* Keep everything additive and rerun only when the existing product UI changes. */
@@ -4002,10 +4002,10 @@ setTimeout(runRequested,500);
   }
   function cards(items,kind){
     if(!items.length)return '<div class="imz-review-empty">No '+kind+' selected yet. Close this review and select your '+kind+' first.</div>';
-    return items.map((item,i)=>{const name=escReview(item.name||kind);const src=item.image||'';return `<div class="imz-review-card" style="--i:${Math.min(i,35)}"><div class="imz-review-img">${src?`<img src="${escReview(src)}" alt="${name}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${kind==='wrestler'?'W':'A'}'" decoding="async">`:(kind==='wrestler'?'W':'A')}</div><div class="imz-review-name">${name}${kind==='wrestler'?`<small class="imz-review-attire">ATTIRE #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[item.name])||1).padStart(2,'0')}</small>`:''}</div></div>`}).join('');
+    return items.map((item,i)=>{const name=escReview(item.name|kind);const src=item.image|'';return `<div class="imz-review-card" style="--i:${Math.min(i,35)}"><div class="imz-review-img">${src?`<img src="${escReview(src)}" alt="${name}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${kind==='wrestler'?'W':'A'}'" decoding="async">`:(kind==='wrestler'?'W':'A')}</div><div class="imz-review-name">${name}${kind==='wrestler'?`<small class="imz-review-attire">ATTIRE #${String((window.imzCustomAttireChoices&&window.imzCustomAttireChoices[item.name])|1).padStart(2,'0')}</small>`:''}</div></div>`}).join('');
   }
   function open(kind){
-    if(typeof selectedWrestlers==='undefined'||typeof selectedArenas==='undefined')return;
+    if(typeof selectedWrestlers==='undefined'|typeof selectedArenas==='undefined')return;
     const modal=ensureReviewModal();const title=document.getElementById('imzReviewTitle'),sub=document.getElementById('imzReviewSubtitle'),counts=document.getElementById('imzReviewCounts'),status=document.getElementById('imzReviewStatus'),grid=document.getElementById('imzReviewGrid'),actions=document.getElementById('imzReviewActions');
     const roster=selectedWrestlers.length,arena=selectedArenas.length,completeRoster=roster===79,completeArena=arena===18,complete=completeRoster&&completeArena;
     counts.innerHTML=`<span class="imz-review-pill">Wrestlers: <strong>${roster}/79</strong></span><span class="imz-review-pill">Arenas: <strong>${arena}/18</strong></span><span class="imz-review-pill">Package: <strong>$85</strong></span>`;
@@ -4042,7 +4042,7 @@ setTimeout(runRequested,500);
     previousRenderProducts();
     const grid=document.getElementById('productGrid');if(!grid)return;
     grid.querySelector('#imzUpcomingMods')?.remove();
-    if(currentGame!=='hctp'||currentCategory!=='fullgame')return;
+    if(currentGame!=='hctp'|currentCategory!=='fullgame')return;
     const cards=Array.from({length:5},(_,i)=>{const n=String(i+1).padStart(2,'0');return `<div class="imz-upcoming-card"><div class="imz-upcoming-image"><img src="images/mods/upcoming-${n}.webp" data-imz-fallback="images/mods/upcoming-${n}.jpg" alt="Upcoming Mod ${i+1}" onerror="this.remove();this.parentElement.textContent='UPCOMING ${n}'" loading="lazy" decoding="async"></div><b>UPCOMING MOD ${i+1}</b><small>COMING SOON • DETAILS LATER</small></div>`}).join('');
     grid.insertAdjacentHTML('beforeend',`<section id="imzUpcomingMods" class="imz-upcoming-wrap"><div class="small">NEXT IN LINE</div><h2>🚀 UPCOMING MODZ</h2><p style="margin:0;color:#aaa;line-height:1.6">More ICONIC MODZ projects are in development. Names, previews and details will be added here soon.</p><div class="imz-upcoming-grid">${cards}</div></section>`);
   };
@@ -4076,13 +4076,13 @@ img{object-fit:contain!important;object-position:center center!important;max-wid
 <script id="imzFinalPolish2026Script">
 (function(){
 'use strict';
-window.imzCustomAttireChoices=window.imzCustomAttireChoices||{};
+window.imzCustomAttireChoices=window.imzCustomAttireChoices|{};
 const $=id=>document.getElementById(id);
 const esc=s=>typeof imzEscape==='function'?imzEscape(String(s??'')):String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function slug(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function slug(s){return String(s|'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 function ensureAttirePicker(){let m=$('imzCustomAttirePicker');if(m)return m;m=document.createElement('div');m.id='imzCustomAttirePicker';m.className='imz-attire-picker-overlay hidden';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.innerHTML='<div class="imz-attire-picker-box"><div class="imz-attire-picker-head"><div><div class="small">CUSTOM MOD • ATTIRE SELECTION</div><h2 id="imzCustomAttireTitle">Choose Attire</h2><p style="margin:0;color:#aaa">The main render only represents the wrestler. Choose one of the 10 actual attire files below.</p></div><button type="button" class="imz-review-close" aria-label="Close attire picker" onclick="imzCloseCustomAttirePicker()">×</button></div><div class="imz-attire-picker-grid" id="imzCustomAttireGrid"></div><div class="imz-attire-picker-footer"><span id="imzCustomAttireFooter">Choose one attire for this wrestler.</span><button type="button" class="btn dark" onclick="imzCloseCustomAttirePicker()">Cancel</button></div></div>';m.addEventListener('click',e=>{if(e.target===m)window.imzCloseCustomAttirePicker()});document.body.appendChild(m);return m}
-window.imzOpenCustomAttirePicker=function(index){const w=typeof wrestlers!=='undefined'?wrestlers[index]:null;if(!w)return;if(typeof selectedWrestlers==='undefined'||!selectedWrestlers.some(x=>x.name===w.name)){alert('Select this wrestler in your Custom Mod roster first.');return}const modal=ensureAttirePicker(),grid=$('imzCustomAttireGrid'),chosen=Number(window.imzCustomAttireChoices[w.name]||1),folder='images/wrestlers/'+slug(w.name);$('imzCustomAttireTitle').textContent=w.name+' — Choose Attire';grid.innerHTML=Array.from({length:10},(_,i)=>{const n=i+1,src=folder+'/alternate-'+String(n).padStart(2,'0')+'.webp';return `<button type="button" class="imz-attire-picker-card ${n===chosen?'active':''}" onclick="imzChooseCustomAttire(${index},${n})"><img src="${esc(src)}" alt="${esc(w.name)} Attire ${String(n).padStart(2,'0')}" loading="lazy" decoding="async"><b>${n===chosen?'✓ SELECTED • ':''}ATTIRE #${String(n).padStart(2,'0')}</b></button>`}).join('');$('imzCustomAttireFooter').textContent='Current choice: Attire #'+String(chosen).padStart(2,'0')+' • Included in the $85 Custom Mod';modal.classList.remove('hidden');document.body.style.overflow='hidden'};
-window.imzChooseCustomAttire=function(index,n){const w=typeof wrestlers!=='undefined'?wrestlers[index]:null;if(!w||n<1||n>10)return;window.imzCustomAttireChoices[w.name]=n;window.imzCloseCustomAttirePicker();const search=$('customListSearch')?.value||'';if(typeof window.renderWrestlers==='function')window.renderWrestlers();if(search&&typeof window.filterCustomList==='function')window.filterCustomList(search);if(typeof window.updateBuilderRequirements==='function')window.updateBuilderRequirements();if(typeof window.imzOpenSelectionReview==='function'){/* latest choices will appear next time preview opens */}};
+window.imzOpenCustomAttirePicker=function(index){const w=typeof wrestlers!=='undefined'?wrestlers[index]:null;if(!w)return;if(typeof selectedWrestlers==='undefined'|!selectedWrestlers.some(x=>x.name===w.name)){alert('Select this wrestler in your Custom Mod roster first.');return}const modal=ensureAttirePicker(),grid=$('imzCustomAttireGrid'),chosen=Number(window.imzCustomAttireChoices[w.name]|1),folder='images/wrestlers/'+slug(w.name);$('imzCustomAttireTitle').textContent=w.name+' — Choose Attire';grid.innerHTML=Array.from({length:10},(_,i)=>{const n=i+1,src=folder+'/alternate-'+String(n).padStart(2,'0')+'.webp';return `<button type="button" class="imz-attire-picker-card ${n===chosen?'active':''}" onclick="imzChooseCustomAttire(${index},${n})"><img src="${esc(src)}" alt="${esc(w.name)} Attire ${String(n).padStart(2,'0')}" loading="lazy" decoding="async"><b>${n===chosen?'✓ SELECTED • ':''}ATTIRE #${String(n).padStart(2,'0')}</b></button>`}).join('');$('imzCustomAttireFooter').textContent='Current choice: Attire #'+String(chosen).padStart(2,'0')+' • Included in the $85 Custom Mod';modal.classList.remove('hidden');document.body.style.overflow='hidden'};
+window.imzChooseCustomAttire=function(index,n){const w=typeof wrestlers!=='undefined'?wrestlers[index]:null;if(!w|n<1|n>10)return;window.imzCustomAttireChoices[w.name]=n;window.imzCloseCustomAttirePicker();const search=$('customListSearch')?.value|'';if(typeof window.renderWrestlers==='function')window.renderWrestlers();if(search&&typeof window.filterCustomList==='function')window.filterCustomList(search);if(typeof window.updateBuilderRequirements==='function')window.updateBuilderRequirements();if(typeof window.imzOpenSelectionReview==='function'){/* latest choices will appear next time preview opens */}};
 window.imzCloseCustomAttirePicker=function(){const m=$('imzCustomAttirePicker');if(m)m.classList.add('hidden');document.body.style.overflow=''};
 function ensureBackToTop(){
  let b=$('imzBackToTop');
@@ -4091,7 +4091,7 @@ function ensureBackToTop(){
  const jumpNow=(e)=>{
    if(e){e.preventDefault();e.stopPropagation();}
    jumping=true;
-   const root=document.documentElement, body=document.body, scroller=document.scrollingElement||root;
+   const root=document.documentElement, body=document.body, scroller=document.scrollingElement|root;
    root.style.setProperty('scroll-behavior','auto','important');
    body.style.setProperty('scroll-behavior','auto','important');
    root.style.setProperty('scroll-snap-type','none','important');
@@ -4115,9 +4115,9 @@ function ensureBackToTop(){
  const update=()=>{if(!jumping)b.classList.toggle('visible',window.scrollY>500);};
  window.addEventListener('scroll',update,{passive:true});update();
 }
-function setImageBehavior(img){if(!img||img.tagName!=='IMG')return;img.decoding='async';if(!img.loading)img.loading='lazy';try{const r=img.getBoundingClientRect();if(r.top<window.innerHeight*1.15&&r.bottom>0)img.loading='eager'}catch(e){}const raw=img.getAttribute('src');if(!raw||img.dataset.imzWebpTried||!/^images\//i.test(raw)||! /\.(jpe?g|png)$/i.test(raw))return;const webp=raw.replace(/\.(jpe?g|png)$/i,'.webp');if(webp===raw)return;img.dataset.imzOriginalSrc=raw;img.dataset.imzWebpTried='1';img.src=webp}
-document.addEventListener('error',function(e){const img=e.target;if(!img||img.tagName!=='IMG')return;if(img.dataset.imzWebpTried==='1'&&img.dataset.imzOriginalSrc){img.dataset.imzWebpTried='2';img.src=img.dataset.imzOriginalSrc;e.stopImmediatePropagation();return}if(img.dataset.imzFallback){const fallback=img.dataset.imzFallback;delete img.dataset.imzFallback;img.src=fallback;e.stopImmediatePropagation()}},true);
-function scanImages(root){(root||document).querySelectorAll?.('img').forEach(setImageBehavior)}
+function setImageBehavior(img){if(!img|img.tagName!=='IMG')return;img.decoding='async';if(!img.loading)img.loading='lazy';try{const r=img.getBoundingClientRect();if(r.top<window.innerHeight*1.15&&r.bottom>0)img.loading='eager'}catch(e){}const raw=img.getAttribute('src');if(!raw|img.dataset.imzWebpTried|!/^images\//i.test(raw)|! /\.(jpe?g|png)$/i.test(raw))return;const webp=raw.replace(/\.(jpe?g|png)$/i,'.webp');if(webp===raw)return;img.dataset.imzOriginalSrc=raw;img.dataset.imzWebpTried='1';img.src=webp}
+document.addEventListener('error',function(e){const img=e.target;if(!img|img.tagName!=='IMG')return;if(img.dataset.imzWebpTried==='1'&&img.dataset.imzOriginalSrc){img.dataset.imzWebpTried='2';img.src=img.dataset.imzOriginalSrc;e.stopImmediatePropagation();return}if(img.dataset.imzFallback){const fallback=img.dataset.imzFallback;delete img.dataset.imzFallback;img.src=fallback;e.stopImmediatePropagation()}},true);
+function scanImages(root){(root|document).querySelectorAll?.('img').forEach(setImageBehavior)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{scanImages(document);ensureBackToTop()},{once:true});else{scanImages(document);ensureBackToTop()}
 const mo=new MutationObserver(records=>{for(const r of records)for(const node of r.addedNodes)if(node.nodeType===1){if(node.tagName==='IMG')setImageBehavior(node);scanImages(node)}});mo.observe(document.documentElement,{childList:true,subtree:true});
 })();
@@ -4132,14 +4132,14 @@ const mo=new MutationObserver(records=>{for(const r of records)for(const node of
   var extensions=["jpg","jpeg","png","webp"];
   document.addEventListener("error",function(event){
     var img=event.target;
-    if(!img || img.tagName!=="IMG") return;
-    var raw=img.currentSrc || img.src;
+    if(!img | img.tagName!=="IMG") return;
+    var raw=img.currentSrc | img.src;
     if(!raw) return;
     var url; try{url=new URL(raw,document.baseURI);}catch(e){return;}
     var match=url.pathname.match(/\.([a-z0-9]+)$/i);
     if(!match) return;
     var current=match[1].toLowerCase();
-    var tried=(img.getAttribute("data-imz-ext-tried")||current).split(",");
+    var tried=(img.getAttribute("data-imz-ext-tried")|current).split(",");
     if(tried.indexOf(current)===-1) tried.push(current);
     var next=extensions.find(function(ext){return tried.indexOf(ext)===-1;});
     if(!next) return;
@@ -4156,9 +4156,9 @@ const mo=new MutationObserver(records=>{for(const r of records)for(const node of
 (function(){
   const candidates = ['images/wrestlers/wrestler114.jpg','images/wrestlers/wrestler029.jpg'];
   function fixFinn(img){
-    if(!img || img.dataset.finnRenderFallback) return;
-    const alt=(img.getAttribute('alt')||'').toLowerCase();
-    const src=(img.getAttribute('src')||'').toLowerCase();
+    if(!img | img.dataset.finnRenderFallback) return;
+    const alt=(img.getAttribute('alt')|'').toLowerCase();
+    const src=(img.getAttribute('src')|'').toLowerCase();
     if(!alt.includes('finn balor') && !src.includes('wrestler114')) return;
     img.dataset.finnRenderFallback='1';
     img.addEventListener('error',function(){
@@ -4181,7 +4181,7 @@ const mo=new MutationObserver(records=>{for(const r of records)for(const node of
     setTimeout(function(){queued=false;
       const page=document.getElementById('custom');
       const grid=document.getElementById('wrestlerGrid');
-      if(!page||page.classList.contains('hidden')||!grid)return;
+      if(!page|page.classList.contains('hidden')|!grid)return;
       if(typeof currentCustomSection!=='undefined'&&currentCustomSection!=='wrestlers')return;
       if(typeof imzApplyRosterFilters==='function'){
         try{imzApplyRosterFilters(false);}catch(e){if(typeof renderWrestlers==='function')renderWrestlers();}
